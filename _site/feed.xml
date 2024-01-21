@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Chirpy</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2024-01-21T18:24:32+08:00</updated>
+  <updated>2024-01-21T21:40:55+08:00</updated>
   <author>
     <name>your_full_name</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,41 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>github.io 블로그 첫 포스팅입니다</title>
+    <link href="http://localhost:4000/posts/github/" rel="alternate" type="text/html" title="github.io 블로그 첫 포스팅입니다" />
+    <published>2023-01-21T00:00:00+08:00</published>
+  
+    <updated>2023-01-21T00:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/posts/github/</id>
+    <content src="http://localhost:4000/posts/github/" />
+    <author>
+      <name>your_full_name</name>
+    </author>
+
+  
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      여기엔 Markdown문법으로 적으면 된다.
+나는 블로그를 만들었을때 시간이 많이 들었지만, 다른사람들은 이글을 보고
+조금 더 빨리 만들었으면 좋겠다.
+
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
