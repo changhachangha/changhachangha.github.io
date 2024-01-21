@@ -1,5 +1,8 @@
 # The Site Configuration
 
+include:
+  - _javascript
+
 # Import the theme
 theme: jekyll-theme-chirpy
 
@@ -16,17 +19,17 @@ timezone: Asia/Seoul
 
 title: 창하의 블로그 # the main titles
 
-tagline: 처음 블로그 생성중입니다. # it will display as the sub-title
+tagline: 처음 해보는 블로그 # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  여기는 뭐하는곳인가
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://changhachangha.github.io"
 
 github:
-  username: github_username # change to your github username
+  username: changhachangha # change to your github username
 
 twitter:
   username: twitter_username # change to your twitter username

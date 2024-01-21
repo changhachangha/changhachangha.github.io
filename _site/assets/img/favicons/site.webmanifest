@@ -1,9 +1,9 @@
 
 
 {
-  "name": "Chirpy",
-  "short_name": "Chirpy",
-  "description": "A minimal, responsive and feature-rich Jekyll theme for technical writing.",
+  "name": "창하의 블로그",
+  "short_name": "창하의 블로그",
+  "description": "여기는 뭐하는곳인가",
   "icons": [
     {
       "src": "/assets/img/favicons/android-chrome-192x192.png",
