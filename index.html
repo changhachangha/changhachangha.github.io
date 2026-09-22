@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>가격의 문법 · 차트 지식 창고</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f3eee4;
+      --paper-2: #faf6ee;
+      --ink: #1b1814;
+      --ink-soft: #4a453c;
+      --rule: #ddd3c3;
+      --pine: #2c5a4c;
+      --pine-deep: #1d3d34;
+      --bull: #2c5a4c;
+      --bear: #8f3d3a;
+      --gold: #b08948;
+      --sidebar: #161412;
+      --sidebar-text: #d9d0c2;
+      --chip: #ece4d6;
+      --shadow: 0 18px 40px rgba(27, 24, 20, 0.08);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      font-family: "IBM Plex Sans KR", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(27,24,20,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(27,24,20,0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+      z-index: 0;
+    }
+    #app {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
+    aside {
+      background: var(--sidebar);
+      color: var(--sidebar-text);
+      padding: 28px 18px 40px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      border-right: 1px solid #2a2622;
+    }
+    .brand {
+      padding: 8px 10px 22px;
+      border-bottom: 1px solid #2f2a25;
+      margin-bottom: 18px;
+    }
+    .brand .kicker {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #8d8374;
+    }
+    .brand h1 {
+      font-family: "Noto Serif KR", serif;
+      font-size: 28px;
+      margin: 8px 0 6px;
+      color: #f4efe4;
+      font-weight: 700;
+    }
+    .brand p { margin: 0; font-size: 13px; color: #a79c8c; line-height: 1.55; }
+    nav a {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      color: inherit;
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    nav a .num {
+      font-variant-numeric: tabular-nums;
+      color: #8a7f70;
+      width: 22px;
+      flex: none;
+      font-size: 12px;
+    }
+    nav a:hover, nav a.active {
+      background: #241f1b;
+      color: #f3eee4;
+    }
+    nav a.active .num { color: #d7b56a; }
+    .nav-group { margin: 16px 10px 6px; font-size: 11px; letter-spacing: 0.16em; color: #7d7467; }
+    .progress-wrap { margin: 18px 10px 0; }
+    .progress-wrap span { font-size: 12px; color: #8d8374; }
+    .bar { height: 4px; background: #2b2622; border-radius: 99px; margin-top: 8px; overflow: hidden; }
+    .bar i { display: block; height: 100%; width: 0; background: #d7b56a; }
+    main { padding: 42px 56px 80px; max-width: 980px; }
+    .page { display: none; animation: rise 0.35s ease; }
+    .page.show { display: block; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .crumb { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    h2.page-title {
+      font-family: "Noto Serif KR", serif;
+      font-size: 42px;
+      line-height: 1.25;
+      margin: 0 0 14px;
+    }
+    .lede { font-size: 18px; line-height: 1.7; color: var(--ink-soft); margin: 0 0 28px; }
+    h3 {
+      font-family: "Noto Serif KR", serif;
+      font-size: 24px;
+      margin: 36px 0 12px;
+    }
+    h4 { font-size: 16px; margin: 22px 0 8px; }
+    p, li { line-height: 1.75; }
+    p { margin: 0 0 14px; }
+    ul, ol { margin: 0 0 16px; padding-left: 1.2em; }
+    .grid { display: grid; gap: 14px; }
+    .grid.two { grid-template-columns: 1fr 1fr; }
+    .grid.three { grid-template-columns: repeat(3, 1fr); }
+    .card {
+      background: var(--paper-2);
+      border: 1px solid var(--rule);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow);
+    }
+    .card h3, .card h4 { margin-top: 0; }
+    .card.home-card { cursor: pointer; min-height: 150px; transition: transform 0.15s ease; }
+    .card.home-card:hover { transform: translateY(-2px); }
+    .card .meta { font-size: 12px; color: #8a7f70; letter-spacing: 0.08em; margin-bottom: 8px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 8px 0 20px;
+      background: var(--paper-2);
+    }
+    th, td {
+      border: 1px solid var(--rule);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #ebe3d4; font-weight: 600; }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 99px;
+      background: var(--chip);
+      color: var(--pine-deep);
+      margin-right: 6px;
+    }
+    .tag.bear { color: var(--bear); }
+    .note {
+      border-left: 3px solid var(--pine);
+      padding: 10px 14px;
+      background: #e7eee8;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .warn {
+      border-left: 3px solid var(--bear);
+      padding: 10px 14px;
+      background: #f4e7e4;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .atlas {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .atlas .card { padding: 14px; }
+    .atlas svg { width: 100%; height: 120px; display: block; background: #f7f1e6; border-radius: 8px; }
+    .atlas figcaption { margin-top: 10px; font-size: 14px; font-weight: 600; }
+    .atlas p { font-size: 13px; color: var(--ink-soft); margin: 4px 0 0; }
+    .search {
+      margin: 0 10px 14px;
+    }
+    .search input {
+      width: 100%;
+      background: #241f1b;
+      border: 1px solid #3a342d;
+      color: #f3eee4;
+      border-radius: 8px;
+      padding: 9px 10px;
+      font: inherit;
+      font-size: 13px;
+    }
+    .search input::placeholder { color: #8d8374; }
+    #searchHits {
+      margin: 0 10px 12px;
+      font-size: 12px;
+    }
+    #searchHits a {
+      display: block;
+      color: #d9d0c2;
+      text-decoration: none;
+      padding: 5px 8px;
+      border-radius: 6px;
+    }
+    #searchHits a:hover { background: #241f1b; }
+    .lex-toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .lex-toolbar button, .lex-toolbar input {
+      font: inherit;
+      border: 1px solid var(--rule);
+      background: var(--paper-2);
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+    .lex-item { margin-bottom: 10px; }
+    .lex-item .aka { font-size: 12px; color: #8a7f70; }
+    .lex-item a { color: var(--pine-deep); }
+    .memo {
+      margin-top: 36px;
+      background: #efe8da;
+    }
+    textarea {
+      width: 100%;
+      min-height: 90px;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      background: #fffdf8;
+      font: inherit;
+      padding: 10px;
+      resize: vertical;
+    }
+    .note-list .card { margin-bottom: 10px; }
+    .note-list h4 { margin-bottom: 4px; }
+    .note-list .meta { margin-bottom: 6px; }
+    .ghost {
+      background: transparent;
+      border: 0;
+      color: var(--bear);
+      font: inherit;
+      cursor: pointer;
+      float: right;
+    }
+    .pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 40px; }
+    .pager a {
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--paper-2);
+      flex: 1;
+      font-size: 14px;
+    }
+    .pager a:last-child { text-align: right; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 22px;
+      margin-bottom: 28px;
+      align-items: stretch;
+    }
+    .hero-visual {
+      background: #1b1814;
+      color: #f3eee4;
+      border-radius: 18px;
+      padding: 22px;
+      min-height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-visual svg { width: 100%; height: 210px; }
+    .check { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; margin: 8px 0; }
+    .check input { margin-top: 4px; }
+    .menu-btn {
+      display: none;
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      z-index: 5;
+      background: #161412;
+      color: #f3eee4;
+      border: 0;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+    @media (max-width: 980px) {
+      #app { grid-template-columns: 1fr; }
+      aside {
+        position: fixed;
+        left: -300px;
+        top: 0;
+        z-index: 4;
+        transition: left 0.2s ease;
+      }
+      aside.open { left: 0; }
+      main { padding: 64px 20px 60px; }
+      .hero, .grid.two, .grid.three { grid-template-columns: 1fr; }
+      h2.page-title { font-size: 32px; }
+      .menu-btn { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <button class="menu-btn" id="menuBtn">목차</button>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="brand">
+        <div class="kicker">Knowledge Archive</div>
+        <h1>가격의 문법</h1>
+        <p>차트 기술적 분석 지식 창고. 용어를 찾아 두고, 같은 사건의 다른 이름을 쌓는다.</p>
+      </div>
+      <div class="search">
+        <input id="q" type="search" placeholder="용어 검색 (스프링, FVG, ADX...)" autocomplete="off" />
+      </div>
+      <div id="searchHits"></div>
+      <div class="nav-group">시작</div>
+      <nav>
+        <a href="#home" data-page="home"><span class="num">00</span>표지</a>
+        <a href="#map" data-page="map"><span class="num">01</span>지식 지도</a>
+        <a href="#assumptions" data-page="assumptions"><span class="num">02</span>전제와 한계</a>
+      </nav>
+      <div class="nav-group">이론</div>
+      <nav>
+        <a href="#theories" data-page="theories"><span class="num">03</span>고전 이론</a>
+        <a href="#structure" data-page="structure"><span class="num">04</span>가격 구조</a>
+        <a href="#smc" data-page="smc"><span class="num">05</span>유동성 언어</a>
+      </nav>
+      <div class="nav-group">읽는 법</div>
+      <nav>
+        <a href="#charts" data-page="charts"><span class="num">06</span>차트 유형</a>
+        <a href="#patterns" data-page="patterns"><span class="num">07</span>고전 패턴</a>
+        <a href="#candles" data-page="candles"><span class="num">08</span>캔들 대표</a>
+        <a href="#atlas" data-page="atlas"><span class="num">09</span>패턴 도감</a>
+      </nav>
+      <div class="nav-group">도구</div>
+      <nav>
+        <a href="#ratios" data-page="ratios"><span class="num">10</span>비율과 투사</a>
+        <a href="#harmonic" data-page="harmonic"><span class="num">11</span>하모닉</a>
+        <a href="#indicators" data-page="indicators"><span class="num">12</span>보조지표</a>
+        <a href="#time" data-page="time"><span class="num">13</span>시간·장세</a>
+      </nav>
+      <div class="nav-group">축적</div>
+      <nav>
+        <a href="#relations" data-page="relations"><span class="num">14</span>기법 간 관계</a>
+        <a href="#extra" data-page="extra"><span class="num">15</span>보충 영역</a>
+        <a href="#lexicon" data-page="lexicon"><span class="num">16</span>용어 색인</a>
+        <a href="#notes" data-page="notes"><span class="num">17</span>내 메모</a>
+      </nav>
+      <div class="progress-wrap">
+        <span id="progressLabel">열람 0 / 16</span>
+        <div class="bar"><i id="progressBar"></i></div>
+      </div>
+    </aside>
+
+    <main>
+      <section class="page" id="page-home">
+        <div class="crumb">Chart Knowledge Archive</div>
+        <div class="hero">
+          <div>
+            <h2 class="page-title">차트를 암기하지 말고<br />이름으로 쌓는다</h2>
+            <p class="lede">기술적 분석 전수조사를 지식 창고로 옮긴 노트다. 퀴즈나 숙제가 아니라, 같은 가격 사건이 이론·패턴·스마트머니에서 어떻게 불리는지를 찾아 두고 메모를 덧붙이는 용도다.</p>
+            <p>쓰는 법: 왼쪽에서 용어를 검색한다. 본문은 계보와 정의. 색인은 별칭 사전. 각 항목 아래와 내 메모에 관찰을 쌓는다.</p>
+          </div>
+          <div class="hero-visual">
+            <svg viewBox="0 0 360 210" aria-hidden="true">
+              <text x="16" y="24" fill="#8d8374" font-size="11" font-family="IBM Plex Sans KR">SAMPLE STRUCTURE · HH / HL</text>
+              <path d="M20 160 C50 150, 70 90, 100 100 S150 40, 180 70 S240 20, 270 50 S320 10, 340 30" fill="none" stroke="#d7b56a" stroke-width="2.2"/>
+              <path d="M20 170 C60 165, 90 140, 130 148 S190 110, 230 118 S300 80, 340 88" fill="none" stroke="#6aa58f" stroke-width="1.6"/>
+              <line x1="20" y1="188" x2="340" y2="188" stroke="#3a342d" />
+              <circle cx="100" cy="100" r="3" fill="#f3eee4"/>
+              <circle cx="180" cy="70" r="3" fill="#f3eee4"/>
+              <circle cx="270" cy="50" r="3" fill="#f3eee4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="grid three">
+          <article class="card home-card" onclick="go('map')">
+            <div class="meta">01 · 골격</div>
+            <h4>이론 / 도구 / 언어</h4>
+            <p>무엇이 세계관이고 무엇이 필터인지 먼저 나눈다.</p>
+          </article>
+          <article class="card home-card" onclick="go('theories')">
+            <div class="meta">03 · 원류</div>
+            <h4>다우에서 일목까지</h4>
+            <p>다섯 거인과 일목 3론. 이후 모든 방언의 뿌리.</p>
+          </article>
+          <article class="card home-card" onclick="go('lexicon')">
+            <div class="meta">16 · 사전</div>
+            <h4>용어 색인</h4>
+            <p>스프링=스윕, FVG=갭처럼 별칭을 한곳에 둔다.</p>
+          </article>
+        </div>
+        <div class="grid two" style="margin-top:14px">
+          <article class="card home-card" onclick="go('atlas')">
+            <div class="meta">09 · 시각</div>
+            <h4>패턴 도감</h4>
+            <p>머리어깨, 삼각, 스프링, FVG를 그림으로.</p>
+          </article>
+          <article class="card home-card" onclick="go('notes')">
+            <div class="meta">17 · 축적</div>
+            <h4>내 메모</h4>
+            <p>차트에서 본 것을 항목에 붙여 보관한다. 이 브라우저에만 저장.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="page" id="page-map">
+        <div class="crumb">Chapter 01</div>
+        <h2 class="page-title">지식 지도</h2>
+        <p class="lede">도구를 이론처럼 쌓으면 창고가 섞인다. 층을 나누면 새 유행이 들어와도 칸이 있다.</p>
+        <table>
+          <thead><tr><th>층</th><th>역할</th><th>대표</th></tr></thead>
+          <tbody>
+            <tr><td>시장 이론</td><td>왜 그렇게 움직이는가</td><td>다우, 와이코프, 엘리엇, 간, 허스트, 일목 3론, 경매시장</td></tr>
+            <tr><td>표현 도구</td><td>같은 데이터를 어떻게 보여주는가</td><td>캔들, 렌코, P&amp;F, 하이킨아시, TPO, 풋프린트</td></tr>
+            <tr><td>구조 읽기</td><td>고저·깨짐의 문법</td><td>지지저항, 채널, HH/HL, BOS/CHoCH</td></tr>
+            <tr><td>패턴 사전</td><td>반복된다고 주장되는 형상</td><td>머리어깨, 삼각, 깃발, 대표 캔들, 하모닉</td></tr>
+            <tr><td>비율·시간</td><td>되돌림과 시점</td><td>피보나치, 피벗, 피치포크, 간 각도, 일목 수치</td></tr>
+            <tr><td>보조지표</td><td>가격·거래량의 변환</td><td>MA, MACD, ADX, RSI, 볼린저, ATR, VWAP, OBV, VP</td></tr>
+            <tr><td>현대 언어</td><td>기관·유동성 내러티브</td><td>오더블록, FVG, 스윕. 상당 부분은 와이코프 재명명</td></tr>
+          </tbody>
+        </table>
+        <div class="note">일목은 이론(시간·파동·가격)과 도구(구름 5선)가 한 패키지다. RSI는 이론이 아니라 모멘텀 변환기다.</div>
+        <div class="pager"><a href="#home">← 표지</a><a href="#assumptions">전제와 한계 →</a></div>
+      </section>
+
+      <section class="page" id="page-assumptions">
+        <div class="crumb">Chapter 02</div>
+        <h2 class="page-title">전제와 한계</h2>
+        <p class="lede">기술적 분석은 과거 가격과 거래량으로 확률을 조직한다. 미래를 확정하지 않는다.</p>
+        <h3>세 가정</h3>
+        <ol>
+          <li><b>시장은 모든 것을 할인한다.</b> 뉴스와 실적은 이미 가격에 있다. 차트는 그 집합 반응이다.</li>
+          <li><b>가격은 추세로 움직인다.</b> 상승은 HH/HL, 하락은 LH/LL, 아니면 횡보.</li>
+          <li><b>역사는 반복한다.</b> 군중 심리의 형태가 비슷하니 패턴이 다시 보인다는 주장.</li>
+        </ol>
+        <h3>기본적 분석과의 차이</h3>
+        <table>
+          <thead><tr><th></th><th>기본적</th><th>기술적</th></tr></thead>
+          <tbody>
+            <tr><td>질문</td><td>내재가치는 얼마인가</td><td>참여자가 지금 무엇을 하는가</td></tr>
+            <tr><td>데이터</td><td>재무, 금리, 실적</td><td>가격, 거래량, 폭, 센티먼트</td></tr>
+            <tr><td>약점</td><td>단기 수급을 늦게 봄</td><td>펀더 충격을 무시하기 쉬움</td></tr>
+            <tr><td>결합</td><td>무엇을</td><td>언제·어디서</td></tr>
+          </tbody>
+        </table>
+        <h3>공부가 실패하는 세 구멍</h3>
+        <div class="grid two">
+          <div class="card">
+            <h4>후행</h4>
+            <p>MA, MACD, 일목 기준선, ADX는 과거 창의 요약이다. 추세 추종에는 쓸모가 있고 전환점 예측에는 늦다.</p>
+          </div>
+          <div class="card">
+            <h4>과최적화</h4>
+            <p>파라미터를 과거에 맞추면 어떤 지표든 예뻐진다. 룩어헤드, 생존자 편향, 다중비교를 같이 본다.</p>
+          </div>
+        </div>
+        <div class="warn">확증편향: 맞은 머리어깨만 기억하고, 실패한 패턴은 아직 미완성이라고 부른다. 같은 구간을 한 사람은 삼각, 다른 사람은 횡보로 본다.</div>
+        <p>학술 쪽은 혼재다. 약형 효율시장은 과거 가격으로 초과수익을 내기 어렵다고 하고, 일부 연구는 패턴에 정보량이 있을 수 있다고 한다. 실무 함의는 예언이 아니라 <b>시나리오 + 무효화 가격 + 크기</b>다.</p>
+        <div class="pager"><a href="#map">← 지도</a><a href="#theories">고전 이론 →</a></div>
+      </section>
+
+      <section class="page" id="page-theories">
+        <div class="crumb">Chapter 03</div>
+        <h2 class="page-title">고전 이론</h2>
+        <p class="lede">다우가 문법을 주고, 와이코프가 수급 국면을 주며, 엘리엇·허스트·간·일목이 형태와 시간을 얹는다.</p>
+        <h3>다우 · 여섯 테넌트</h3>
+        <ul>
+          <li>세 운동: 주추세, 2차 조정, 소파동</li>
+          <li>주추세의 세 국면: 매집, 대중 참여, 분산</li>
+          <li>시장은 뉴스를 할인한다</li>
+          <li>평균은 서로 확인해야 한다</li>
+          <li>거래량이 추세를 확인한다</li>
+          <li>추세는 명확한 반전 신호가 나올 때까지 유지된다</li>
+        </ul>
+        <h3>와이코프 · 세 법칙</h3>
+        <div class="grid three">
+          <div class="card"><h4>수요와 공급</h4><p>누가 급하면 가격이 움직인다. 발자국은 가격과 거래량.</p></div>
+          <div class="card"><h4>원인과 결과</h4><p>횡보(원인)가 클수록 이후 추세(결과)가 크다.</p></div>
+          <div class="card"><h4>노력 대 결과</h4><p>거래량은 큰데 진행이 없으면 흡수다.</p></div>
+        </div>
+        <p>합성 운영자(Composite Man)는 대형 세력을 한 사람으로 의인화한 허구다. 매집의 스프링은 레인지 하단을 깨고 즉시 회수하는 사건이다. 현대 언어의 유동성 스윕과 같다.</p>
+        <h3>엘리엇</h3>
+        <p>동기 5파 + 조정 3파가 프랙탈. 규칙: 2파는 1파 시작을 깨지 않음, 3파는 보통 최단이 아님, 4파는 1파와 겹치지 않음(다이아고날 예외). 같은 구간에 카운트가 여러 개 나오면 시나리오로 남긴다.</p>
+        <h3>간 · 허스트 · 일목</h3>
+        <table>
+          <thead><tr><th>이론</th><th>한 줄</th><th>공부 포인트</th></tr></thead>
+          <tbody>
+            <tr><td>간</td><td>시간 = 가격 기하. 1x1이 균형.</td><td>스케일이 자의적이면 각도가 무의미해진다.</td></tr>
+            <tr><td>허스트</td><td>가격은 조화 사이클의 합. 저점에서 동기화.</td><td>엘리엇의 형태와 동시에 맞추면 과적합.</td></tr>
+            <tr><td>일목</td><td>한눈에 균형. 9/26/52와 구름.</td><td>구름만 보지 말고 시간론·파동론·가격론.</td></tr>
+          </tbody>
+        </table>
+        <div class="note">일목 기본수 9, 17, 26. 파동은 I / V / N. 가격론은 N·E·V·NT 계산. 삼역전은 전환&gt;기준, 후행스팬이 캔들 위, 가격이 구름 위.</div>
+        <div class="pager"><a href="#assumptions">← 전제</a><a href="#structure">가격 구조 →</a></div>
+      </section>
+
+      <section class="page" id="page-structure">
+        <div class="crumb">Chapter 04</div>
+        <h2 class="page-title">가격 구조</h2>
+        <p class="lede">이후 모든 프라이스 액션과 SMC의 문법. 스윙을 얼마나 크게 자를지가 곧 신호의 빈도다.</p>
+        <div class="grid two">
+          <div class="card">
+            <h4>상승 / 하락 / 횡보</h4>
+            <p>상승: 고점과 저점이 높아진다 (HH, HL).<br />하락: 고점과 저점이 낮아진다 (LH, LL).<br />횡보: 비슷한 고저 사이.</p>
+          </div>
+          <div class="card">
+            <h4>BOS와 CHoCH</h4>
+            <p><b>BOS</b>는 추세 방향으로 직전 스윙을 깨는 것. 지속.<br /><b>CHoCH</b>는 반대로 구조가 처음 깨지는 것. 조기 반전 경고.</p>
+          </div>
+        </div>
+        <ul>
+          <li>지지·저항은 선보다 존. 역할은 교체될 수 있다.</li>
+          <li>추세선은 세 번째 점이 확인일 때 의미가 커진다. 그어도 지나가는 선이 된다.</li>
+          <li>프리미엄/디스카운트는 스윙 구간 50% 위아래. 피보 0.5와 같은 생각.</li>
+        </ul>
+        <div class="warn">5분봉 CHoCH를 주 추세 반전으로 부르지 말 것. 상위 타임프레임이 국면이고 하위는 실행이다.</div>
+        <div class="pager"><a href="#theories">← 이론</a><a href="#smc">유동성 언어 →</a></div>
+      </section>
+
+      <section class="page" id="page-smc">
+        <div class="crumb">Chapter 05</div>
+        <h2 class="page-title">스마트머니 · 유동성 언어</h2>
+        <p class="lede">새 물리학이 아니다. 공급·수요와 와이코프를 유동성 어휘로 다시 쓴 프레임이다. 피어리뷰로 검증된 예측 모형은 아니다.</p>
+        <table>
+          <thead><tr><th>SMC / ICT</th><th>의미</th><th>기존 이름</th></tr></thead>
+          <tbody>
+            <tr><td>유동성 풀</td><td>스윙 고저 너머 스톱 군집</td><td>지지저항, 라운드 넘버</td></tr>
+            <tr><td>오더블록</td><td>강한 변위 직전 마지막 반대색 구간</td><td>공급·수요 존</td></tr>
+            <tr><td>FVG</td><td>3봉이 안 겹치는 빈 구간</td><td>갭, 비효율</td></tr>
+            <tr><td>BOS</td><td>추세 방향 스윙 파괴</td><td>돌파, 지속</td></tr>
+            <tr><td>CHoCH</td><td>반대 방향 첫 파괴</td><td>다우 반전 신호</td></tr>
+            <tr><td>스윕</td><td>찔러 보고 즉시 복귀</td><td>가짜 돌파, 스프링/업스러스트</td></tr>
+            <tr><td>Inducement</td><td>본존 앞의 작은 미끼</td><td>소규모 테스트</td></tr>
+            <tr><td>OTE</td><td>0.62–0.79 되돌림</td><td>피보 황금 되돌림</td></tr>
+          </tbody>
+        </table>
+        <div class="note">스톱이 스윙 고저와 라운드 넘버에 몰리는 것은 미시구조 연구와 맞닿아 있다. “기관이 리테일을 사냥하려고 차트를 그린다”는 이야기와, 대량 주문이 유동성 있는 곳에서 체결된다는 실행 논리는 분리해서 읽는다.</div>
+        <p>공부 순서: 유동성 위치 → 스윕 여부 → 구조 전환 → 불균형/오더블록 재방문. 이름을 빼면 고전 프라이스 액션이다.</p>
+        <div class="pager"><a href="#structure">← 구조</a><a href="#charts">차트 유형 →</a></div>
+      </section>
+
+      <section class="page" id="page-charts">
+        <div class="crumb">Chapter 06</div>
+        <h2 class="page-title">차트 유형</h2>
+        <p class="lede">가격은 같고 버리는 정보가 다르다. 차트 종류의 본질은 필터다.</p>
+        <table>
+          <thead><tr><th>종류</th><th>버림</th><th>쓰임</th></tr></thead>
+          <tbody>
+            <tr><td>라인</td><td>고저·시가</td><td>큰 그림, 지지저항 스캔</td></tr>
+            <tr><td>바 / 캔들</td><td>거의 없음</td><td>기본 분석, 패턴, 캔들</td></tr>
+            <tr><td>하이킨아시</td><td>실제 시가·종가</td><td>추세 가독. 주문 가격으로 쓰지 말 것</td></tr>
+            <tr><td>렌코 · 카기 · P&amp;F</td><td>시간</td><td>추세 필터, 와이코프 목표가</td></tr>
+            <tr><td>틱 · 볼륨 · 레인지</td><td>시계 시간</td><td>활동량 축</td></tr>
+            <tr><td>TPO / 볼륨 프로파일</td><td>순차 스토리의 일부</td><td>가치 영역, POC</td></tr>
+            <tr><td>풋프린트</td><td>요약</td><td>가격대별 매수·매도 체결</td></tr>
+          </tbody>
+        </table>
+        <div class="warn">하이킨아시와 렌코 위에 고전 캔들 패턴을 올리면 정의가 깨진다. 손절은 실제 호가에 둔다.</div>
+        <div class="pager"><a href="#smc">← 유동성</a><a href="#patterns">고전 패턴 →</a></div>
+      </section>
+
+      <section class="page" id="page-patterns">
+        <div class="crumb">Chapter 07</div>
+        <h2 class="page-title">고전 패턴</h2>
+        <p class="lede">Edwards &amp; Magee 계열. 반전은 선행 추세가 있어야 한다. 없는 머리어깨는 출렁임이다.</p>
+        <h3>반전</h3>
+        <ul>
+          <li>헤드앤숄더 / 역헤드앤숄더: 넥라인 파괴가 확인</li>
+          <li>이중·삼중 천장과 바닥</li>
+          <li>라운딩 탑·바텀</li>
+        </ul>
+        <h3>지속</h3>
+        <ul>
+          <li>깃발, 페넌트, 채널</li>
+          <li>상승·하락 삼각, 컵앤핸들</li>
+        </ul>
+        <h3>양방향</h3>
+        <ul>
+          <li>대칭 삼각: 압축이지 방향이 아님</li>
+          <li>확산형(메가폰): 변동성 확대, 가짜 돌파가 많음</li>
+          <li>직사각형: 지속이기도 반전 직전이기도</li>
+        </ul>
+        <div class="note">측정 법칙은 패턴 높이를 돌파 방향으로 투사하는 것이다. 실패 돌파 자체가 신호가 되기도 한다. 스프링과 같은 사건.</div>
+        <div class="pager"><a href="#charts">← 차트 유형</a><a href="#candles">캔들 →</a></div>
+      </section>
+
+      <section class="page" id="page-candles">
+        <div class="crumb">Chapter 08</div>
+        <h2 class="page-title">캔들, 대표만</h2>
+        <p class="lede">사전 전체를 외우지 않는다. 위치(추세 말인가)와 다음 봉 확인이 본체다.</p>
+        <div class="grid two">
+          <div class="card">
+            <h4>단일</h4>
+            <p>도지, 해머/교수형, 슈팅스타/역해머, 마루보즈, 핀바. 같은 해머 모양이 하락 말이면 해머, 상승 말이면 교수형.</p>
+          </div>
+          <div class="card">
+            <h4>2·3봉</h4>
+            <p>장악형, 하라미/인사이드바, 관통형/흑운형, 트위저. 모닝스타/이브닝스타, 삼병.</p>
+          </div>
+        </div>
+        <p>사카타 오법의 삼산은 머리어깨에, 삼공은 갭에 가깝다. 단독 캔들 신호의 기대값은 얇다. 구조와 레벨 위에서만 본다.</p>
+        <div class="pager"><a href="#patterns">← 패턴</a><a href="#atlas">도감 →</a></div>
+      </section>
+
+      <section class="page" id="page-atlas">
+        <div class="crumb">Chapter 09</div>
+        <h2 class="page-title">패턴 도감</h2>
+        <p class="lede">모양만 외우지 말고, 선행 추세와 실패 조건을 같이 본다.</p>
+        <div class="atlas">
+          <figure class="card">
+            <svg viewBox="0 0 200 90"><path d="M10 70 L40 40 L70 58 L100 18 L130 58 L160 40 L190 72" fill="none" stroke="#8f3d3a" stroke-width="2"/><line x1="40" y1="58" x2="160" y2="58" stroke="#b08948" stroke-dasharray="3 3"/></svg>
+            <figcaption>헤드앤숄더</figcaption>
+            <p>넥라인 하향. 실패는 넥라인 재탈환.</p>
+          </figure>
+          <figure class="card">
+            <svg viewBox="0 0 200 90"><path d="M10 30 L50 25 L90 70 L140 28 L180 24" fill="none" stroke="#2c5a4c" stroke-width="2"/><line x1="50" y1="25" x2="140" y2="28" stroke="#b08948" stroke-dasharray="3 3"/></svg>
+            <figcaption>이중 바닥</figcaption>
+            <p>중간 고점 파괴가 확인. W자.</p>
+          </figure>
+          <figure class="card">
+            <svg viewBox="0 0 200 90"><path d="M15 20 L185 20" stroke="#4a453c"/><path d="M15 75 L185 35" stroke="#4a453c"/><path d="M30 70 L70 50 L110 62 L160 38" fill="none" stroke="#2c5a4c" stroke-width="2"/></svg>
+            <figcaption>상승 삼각</figcaption>
+            <p>수평 저항 + 높아지는 저점. 양방향일 수 있음.</p>
+          </figure>
+          <figure class="card">
+            <svg viewBox="0 0 200 90"><path d="M20 70 L55 20 L70 38 L90 28 L105 42 L185 16" fill="none" stroke="#2c5a4c" stroke-width="2"/></svg>
+            <figcaption>깃발</figcaption>
+            <p>급등 뒤 기울어진 소채널. 지속 후보.</p>
+          </figure>
+          <figure class="card">
+            <svg viewBox="0 0 200 90"><path d="M20 50 L50 35 L80 62 L110 28 L140 70 L170 22" fill="none" stroke="#8f3d3a" stroke-width="2"/></svg>
+            <figcaption>확산형</figcaption>
+            <p>고점은 높고 저점은 낮아짐. 통제 실패.</p>
+          </figure>
+          <figure class="card">
+            <svg viewBox="0 0 200 90"><rect x="18" y="40" width="22" height="28" fill="#2c5a4c"/><line x1="29" y1="22" x2="29" y2="78" stroke="#2c5a4c"/><rect x="88" y="48" width="18" height="10" fill="#8f3d3a"/><line x1="97" y1="30" x2="97" y2="70" stroke="#8f3d3a"/><rect x="150" y="18" width="24" height="50" fill="#2c5a4c"/></svg>
+            <figcaption>해머와 장악</figcaption>
+            <p>위치 없는 모양은 그냥 봉이다.</p>
+          </figure>
+          <figure class="card">
+            <svg viewBox="0 0 200 90"><path d="M15 30 L185 30" stroke="#b08948"/><path d="M20 32 L50 55 L80 40 L95 78 L120 48 L180 20" fill="none" stroke="#2c5a4c" stroke-width="2"/><circle cx="95" cy="78" r="4" fill="#8f3d3a"/></svg>
+            <figcaption>스프링 = 스윕</figcaption>
+            <p>하단을 깨고 즉시 회수. 와이코프와 SMC가 만남.</p>
+          </figure>
+          <figure class="card">
+            <svg viewBox="0 0 200 90"><rect x="20" y="50" width="20" height="20" fill="#8f3d3a"/><rect x="55" y="18" width="22" height="52" fill="#2c5a4c"/><rect x="95" y="30" width="20" height="28" fill="#2c5a4c"/><path d="M40 50 L55 18" stroke="#d7b56a" stroke-width="2"/><path d="M77 70 L95 58" stroke="#d7b56a" stroke-width="2"/></svg>
+            <figcaption>FVG</figcaption>
+            <p>첫째 봉과 셋째 봉이 겹치지 않는 빈 구간.</p>
+          </figure>
+        </div>
+        <div class="pager"><a href="#candles">← 캔들</a><a href="#ratios">비율 →</a></div>
+      </section>
+
+      <section class="page" id="page-ratios">
+        <div class="crumb">Chapter 10</div>
+        <h2 class="page-title">비율과 투사</h2>
+        <p class="lede">피보나치는 과학이 아니라 많이 쓰이는 격자다. 같은 스윙에 여러 격자를 겹치면 확인이 아니라 중복이다.</p>
+        <ul>
+          <li>되돌림: 23.6, 38.2, 50(관용), 61.8, 78.6, 88.6</li>
+          <li>확장: 127.2, 161.8, 200, 261.8</li>
+          <li>팬, 아크, 타임존, 채널</li>
+          <li>피벗: Floor, Woodie, Camarilla</li>
+          <li>앤드류 피치포크, 간 각도</li>
+          <li>일목 N/E/V/NT, 와이코프 P&amp;F 카운트, 패턴 높이</li>
+        </ul>
+        <div class="warn">대규모 백테스트에서 38/50/62가 다른 비율보다 특별하지 않다는 보고가 있다. 그래도 시장이 모이면 반응할 수는 있다.</div>
+        <div class="pager"><a href="#atlas">← 도감</a><a href="#harmonic">하모닉 →</a></div>
+      </section>
+
+      <section class="page" id="page-harmonic">
+        <div class="crumb">Chapter 11</div>
+        <h2 class="page-title">하모닉, 핵심 비율</h2>
+        <p class="lede">XABCD와 피보 정렬. D 근처의 겹침이 PRZ다. 격자만 잔뜩 그리면 어디에든 반전 구간이 생긴다.</p>
+        <table>
+          <thead><tr><th>패턴</th><th>B of XA</th><th>D of XA</th><th>성격</th></tr></thead>
+          <tbody>
+            <tr><td>Gartley</td><td>0.618</td><td>0.786</td><td>내부 되돌림</td></tr>
+            <tr><td>Bat</td><td>0.382–0.50</td><td>0.886</td><td>내부, 스톱이 비교적 짧음</td></tr>
+            <tr><td>Butterfly</td><td>0.786</td><td>1.272</td><td>구조 밖 확장</td></tr>
+            <tr><td>Crab</td><td>0.382–0.618</td><td>1.618</td><td>극단 확장</td></tr>
+            <tr><td>Shark</td><td>M/W 틀 밖</td><td>0.886–1.13</td><td>날카로운 반작용, 짧은 관리</td></tr>
+          </tbody>
+        </table>
+        <p>뼈대는 AB=CD. 무효화는 보통 X 또는 PRZ를 분명하게 지나가는 것. 구조 맥락 없는 하모닉은 착시다.</p>
+        <div class="pager"><a href="#ratios">← 비율</a><a href="#indicators">보조지표 →</a></div>
+      </section>
+
+      <section class="page" id="page-indicators">
+        <div class="crumb">Chapter 12</div>
+        <h2 class="page-title">보조지표 네 칸</h2>
+        <p class="lede">대부분 가격의 함수다. 같은 종가를 네 번 세고 컨플루언스라고 부르지 말 것.</p>
+        <div class="grid two">
+          <div class="card"><span class="tag">추세</span><h4>MA · MACD · ADX · 일목</h4><p>ADX는 방향이 아니라 강도. 25 이상은 추세, 이하는 레인지. 전략 스위치로 쓴다.</p></div>
+          <div class="card"><span class="tag">모멘텀</span><h4>RSI · 스토캐스틱</h4><p>숫자 70/30보다 다이버전스와 구조. 추세장에서 과매수는 오래 간다.</p></div>
+          <div class="card"><span class="tag">변동성</span><h4>볼린저 · ATR</h4><p>ATR은 방향이 없다. 손절과 포지션 크기의 단위. 볼린저 터치가 곧 반전은 아니다.</p></div>
+          <div class="card"><span class="tag">거래량</span><h4>VWAP · OBV · 프로파일</h4><p>VWAP은 세션 공정가. OBV는 노력. 프로파일은 가격대별 가치.</p></div>
+        </div>
+        <div class="warn">위험한 중복: RSI+스토캐+CCI. MACD+이평크로스+일목 전환선. 볼린저+케틀너+엔벨로프. 피보+OTE+하모닉 PRZ를 한 스윙에 쌓기.</div>
+        <p>보완이 되려면 축이 달라야 한다. 구조 × 거래량/체결 × ATR 크기 × 시장 폭.</p>
+        <div class="pager"><a href="#harmonic">← 하모닉</a><a href="#time">시간·장세 →</a></div>
+      </section>
+
+      <section class="page" id="page-time">
+        <div class="crumb">Chapter 13</div>
+        <h2 class="page-title">시간 · 장세</h2>
+        <ul>
+          <li><b>멀티타임프레임:</b> 상위는 국면, 하위는 실행. Elder 삼중창과 같다.</li>
+          <li><b>일목 시간론:</b> 9-17-26은 변곡 후보 윈도이지 약속이 아니다.</li>
+          <li><b>시장 폭:</b> A/D, 맥클렌, 신고-신저. 지수는 오르는데 폭이 좁으면 다우의 상호 확인이 실패한 것.</li>
+          <li><b>갭:</b> common, breakaway, runaway, exhaustion. FVG는 장중 스케일의 갭 개념.</li>
+          <li><b>세션:</b> 아시아 레인지, 런던·뉴욕 오픈, 오프닝 레인지/IB. ICT 킬존은 이 통계의 브랜드화.</li>
+          <li><b>인터마켓:</b> 채권·달러·상품·주식. 단일 차트 밖의 확인.</li>
+        </ul>
+        <div class="pager"><a href="#indicators">← 지표</a><a href="#relations">기법 간 관계 →</a></div>
+      </section>
+
+      <section class="page" id="page-relations">
+        <div class="crumb">Chapter 14</div>
+        <h2 class="page-title">기법 간 관계</h2>
+        <h3>역할이 달라서 같이 쓰는 조합</h3>
+        <table>
+          <thead><tr><th>조합</th><th>이유</th></tr></thead>
+          <tbody>
+            <tr><td>다우 구조 + 거래량</td><td>정의와 확인</td></tr>
+            <tr><td>와이코프 국면 + 볼륨 프로파일</td><td>원인과 가치 영역</td></tr>
+            <tr><td>ADX 스위치 + (추세면 MA, 레인지면 RSI)</td><td>지표가 서로를 켬</td></tr>
+            <tr><td>아무 진입 + ATR 손절</td><td>예측과 리스크 분리</td></tr>
+            <tr><td>스윕 + CHoCH + 불균형 재방문</td><td>사건 → 확인 → 실행</td></tr>
+          </tbody>
+        </table>
+        <h3>계보</h3>
+        <p>테이프 → 다우 → 와이코프/P&amp;F → 패턴 사전 → 엘리엇·간 → 일목 → 컴퓨터 지표 → 프로파일 → VSA → 프라이스 액션 → ICT/SMC → 오더플로. 새 이름이 새 알파가 아니다.</p>
+        <div class="pager"><a href="#time">← 시간</a><a href="#extra">보충 →</a></div>
+      </section>
+
+      <section class="page" id="page-extra">
+        <div class="crumb">Chapter 15</div>
+        <h2 class="page-title">골격 밖 보충</h2>
+        <div class="grid two">
+          <div class="card"><h4>VSA</h4><p>봉 단위 와이코프. 스프레드 × 거래량 × 종가 위치. No Demand, Stopping Volume, Upthrust.</p></div>
+          <div class="card"><h4>경매시장 / TPO</h4><p>시장은 공정가를 찾는다. 가치 영역 밖의 반응 vs 새 가치 개시. 비평형 날의 POC는 약하다.</p></div>
+          <div class="card"><h4>오더플로</h4><p>델타, CVD, 흡수. 데이터 품질이 생명. CFD 틱을 거래소처럼 읽지 말 것.</p></div>
+          <div class="card"><h4>백테스트 위생</h4><p>워크포워드, 비용, 사전 고정 규칙. 주관 파동과 주관 오더블록은 승률 스크린샷을 검증할 수 없다.</p></div>
+        </div>
+        <div class="note">주변부로 둘 것: 달 주기, 금융점성술, 비밀 간 각도. 기호는 자유, 공부 본류는 아니다.</div>
+        <h3>함정 열 가지</h3>
+        <ol>
+          <li>이론에 맞추려고 파동 번호를 다시 매긴다</li>
+          <li>같은 축 지표 네 개가 동의해서 확신이 올라간다</li>
+          <li>하이킨아시 가격에 주문을 넣는다</li>
+          <li>FX 틱 볼륨을 주식 거래량처럼 읽는다</li>
+          <li>하위 타임프레임 전환을 주 추세로 부른다</li>
+          <li>피보를 자연법칙으로 믿는다</li>
+          <li>스윕 후 구조 확인 없이 들어간다</li>
+          <li>뉴스 데이에 평소 패턴 통계를 그대로 쓴다</li>
+          <li>승률만 보고 기대값과 낙폭을 안 본다</li>
+          <li>새 유행 언어를 새 엣지로 착각한다</li>
+        </ol>
+        <div class="pager"><a href="#relations">← 관계</a><a href="#lexicon">용어 색인 →</a></div>
+      </section>
+
+      <section class="page" id="page-lexicon">
+        <div class="crumb">Index 16</div>
+        <h2 class="page-title">용어 색인</h2>
+        <p class="lede">같은 사건을 다른 학파가 어떻게 부르는지 모아 둔 사전이다. 본문으로 건너뛸 수 있다.</p>
+        <div class="lex-toolbar">
+          <input id="lexFilter" type="search" placeholder="색인 필터" />
+          <button type="button" data-lex="">전체</button>
+          <button type="button" data-lex="이론">이론</button>
+          <button type="button" data-lex="구조">구조</button>
+          <button type="button" data-lex="패턴">패턴</button>
+          <button type="button" data-lex="지표">지표</button>
+          <button type="button" data-lex="언어">언어</button>
+        </div>
+        <div id="lexList"></div>
+        <div class="pager"><a href="#extra">← 보충</a><a href="#notes">내 메모 →</a></div>
+      </section>
+
+      <section class="page" id="page-notes">
+        <div class="crumb">Index 17</div>
+        <h2 class="page-title">내 메모</h2>
+        <p class="lede">본문 아래 칸에 적은 관찰이 여기로 모인다. 서버로 올라가지 않고 이 브라우저에만 남는다.</p>
+        <div class="card">
+          <h4>새 메모</h4>
+          <p style="font-size:13px;color:#8a7f70">항목에 묶지 않은 독립 기록.</p>
+          <input id="noteTitle" placeholder="제목" style="width:100%;margin-bottom:8px;padding:8px 10px;border:1px solid var(--rule);border-radius:8px;font:inherit;background:#fffdf8" />
+          <textarea id="noteBody" placeholder="본문"></textarea>
+          <div style="margin-top:10px">
+            <button type="button" id="noteAdd" style="font:inherit;background:var(--pine);color:#f3eee4;border:0;border-radius:8px;padding:8px 14px;cursor:pointer">저장</button>
+          </div>
+        </div>
+        <div id="noteList" class="note-list" style="margin-top:18px"></div>
+        <div class="pager"><a href="#lexicon">← 색인</a><a href="#home">표지로 →</a></div>
+      </section>
+      <div class="card memo" id="memoDock" style="display:none">
+        <h4>이 항목에 남기기</h4>
+        <p style="font-size:13px;color:var(--ink-soft)">정의는 본문에 두고, 여기는 나중에 덧붙일 관찰용.</p>
+        <textarea id="memoField" placeholder="이 챕터에 대한 메모"></textarea>
+      </div>
+    </main>
+  </div>
+  <script>
+    const pages = [
+      "home","map","assumptions","theories","structure","smc","charts",
+      "patterns","candles","atlas","ratios","harmonic","indicators","time","relations","extra","lexicon","notes"
+    ];
+    const chapterPages = pages.filter(id => id !== "home" && id !== "lexicon" && id !== "notes");
+    const titles = {
+      home: "표지", map: "지식 지도", assumptions: "전제와 한계", theories: "고전 이론",
+      structure: "가격 구조", smc: "유동성 언어", charts: "차트 유형", patterns: "고전 패턴",
+      candles: "캔들 대표", atlas: "패턴 도감", ratios: "비율과 투사", harmonic: "하모닉",
+      indicators: "보조지표", time: "시간·장세", relations: "기법 간 관계", extra: "보충 영역",
+      lexicon: "용어 색인", notes: "내 메모"
+    };
+    const readKey = "chart-grammar-read";
+    const memoKey = "chart-grammar-memos";
+    const noteKey = "chart-grammar-notes";
+
+    function go(id) {
+      location.hash = id;
+    }
+    function current() {
+      const id = (location.hash || "#home").slice(1);
+      return pages.includes(id) ? id : "home";
+    }
+    function loadMemos() {
+      try { return JSON.parse(localStorage.getItem(memoKey) || "{}"); } catch (e) { return {}; }
+    }
+    function loadNotes() {
+      try { return JSON.parse(localStorage.getItem(noteKey) || "[]"); } catch (e) { return []; }
+    }
+    function render() {
+      const id = current();
+      document.querySelectorAll(".page").forEach(p => p.classList.toggle("show", p.id === "page-" + id));
+      document.querySelectorAll("nav a").forEach(a => a.classList.toggle("active", a.dataset.page === id));
+      const read = new Set(JSON.parse(localStorage.getItem(readKey) || "[]"));
+      if (chapterPages.includes(id)) read.add(id);
+      localStorage.setItem(readKey, JSON.stringify([...read]));
+      const n = [...read].filter(x => chapterPages.includes(x)).length;
+      document.getElementById("progressLabel").textContent = "열람 " + n + " / " + chapterPages.length;
+      document.getElementById("progressBar").style.width = (n / chapterPages.length * 100) + "%";
+      document.getElementById("sidebar").classList.remove("open");
+      const dock = document.getElementById("memoDock");
+      const showMemo = chapterPages.includes(id);
+      dock.style.display = showMemo ? "block" : "none";
+      if (showMemo) {
+        document.getElementById("memoField").value = loadMemos()[id] || "";
+      }
+      if (id === "notes") renderNotes();
+      window.scrollTo(0, 0);
+    }
+    window.addEventListener("hashchange", render);
+    document.getElementById("menuBtn").onclick = () => document.getElementById("sidebar").classList.toggle("open");
+    document.getElementById("memoField").addEventListener("input", () => {
+      const memos = loadMemos();
+      memos[current()] = document.getElementById("memoField").value;
+      localStorage.setItem(memoKey, JSON.stringify(memos));
+    });
+    document.getElementById("noteAdd").onclick = () => {
+      const title = document.getElementById("noteTitle").value.trim();
+      const body = document.getElementById("noteBody").value.trim();
+      if (!title && !body) return;
+      const notes = loadNotes();
+      notes.unshift({ title: title || "무제", body: body, page: "", t: Date.now() });
+      localStorage.setItem(noteKey, JSON.stringify(notes));
+      document.getElementById("noteTitle").value = "";
+      document.getElementById("noteBody").value = "";
+      renderNotes();
+    };
+
+    const lexicon = [
+      { t: "할인", k: "이론", p: "assumptions", aka: "market discounts everything", d: "모든 정보는 이미 가격에 있다는 TA 가정." },
+      { t: "추세", k: "이론", p: "assumptions", aka: "HH HL LH LL", d: "가격이 한 방향으로 지속된다는 가정. 상승은 HH/HL." },
+      { t: "다우 이론", k: "이론", p: "theories", aka: "Dow six tenets", d: "세 운동, 세 국면, 상호 확인, 거래량 확인, 추세 유지." },
+      { t: "와이코프", k: "이론", p: "theories", aka: "Composite Man 매집 분산", d: "수요공급, 원인결과, 노력대결과. 스마트머니 언어의 뿌리." },
+      { t: "스프링", k: "구조", p: "theories", aka: "shakeout 스윕 스톱런 가짜돌파", d: "레인지 하단을 깨고 즉시 회수. SMC의 유동성 스윕과 같은 사건." },
+      { t: "업스러스트", k: "구조", p: "theories", aka: "UTAD", d: "분산에서 상단을 찌르고 실패. 스프링의 반대." },
+      { t: "엘리엇 파동", k: "이론", p: "theories", aka: "5-3 impulse correction", d: "동기 5파와 조정 3파의 프랙탈." },
+      { t: "간", k: "이론", p: "theories", aka: "Gann 1x1 Square of 9", d: "시간=가격 기하. 스케일이 자의적이면 각도가 무의미." },
+      { t: "허스트", k: "이론", p: "theories", aka: "Hurst FLD VTL", d: "조화 사이클의 합. 저점에서 동기화." },
+      { t: "일목균형표", k: "이론", p: "theories", aka: "Ichimoku 구름 전환 기준 후행", d: "시간론·파동론·가격론 + 5선 도구. 9/26/52." },
+      { t: "BOS", k: "구조", p: "structure", aka: "Break of Structure 돌파", d: "추세 방향으로 직전 스윙을 깨는 지속 신호." },
+      { t: "CHoCH", k: "구조", p: "structure", aka: "Change of Character MSS", d: "반대로 구조가 처음 깨지는 조기 반전 경고." },
+      { t: "지지 저항", k: "구조", p: "structure", aka: "S/R zone", d: "선보다 존. 역할은 교체될 수 있다." },
+      { t: "오더블록", k: "언어", p: "smc", aka: "order block 공급수요존", d: "강한 변위 직전 마지막 반대색 구간." },
+      { t: "FVG", k: "언어", p: "smc", aka: "fair value gap 불균형 갭", d: "3봉 중 첫째와 셋째가 안 겹치는 빈 구간." },
+      { t: "유동성 스윕", k: "언어", p: "smc", aka: "liquidity sweep grab stop hunt", d: "스톱 군집을 찔러 보고 복귀. 스프링/업스러스트." },
+      { t: "OTE", k: "언어", p: "smc", aka: "optimal trade entry 0.62 0.79", d: "피보 황금 되돌림 구간의 ICT 이름." },
+      { t: "하이킨아시", k: "패턴", p: "charts", aka: "Heikin Ashi 평균봉", d: "추세 가독용. 표시 가격에 손절을 걸지 말 것." },
+      { t: "렌코", k: "패턴", p: "charts", aka: "Renko P&F 카기", d: "시간을 버린 가격 필터." },
+      { t: "TPO", k: "지표", p: "charts", aka: "Market Profile 가치영역 POC", d: "가격 세로, 시간 가로 분포. 경매시장 도구." },
+      { t: "헤드앤숄더", k: "패턴", p: "patterns", aka: "H&S 넥라인", d: "반전 패턴. 선행 추세와 넥라인 파괴가 필요." },
+      { t: "확산형", k: "패턴", p: "patterns", aka: "broadening megaphone", d: "고점은 높고 저점은 낮아짐. 양방향, 가짜 돌파 많음." },
+      { t: "해머", k: "패턴", p: "candles", aka: "교수형 핀바", d: "같은 모양, 위치가 이름. 하락 말=해머." },
+      { t: "피보나치", k: "지표", p: "ratios", aka: "0.618 0.786 되돌림 확장", d: "많이 쓰이는 격자. 같은 스윙에 여러 격자 겹치면 중복." },
+      { t: "가르틀리", k: "패턴", p: "harmonic", aka: "Gartley 0.786 PRZ", d: "B=0.618, D=0.786. 내부 되돌림 하모닉." },
+      { t: "PRZ", k: "패턴", p: "harmonic", aka: "Potential Reversal Zone", d: "하모닉 D 근처의 비율 겹침 구간." },
+      { t: "ADX", k: "지표", p: "indicators", aka: "추세 강도 DMI", d: "방향이 아니라 강도. 전략 스위치." },
+      { t: "ATR", k: "지표", p: "indicators", aka: "Average True Range", d: "방향 없음. 손절과 포지션 크기의 단위." },
+      { t: "VWAP", k: "지표", p: "indicators", aka: "앵커드 VWAP", d: "거래량 가중 평균가. 세션 공정가." },
+      { t: "볼륨 프로파일", k: "지표", p: "indicators", aka: "HVN LVN VP", d: "가격대별 거래량 분포. TPO의 거래량 형제." },
+      { t: "VSA", k: "이론", p: "extra", aka: "Volume Spread Analysis", d: "봉 단위 와이코프. 스프레드×거래량×종가 위치." },
+      { t: "오더플로", k: "지표", p: "extra", aka: "footprint delta CVD", d: "가격대별 매수·매도 체결. 데이터 품질이 생명." }
+    ];
+    let lexCat = "";
+    function drawLex() {
+      const q = (document.getElementById("lexFilter").value || "").trim().toLowerCase();
+      const list = document.getElementById("lexList");
+      const rows = lexicon.filter(x => {
+        if (lexCat && x.k !== lexCat) return false;
+        if (!q) return true;
+        return (x.t + " " + x.aka + " " + x.d).toLowerCase().includes(q);
+      });
+      list.innerHTML = rows.map(x => "<div class=\"card lex-item\"><span class=\"tag\">" + x.k + "</span><h4 style=\"display:inline\">" + x.t + "</h4><div class=\"aka\">" + x.aka + "</div><p>" + x.d + "</p><p><a href=\"#" + x.p + "\">" + titles[x.p] + "에서 보기</a></p></div>").join("") || "<p>해당 용어가 색인에 없다.</p>";
+    }
+    document.getElementById("lexFilter").addEventListener("input", drawLex);
+    document.querySelectorAll("[data-lex]").forEach(btn => {
+      btn.onclick = () => { lexCat = btn.dataset.lex; drawLex(); };
+    });
+    const searchIndex = lexicon.map(x => ({ id: x.p, label: x.t, hint: x.d })).
+      concat(Object.keys(titles).map(id => ({ id: id, label: titles[id], hint: "챕터" })));
+    document.getElementById("q").addEventListener("input", () => {
+      const q = document.getElementById("q").value.trim().toLowerCase();
+      const box = document.getElementById("searchHits");
+      if (!q) { box.innerHTML = ""; return; }
+      const hits = searchIndex.filter(x => (x.label + " " + x.hint).toLowerCase().includes(q)).slice(0, 8);
+      box.innerHTML = hits.map(x => "<a href=\"#" + x.id + "\">" + x.label + " · " + x.hint.slice(0, 28) + "</a>").join("");
+    });
+    function renderNotes() {
+      const list = document.getElementById("noteList");
+      const notes = loadNotes();
+      const memos = loadMemos();
+      const fromCh = chapterPages.filter(id => (memos[id] || "").trim()).map(id => ({
+        title: titles[id] + " 관찰",
+        body: memos[id],
+        page: id,
+        locked: true
+      }));
+      const all = fromCh.concat(notes);
+      if (!all.length) {
+        list.innerHTML = "<p class=\"lede\">아직 메모가 없다. 챕터 아래 칸이나 위의 저장으로 쌓으면 된다.</p>";
+        return;
+      }
+      list.innerHTML = all.map((n, i) => {
+        const where = n.page ? (titles[n.page] || n.page) : "독립";
+        const body = (n.body || "").replace(/</g, "&lt;").replace(/\n/g, "<br>");
+        const title = (n.title || "무제").replace(/</g, "&lt;");
+        const del = n.locked ? "" : "<button class=\"ghost\" data-del=\"" + (i - fromCh.length) + "\">삭제</button>";
+        return "<div class=\"card\">" + del + "<div class=\"meta\">" + where + "</div><h4>" + title + "</h4><p>" + body + "</p></div>";
+      }).join("");
+      list.querySelectorAll("[data-del]").forEach(btn => {
+        btn.onclick = () => {
+          const next = loadNotes();
+          next.splice(Number(btn.dataset.del), 1);
+          localStorage.setItem(noteKey, JSON.stringify(next));
+          renderNotes();
+        };
+      });
+    }
+    drawLex();
+    render();
+  </script>
+</body>
+</html>
