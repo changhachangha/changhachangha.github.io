@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 270" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="270" fill="#f7f1e6"/>
+  <!-- 레인지 상단 · 하단 -->
+  <line x1="40" y1="70" x2="640" y2="70" stroke="#b08948" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <line x1="40" y1="180" x2="640" y2="180" stroke="#b08948" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="48" y="62" fill="#4a453c" font-size="11">레인지 상단 · range high</text>
+  <text x="540" y="172" fill="#4a453c" font-size="11">지지 · support</text>
+  <!-- 스톱 군집 존 -->
+  <rect x="40" y="180" width="600" height="30" fill="#8f3d3a" opacity="0.10"/>
+  <text x="48" y="199" fill="#8f3d3a" font-size="11">매도 스톱 군집 · sell-stop cluster</text>
+  <!-- 가격 경로 -->
+  <path d="M40 150 L75 92 L115 138 L155 96 L195 178 L235 118 L275 178 L305 152 L335 208 L355 196 L390 140 L430 82 L480 52 L540 60 L590 42 L645 50" fill="none" stroke="#4a453c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- 동일 저점 -->
+  <circle cx="195" cy="178" r="3.5" fill="#4a453c"/>
+  <circle cx="275" cy="178" r="3.5" fill="#4a453c"/>
+  <text x="196" y="164" fill="#4a453c" font-size="11">동일 저점 · equal lows</text>
+  <!-- 스윕 -->
+  <circle cx="335" cy="208" r="4" fill="#8f3d3a"/>
+  <text x="300" y="232" fill="#8f3d3a" font-size="11">스윕 · sweep — 찔러 보고 복귀</text>
+  <!-- 복귀 이후 상승 -->
+  <text x="470" y="38" fill="#2c5a4c" font-size="11">회수 후 이탈 · reclaim</text>
+</svg>

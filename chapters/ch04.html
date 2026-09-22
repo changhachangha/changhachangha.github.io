@@ -1,22 +1,123 @@
 <!-- CHAPTER 04 · structure -->
-<!-- LEX: [{"t": "BOS", "k": "구조", "p": "structure", "aka": "Break of Structure 돌파", "d": "추세 방향으로 직전 스윙을 깨는 지속 신호."}, {"t": "CHoCH", "k": "구조", "p": "structure", "aka": "Change of Character MSS", "d": "반대로 구조가 처음 깨지는 조기 반전 경고."}, {"t": "지지 저항", "k": "구조", "p": "structure", "aka": "S/R zone", "d": "선보다 존. 역할은 교체될 수 있다."}] -->
+<!-- LEX: [{"t": "스윙", "k": "구조", "p": "structure", "aka": "swing high low pivot", "d": "방향이 꺾인 고점·저점. 자르는 크기가 신호 빈도를 정한다."}, {"t": "프랙탈", "k": "구조", "p": "structure", "aka": "fractal 5봉 Williams", "d": "양옆 두 봉보다 높거나 낮은 최소 단위 스윙 정의."}, {"t": "지그재그", "k": "지표", "p": "structure", "aka": "ZigZag deviation", "d": "정한 비율 이상 움직임만 잇는 스윙 필터. 마지막 다리는 미확정."}, {"t": "BOS", "k": "구조", "p": "structure", "aka": "Break of Structure 돌파", "d": "추세 방향으로 직전 스윙을 깨는 지속 신호."}, {"t": "CHoCH", "k": "구조", "p": "structure", "aka": "Change of Character MSS", "d": "반대로 구조가 처음 깨지는 조기 반전 경고."}, {"t": "MSS", "k": "구조", "p": "structure", "aka": "market structure shift", "d": "CHoCH의 ICT 별칭. 다우 반전 신호의 구조 언어."}, {"t": "지지 저항", "k": "구조", "p": "structure", "aka": "S/R zone support resistance", "d": "선보다 존. 역할은 교체될 수 있다."}, {"t": "폴라리티", "k": "구조", "p": "structure", "aka": "polarity principle 극성 역할 교체", "d": "깨진 저항은 지지로, 깨진 지지는 저항으로."}, {"t": "추세선", "k": "구조", "p": "structure", "aka": "trendline channel 채널", "d": "스윙 둘을 잇는 선. 세 번째 접점이 확인이다."}, {"t": "프리미엄 디스카운트", "k": "언어", "p": "structure", "aka": "premium discount EQ equilibrium", "d": "스윙 구간을 50%로 가른 위쪽과 아래쪽. 피보 0.5와 같은 생각."}, {"t": "타임프레임 계층", "k": "구조", "p": "structure", "aka": "HTF LTF top-down", "d": "상위는 국면이고 하위는 실행이다."}] -->
 
         <div class="crumb">Chapter 04</div>
         <h2 class="page-title">가격 구조</h2>
-        <p class="lede">이후 모든 프라이스 액션과 SMC의 문법. 스윙을 얼마나 크게 자를지가 곧 신호의 빈도다.</p>
-        <div class="grid two">
-          <div class="card">
-            <h4>상승 / 하락 / 횡보</h4>
-            <p>상승: 고점과 저점이 높아진다 (HH, HL).<br />하락: 고점과 저점이 낮아진다 (LH, LL).<br />횡보: 비슷한 고저 사이.</p>
-          </div>
-          <div class="card">
-            <h4>BOS와 CHoCH</h4>
-            <p><b>BOS</b>는 추세 방향으로 직전 스윙을 깨는 것. 지속.<br /><b>CHoCH</b>는 반대로 구조가 처음 깨지는 것. 조기 반전 경고.</p>
-          </div>
+        <p class="lede">이후 모든 프라이스 액션의 문법. 스윙의 고저를 얼마나 크게 자를지가 곧 신호의 빈도다.</p>
+
+        <div class="chapter-summary"><b>요약.</b> 가격 구조는 스윙의 고저를 찍고 그것이 깨지는 방향을 읽는 문법이다. 상승은 HH/HL, 하락은 LH/LL, 어느 쪽도 아니면 횡보다. 추세 방향의 파괴는 BOS, 반대 방향의 첫 파괴는 CHoCH — 다우의 "반전 신호까지 추세 유지"를 봉 단위로 옮긴 것이다. 지지·저항은 선이 아니라 존이고 깨지면 역할이 바뀌며, 추세선은 세 번째 접점에서 확인된다. 스윙 구간의 위쪽 절반은 프리미엄, 아래쪽은 디스카운트다. 그리고 이 모든 문장의 묵시적 주어는 타임프레임이다 — 상위는 국면, 하위는 실행이다.</div>
+
+        <nav class="chapter-toc">
+          <div class="toc-title">이 챕터에서</div>
+          <ol>
+            <li><a data-scroll="sec-structure-1">스윙과 스케일 — 어디서 자를지가 신호의 빈도다</a></li>
+            <li><a data-scroll="sec-structure-2">추세의 구조 정의 — HH/HL, LH/LL, 횡보</a></li>
+            <li><a data-scroll="sec-structure-3">BOS와 CHoCH — 지속의 파괴와 첫 반대 파괴</a></li>
+            <li><a data-scroll="sec-structure-4">지지와 저항 — 선이 아니라 존</a></li>
+            <li><a data-scroll="sec-structure-5">추세선과 채널 — 세 번째 점이 확인이다</a></li>
+            <li><a data-scroll="sec-structure-6">프리미엄과 디스카운트 — 구간의 위쪽과 아래쪽</a></li>
+            <li><a data-scroll="sec-structure-7">타임프레임 계층 — 상위는 국면, 하위는 실행</a></li>
+          </ol>
+        </nav>
+
+        <h3 id="sec-structure-1">스윙과 스케일 — 어디서 자를지가 신호의 빈도다</h3>
+        <p>가격 구조의 원자는 스윙<sup class="fnref" id="fnref-structure-1"><a data-scroll="fn-structure-1">1</a></sup>이다. 스윙 고점은 양옆이 더 낮은 꼭짓점, 스윙 저점은 양옆이 더 높은 골짜기다. 정의는 간단한데 문제는 크기다 — "양옆"을 몇 봉으로 잡느냐, 되돌림을 몇 퍼센트부터 인정하느냐에 따라 같은 차트에서 스윙의 수가 달라진다.</p>
+        <p>기계적 정의는 두 계열이 있다. 프랙탈<sup class="fnref" id="fnref-structure-2"><a data-scroll="fn-structure-2">2</a></sup>은 양옆 두 봉보다 고가가 높은 봉을 고점으로 찍는 5봉 규칙이다 — 윌리엄스가 이름 붙인 최소 단위 스윙이다<sup class="cit"><a data-scroll="src-structure-1">[1]</a></sup>. 지그재그<sup class="fnref" id="fnref-structure-3"><a data-scroll="fn-structure-3">3</a></sup> 계열은 마지막 피벗에서 정한 비율 이상 되돌려야 새 스윙으로 인정하는 크기 필터다. 프랙탈은 봉 수로 자르고 지그재그는 가격 폭으로 자른다.</p>
+        <figure class="fig">
+          <img src="images/ch04/swing-scale.svg" alt="같은 가격 경로를 작은 스케일로 자르면 피벗 11개, 큰 스케일로 자르면 피벗 6개가 나오는 비교" loading="lazy" />
+          <figcaption>그림 1. 같은 경로, 다른 스윙 수. 왼쪽은 작은 되돌림까지 피벗으로 세어 11개, 오른쪽은 큰 필터로 6개다. 자르는 규칙이 곧 신호의 빈도다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>자의성은 여기서 나온다. 같은 경로를 1% 필터로 자르면 스윙이 열 개, 10%로 자르면 세 개다. 스윙이 많으면 구조 신호도 많아지고 거짓도 많아진다. Aronson이 지적한 주관적 분석의 첫 구멍이다 — 규칙으로 고정되지 않은 스윙은 검증이 안 선다<sup class="cit"><a data-scroll="src-structure-2">[2]</a></sup>. 해결은 정답 스케일을 찾는 일이 아니다. 스케일을 먼저 선언하고 문장을 읽는 것이다 — "이 노트에서 스윙은 좌우 2봉 프랙탈이다"처럼.</p>
+        <p>실무 규칙은 하나다. 자르는 크기를 거래 주기와 맞춘다. 스윙 트레이더가 5봉 프랙탈로 자르면 신호가 잡음에 잠기고, 큰 필터는 전환을 늦게 알린다. 빈도와 지연의 트레이드오프다.</p>
+
+        <h3 id="sec-structure-2">추세의 구조 정의 — HH/HL, LH/LL, 횡보</h3>
+        <p>스윙 수열이 정해지면 추세는 정의로 떨어진다. <b>상승 추세</b>는 고점과 저점이 함께 높아지는 상태(HH/HL), <b>하락 추세</b>는 함께 낮아지는 상태(LH/LL), 어느 쪽도 성립하지 않으면 <b>횡보</b>다. 이 기계적 문장의 원전은 다우다 — 레아가 정리한 상승 추세는 "연속된 랠리가 이전 고점을 넘고 조정이 이전 저점 위에서 멈추는" 상태다<sup class="cit"><a data-scroll="src-structure-3">[3]</a></sup>. 봉이 아니라 스윙의 수열로 추세를 읽는 이 문법이 이후 모든 구조 읽기의 뼈대다.</p>
+        <figure class="fig">
+          <img src="images/ch02/trend-schema.svg" alt="고점과 저점이 함께 높아지는 상승 추세와 함께 낮아지는 하락 추세의 도식" loading="lazy" />
+          <figcaption>그림 2. 추세의 기계적 정의(02장의 도식 재사용). 왼쪽 상승은 HH와 HL의 수열, 오른쪽 하락은 LH와 LL의 수열. 마지막 스윙이 깨지면 정의가 무너진다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>횡보는 정의의 빈칸이다. 고점도 저점도 한 방향으로 밀리지 않는 구간 — 레인지다. 다우는 이를 '라인(line)'이라 불렀고, 와이코프 계열로는 매집·분산 국면으로 읽힌다(<a href="#theories">고전 이론</a>). 구조 문법으로는 추세의 부재이지 문법의 부재가 아니다 — 레인지의 상·하단이 곧 그 구간의 스윙이다.</p>
+        <p>한계는 수열의 미완성이다. 마지막 HL은 되돌림이 끝나고 다음 고점이 나온 뒤에야 확정된다. 진행 중인 되돌림이 HL인지 전환의 첫 하락인지는 사후에만 판명된다. 그래서 구조 정의는 예언이 아니라 조건 문장으로 쓴다 — "마지막 확정 HL이 깨지면 상승 추세 가정은 폐기."</p>
+
+        <h3 id="sec-structure-3">BOS와 CHoCH — 지속의 파괴와 첫 반대 파괴</h3>
+        <p>스윙이 깨지는 방향은 두 가지다. BOS<sup class="fnref" id="fnref-structure-4"><a data-scroll="fn-structure-4">4</a></sup>는 추세 방향으로 직전 스윙을 깨는 사건이다 — 상승 추세에서 직전 고점 위로의 돌파. 추세의 자기 확인, 지속 신호다. CHoCH<sup class="fnref" id="fnref-structure-5"><a data-scroll="fn-structure-5">5</a></sup>는 반대 방향의 첫 파괴다 — 상승 추세에서 마지막 HL 아래로의 이탈. 추세 문장에 처음 등장한 다른 품사, 조기 반전 경고다.</p>
+        <p>이 구분의 뿌리는 다우의 마지막 원칙이다 — "추세는 명확한 반전 신호가 나타날 때까지 유지된다고 가정한다"<sup class="cit"><a data-scroll="src-structure-3">[3]</a></sup>. BOS는 유지의 근거이고 CHoCH는 그 반전 신호의 구조적 형태다. ICT 계열 언어에서는 같은 사건을 MSS<sup class="fnref" id="fnref-structure-6"><a data-scroll="fn-structure-6">6</a></sup>라고도 부른다<sup class="cit"><a data-scroll="src-structure-4">[4]</a></sup> — 이름은 셋이고 사건은 하나다. 색인에서는 같은 칸에 둔다.</p>
+        <figure class="fig">
+          <img src="images/ch04/bos-choch.svg" alt="왼쪽은 상승 추세가 직전 고점을 갱신하는 BOS, 오른쪽은 마지막 상승 저점이 처음 깨지는 CHoCH" loading="lazy" />
+          <figcaption>그림 3. 파괴의 두 방향. 왼쪽 BOS는 추세 방향으로 직전 고점을 갱신하는 지속의 파괴, 오른쪽 CHoCH는 상승 수열이 처음 어긋나는 반대의 파괴다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>무엇을 '깨짐'으로 셀지는 별도의 규칙이다. 꼬리가 스윙을 넘었다가 회수되면 파괴가 아니라 스윕이다 — 종가 기준이 일반적이고, 에드워즈와 메이기는 이탈 폭에 완충(예: 3% 규칙)을 두라고 제안했다<sup class="cit"><a data-scroll="src-structure-5">[5]</a></sup>. 규칙은 하나만 고정하면 된다. 그리고 CHoCH는 확인이 아니라 경고다 — 첫 반대 파괴 뒤에도 가격은 원 방향의 고점을 한 번 더 찍을 수 있다. 경고를 시나리오로 바꾸는 것은 다음 스윙의 형태다.</p>
+
+        <h3 id="sec-structure-4">지지와 저항 — 선이 아니라 존</h3>
+        <p>지지는 매도를 버티는 수요의 집중, 저항은 매수를 돌려보내는 공급의 집중이다<sup class="cit"><a data-scroll="src-structure-5">[5]</a></sup>. 중요한 것은 그것이 선이 아니라 존<sup class="fnref" id="fnref-structure-7"><a data-scroll="fn-structure-7">7</a></sup>이라는 점이다. 거래가 몰린 곳은 한 가격이 아니라 가격대이고, 반응도 그 폭 안 어딘가에서 온다. 한 픽셀의 수평선을 긋고 위아래로 세계를 나누는 것은 구조가 아니라 미신이다.</p>
+        <p>존에서 반응하는 이유는 기억이다. 세 부류가 같은 자리를 기억한다. 물린 매수자는 본전으로 돌아오면 손실 없이 나오려 판다 — 고통의 기억. 놓쳤던 매수자는 처음 놓친 가격대로 돌아오면 다시 산다 — 후회의 기억. 그리고 스윙 고저 너머에는 스톱 주문이 쌓인다 — 유동성의 기억<sup class="cit"><a data-scroll="src-structure-6">[6]</a></sup>. 셋이 같은 자리를 두 번째 기회로 만든다.</p>
+        <p>역할은 교체된다. 깨진 저항은 지지가 되고 깨진 지지는 저항이 된다 — 극성(polarity)<sup class="fnref" id="fnref-structure-8"><a data-scroll="fn-structure-8">8</a></sup> 원리다<sup class="cit"><a data-scroll="src-structure-6">[6]</a></sup>. 돌파 매수자의 본전과 일찍 판 매도자의 후회가 같은 존에서 만난다.</p>
+        <figure class="fig">
+          <img src="images/ch04/sr-polarity.svg" alt="두 번 거절하던 저항 존이 돌파 후 재방문에서 지지로 작동하는 역할 교체" loading="lazy" />
+          <figcaption>그림 4. 폴라리티 — 같은 존의 역할 교체. 아래에서 두 번 거절되던 저항 존이 돌파 뒤 재방문에서 지지로 작동한다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>한계는 둘이다. 존을 얼마나 관통해야 깨진 것인지는 자의적이고, 테스트가 반복될수록 존이 강해진다는 직관과 약해진다는 직관이 공존한다 — 재방문 때마다 그 자리의 주문이 소진된다는 미시구조 논리는 후자를 지지한다. 존도 결국 조건 문장이다 — "이 존 아래로 종가가 닫히면 지지 시나리오는 폐기."</p>
+
+        <h3 id="sec-structure-5">추세선과 채널 — 세 번째 점이 확인이다</h3>
+        <p>추세선<sup class="fnref" id="fnref-structure-9"><a data-scroll="fn-structure-9">9</a></sup>은 스윙 둘을 잇는 선이다 — 상승 추세선은 저점 둘, 하락 추세선은 고점 둘을 잇는다. 둘이면 누구나 선을 그을 수 있다. 그래서 머피의 규칙은 세 번째 접점을 요구한다 — 임시 추세선이 세 번째 되돌림을 버텨낼 때 비로소 유효하다고 본다<sup class="cit"><a data-scroll="src-structure-6">[6]</a></sup>. 채널은 추세선의 평행선이다. 되돌림이 반대편 선에서 멈추면 통로로 읽는다.</p>
+        <p>문제는 선이 그어진다는 사실이 선을 지켜주지 않는다는 것이다. 깨진 선은 다시 그으면 되고, 기울기를 바꾸면 맞는 선은 얼마든지 나온다 — 팬 라인(fan lines)은 그 "다시 긋기"를 기법으로 만든 경우다. 세 점이 안 맞으면 차트가 아니라 선을 의심한다.</p>
+        <p>용법은 예측선이 아니라 무효화 선이다 — "이 선 아래에 종가가 닫히면 추세 가정을 내려놓는다." 선은 가격이 지켜야 할 법칙이 아니라 시나리오의 파기 조건이다. 지지·저항과 마찬가지로 선도 존으로 취급하는 편이 정직하다 — 관통 허용 폭을 미리 정해 둔다.</p>
+
+        <h3 id="sec-structure-6">프리미엄과 디스카운트 — 구간의 위쪽과 아래쪽</h3>
+        <p>스윙 저점에서 고점까지의 구간을 50%로 가른다. 중간선 위쪽 절반이 프리미엄, 아래쪽 절반이 디스카운트<sup class="fnref" id="fnref-structure-10"><a data-scroll="fn-structure-10">10</a></sup>이고, 중간선 자체가 EQ — 균형(equilibrium)이다<sup class="cit"><a data-scroll="src-structure-4">[4]</a></sup>. ICT 어휘이지만 생각 자체는 오래됐다 — 되돌림의 절반은 피보나치의 0.5 되돌림과 같은 선이다(<a href="#ratios">비율과 투사</a>).</p>
+        <figure class="fig">
+          <img src="images/ch04/premium-discount.svg" alt="스윙 저점에서 고점까지의 구간을 EQ 0.5로 가른 프리미엄과 디스카운트, 되돌림이 디스카운트에서 멈춘 경로" loading="lazy" />
+          <figcaption>그림 5. 스윙 구간의 절반 가르기. 고점까지의 위쪽 절반이 프리미엄, 저점 쪽 아래 절반이 디스카운트, 중간의 파선이 EQ(0.5)다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>쓸모는 싸게 사는 감각이 아니라 무효화까지의 거리다. 같은 상승 시나리오라도 프리미엄에서 사면 스윙 저점까지의 거리가 멀고, 디스카운트에서 사면 짧다. 손익비는 진입 지점의 함수다. 추세 추종의 되돌림 매수가 "50% 근처"를 기다리는 이유다 — 균형 아래에서 사는 것은 구간의 비싼 쪽을 피하는 규칙이다.</p>
+        <p>한계는 분명하다. 50%는 법칙이 아니라 규약이다 — 가격이 중간값을 기억해서 멈추는 게 아니라, 그 선이 기다림의 기준을 준다. 깊은 되돌림은 디스카운트를 지나 저점을 다시 시험한다. 디스카운트 진입의 무효화는 여전히 스윙 저점 자체다.</p>
+
+        <h3 id="sec-structure-7">타임프레임 계층 — 상위는 국면, 하위는 실행</h3>
+        <p>모든 구조 문장에는 묵시적 주어가 있다 — 타임프레임이다. 일봉의 되돌림 한 번은 15분봉의 하락 추세 전체이고, 주봉의 횡보는 시간봉의 추세 사이클 여러 번을 담는다. 같은 지점이 일봉에서는 HL이고 5분봉에서는 BOS와 CHoCH가 몇 번씩 지난 자리다. 구조 문법은 스케일을 가리지 않고 돌아간다 — 그것이 이 문법의 힘이자 함정이다.</p>
+        <p>계층의 용법은 역할 분담이다. 상위 타임프레임이 국면을 준다 — 어느 존 근처인지, 추세 방향이 어느 쪽인지. 하위 타임프레임이 실행을 준다 — 그 존 안에서 구조 전환이 보일 때 진입한다. 엘더의 트리플 스크린이 이 분담을 체계로 만든 고전이다<sup class="cit"><a data-scroll="src-structure-7">[7]</a></sup> — 조수(tide)는 큰 차트에서 읽고 파동(wave)은 작은 차트에서 잡는다.</p>
+        <p>역할을 뒤집으면 문장이 어긋난다. 5분봉 CHoCH를 주 추세의 반전으로 부르는 것이 대표적 오용이다 — 하위 구조 전환의 대부분은 상위 스윙의 되돌림이다. 이름 뒤에 스케일을 붙이는 습관이 방어다 — "일봉 HL", "15분봉 BOS". 상위의 존과 하위의 트리거가 같은 방향을 가리킬 때만 문장이 완성된다.</p>
+        <div class="warn">5분봉 CHoCH를 주 추세 반전으로 부르지 말 것. 상위 타임프레임이 국면이고 하위는 실행이다. 하위 구조 전환의 대부분은 상위 스윙의 되돌림이고, 되돌림과 반전은 다른 문장이다.</div>
+
+        <div class="footnotes">
+          <div class="fn-title">용어 각주</div>
+          <ol>
+            <li id="fn-structure-1"><b>스윙(Swing)</b>: 방향이 꺾인 고점·저점. 스윙 고점(swing high)은 양옆이 더 낮은 꼭짓점, 스윙 저점(swing low)은 양옆이 더 높은 골짜기다.
+            <a class="fnback" data-scroll="fnref-structure-1">↩</a></li>
+            <li id="fn-structure-2"><b>프랙탈(Fractal)</b>: 가운데 봉이 양옆 두 봉보다 고가가 높으면 상승, 저가가 낮으면 하락으로 찍는 5봉 규칙. 빌 윌리엄스의 최소 스윙 정의.
+            <a class="fnback" data-scroll="fnref-structure-2">↩</a></li>
+            <li id="fn-structure-3"><b>지그재그(ZigZag)</b>: 마지막 피벗에서 정한 비율 이상 반대로 가야 새 다리를 잇는 필터. 마지막 다리는 확정 전이라 나중에 다시 그려진다(repaint).
+            <a class="fnback" data-scroll="fnref-structure-3">↩</a></li>
+            <li id="fn-structure-4"><b>BOS(Break of Structure)</b>: 추세 방향으로 직전 스윙을 깨는 구조 파괴. 지속 신호 — 고전 용어의 돌파(breakout)에 해당.
+            <a class="fnback" data-scroll="fnref-structure-4">↩</a></li>
+            <li id="fn-structure-5"><b>CHoCH(Change of Character)</b>: 추세와 반대 방향으로 스윙이 처음 깨지는 사건. 확인이 아니라 조기 경고다.
+            <a class="fnback" data-scroll="fnref-structure-5">↩</a></li>
+            <li id="fn-structure-6"><b>MSS(Market Structure Shift)</b>: 시장 구조 전환. CHoCH의 ICT 계열 별칭 — 다우의 "반전 신호까지 추세 유지"를 봉 단위 문법으로 옮긴 이름.
+            <a class="fnback" data-scroll="fnref-structure-6">↩</a></li>
+            <li id="fn-structure-7"><b>존(Zone)</b>: 한 가격이 아니라 폭이 있는 반응 구간. 지지·저항·공급·수요는 모두 선이 아니라 존으로 읽는다.
+            <a class="fnback" data-scroll="fnref-structure-7">↩</a></li>
+            <li id="fn-structure-8"><b>폴라리티(Polarity principle)</b>: 극성 원리. 깨진 저항이 지지로, 깨진 지지가 저항으로 역할을 바꾸는 현상. 에드워즈·메이기가 기록하고 머피가 정리했다.
+            <a class="fnback" data-scroll="fnref-structure-8">↩</a></li>
+            <li id="fn-structure-9"><b>추세선(Trendline)</b>: 같은 방향의 스윙 둘을 잇는 선. 평행선을 더하면 채널(channel). 세 번째 접점이 버텨야 유효하다고 본다.
+            <a class="fnback" data-scroll="fnref-structure-9">↩</a></li>
+            <li id="fn-structure-10"><b>프리미엄/디스카운트(Premium/Discount)</b>: 스윙 구간을 50%로 가른 위쪽 절반과 아래쪽 절반. 중간선은 EQ(equilibrium, 균형) — 피보나치 0.5 되돌림과 같은 생각.
+            <a class="fnback" data-scroll="fnref-structure-10">↩</a></li>
+          </ol>
         </div>
-        <ul>
-          <li>지지·저항은 선보다 존. 역할은 교체될 수 있다.</li>
-          <li>추세선은 세 번째 점이 확인일 때 의미가 커진다. 그어도 지나가는 선이 된다.</li>
-          <li>프리미엄/디스카운트는 스윙 구간 50% 위아래. 피보 0.5와 같은 생각.</li>
-        </ul>
-        <div class="warn">5분봉 CHoCH를 주 추세 반전으로 부르지 말 것. 상위 타임프레임이 국면이고 하위는 실행이다.</div>
+
+        <div class="sources">
+          <div class="src-title">출처</div>
+          <ol>
+            <li id="src-structure-1">Williams, B., <i>Trading Chaos: Maximize Profits with Proven Technical Techniques</i>, Wiley, 1995 — 5봉 프랙탈 정의.</li>
+            <li id="src-structure-2">Aronson, D. R., <i>Evidence-Based Technical Analysis</i>, Wiley, 2006 — 주관적 분석은 규칙화되어야 검증이 선다.</li>
+            <li id="src-structure-3">Rhea, R., <i>The Dow Theory</i>, Barron's, 1932 — 추세 정의와 "반전 신호까지 추세 유지" 원칙.</li>
+            <li id="src-structure-4">Huddleston, M. J. (ICT), <i>ICT Mentorship Core Content</i> 및 무료 라이브러리, https://www.theinnercircletrader.com/ (접속일 2026-09-23) — MSS, 프리미엄/디스카운트 어휘.</li>
+            <li id="src-structure-5">Edwards, R. D. &amp; Magee, J., <i>Technical Analysis of Stock Trends</i>, 1948 — 지지·저항의 정의, 돌파 완충 규칙.</li>
+            <li id="src-structure-6">Murphy, J. J., <i>Technical Analysis of the Financial Markets</i>, New York Institute of Finance, 1999, 4장 — 존, 극성 원리, 추세선의 세 번째 접점.</li>
+            <li id="src-structure-7">Elder, A., <i>Trading for a Living</i>, Wiley, 1993 — 트리플 스크린의 타임프레임 계층.</li>
+          </ol>
+        </div>

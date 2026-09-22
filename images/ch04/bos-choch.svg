@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 270" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="720" height="270" fill="#f7f1e6"/>
+
+  <!-- 좌: BOS -->
+  <text x="30" y="28" fill="#4a453c" font-size="13" font-weight="600">BOS · 추세 방향의 파괴</text>
+  <path d="M40 205 L82 128 L112 152 L168 82 L202 106 L262 46 L286 60"
+        fill="none" stroke="#2c5a4c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- 직전 고점 수평선 -->
+  <line x1="168" y1="82" x2="300" y2="82" stroke="#b08948" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <g fill="#2c5a4c">
+    <circle cx="82" cy="128" r="3.4"/><circle cx="112" cy="152" r="3.4"/>
+    <circle cx="168" cy="82" r="3.4"/><circle cx="202" cy="106" r="3.4"/>
+    <circle cx="262" cy="46" r="3.4"/>
+  </g>
+  <text x="172" y="72" fill="#4a453c" font-size="11">직전 고점</text>
+  <text x="224" y="76" fill="#8f3d3a" font-size="12" font-weight="700">BOS</text>
+  <text x="40" y="246" fill="#4a453c" font-size="11" opacity="0.8">상승 추세가 직전 고점을 갱신 — 지속 확인</text>
+
+  <!-- 중앙 구분선 -->
+  <line x1="355" y1="20" x2="355" y2="250" stroke="#b08948" stroke-width="1" stroke-dasharray="3 5" opacity="0.6"/>
+
+  <!-- 우: CHoCH -->
+  <text x="385" y="28" fill="#4a453c" font-size="13" font-weight="600">CHoCH · 반대 방향 첫 파괴</text>
+  <path d="M395 205 L442 128 L472 152 L528 80 L562 138 L596 172 L628 182"
+        fill="none" stroke="#8f3d3a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- 상승 구간은 녹색으로 -->
+  <path d="M395 205 L442 128 L472 152 L528 80"
+        fill="none" stroke="#2c5a4c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- 마지막 HL 수평선 -->
+  <line x1="472" y1="152" x2="660" y2="152" stroke="#b08948" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <g fill="#2c5a4c">
+    <circle cx="442" cy="128" r="3.4"/><circle cx="528" cy="80" r="3.4"/>
+  </g>
+  <circle cx="472" cy="152" r="4" fill="#8f3d3a"/>
+  <circle cx="596" cy="172" r="3.4" fill="#8f3d3a"/><circle cx="628" cy="182" r="3.4" fill="#8f3d3a"/>
+  <text x="478" y="168" fill="#4a453c" font-size="11">마지막 HL</text>
+  <text x="566" y="146" fill="#8f3d3a" font-size="12" font-weight="700">CHoCH</text>
+  <text x="385" y="246" fill="#4a453c" font-size="11" opacity="0.8">상승 중 저점(HL)이 처음 깨짐 — 조기 경고</text>
+</svg>

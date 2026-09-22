@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="260" fill="#f7f1e6"/>
+  <text x="30" y="28" fill="#4a453c" font-size="13" font-weight="600">간 팬과 스케일 문제 · Gann fan and the scale problem</text>
+
+  <!-- 좌 패널: 표준 간 팬 -->
+  <text x="40" y="56" fill="#4a453c" font-size="11" font-weight="600">① 1일 = 1포인트로 정한 스케일</text>
+  <line x1="60" y1="220" x2="320" y2="220" stroke="#4a453c" stroke-width="1"/>
+  <line x1="60" y1="220" x2="60" y2="70" stroke="#4a453c" stroke-width="1"/>
+  <text x="308" y="234" fill="#4a453c" font-size="9.5">시간</text>
+  <text x="34" y="76" fill="#4a453c" font-size="9.5">가격</text>
+  <!-- 팬 선 -->
+  <line x1="60" y1="220" x2="300" y2="76" stroke="#8f3d3a" stroke-width="1.2"/>
+  <line x1="60" y1="220" x2="300" y2="112" stroke="#2c5a4c" stroke-width="2.2"/>
+  <line x1="60" y1="220" x2="300" y2="148" stroke="#b08948" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <line x1="60" y1="220" x2="240" y2="76" stroke="#b08948" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <line x1="60" y1="220" x2="300" y2="184" stroke="#b08948" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="306" y="80" fill="#8f3d3a" font-size="10">2x1</text>
+  <text x="306" y="116" fill="#2c5a4c" font-size="10" font-weight="600">1x1 = 45°</text>
+  <text x="306" y="152" fill="#b08948" font-size="10">1x2</text>
+  <text x="306" y="188" fill="#b08948" font-size="10">1x4</text>
+  <text x="216" y="70" fill="#b08948" font-size="10">4x1</text>
+
+  <!-- 우 패널: 같은 데이터, 다른 가격 스케일 -->
+  <text x="400" y="56" fill="#4a453c" font-size="11" font-weight="600">② 같은 데이터, 가격축을 1/2로</text>
+  <line x1="420" y1="220" x2="680" y2="220" stroke="#4a453c" stroke-width="1"/>
+  <line x1="420" y1="220" x2="420" y2="70" stroke="#4a453c" stroke-width="1"/>
+  <text x="668" y="234" fill="#4a453c" font-size="9.5">시간</text>
+  <text x="394" y="76" fill="#4a453c" font-size="9.5">가격</text>
+  <!-- 같은 '1x1' 논리지만 화면 각도는 ~26.5° -->
+  <line x1="420" y1="220" x2="660" y2="148" stroke="#2c5a4c" stroke-width="2.2"/>
+  <line x1="420" y1="220" x2="660" y2="112" stroke="#b08948" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <line x1="420" y1="220" x2="660" y2="184" stroke="#b08948" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="606" y="140" fill="#2c5a4c" font-size="10" font-weight="600">1x1</text>
+  <text x="600" y="100" fill="#b08948" font-size="10">2x1?</text>
+  <text x="600" y="200" fill="#b08948" font-size="10">1x2?</text>
+  <text x="420" y="246" fill="#8f3d3a" font-size="10">같은 "1x1"인데 화면 각도가 다르다</text>
+
+  <line x1="360" y1="50" x2="360" y2="235" stroke="#b08948" stroke-width="1" stroke-dasharray="3 5" opacity="0.6"/>
+</svg>
