@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="260" fill="#f7f1e6"/>
+  <!-- 피벗 격자 -->
+  <line x1="60" y1="40" x2="640" y2="40" stroke="#8f3d3a" stroke-width="1" stroke-dasharray="5 4"/>
+  <line x1="60" y1="80" x2="640" y2="80" stroke="#8f3d3a" stroke-width="1" stroke-dasharray="5 4"/>
+  <line x1="60" y1="130" x2="640" y2="130" stroke="#4a453c" stroke-width="1.6"/>
+  <line x1="60" y1="180" x2="640" y2="180" stroke="#2c5a4c" stroke-width="1" stroke-dasharray="5 4"/>
+  <line x1="60" y1="220" x2="640" y2="220" stroke="#2c5a4c" stroke-width="1" stroke-dasharray="5 4"/>
+  <!-- 당일 가격 경로: P 주변 왕복, S1·R1 터치 -->
+  <path d="M62 136 L112 96 L162 122 L212 180 L272 152 L332 82 L402 122 L472 142 L542 82 L602 112 L636 126" fill="none" stroke="#4a453c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="212" cy="180" r="3.5" fill="#2c5a4c"/>
+  <circle cx="332" cy="82" r="3.5" fill="#8f3d3a"/>
+  <circle cx="542" cy="82" r="3.5" fill="#8f3d3a"/>
+  <!-- 라벨 -->
+  <text x="66" y="34" fill="#8f3d3a" font-size="11">R2 = P + (H−L)</text>
+  <text x="66" y="74" fill="#8f3d3a" font-size="11">R1 = 2P − L</text>
+  <text x="66" y="124" fill="#4a453c" font-size="11" font-weight="600">P = (H+L+C)/3</text>
+  <text x="66" y="174" fill="#2c5a4c" font-size="11">S1 = 2P − H</text>
+  <text x="66" y="214" fill="#2c5a4c" font-size="11">S2 = P − (H−L)</text>
+  <text x="470" y="252" fill="#4a453c" font-size="10" opacity="0.8">전일 고가·저가·종가로 계산한 당일 격자</text>
+</svg>

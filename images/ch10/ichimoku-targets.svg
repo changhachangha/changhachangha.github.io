@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="280" fill="#f7f1e6"/>
+  <!-- 목표가 격자(오른쪽): E 180 / V 168 / N 152 / NT 118 -->
+  <line x1="385" y1="35" x2="655" y2="35" stroke="#8f3d3a" stroke-width="1" stroke-dasharray="6 4"/>
+  <line x1="385" y1="65" x2="655" y2="65" stroke="#8f3d3a" stroke-width="1" stroke-dasharray="6 4" opacity="0.8"/>
+  <line x1="385" y1="105" x2="655" y2="105" stroke="#b08948" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <line x1="385" y1="190" x2="655" y2="190" stroke="#2c5a4c" stroke-width="1" stroke-dasharray="6 4" opacity="0.8"/>
+  <!-- 가격 경로: A→B 상승, B→C 조정, 이후 N 부근까지 -->
+  <path d="M60 252 L90 235 L150 192 L210 158 L260 135 L305 172 L370 205 L430 168 L500 124 L560 105 L640 112" fill="none" stroke="#4a453c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="90" cy="235" r="4" fill="#4a453c"/>
+  <circle cx="260" cy="135" r="4" fill="#4a453c"/>
+  <circle cx="370" cy="205" r="4" fill="#4a453c"/>
+  <!-- 라벨 -->
+  <text x="84" y="270" fill="#4a453c" font-size="11" font-weight="600">A</text>
+  <text x="268" y="130" fill="#4a453c" font-size="11" font-weight="600">B</text>
+  <text x="378" y="222" fill="#4a453c" font-size="11" font-weight="600">C</text>
+  <text x="392" y="30" fill="#8f3d3a" font-size="11">E = B + (B−A)</text>
+  <text x="392" y="60" fill="#8f3d3a" font-size="11">V = B + (B−C)</text>
+  <text x="392" y="100" fill="#b08948" font-size="11" font-weight="600">N = C + (B−A)</text>
+  <text x="392" y="185" fill="#2c5a4c" font-size="11">NT = C + (C−A)/2</text>
+</svg>

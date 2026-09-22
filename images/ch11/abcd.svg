@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="260" fill="#f7f1e6"/>
+  <text x="24" y="26" font-size="12" fill="#8a7f70" letter-spacing="1">AB=CD · MEASURED MOVE — 두 다리의 대칭</text>
+
+  <!-- 가격 경로 A→B→C→D -->
+  <path d="M60 200 L230 60" fill="none" stroke="#2c5a4c" stroke-width="3" stroke-linecap="round"/>
+  <path d="M230 60 L360 146" fill="none" stroke="#8f3d3a" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M360 146 L530 16" fill="none" stroke="#2c5a4c" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- AB를 C로 옮긴 투사(점선, CD와 포개짐) -->
+  <path d="M360 146 L530 16" fill="none" stroke="#b08948" stroke-width="1.4" stroke-dasharray="6 4"/>
+
+  <!-- 되돌림 눈금: B 수준선 -->
+  <line x1="230" y1="60" x2="405" y2="60" stroke="#b08948" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="408" y="56" fill="#4a453c" font-size="11">B 수준</text>
+  <text x="300" y="112" fill="#8f3d3a" font-size="11">BC 되돌림 ≈ 0.618·AB</text>
+
+  <!-- 스윙 점 -->
+  <circle cx="60" cy="200" r="4" fill="#4a453c"/>
+  <circle cx="230" cy="60" r="4" fill="#4a453c"/>
+  <circle cx="360" cy="146" r="4" fill="#4a453c"/>
+  <circle cx="530" cy="16" r="4.5" fill="#8f3d3a"/>
+  <text x="50" y="222" fill="#4a453c" font-size="13" font-weight="600">A</text>
+  <text x="222" y="48" fill="#4a453c" font-size="13" font-weight="600">B</text>
+  <text x="352" y="166" fill="#4a453c" font-size="13" font-weight="600">C</text>
+  <text x="540" y="22" fill="#8f3d3a" font-size="13" font-weight="600">D — 완성점</text>
+
+  <!-- 다리 라벨 -->
+  <text x="118" y="118" fill="#2c5a4c" font-size="12" font-weight="600">AB</text>
+  <text x="432" y="72" fill="#2c5a4c" font-size="12" font-weight="600">CD = AB</text>
+
+  <!-- 완성 뒤 반전 후보 -->
+  <path d="M530 16 L575 60 L620 96" fill="none" stroke="#8f3d3a" stroke-width="2" stroke-dasharray="3 4" stroke-linecap="round"/>
+  <text x="585" y="120" fill="#8f3d3a" font-size="11">반전 후보 · reversal</text>
+</svg>

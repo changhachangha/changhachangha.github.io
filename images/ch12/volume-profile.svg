@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="320" fill="#f7f1e6"/>
+
+  <text x="40" y="28" fill="#4a453c" font-size="12" font-weight="600">볼륨 프로파일 — 가격대별 거래량 분포 · volume profile</text>
+  <text x="40" y="44" fill="#8a7f70" font-size="10.5">막대 길이 = 그 가격대에서 거래된 양 · bar = volume at price</text>
+
+  <!-- 가격 눈금 (왼쪽) -->
+  <g fill="#8a7f70" font-size="10">
+    <text x="48" y="66">105</text>
+    <text x="48" y="88">104</text>
+    <text x="48" y="110">103</text>
+    <text x="48" y="132">102</text>
+    <text x="48" y="154">101</text>
+    <text x="48" y="176">100</text>
+    <text x="48" y="198">99</text>
+    <text x="48" y="220">98</text>
+    <text x="48" y="242">97</text>
+    <text x="48" y="264">96</text>
+    <text x="48" y="286">95</text>
+  </g>
+
+  <!-- 가치영역 음영: 97~103 행 (VAH 103 상단 ~ VAL 97 하단) -->
+  <rect x="90" y="99" width="360" height="176" fill="#2c5a4c" opacity="0.07"/>
+
+  <!-- 히스토그램 막대 (가격대별, 위에서 아래로) -->
+  <!-- 105 LVN -->
+  <rect x="90" y="55"  width="30"  height="18" fill="#8a7f70" opacity="0.55"/>
+  <!-- 104 -->
+  <rect x="90" y="77"  width="62"  height="18" fill="#8a7f70" opacity="0.55"/>
+  <!-- 103 VAH 경계 -->
+  <rect x="90" y="99"  width="150" height="18" fill="#8f3d3a" opacity="0.55"/>
+  <!-- 102 -->
+  <rect x="90" y="121" width="220" height="18" fill="#2c5a4c" opacity="0.6"/>
+  <!-- 101 -->
+  <rect x="90" y="143" width="300" height="18" fill="#2c5a4c" opacity="0.6"/>
+  <!-- 100 POC -->
+  <rect x="90" y="165" width="360" height="18" fill="#b08948"/>
+  <!-- 99 -->
+  <rect x="90" y="187" width="270" height="18" fill="#2c5a4c" opacity="0.6"/>
+  <!-- 98 -->
+  <rect x="90" y="209" width="180" height="18" fill="#2c5a4c" opacity="0.6"/>
+  <!-- 97 VAL 경계 -->
+  <rect x="90" y="231" width="120" height="18" fill="#8f3d3a" opacity="0.55"/>
+  <!-- 96 LVN -->
+  <rect x="90" y="253" width="44"  height="18" fill="#8a7f70" opacity="0.55"/>
+  <!-- 95 -->
+  <rect x="90" y="275" width="22"  height="18" fill="#8a7f70" opacity="0.55"/>
+
+  <!-- VAH / VAL 경계선 -->
+  <line x1="90" y1="99"  x2="460" y2="99"  stroke="#8f3d3a" stroke-width="1.4" stroke-dasharray="6,4"/>
+  <line x1="90" y1="249" x2="460" y2="249" stroke="#8f3d3a" stroke-width="1.4" stroke-dasharray="6,4"/>
+
+  <!-- 주석 (오른쪽) -->
+  <line x1="452" y1="174" x2="472" y2="174" stroke="#b08948" stroke-width="1.2"/>
+  <text x="476" y="178" fill="#4a453c" font-size="11.5">POC · point of control — 최다 거래 가격</text>
+
+  <text x="476" y="104" fill="#8f3d3a" font-size="11">VAH · value area high</text>
+  <text x="476" y="254" fill="#8f3d3a" font-size="11">VAL · value area low</text>
+  <text x="476" y="126" fill="#2c5a4c" font-size="11">가치영역 · value area ≈ 거래량의 70%</text>
+
+  <text x="130" y="66"  fill="#8a7f70" font-size="10">LVN — 얇은 노드, 빠르게 통과</text>
+  <text x="140" y="264" fill="#8a7f70" font-size="10">LVN · low volume node</text>
+  <text x="320" y="132" fill="#4a453c" font-size="10">HVN · high volume node — 두꺼운 노드, 수용의 자석</text>
+
+  <text x="40" y="312" fill="#4a453c" font-size="11">가로축은 시간이 아니라 거래량 — TPO의 문자 대신 체결량으로 쌓은 형제다</text>
+</svg>

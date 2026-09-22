@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 310" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="310" fill="#f7f1e6"/>
+
+  <text x="40" y="28" fill="#4a453c" font-size="12" font-weight="600">볼린저 스퀴즈 — 밴드폭이 극단으로 좁아진 뒤 변동성이 팽창한다</text>
+  <text x="40" y="44" fill="#8a7f70" font-size="10.5">중심선 20 SMA · 바깥 밴드 ±2σ · bollinger squeeze</text>
+
+  <!-- 상단 밴드: 넓게 → 좁아짐 → 팽창 -->
+  <path d="M 60 96 C 120 92, 160 90, 210 100 C 260 110, 300 118, 340 120
+           C 390 122, 430 124, 470 112 C 520 96, 570 70, 640 48"
+        fill="none" stroke="#b08948" stroke-width="1.8"/>
+  <!-- 하단 밴드 -->
+  <path d="M 60 216 C 120 212, 160 208, 210 196 C 260 184, 300 176, 340 174
+           C 390 172, 430 172, 470 184 C 520 198, 570 210, 640 222"
+        fill="none" stroke="#b08948" stroke-width="1.8"/>
+  <!-- 중심선 -->
+  <path d="M 60 156 C 120 152, 160 150, 210 150 C 260 150, 300 148, 340 147
+           C 390 146, 430 148, 470 148 C 520 146, 570 138, 640 132"
+        fill="none" stroke="#8a7f70" stroke-width="1.2" stroke-dasharray="5,4"/>
+
+  <!-- 가격선: 밴드 안에서 진동 → 스퀴즈 구간 평탄 → 위로 이탈 -->
+  <polyline points="60,180 100,140 140,186 180,128 220,168 260,140 300,164 330,150
+                    360,158 390,144 420,152 450,138 480,148 510,128 540,100 570,78 610,60 645,52"
+            fill="none" stroke="#2c5a4c" stroke-width="2"/>
+
+  <!-- 스퀴즈 구간 음영 -->
+  <rect x="330" y="60" width="150" height="220" fill="#b08948" opacity="0.09"/>
+  <line x1="330" y1="60" x2="330" y2="280" stroke="#b08948" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="480" y1="60" x2="480" y2="280" stroke="#b08948" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="405" y="296" fill="#b08948" font-size="11" text-anchor="middle">스퀴즈 — 밴드폭 최소 · squeeze</text>
+
+  <!-- 주석 -->
+  <text x="70" y="80" fill="#8a7f70" font-size="10.5">상단 밴드 = SMA + 2σ</text>
+  <text x="70" y="240" fill="#8a7f70" font-size="10.5">하단 밴드 = SMA − 2σ</text>
+  <text x="520" y="240" fill="#4a453c" font-size="11">확장 — 방향은 밴드가 아니라 구조가 답한다</text>
+  <line x1="510" y1="226" x2="560" y2="230" stroke="#8a7f70" stroke-width="0.8"/>
+  <text x="500" y="40" fill="#4a453c" font-size="11">밴드 위를 걷는 구간 · walking the band</text>
+  <line x1="570" y1="44" x2="596" y2="56" stroke="#8a7f70" stroke-width="0.8"/>
+</svg>

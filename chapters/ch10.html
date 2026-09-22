@@ -1,15 +1,140 @@
 <!-- CHAPTER 10 · ratios -->
-<!-- LEX: [{"t": "피보나치", "k": "지표", "p": "ratios", "aka": "0.618 0.786 되돌림 확장", "d": "많이 쓰이는 격자. 같은 스윙에 여러 격자 겹치면 중복."}] -->
+<!-- LEX: [{"t": "피보나치", "k": "지표", "p": "ratios", "aka": "0.618 0.786 되돌림 확장", "d": "많이 쓰이는 격자. 같은 스윙에 여러 격자 겹치면 중복."}, {"t": "피보나치 되돌림", "k": "지표", "p": "ratios", "aka": "retracement 0.382 0.5 0.618", "d": "직전 스윙 안쪽의 되돌림 폭을 수열 비율로 잰 눈금."}, {"t": "피보나치 확장", "k": "지표", "p": "ratios", "aka": "extension projection 1.272 1.618", "d": "스윙 너머 목표폭을 수열 비율로 투사."}, {"t": "피벗 포인트", "k": "지표", "p": "ratios", "aka": "pivot Floor Woodie P S1 R1", "d": "전 세션 고저종가로 짜는 당일 지지저항 격자."}, {"t": "카마리야", "k": "지표", "p": "ratios", "aka": "Camarilla H3 L3 H4 L4", "d": "종가 기준 여덟 단 피벗. 안쪽 회귀, 바깥 돌파."}, {"t": "피치포크", "k": "지표", "p": "ratios", "aka": "Andrews pitchfork median line", "d": "세 피벗의 중앙값 회귀 채널."}, {"t": "간 각도", "k": "지표", "p": "ratios", "aka": "Gann fan 1x1 각도선", "d": "시간:가격 단위로 그은 팬. 스케일 정의에 종속."}, {"t": "P&F 카운트", "k": "패턴", "p": "ratios", "aka": "horizontal count 와이코프 횡보 카운트", "d": "횡보 열 수×박스×전환으로 목표폭을 재는 계산."}, {"t": "N계산값", "k": "지표", "p": "ratios", "aka": "일목 가격론 E V NT 계산치", "d": "A→B→C 세 점으로 목표가를 내는 일목의 네 계산."}, {"t": "타임존", "k": "지표", "p": "ratios", "aka": "Fibonacci time zones 시간 격자", "d": "기저점에서 수열 간격으로 세운 세로선."}] -->
 
         <div class="crumb">Chapter 10</div>
         <h2 class="page-title">비율과 투사</h2>
         <p class="lede">피보나치는 과학이 아니라 많이 쓰이는 격자다. 같은 스윙에 여러 격자를 겹치면 확인이 아니라 중복이다.</p>
-        <ul>
-          <li>되돌림: 23.6, 38.2, 50(관용), 61.8, 78.6, 88.6</li>
-          <li>확장: 127.2, 161.8, 200, 261.8</li>
-          <li>팬, 아크, 타임존, 채널</li>
-          <li>피벗: Floor, Woodie, Camarilla</li>
-          <li>앤드류 피치포크, 간 각도</li>
-          <li>일목 N/E/V/NT, 와이코프 P&amp;F 카운트, 패턴 높이</li>
-        </ul>
-        <div class="warn">대규모 백테스트에서 38/50/62가 다른 비율보다 특별하지 않다는 보고가 있다. 그래도 시장이 모이면 반응할 수는 있다.</div>
+
+        <div class="chapter-summary"><b>요약.</b> 이 챕터는 차트 위에 비율 눈금을 얹는 도구 전체를 한 계보로 다룬다. 피보나치 되돌림·확장은 수열의 비(0.618, 1.618)에서 온 눈금이고, 50과 200은 수열이 아니라 관용에서 왔다. 같은 스윙에 피보·OTE·하모닉 PRZ를 겹치면 독립 계측이 아니라 같은 두 점의 재계산이다 — 컨플루언스는 서로 다른 데이터가 같은 자리를 가리킬 때만 성립한다. 피벗과 카마리야는 전일 고저종가의 수평 격자, 피치포크와 간 각도는 앵커와 스케일을 묻는 기울어진 격자다. 일목 가격론, 와이코프 P&amp;F 카운트, 패턴 높이 투사는 닫힌 구조를 목표폭으로 옮기는 원인→결과 계보다. 검증 상태는 박약하다 — 대규모 백테스트에서 38/50/62가 다른 비율보다 특별하지 않다는 보고가 있고, 격자의 실질 가치는 예언이 아니라 무효화 가격을 정하는 기하에 있다.</div>
+
+        <nav class="chapter-toc">
+          <div class="toc-title">이 챕터에서</div>
+          <ol>
+            <li><a data-scroll="sec-ratios-1">격자의 성격 — 수열에서 도구로</a></li>
+            <li><a data-scroll="sec-ratios-2">되돌림과 확장 — 눈금의 출처</a></li>
+            <li><a data-scroll="sec-ratios-3">겹치는 함정 — 확인인가 중복인가</a></li>
+            <li><a data-scroll="sec-ratios-4">피벗 — 전일 고저종가의 격자</a></li>
+            <li><a data-scroll="sec-ratios-5">기울어진 격자 — 피치포크와 간 각도</a></li>
+            <li><a data-scroll="sec-ratios-6">원인에서 결과로 — N계산 · 카운트 · 높이</a></li>
+            <li><a data-scroll="sec-ratios-7">검증 상태 — 특별한 숫자인가</a></li>
+          </ol>
+        </nav>
+
+        <h3 id="sec-ratios-1">격자의 성격 — 수열에서 도구로</h3>
+        <p>피보나치 수열<sup class="fnref" id="fnref-ratios-1"><a data-scroll="fn-ratios-1">1</a></sup>은 레오나르도 피사노가 <i>Liber Abaci</i>(1202)의 토끼 번식 문제로 서구에 소개한 수열이다 — 각 항이 앞 두 항의 합(1, 1, 2, 3, 5, 8, 13, 21…). 인접 항의 비는 0.618로 수렴하고 그 역수는 1.618이며, 이 극한이 황금비<sup class="fnref" id="fnref-ratios-2"><a data-scroll="fn-ratios-2">2</a></sup> φ다.</p>
+        <p>차트에 올라온 경로는 엘리엇 파동이다 — "3파는 1파의 1.618배가 흔하다" 같은 파동 관계식이 비율을 분석 언어로 만들었고, 프렉터는 이 비를 자연의 법칙이 시장에 나타난 것으로까지 밀었다<sup class="cit"><a data-scroll="src-ratios-1">[1]</a></sup>. 되돌림·팬·아크·타임존의 표준 도구 세트는 머피의 교과서를 통해 널리 퍼졌다<sup class="cit"><a data-scroll="src-ratios-2">[2]</a></sup>.</p>
+        <p>논쟁은 두 갈래다. 자연법칙 진영은 식물의 나선과 성장 비율을 든다 — 시장의 군중 행동도 자연의 일부라는 주장이다. 반대쪽은 관찰의 문제를 든다 — 눈금이 조밀하면 어떤 반전도 어떤 눈금 근처에 있고, "근처"의 허용 폭을 넓히면 명중률은 원하는 대로 만들어진다. 실무의 자리는 셋째다 — 유래가 우주의 법칙이든 관용이든, 이 격자는 널리 공유된 눈금이다. 많이 보는 눈금은 주문이 모일 후보 자리를 준다. 그것이 이 도구의 전부이자 한계다.</p>
+
+        <h3 id="sec-ratios-2">되돌림과 확장 — 눈금의 출처</h3>
+        <p>되돌림<sup class="fnref" id="fnref-ratios-3"><a data-scroll="fn-ratios-3">3</a></sup>은 직전 스윙 안쪽에서 얼마나 되돌렸는가를 재는 눈금이다. 눈금마다 출처가 다르다 — 수열의 비에서 온 것과 관용에서 온 것을 섞어 쓰므로 표로 분리한다.</p>
+        <table>
+          <thead><tr><th>눈금</th><th>출처</th><th>쓰임</th></tr></thead>
+          <tbody>
+            <tr><td>23.6</td><td>수열 — 세 칸 뒤 항과의 비(8/34)</td><td>얕은 조정</td></tr>
+            <tr><td>38.2</td><td>수열 — 0.618², 두 칸 뒤 비(13/34)</td><td>표준 조정 상단</td></tr>
+            <tr><td>50</td><td>관용 — 다우의 1/3~2/3, 간의 절반<sup class="cit"><a data-scroll="src-ratios-3">[3]</a></sup></td><td>가장 많이 보는 눈금, 수열 아님</td></tr>
+            <tr><td>61.8</td><td>수열 — 1/φ</td><td>황금 되돌림</td></tr>
+            <tr><td>78.6</td><td>√0.618</td><td>깊은 조정</td></tr>
+            <tr><td>88.6</td><td>√0.786</td><td>극단 — 하모닉 Bat의 D<sup class="cit"><a data-scroll="src-ratios-5">[5]</a></sup></td></tr>
+            <tr><td>127.2</td><td>√1.618</td><td>확장</td></tr>
+            <tr><td>161.8</td><td>φ</td><td>확장의 표준 눈금</td></tr>
+            <tr><td>200</td><td>관용 — 두 배</td><td>측정 이동</td></tr>
+            <tr><td>261.8</td><td>φ²</td><td>극단 확장</td></tr>
+          </tbody>
+        </table>
+        <p>확장(extension)은 스윙 끝 너머의 목표폭이고, 투사(projection)는 A→B→C 세 점으로 두 번째 파동을 재는 계산이다 — AB=CD는 100% 투사다. 같은 수열을 다른 축에 펼친 변형도 있다. 팬(fan)은 되돌림 비율의 각도로 부채꼴을 열고, 아크(arc)는 반원 호로 같은 눈금을 굽히며, 타임존<sup class="fnref" id="fnref-ratios-4"><a data-scroll="fn-ratios-4">4</a></sup>(time zone)은 기저점에서 수열 간격으로 세로선을 세운다. 비율 간격으로 평행선을 긋는 피보 채널까지 포함해, 축이 달라도 눈금의 출처는 같다.</p>
+        <figure class="fig">
+          <img src="images/ch10/fib-retracement.svg" alt="스윙 저점에서 고점까지 오른 뒤 0.618 되돌림까지 조정하고 다시 상승하는 경로에 23.6에서 78.6까지 격자가 얹힌 도식" loading="lazy" />
+          <figcaption>그림 1. 되돌림 격자. 스윙 저점과 고점 사이에 수열 비율의 수평 눈금을 얹는다. 50은 수열이 아니라 다우 관용의 눈금이고, 0.618~0.786이 깊은 되돌림 구간이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>실전 쓰임은 위치다 — 되돌림 존에서 반응이 나오는지를 보고, 무효화는 스윙의 원단 또는 다음 눈금으로 잡는다. 한계는 앵커 선택이다 — 스윙의 양끝을 어디로 잡느냐에 따라 눈금 전체가 이동하고, 꼬리까지 잡을지 몸통까지 잡을지에 공인 규격이 없다.</p>
+
+        <h3 id="sec-ratios-3">겹치는 함정 — 확인인가 중복인가</h3>
+        <p>같은 스윙을 재는 도구끼리는 같은 답을 낸다. 피보의 0.618~0.786 되돌림, ICT의 OTE(0.62~0.79, <a href="#smc">유동성 언어</a>), 하모닉 PRZ<sup class="fnref" id="fnref-ratios-5"><a data-scroll="fn-ratios-5">5</a></sup>(0.786의 XA 되돌림 × 1.27~1.618의 BC 확장 × AB=CD 투사, <a href="#harmonic">하모닉</a>)은 모두 같은 두 앵커 — 스윙 고저 — 에서 파생된 비율이다. 셋이 같은 자리를 가리키는 것은 세 번의 확인이 아니라 한 번의 계산이다.</p>
+        <p>컨플루언스가 성립하려면 독립 계측이어야 한다 — 다른 데이터, 다른 논리로 같은 자리를 가리킬 때다. 같은 스윙의 되돌림과 확장은 데이터를 공유한다. 눈금이 조밀할수록 문제는 커진다 — 되돌림 여섯 개, 확장 네 개, 피벗 다섯 개를 얹으면 가격이 눈금 근처에 있지 않을 방법이 없다. 모든 자리가 레벨이면 아무 자리도 레벨이 아니다.</p>
+        <figure class="fig">
+          <img src="images/ch05/premium-discount.svg" alt="같은 스윙에 피보 되돌림과 OTE 밴드가 겹쳐 그려진 도식 — 0.62~0.79 구간이 두 도구에서 같은 대상임을 보여준다" loading="lazy" />
+          <figcaption>그림 2. 같은 스윙의 재계산. 스윙 구간에 그린 프리미엄/디스카운트와 OTE 밴드(0.62~0.79)는 피보 깊은 되돌림과 같은 눈금이다 — 겹침은 확인이 아니라 같은 앵커의 파생이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>방어는 세 가지다. 한 스윙에는 격자 하나만 얹는다. 나머지 근거는 다른 데이터 — 거래량, 시간, 구조 — 에서 가져온다. 무효화 가격은 격자와 무관하게 먼저 정한다. 순서를 바꾸면 격자가 근거를 생산한다.</p>
+
+        <h3 id="sec-ratios-4">피벗 — 전일 고저종가의 격자</h3>
+        <p>피벗 포인트<sup class="fnref" id="fnref-ratios-6"><a data-scroll="fn-ratios-6">6</a></sup>는 전 세션의 고가·저가·종가로 짜는 당일 격자다 — 플로어 트레이더가 개장 전에 지지·저항 후보를 계산한 도구다. 표준(Floor)은 P=(H+L+C)/3이 중심이고 R1=2P−L, S1=2P−H, R2=P+(H−L), S2=P−(H−L)로 퍼진다. Woodie는 종가를 두 번 세어 P=(H+L+2C)/4로 최근가에 무게를 준다<sup class="cit"><a data-scroll="src-ratios-2">[2]</a></sup>.</p>
+        <p>카마리야<sup class="fnref" id="fnref-ratios-7"><a data-scroll="fn-ratios-7">7</a></sup>는 다른 계보다 — 종가를 중심으로 고저폭의 1.1/k 배만큼 떨어진 여덟 개 레벨로, H3과 L3 사이를 회귀 구간, H4와 L4 이탈을 돌파 구간으로 읽는다. 1989년 Nick Stott이 고안한 것으로 전해지고 1.1 계수의 유래는 불명이다 — 관용이 굳어진 눈금이다.</p>
+        <figure class="fig">
+          <img src="images/ch10/pivot-levels.svg" alt="R2, R1, P, S1, S2 다섯 수평선 사이에서 당일 가격이 왕복하며 S1과 R1을 터치하는 피벗 격자 도식" loading="lazy" />
+          <figcaption>그림 3. 플로어 피벗. 전일 고가·저가·종가에서 P를 계산하고 대칭으로 지지·저항을 펼친다. P 위는 매수 우위, 아래는 매도 우위로 읽는 당일 기준선이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>용도는 당일 기준선이다 — 레벨의 첫 터치에서 반응을 보고, 다음 레벨이 목표 후보다. 한계는 전일 범위에 갇힌다는 점이다 — 갭이나 추세일에는 격자 전체가 엉뚱한 곳에 놓이고, 회귀 논리의 카마리야가 추세일에 가장 자주 깨진다.</p>
+
+        <h3 id="sec-ratios-5">기울어진 격자 — 피치포크와 간 각도</h3>
+        <p>앤드루스 피치포크<sup class="fnref" id="fnref-ratios-8"><a data-scroll="fn-ratios-8">8</a></sup>는 세 피벗의 채널이다 — 기저 피벗(P0)에서 반대편 두 반전점(P1, P2)의 중점을 지나는 중앙값선을 긋고, P1과 P2에서 평행선을 뽑는다. 앨런 앤드루스의 Action–Reaction 코스가 원전이고<sup class="cit"><a data-scroll="src-ratios-2">[2]</a></sup>, 가격이 중앙값선으로 돌아가려 한다는 회귀 가정이 도구의 명제다. 앵커를 선분의 중점으로 옮긴 Schiff 변형이 있다.</p>
+        <figure class="fig">
+          <img src="images/ch10/pitchfork.svg" alt="P0, P1, P2 세 피벗에서 중앙값선과 두 평행선이 뻗고 가격이 중앙값선으로 되돌아오는 피치포크 도식" loading="lazy" />
+          <figcaption>그림 4. 앤드루스 피치포크. P0에서 P1–P2 중점을 지나는 중앙값선과 두 평행선이 채널을 만든다. 가격의 중앙값 회귀를 겨냥하는 도구다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>간 각도<sup class="fnref" id="fnref-ratios-9"><a data-scroll="fn-ratios-9">9</a></sup>는 시간 1단위당 가격 k로 긋는 팬이다 — 1x1이 균형각이고 그 위에 2x1·4x1, 아래에 1x2·1x4를 펼친다. 문제는 스케일이다 — "가격 1단위"를 무엇으로 정하느냐에 각도 전체가 종속되고, 축을 바꾸면 같은 선이 다른 각도로 그어진다(<a href="#theories">고전 이론</a> 그림 4).</p>
+        <p>기울어진 격자의 공통 한계가 여기 있다 — 수평 격자는 가격 하나만 묻지만 기울어진 격자는 가격×시간의 단위 정의까지 묻는다. 앵커 셋에 스케일 하나, 자유도가 네 개다. 쓸 수 있는 형태로 남기려면 — 앵커는 명백한 피벗으로 고정하고, 중앙값선 도달을 반응 후보로 보며, 평행선 이탈을 무효화로 쓴다. 회귀 주장 자체는 경험칙이지 법칙이 아니다.</p>
+
+        <h3 id="sec-ratios-6">원인에서 결과로 — N계산 · 카운트 · 높이</h3>
+        <p>투사의 다른 계보는 닫힌 구조를 재서 목표폭을 만든다. 일목 가격론<sup class="fnref" id="fnref-ratios-10"><a data-scroll="fn-ratios-10">10</a></sup>은 A→B 상승과 B→C 조정의 세 점에서 네 계산치를 낸다 — E=B+(B−A), N=C+(B−A), V=B+(B−C), NT=C+(C−A)/2<sup class="cit"><a data-scroll="src-ratios-6">[6]</a></sup>. 같은 폭의 두 번째 파동(E·N)은 AB=CD의 친척이고, 조정분을 되돌린 V와 절반 되돌림의 NT가 그 변주다.</p>
+        <figure class="fig">
+          <img src="images/ch10/ichimoku-targets.svg" alt="A에서 B로 상승하고 C까지 조정한 세 점에서 E, V, N, NT 네 목표가가 오른쪽에 투사되는 일목 가격론 도식" loading="lazy" />
+          <figcaption>그림 5. 일목 가격론의 네 계산치. A→B→C 세 점만으로 E·V·N·NT 목표폭이 정해진다. 비율이 아니라 구간의 길이를 옮기는 계산이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>와이코프의 P&amp;F 카운트<sup class="fnref" id="fnref-ratios-11"><a data-scroll="fn-ratios-11">11</a></sup>는 가로로 잰다 — 매집·분산 레인지의 열 수를 세어 박스 크기와 전환 폭을 곱하고, 그 폭을 레인지 끝에서 추세 방향으로 옮긴다<sup class="cit"><a data-scroll="src-ratios-7">[7]</a></sup>. 원인(횡보의 폭)이 결과(목표폭)를 정한다는 법칙의 계산이다(<a href="#charts">차트 유형</a> 그림 2). 고전 패턴의 측정 법칙은 세로로 잰다 — 헤드앤숄더의 머리~넥라인 높이를 돌파점에서 옮긴다(<a href="#patterns">고전 패턴</a>)<sup class="cit"><a data-scroll="src-ratios-3">[3]</a></sup>.</p>
+        <p>세 도구의 공통 문법은 하나다 — 닫힌 구조의 길이를 돌파 방향으로 옮겨 최소 기대치를 만든다. 차이는 재는 방향이다 — 일목은 파동의 폭, P&amp;F는 횡보의 폭, 패턴은 형상의 높이다. 공통 한계도 있다 — 목표는 약속이 아니라 기대치고, 앵커(레인지의 시작과 끝, 넥라인의 기울기)가 움직이면 목표도 움직인다.</p>
+
+        <h3 id="sec-ratios-7">검증 상태 — 특별한 숫자인가</h3>
+        <p>대규모 백테스트에서 38/50/62가 다른 비율보다 특별하지 않다는 보고가 있다 — 되돌림이 멈춘 가격대의 분포를 재면 피보 눈금에 유의한 집중이 나오지 않는다는 취지다. 수열을 시장에 대입하는 발상 자체를 Aronson은 주관적 검증이 불가능한 도구의 대표 사례로 든다 — 눈금이 많고 허용 폭이 자의적이면 어떤 과거도 설명되고, 설명되지 않는 과거를 찾기가 더 어렵다<sup class="cit"><a data-scroll="src-ratios-8">[8]</a></sup>. 규칙을 많이 시험할수록 우연한 명중이 쌓이는 <a href="#assumptions">다중비교</a>의 구멍과 같다.</p>
+        <p>반대편 실증도 있다 — 주문은 지지·저항 부근과 라운드 넘버에 실제로 군집하고, 그 군집이 소화되며 가격이 반응한다<sup class="cit"><a data-scroll="src-ratios-9">[9]</a></sup>. 그래도 시장이 모이면 반응할 수는 있다 — 다만 반응의 원인은 비율의 신비가 아니라 그 자리에 모인 주문이다. 널리 보는 눈금일수록 후보 자리로서의 값은 있다.</p>
+        <div class="warn">격자를 얹는 순서가 결과를 정한다 — 먼저 구조와 무효화 가격을 정하고 격자는 그 안의 눈금으로만 쓸 것. 격자를 먼저 그리고 구조를 끼워 맞추면 모든 차트가 시나리오가 된다.</div>
+        <p>남는 쓸모는 기하다 — 진입 근처에 눈금이 있으면 무효화 가격이 정해지고 손익비가 계산되며, "여기서 틀리면 나간다"가 숫자가 된다. 비율이 맞아서가 아니라 리스크를 정의할 수 있어서 쓰는 도구다.</p>
+
+        <div class="footnotes">
+          <div class="fn-title">용어 각주</div>
+          <ol>
+            <li id="fn-ratios-1"><b>피보나치 수열(Fibonacci sequence)</b>: 각 항이 앞 두 항의 합인 수열(1, 1, 2, 3, 5, 8, 13…). 인접 항의 비가 0.618로 수렴한다. 레오나르도 피사노의 <i>Liber Abaci</i>(1202)가 서구 소개의 원전.
+              <a class="fnback" data-scroll="fnref-ratios-1">↩</a></li>
+            <li id="fn-ratios-2"><b>황금비(Golden ratio, φ)</b>: (1+√5)/2 ≈ 1.618. 수열 연속 비의 극한이며 1/φ ≈ 0.618. φ² ≈ 2.618, √φ ≈ 1.272가 확장 눈금의 출처다.
+              <a class="fnback" data-scroll="fnref-ratios-2">↩</a></li>
+            <li id="fn-ratios-3"><b>되돌림·확장·투사(Retracement·Extension·Projection)</b>: 되돌림은 스윙 안쪽 눈금, 확장은 스윙 끝 너머 목표, 투사는 세 점(A→B→C)으로 두 번째 파동을 재는 계산.
+              <a class="fnback" data-scroll="fnref-ratios-3">↩</a></li>
+            <li id="fn-ratios-4"><b>팬·아크·타임존(Fan·Arc·Time zones)</b>: 같은 비율을 각도·곡률·시간축으로 펼친 변형 도구. 타임존은 기저점에서 수열 간격으로 세운 세로선이다.
+              <a class="fnback" data-scroll="fnref-ratios-4">↩</a></li>
+            <li id="fn-ratios-5"><b>PRZ(Potential Reversal Zone)</b>: 하모닉 패턴의 D점 근처에서 서로 다른 비율 계산이 겹치는 반전 후보 구간. 같은 스윙의 파생 계산끼리의 겹침이다.
+              <a class="fnback" data-scroll="fnref-ratios-5">↩</a></li>
+            <li id="fn-ratios-6"><b>피벗 포인트(Pivot point)</b>: 전 세션 고가·저가·종가로 계산하는 당일 격자. Floor는 P=(H+L+C)/3, Woodie는 종가 가중 (H+L+2C)/4다.
+              <a class="fnback" data-scroll="fnref-ratios-6">↩</a></li>
+            <li id="fn-ratios-7"><b>카마리야(Camarilla)</b>: 종가 ± (H−L)×1.1/k 계수의 여덟 단 피벗. H3·L3 안쪽은 회귀, H4·L4 바깥은 돌파로 읽는 관행.
+              <a class="fnback" data-scroll="fnref-ratios-7">↩</a></li>
+            <li id="fn-ratios-8"><b>피치포크(Andrews' Pitchfork)</b>: 세 피벗의 중앙값선(median line)과 평행선 둘로 만든 삼지창 채널. 앨런 앤드루스의 중앙값 회귀 도구.
+              <a class="fnback" data-scroll="fnref-ratios-8">↩</a></li>
+            <li id="fn-ratios-9"><b>간 각도(Gann angle)</b>: 시간 1당 가격 k의 비율로 그은 각도선. 1x1이 균형각 — 스케일 정의가 각도를 결정한다는 구조적 한계가 있다.
+              <a class="fnback" data-scroll="fnref-ratios-9">↩</a></li>
+            <li id="fn-ratios-10"><b>일목 가격론(N·E·V·NT 계산치)</b>: A→B 상승, C 조정의 세 점에서 E=B+(B−A), N=C+(B−A), V=B+(B−C), NT=C+(C−A)/2.
+              <a class="fnback" data-scroll="fnref-ratios-10">↩</a></li>
+            <li id="fn-ratios-11"><b>P&amp;F 카운트(Horizontal count)</b>: 횡보의 열 수 × 박스 크기 × 전환 폭으로 목표폭을 계산해 투사하는 와이코프의 측정법.
+              <a class="fnback" data-scroll="fnref-ratios-11">↩</a></li>
+          </ol>
+        </div>
+
+        <div class="sources">
+          <div class="src-title">출처</div>
+          <ol>
+            <li id="src-ratios-1">Frost, A. J. &amp; Prechter, R. R., <i>Elliott Wave Principle: Key to Market Behavior</i>, 1978 — 피보나치를 자연의 법칙으로 읽는 대표 원전.</li>
+            <li id="src-ratios-2">Murphy, J. J., <i>Technical Analysis of the Financial Markets</i>, New York Institute of Finance, 1999 — 피보나치 도구 세트, 피벗, 피치포크 관련 장.</li>
+            <li id="src-ratios-3">Edwards, R. D. &amp; Magee, J., <i>Technical Analysis of Stock Trends</i>, 1948 — 50% 되돌림 관용과 패턴 측정 규칙.</li>
+            <li id="src-ratios-4">Fischer, R., <i>Fibonacci Applications and Strategies for Traders</i>, Wiley, 1993 — 피보나치 도구의 실전 체계.</li>
+            <li id="src-ratios-5">Carney, S. M., <i>Harmonic Trading: Volume One</i>, 2004 — 0.886과 PRZ의 정의.</li>
+            <li id="src-ratios-6">細田悟一(필명 一目山人), <i>一目均衡表</i> 전 7권, 1969~1980 — 가격론의 네 계산치.</li>
+            <li id="src-ratios-7">Wyckoff, R. D., <i>The Richard D. Wyckoff Method of Trading and Investing in Stocks</i>, 1931 코스 — P&amp;F 카운트의 원인·결과 측정.</li>
+            <li id="src-ratios-8">Aronson, D., <i>Evidence-Based Technical Analysis</i>, Wiley, 2006 — 주관적 도구의 검증 불가와 데이터 마이닝 비판.</li>
+            <li id="src-ratios-9">Osler, C. L., "Support for Resistance: Technical Analysis and Intraday Exchange Rates", <i>Federal Reserve Bank of New York Economic Policy Review</i> 6(2), 2000 — 지지·저항 부근 주문 군집 실증.</li>
+          </ol>
+        </div>

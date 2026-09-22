@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 310" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="310" fill="#f7f1e6"/>
+
+  <text x="40" y="28" fill="#4a453c" font-size="12" font-weight="600">VWAP과 앵커드 VWAP — 어디서부터 평균을 시작하느냐가 선을 정한다</text>
+  <text x="40" y="44" fill="#8a7f70" font-size="10.5">장중 한 세션 · intraday session · anchored VWAP</text>
+
+  <!-- 시간축 -->
+  <line x1="60" y1="270" x2="660" y2="270" stroke="#8a7f70" stroke-width="1"/>
+  <g fill="#8a7f70" font-size="9.5">
+    <text x="60"  y="284">시가 open</text>
+    <text x="250" y="284">사건 event</text>
+    <text x="620" y="284">종가</text>
+  </g>
+
+  <!-- 가격선: 오전 상승 → 사건 갭락(뉴스) → 되돌림 후 앵커드 VWAP 근처에서 지지 -->
+  <polyline points="60,150 110,128 160,140 210,120 250,112 260,190 300,172 340,182
+                    380,160 420,170 460,150 500,158 540,138 580,146 620,128 655,134"
+            fill="none" stroke="#4a453c" stroke-width="2"/>
+  <!-- 사건 갭 하락 표시 -->
+  <line x1="255" y1="112" x2="255" y2="190" stroke="#8f3d3a" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <text x="262" y="196" fill="#8f3d3a" font-size="10">뉴스 갭 · news gap</text>
+
+  <!-- 세션 VWAP: 시가부터 누적, 갭 이후 위쪽에 천천히 이동 -->
+  <path d="M 60 150 C 110 142, 160 138, 210 132 C 240 128, 250 128, 260 136
+           C 320 150, 380 158, 430 156 C 490 152, 560 146, 655 140"
+        fill="none" stroke="#b08948" stroke-width="2"/>
+  <text x="500" y="130" fill="#b08948" font-size="11">세션 VWAP — 시가부터 누적</text>
+
+  <!-- 앵커드 VWAP: 사건 시점부터 시작 -->
+  <path d="M 260 190 C 300 182, 340 178, 380 172 C 420 166, 460 160, 500 154
+           C 540 148, 590 142, 655 136"
+        fill="none" stroke="#2c5a4c" stroke-width="2" stroke-dasharray="7,4"/>
+  <text x="286" y="212" fill="#2c5a4c" font-size="11">앵커드 VWAP — 사건 시점부터 누적 · anchored</text>
+
+  <!-- 앵커 지점 -->
+  <circle cx="260" cy="190" r="4" fill="#2c5a4c"/>
+  <circle cx="60" cy="150" r="4" fill="#b08948"/>
+
+  <!-- 되돌림 접점 표시 -->
+  <circle cx="460" cy="150" r="3.5" fill="none" stroke="#2c5a4c" stroke-width="1.6"/>
+  <text x="420" y="138" fill="#4a453c" font-size="10">AVWAP 되돌림 테스트</text>
+
+  <text x="40" y="304" fill="#4a453c" font-size="11">앵커는 "그 시점 이후 평균 매수자의 손익분기"를 묻는 도구다</text>
+</svg>
