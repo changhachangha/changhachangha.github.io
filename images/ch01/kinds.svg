@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="720" height="300" fill="#f7f1e6"/>
+  <text x="20" y="26" font-size="12" fill="#8a7f70" letter-spacing="1">SAME EVENT, DIFFERENT QUESTION · 같은 사건, 다른 물음</text>
+
+  <!-- column 1: claim -->
+  <rect x="20" y="44" width="214" height="226" rx="10" fill="#fffdf8" stroke="#d8cdb8"/>
+  <rect x="20" y="44" width="214" height="40" rx="10" fill="#2c5a4c"/>
+  <rect x="20" y="64" width="214" height="20" fill="#2c5a4c"/>
+  <text x="32" y="70" font-size="14" font-weight="600" fill="#f7f1e6">주장 · 이론 <tspan font-size="10" font-weight="400">claim</tspan></text>
+  <text x="32" y="112" font-size="12" fill="#6b6355">물음</text>
+  <text x="32" y="130" font-size="14" font-weight="600" fill="#4a453c">왜 움직이는가?</text>
+  <text x="32" y="160" font-size="12" fill="#6b6355">예</text>
+  <text x="32" y="178" font-size="12" fill="#4a453c">다우, 와이코프, 경매시장</text>
+  <text x="32" y="208" font-size="12" fill="#6b6355">판별</text>
+  <text x="32" y="226" font-size="12" fill="#4a453c">반례를 셀 수 있다</text>
+  <text x="32" y="250" font-size="11" fill="#8f3d3a">검증 대상. 틀릴 수 있다.</text>
+
+  <!-- column 2: display -->
+  <rect x="253" y="44" width="214" height="226" rx="10" fill="#fffdf8" stroke="#d8cdb8"/>
+  <rect x="253" y="44" width="214" height="40" rx="10" fill="#b08948"/>
+  <rect x="253" y="64" width="214" height="20" fill="#b08948"/>
+  <text x="265" y="70" font-size="14" font-weight="600" fill="#f7f1e6">표현 · 도구 <tspan font-size="10" font-weight="400">display</tspan></text>
+  <text x="265" y="112" font-size="12" fill="#6b6355">물음</text>
+  <text x="265" y="130" font-size="14" font-weight="600" fill="#4a453c">어떻게 보여주는가?</text>
+  <text x="265" y="160" font-size="12" fill="#6b6355">예</text>
+  <text x="265" y="178" font-size="12" fill="#4a453c">캔들, 렌코, TPO, 지표</text>
+  <text x="265" y="208" font-size="12" fill="#6b6355">판별</text>
+  <text x="265" y="226" font-size="12" fill="#4a453c">유용성을 묻는다</text>
+  <text x="265" y="250" font-size="11" fill="#8f3d3a">참거짓의 대상이 아니다.</text>
+
+  <!-- column 3: renaming -->
+  <rect x="486" y="44" width="214" height="226" rx="10" fill="#fffdf8" stroke="#d8cdb8"/>
+  <rect x="486" y="44" width="214" height="40" rx="10" fill="#8f3d3a"/>
+  <rect x="486" y="64" width="214" height="20" fill="#8f3d3a"/>
+  <text x="498" y="70" font-size="14" font-weight="600" fill="#f7f1e6">재명명 · 언어 <tspan font-size="10" font-weight="400">renaming</tspan></text>
+  <text x="498" y="112" font-size="12" fill="#6b6355">물음</text>
+  <text x="498" y="130" font-size="14" font-weight="600" fill="#4a453c">무엇이라 부르는가?</text>
+  <text x="498" y="160" font-size="12" fill="#6b6355">예</text>
+  <text x="498" y="178" font-size="12" fill="#4a453c">오더블록, 스윕, FVG</text>
+  <text x="498" y="208" font-size="12" fill="#6b6355">판별</text>
+  <text x="498" y="226" font-size="12" fill="#4a453c">색인의 별칭을 본다</text>
+  <text x="498" y="250" font-size="11" fill="#8f3d3a">새 사실이 아니라 새 이름.</text>
+</svg>

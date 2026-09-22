@@ -1,35 +1,136 @@
 <!-- CHAPTER 02 · assumptions -->
-<!-- LEX: [{"t": "할인", "k": "이론", "p": "assumptions", "aka": "market discounts everything", "d": "모든 정보는 이미 가격에 있다는 TA 가정."}, {"t": "추세", "k": "이론", "p": "assumptions", "aka": "HH HL LH LL", "d": "가격이 한 방향으로 지속된다는 가정. 상승은 HH/HL."}] -->
+<!-- LEX: [{"t": "할인", "k": "이론", "p": "assumptions", "aka": "market discounts everything", "d": "모든 정보는 이미 가격에 있다는 TA 가정."}, {"t": "추세", "k": "이론", "p": "assumptions", "aka": "HH HL LH LL", "d": "가격이 한 방향으로 지속된다는 가정. 상승은 HH/HL."}, {"t": "효율시장가설", "k": "이론", "p": "assumptions", "aka": "EMH 약형 준강형 강형", "d": "가격의 정보 반영 정도. 약형은 과거 가격만으로 초과수익 불가."}, {"t": "적응적 시장 가설", "k": "이론", "p": "assumptions", "aka": "AMH Lo 2004", "d": "효율성은 고정이 아니라 환경·참여자의 함수. 기회는 생겼다 사라진다."}, {"t": "과최적화", "k": "언어", "p": "assumptions", "aka": "overfitting curve fitting", "d": "파라미터를 과거에 맞춰 미래에서 깨지는 검증 오염."}, {"t": "룩어헤드 편향", "k": "언어", "p": "assumptions", "aka": "lookahead bias", "d": "시험 시점에 알 수 없던 정보를 쓰는 백테스트 오류."}, {"t": "생존자 편향", "k": "언어", "p": "assumptions", "aka": "survivorship bias", "d": "사라진 종목을 뺀 표본으로 검증해 성과를 부풀리는 오류."}, {"t": "다중비교", "k": "언어", "p": "assumptions", "aka": "multiple comparisons data snooping", "d": "규칙을 많이 시험할수록 가짜 유의가 나오는 문제."}, {"t": "확증편향", "k": "언어", "p": "assumptions", "aka": "confirmation bias", "d": "맞은 사례만 기억하고 실패를 미완성으로 부르는 해석 편향."}] -->
 
         <div class="crumb">Chapter 02</div>
         <h2 class="page-title">전제와 한계</h2>
         <p class="lede">기술적 분석은 과거 가격과 거래량으로 확률을 조직한다. 미래를 확정하지 않는다.</p>
-        <h3>세 가정</h3>
+
+        <div class="chapter-summary"><b>요약.</b> 기술적 분석의 뿌리는 다우의 월스트리트저널 사설에서 해밀턴, 레아를 거쳐 정리된 세 가정 — 할인, 추세, 반복이다. 가정은 증명된 법칙이 아니라 작업가설이고, 학술 검증의 결론은 혼재다. 이 챕터는 각 가정의 의미와 균열, 검증이 실패하는 구멍, "예언 대신 시나리오"라는 실무 함의를 본다.</div>
+
+        <nav class="chapter-toc">
+          <div class="toc-title">이 챕터에서</div>
+          <ol>
+            <li><a data-scroll="sec-assumptions-1">세 가정의 유래</a></li>
+            <li><a data-scroll="sec-assumptions-2">가정 1 · 시장은 모든 것을 할인한다</a></li>
+            <li><a data-scroll="sec-assumptions-3">가정 2 · 가격은 추세로 움직인다</a></li>
+            <li><a data-scroll="sec-assumptions-4">가정 3 · 역사는 반복한다</a></li>
+            <li><a data-scroll="sec-assumptions-5">기본적 분석과의 차이</a></li>
+            <li><a data-scroll="sec-assumptions-6">공부가 실패하는 구멍</a></li>
+            <li><a data-scroll="sec-assumptions-7">학술적 검증과 실무 함의</a></li>
+          </ol>
+        </nav>
+
+        <h3 id="sec-assumptions-1">세 가정의 유래</h3>
+        <p>세 가정은 한 사람의 설계가 아니라 30년에 걸친 편집의 결과다. 찰스 다우는 월스트리트저널을 창간하고 1902년 죽기까지 사설로 시장의 행동 원리를 산발적으로 썼다 — 스스로 이론이라고 부른 적은 없다. 사설의 자리는 윌리엄 P. 해밀턴이 이어받아 <i>The Stock Market Barometer</i>(1922)로 다듬었고<sup class="cit"><a data-scroll="src-assumptions-1">[1]</a></sup>, 로버트 레아가 <i>The Dow Theory</i>(1932)에서 오늘 읽히는 형태로 정리했다<sup class="cit"><a data-scroll="src-assumptions-2">[2]</a></sup>. 이후 에드워즈와 메이기의 추세 추종 교과서<sup class="cit"><a data-scroll="src-assumptions-3">[3]</a></sup>, 머피의 종합서<sup class="cit"><a data-scroll="src-assumptions-4">[4]</a></sup>가 같은 뼈대를 "세 가정"으로 명문화했다.</p>
         <ol>
           <li><b>시장은 모든 것을 할인한다.</b> 뉴스와 실적은 이미 가격에 있다. 차트는 그 집합 반응이다.</li>
           <li><b>가격은 추세로 움직인다.</b> 상승은 HH/HL, 하락은 LH/LL, 아니면 횡보.</li>
           <li><b>역사는 반복한다.</b> 군중 심리의 형태가 비슷하니 패턴이 다시 보인다는 주장.</li>
         </ol>
-        <h3>기본적 분석과의 차이</h3>
+        <p>세 가정은 증명된 법칙이 아니라 작업가설이다. 각각의 의미와 균열을 이어서 본다.</p>
+
+        <h3 id="sec-assumptions-2">가정 1 · 시장은 모든 것을 할인한다</h3>
+        <p>할인<sup class="fnref" id="fnref-assumptions-1"><a data-scroll="fn-assumptions-1">1</a></sup>은 다우 사설이 반복한 주장이고, 표준 문구는 머피의 것이다 — "시장 행동은 모든 것을 할인한다(market action discounts everything)"<sup class="cit"><a data-scroll="src-assumptions-4">[4]</a></sup>. 가격은 모든 참여자의 지식과 기대와 공포가 체결로 압축된 결과물이라는 뜻이다.</p>
+        <p>강한 형태로 읽으면 공개 정보든 비공개 정보든 다 들어 있다는 주장이 되어 차트만 보면 된다는 극단이 나온다. 실무에서 쓰는 건 약한 형태다 — 차트가 정보의 종합 반응이라는 정도. 뉴스의 내용보다 뉴스에 대한 가격의 반응을 읽는 자세다.</p>
+        <p>균열은 세 곳이다. 첫째, 정보 비대칭 — 내부자와 외부자가 보는 가격은 같지 않다. 둘째, 할인이 즉시라는 보장이 없다 — 실적 발표 후 수익률이 같은 방향으로 계속 미끄러지는 이상현상(실적 발표 후 표류, PEAD)이 반복 보고돼 왔다. 셋째, 반증 불가 — "아직 덜 반영됐다"로 모든 실패를 설명하면 가정이 아니라 신앙이 된다.</p>
+        <p>이 가정의 쓸모는 사후 해석을 끊는 데 있다. 왜 움직였는지를 찾는 대신 움직임 자체를 정보로 취급한다.</p>
+
+        <h3 id="sec-assumptions-3">가정 2 · 가격은 추세로 움직인다</h3>
+        <p>추세<sup class="fnref" id="fnref-assumptions-2"><a data-scroll="fn-assumptions-2">2</a></sup>의 정의는 기계적이다. 상승 추세는 고점과 저점이 계속 높아지는 상태(HH/HL), 하락 추세는 함께 낮아지는 상태(LH/LL), 어느 쪽도 아니면 횡보다. 다우의 세 운동 — 주추세, 2차 조정, 소파동 — 은 추세가 자기 유지된다는 주장의 원형이다.</p>
+        <figure class="fig">
+          <img src="images/ch02/trend-schema.svg" alt="고점과 저점이 함께 높아지는 상승 추세와 함께 낮아지는 하락 추세의 도식" loading="lazy" />
+          <figcaption>그림 1. 추세의 기계적 정의. 왼쪽은 고점(HH)과 저점(HL)이 함께 높아지는 상승, 오른쪽은 함께 낮아지는 하락(LH/LL). 직전 저점이 깨지면 추세 가정은 무효가 된다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>근거는 군중심리다. 정보는 모든 참여자에게 동시에 닿지 않고, 알아차린 순서대로 진입이 이어지면 방향이 유지된다. 여기에 손실 회피와 앵커링, 처분 효과가 겹치고, 추세 추종 자금의 유입이 추세 자체를 연장한다. 추세는 원인이 아니라 결과지만, 결과가 다음 원인이 된다.</p>
+        <p>한계는 사후성이다. 마지막 저점이 깨지기 전까지 추세가 살아 있는지는 아무도 모르고, 확인되는 시점엔 이미 상당 구간이 지났다. 그래서 추세 가정의 실용적 가치는 방향 예언이 아니라 무효화 조건이다 — 직전 HL이 깨지면 상승 시나리오를 폐기한다는 식이다.</p>
+
+        <h3 id="sec-assumptions-4">가정 3 · 역사는 반복한다</h3>
+        <p>논리 구조는 세 단계다. 인간의 탐욕과 공포는 시대가 바뀌어도 안정적이다 → 비슷한 상황에 비슷한 집단 반응이 나온다 → 가격 궤적에 비슷한 형태가 남는다. 패턴 도감 전체가 이 가정 위에 서 있다.</p>
+        <p>균열은 비약이다. "심리가 반복된다"에서 "형태가 반복된다"로 한 번, "형태가 같으면 결과도 같다"로 한 번 더 뛴다. 두 단계 모두 따로 검증돼야 하는데, 도감에서는 보통 결과 확정으로 팔린다. 반복은 형태의 반복이지 결과의 보장이 아니다.</p>
+        <p>식별도 주관적이다. 같은 구간을 한 사람은 삼각수렴으로, 다른 사람은 횡보로 읽는다. 패턴 이름은 진입 전에도 뒤늦게도 붙일 수 있어서, 검증 없는 패턴 주장은 진술이 아니라 수사가 된다. 이 편향 — 확증편향<sup class="fnref" id="fnref-assumptions-3"><a data-scroll="fn-assumptions-3">3</a></sup> — 은 뒤의 실패 구멍에서 다시 본다.</p>
+        <figure class="fig">
+          <img src="images/ch02/confirmation-bias.svg" alt="같은 가격 경로를 삼각수렴으로도 횡보 레인지로도 읽을 수 있음을 보여주는 두 해석" loading="lazy" />
+          <figcaption>그림 2. 같은 가격 구간의 두 해석. 왼쪽은 수렴 추세선을 얹은 삼각수렴 읽기, 오른쪽은 수평 지지·저항을 얹은 횡보 읽기. 이름이 먼저 오면 해석은 이름을 따라간다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+
+        <h3 id="sec-assumptions-5">기본적 분석과의 차이</h3>
+        <p>두 방법은 경쟁 관계가 아니라 같은 시장의 다른 시간축이다. 기본적 분석이 "무엇을 살지"에 답할 때 기술적 분석은 "언제, 어디서"에 답한다는 결합 프레임이 표준이다<sup class="cit"><a data-scroll="src-assumptions-4">[4]</a></sup>.</p>
         <table>
           <thead><tr><th></th><th>기본적</th><th>기술적</th></tr></thead>
           <tbody>
             <tr><td>질문</td><td>내재가치는 얼마인가</td><td>참여자가 지금 무엇을 하는가</td></tr>
             <tr><td>데이터</td><td>재무, 금리, 실적</td><td>가격, 거래량, 폭, 센티먼트</td></tr>
+            <tr><td>시간축</td><td>분기~수년</td><td>틱~수개월</td></tr>
+            <tr><td>전제</td><td>가격은 가치로 수렴한다</td><td>가격은 참여자 행동의 합산이다</td></tr>
             <tr><td>약점</td><td>단기 수급을 늦게 봄</td><td>펀더 충격을 무시하기 쉬움</td></tr>
             <tr><td>결합</td><td>무엇을</td><td>언제·어디서</td></tr>
           </tbody>
         </table>
-        <h3>공부가 실패하는 세 구멍</h3>
+        <p>프레임이 다르면 같은 차트에서 다른 결론이 나오는 게 정상이고, 그건 충돌이 아니라 레이어 차이다. 다음 두 섹션은 표의 약점 칸을 여는 일이다.</p>
+
+        <h3 id="sec-assumptions-6">공부가 실패하는 구멍</h3>
+        <p>도구의 결함보다 사용의 결함이 더 크다. 실패는 세 구멍에서 반복된다.</p>
         <div class="grid two">
           <div class="card">
             <h4>후행</h4>
-            <p>MA, MACD, 일목 기준선, ADX는 과거 창의 요약이다. 추세 추종에는 쓸모가 있고 전환점 예측에는 늦다.</p>
+            <p>MA, MACD, 일목 기준선, ADX는 과거 창의 요약이다. 추세 추종에는 쓸모가 있고 전환점 예측에는 늦다. 지연은 결함이 아니라 설계다 — 잡음을 거르는 대가로 늦는다. 결함은 후행 지표에 선행 예언을 요구하는 사용법 쪽에 있다.</p>
           </div>
           <div class="card">
             <h4>과최적화</h4>
-            <p>파라미터를 과거에 맞추면 어떤 지표든 예뻐진다. 룩어헤드, 생존자 편향, 다중비교를 같이 본다.</p>
+            <p>파라미터를 과거에 맞추면 어떤 지표든 예뻐진다<sup class="fnref" id="fnref-assumptions-4"><a data-scroll="fn-assumptions-4">4</a></sup>. 오염원은 셋이다. <b>룩어헤드 편향</b><sup class="fnref" id="fnref-assumptions-5"><a data-scroll="fn-assumptions-5">5</a></sup>은 시험 시점에 알 수 없던 데이터를 쓰는 오류다 — 확정 전 재무, 리밸런싱 후 구성종목이 대표 사례다. <b>생존자 편향</b><sup class="fnref" id="fnref-assumptions-6"><a data-scroll="fn-assumptions-6">6</a></sup>은 상장폐지 종목이 빠진 표본으로 성과를 부풀린다. <b>다중비교</b><sup class="fnref" id="fnref-assumptions-7"><a data-scroll="fn-assumptions-7">7</a></sup>는 규칙을 많이 시험할수록 가짜 유의가 나오는 문제다 — 5% 유의수준이면 20개 중 1개는 우연이 통과한다<sup class="cit"><a data-scroll="src-assumptions-5">[5]</a></sup>.</p>
           </div>
         </div>
-        <div class="warn">확증편향: 맞은 머리어깨만 기억하고, 실패한 패턴은 아직 미완성이라고 부른다. 같은 구간을 한 사람은 삼각, 다른 사람은 횡보로 본다.</div>
-        <p>학술 쪽은 혼재다. 약형 효율시장은 과거 가격으로 초과수익을 내기 어렵다고 하고, 일부 연구는 패턴에 정보량이 있을 수 있다고 한다. 실무 함의는 예언이 아니라 <b>시나리오 + 무효화 가격 + 크기</b>다.</p>
+        <figure class="fig">
+          <img src="images/ch02/overfitting.svg" alt="인샘플에서 부드럽게 우상향하던 규칙 곡선이 아웃오브샘플에서 흔들리는 모습" loading="lazy" />
+          <figcaption>그림 3. 과최적화의 형태. 검증 경계 왼쪽(인샘플)에서는 맞춰진 파라미터가 매끄럽게 먹히고, 오른쪽(아웃오브샘플)에서 같은 규칙이 깨진다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <div class="warn">확증편향: 맞은 머리어깨만 기억하고, 실패한 패턴은 아직 미완성이라고 부른다. 같은 구간을 한 사람은 삼각, 다른 사람은 횡보로 본다. 방어는 하나다 — 진입 전에 무효화 가격을 글로 적어 두는 것.</div>
+
+        <h3 id="sec-assumptions-7">학술적 검증과 실무 함의</h3>
+        <p>학술 쪽은 혼재다. 파마(1970)의 효율시장가설<sup class="fnref" id="fnref-assumptions-8"><a data-scroll="fn-assumptions-8">8</a></sup>은 세 형태로 나뉜다 — 약형은 과거 가격 정보, 준강형은 공개 정보 전부, 강형은 비공개까지 반영한다는 주장이다. 약형이 성립하면 과거 가격만으로는 초과수익이 불가능하고, 이것이 기술적 분석에 대한 정면 반박이었다<sup class="cit"><a data-scroll="src-assumptions-6">[6]</a></sup>.</p>
+        <p>반박의 반박도 나왔다. 로와 맥킨레이는 분산비 검정으로 미국 주간 수익률(1962~1985)에서 유의한 양의 자기상관을 찾아 랜덤워크를 기각했고, <i>A Non-Random Walk Down Wall Street</i>(1999)으로 정리했다<sup class="cit"><a data-scroll="src-assumptions-7">[7]</a></sup>. 브록·라코니숙·르바론(1992)은 다우지수 약 90년(1897~1986)에 이동평균과 레인지 돌파 규칙을 대입해 매수 신호 후 수익률이 매도 신호 후보다 유의하게 높다고 보고했다<sup class="cit"><a data-scroll="src-assumptions-8">[8]</a></sup>.</p>
+        <p>다만 설리번·티머만·화이트(1999)가 다중비교를 보정하고 규칙 우주를 넓혀 다시 시험하자 우위가 표본과 기간에 따라 흔들렸다<sup class="cit"><a data-scroll="src-assumptions-9">[9]</a></sup>. 로의 적응적 시장 가설<sup class="fnref" id="fnref-assumptions-9"><a data-scroll="fn-assumptions-9">9</a></sup>(2004)은 이 혼재를 설명한다 — 효율성은 고정 상태가 아니라 참여자 구성과 환경의 함수이고, 이윤 기회는 생겼다가 경쟁이 몰리면 사라진다<sup class="cit"><a data-scroll="src-assumptions-10">[10]</a></sup>.</p>
+        <p>실무 함의는 그래서 명확하다. 가정이 참인지 증명할 수 없으므로 사용법만 남는다 — 예언이 아니라 <b>시나리오 + 무효화 가격 + 크기</b>. 조건이 서면 시나리오를 열고, 무효화 가격이 깨지면 폐기하며, 노출 크기는 무효화까지의 거리로 정한다. 이 핸드북의 나머지 챕터는 이 프레임 위에서 읽는다.</p>
+
+        <div class="footnotes">
+          <div class="fn-title">용어 각주</div>
+          <ol>
+            <li id="fn-assumptions-1"><b>할인(Discount)</b>: 가격이 알려진 정보와 예상치를 미리 반영한다는 주장. 머피 표준 문구는 "시장 행동은 모든 것을 할인한다".
+            <a class="fnback" data-scroll="fnref-assumptions-1">↩</a></li>
+            <li id="fn-assumptions-2"><b>추세(Trend)</b>: 방향이 유지되는 상태. 상승은 HH/HL(higher highs · higher lows), 하락은 LH/LL(lower highs · lower lows).
+            <a class="fnback" data-scroll="fnref-assumptions-2">↩</a></li>
+            <li id="fn-assumptions-3"><b>확증편향(Confirmation bias)</b>: 보고 싶은 해석에 맞는 사례만 모으는 인지 편향. 패턴 검증의 첫 오염원.
+            <a class="fnback" data-scroll="fnref-assumptions-3">↩</a></li>
+            <li id="fn-assumptions-4"><b>과최적화(Overfitting)</b>: 곡선 맞추기(curve fitting). 인샘플(in-sample)에서 잘 맞는 규칙이 아웃오브샘플(out-of-sample)에서 깨지는 현상.
+            <a class="fnback" data-scroll="fnref-assumptions-4">↩</a></li>
+            <li id="fn-assumptions-5"><b>룩어헤드 편향(Look-ahead bias)</b>: 검증 시점에 알 수 없던 정보를 쓰는 백테스트 오류. 확정 전 재무 데이터, 생존 종목만의 구성이 대표 사례.
+            <a class="fnback" data-scroll="fnref-assumptions-5">↩</a></li>
+            <li id="fn-assumptions-6"><b>생존자 편향(Survivorship bias)</b>: 상장폐지·파산 종목이 빠진 표본으로 검증해 전략 성과를 부풀리는 왜곡.
+            <a class="fnback" data-scroll="fnref-assumptions-6">↩</a></li>
+            <li id="fn-assumptions-7"><b>다중비교(Multiple comparisons)</b>: 시험하는 규칙 수가 늘면 우연히 유의한 결과가 확실히 나오는 문제. 데이터 스누핑(data snooping)의 통계 이름.
+            <a class="fnback" data-scroll="fnref-assumptions-7">↩</a></li>
+            <li id="fn-assumptions-8"><b>효율시장가설(Efficient Market Hypothesis, EMH)</b>: 가격이 정보를 얼마나 반영하는가의 세 형태 — 약형(과거 가격) · 준강형(공개 정보) · 강형(모든 정보).
+            <a class="fnback" data-scroll="fnref-assumptions-8">↩</a></li>
+            <li id="fn-assumptions-9"><b>적응적 시장 가설(Adaptive Market Hypothesis, AMH)</b>: 앤드루 로의 진화론적 재해석. 효율성은 참여자와 환경에 따라 변하고 이윤 기회는 생겼다 사라진다.
+            <a class="fnback" data-scroll="fnref-assumptions-9">↩</a></li>
+          </ol>
+        </div>
+
+        <div class="sources">
+          <div class="src-title">출처</div>
+          <ol>
+            <li id="src-assumptions-1">Hamilton, W. P., <i>The Stock Market Barometer</i>, Harper &amp; Brothers, 1922.</li>
+            <li id="src-assumptions-2">Rhea, R., <i>The Dow Theory</i>, Barron's, 1932 — 다우 사설의 첫 체계화.</li>
+            <li id="src-assumptions-3">Edwards, R. D. &amp; Magee, J., <i>Technical Analysis of Stock Trends</i>, 1948.</li>
+            <li id="src-assumptions-4">Murphy, J. J., <i>Technical Analysis of the Financial Markets</i>, New York Institute of Finance, 1999, 1·2장.</li>
+            <li id="src-assumptions-5">Aronson, D., <i>Evidence-Based Technical Analysis</i>, Wiley, 2006 — 데이터 마이닝 편향과 검증 위생.</li>
+            <li id="src-assumptions-6">Fama, E. F., "Efficient Capital Markets: A Review of Theory and Empirical Work", <i>Journal of Finance</i> 25(2), 1970.</li>
+            <li id="src-assumptions-7">Lo, A. W. &amp; MacKinlay, A. C., <i>A Non-Random Walk Down Wall Street</i>, Princeton University Press, 1999 — 1988년 분산비 논문 포함.</li>
+            <li id="src-assumptions-8">Brock, W., Lakonishok, J. &amp; LeBaron, B., "Simple Technical Trading Rules and the Stochastic Properties of Stock Returns", <i>Journal of Finance</i> 47(5), 1992.</li>
+            <li id="src-assumptions-9">Sullivan, R., Timmermann, A. &amp; White, H., "Data-Snooping, Technical Trading Rule Performance, and the Bootstrap", <i>Journal of Finance</i> 54(5), 1999.</li>
+            <li id="src-assumptions-10">Lo, A. W., "The Adaptive Markets Hypothesis: Market Efficiency from an Evolutionary Perspective", <i>Journal of Portfolio Management</i> 30(5), 2004.</li>
+          </ol>
+        </div>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="720" height="400" fill="#f7f1e6"/>
+  <text x="20" y="24" font-size="12" fill="#8a7f70" letter-spacing="1">SEVEN LAYERS · 일곱 개의 층</text>
+
+  <!-- row template: band color = meta kind (green 주장 / gold 도구 / red 언어) -->
+  <g>
+    <rect x="20" y="38" width="680" height="44" rx="6" fill="#fffdf8" stroke="#d8cdb8"/>
+    <rect x="20" y="38" width="8" height="44" rx="4" fill="#2c5a4c"/>
+    <text x="44" y="57" font-size="14" font-weight="600" fill="#4a453c">1 시장 이론 <tspan font-size="10" fill="#8a7f70" font-weight="400">Market theories</tspan></text>
+    <text x="44" y="74" font-size="11" fill="#6b6355">다우, 와이코프, 엘리엇, 간, 허스트, 일목 3론, 경매시장</text>
+    <text x="688" y="63" font-size="11" fill="#2c5a4c" text-anchor="end">주장 claim</text>
+  </g>
+  <g>
+    <rect x="20" y="90" width="680" height="44" rx="6" fill="#fffdf8" stroke="#d8cdb8"/>
+    <rect x="20" y="90" width="8" height="44" rx="4" fill="#b08948"/>
+    <text x="44" y="109" font-size="14" font-weight="600" fill="#4a453c">2 표현 도구 <tspan font-size="10" fill="#8a7f70" font-weight="400">Display tools</tspan></text>
+    <text x="44" y="126" font-size="11" fill="#6b6355">캔들, 렌코, P&amp;F, 하이킨아시, TPO, 풋프린트</text>
+    <text x="688" y="115" font-size="11" fill="#b08948" text-anchor="end">표현 display</text>
+  </g>
+  <g>
+    <rect x="20" y="142" width="680" height="44" rx="6" fill="#fffdf8" stroke="#d8cdb8"/>
+    <rect x="20" y="142" width="8" height="44" rx="4" fill="#b08948"/>
+    <text x="44" y="161" font-size="14" font-weight="600" fill="#4a453c">3 구조 읽기 <tspan font-size="10" fill="#8a7f70" font-weight="400">Structure reading</tspan></text>
+    <text x="44" y="178" font-size="11" fill="#6b6355">지지저항, 채널, HH/HL, BOS/CHoCH</text>
+    <text x="688" y="167" font-size="11" fill="#b08948" text-anchor="end">문법 grammar</text>
+  </g>
+  <g>
+    <rect x="20" y="194" width="680" height="44" rx="6" fill="#fffdf8" stroke="#d8cdb8"/>
+    <rect x="20" y="194" width="8" height="44" rx="4" fill="#b08948"/>
+    <text x="44" y="213" font-size="14" font-weight="600" fill="#4a453c">4 패턴 사전 <tspan font-size="10" fill="#8a7f70" font-weight="400">Pattern dictionary</tspan></text>
+    <text x="44" y="230" font-size="11" fill="#6b6355">머리어깨, 삼각, 깃발, 대표 캔들, 하모닉</text>
+    <text x="688" y="219" font-size="11" fill="#b08948" text-anchor="end">사전 dictionary</text>
+  </g>
+  <g>
+    <rect x="20" y="246" width="680" height="44" rx="6" fill="#fffdf8" stroke="#d8cdb8"/>
+    <rect x="20" y="246" width="8" height="44" rx="4" fill="#b08948"/>
+    <text x="44" y="265" font-size="14" font-weight="600" fill="#4a453c">5 비율·시간 <tspan font-size="10" fill="#8a7f70" font-weight="400">Ratios &amp; time</tspan></text>
+    <text x="44" y="282" font-size="11" fill="#6b6355">피보나치, 피벗, 피치포크, 간 각도, 일목 수치</text>
+    <text x="688" y="271" font-size="11" fill="#b08948" text-anchor="end">격자 grid</text>
+  </g>
+  <g>
+    <rect x="20" y="298" width="680" height="44" rx="6" fill="#fffdf8" stroke="#d8cdb8"/>
+    <rect x="20" y="298" width="8" height="44" rx="4" fill="#b08948"/>
+    <text x="44" y="317" font-size="14" font-weight="600" fill="#4a453c">6 보조지표 <tspan font-size="10" fill="#8a7f70" font-weight="400">Indicators</tspan></text>
+    <text x="44" y="334" font-size="11" fill="#6b6355">MA, MACD, ADX, RSI, 볼린저, ATR, VWAP, OBV, VP</text>
+    <text x="688" y="323" font-size="11" fill="#b08948" text-anchor="end">변환 transform</text>
+  </g>
+  <g>
+    <rect x="20" y="350" width="680" height="44" rx="6" fill="#fffdf8" stroke="#d8cdb8"/>
+    <rect x="20" y="350" width="8" height="44" rx="4" fill="#8f3d3a"/>
+    <text x="44" y="369" font-size="14" font-weight="600" fill="#4a453c">7 현대 언어 <tspan font-size="10" fill="#8a7f70" font-weight="400">Modern language</tspan></text>
+    <text x="44" y="386" font-size="11" fill="#6b6355">오더블록, FVG, 스윕 — 상당 부분 와이코프 재명명</text>
+    <text x="688" y="375" font-size="11" fill="#8f3d3a" text-anchor="end">언어 renaming</text>
+  </g>
+</svg>
