@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="280" fill="#f7f1e6"/>
+  <text x="24" y="26" font-size="12" fill="#8a7f70" letter-spacing="1">WALK-FORWARD — 창을 앞으로 굴리는 표본 외 검증</text>
+
+  <!-- 범례 -->
+  <rect x="430" y="14" width="14" height="14" fill="#b08948" opacity="0.45"/>
+  <text x="450" y="25" font-size="11" fill="#4a453c">인샘플 IS · 최적화</text>
+  <rect x="552" y="14" width="14" height="14" fill="#2c5a4c"/>
+  <text x="572" y="25" font-size="11" fill="#4a453c">표본 외 OOS · 채점</text>
+
+  <!-- 1회전 -->
+  <text x="24" y="80" font-size="11" fill="#8a7f70">1회전</text>
+  <rect x="80" y="60" width="220" height="26" fill="#b08948" opacity="0.45"/>
+  <text x="180" y="77" font-size="11" fill="#4a453c" text-anchor="middle">IS 1</text>
+  <rect x="300" y="60" width="100" height="26" fill="#2c5a4c"/>
+  <text x="350" y="77" font-size="11" fill="#f7f1e6" text-anchor="middle">OOS 1</text>
+
+  <!-- 2회전 -->
+  <text x="24" y="122" font-size="11" fill="#8a7f70">2회전</text>
+  <rect x="180" y="102" width="220" height="26" fill="#b08948" opacity="0.45"/>
+  <text x="290" y="119" font-size="11" fill="#4a453c" text-anchor="middle">IS 2</text>
+  <rect x="400" y="102" width="100" height="26" fill="#2c5a4c"/>
+  <text x="450" y="119" font-size="11" fill="#f7f1e6" text-anchor="middle">OOS 2</text>
+
+  <!-- 3회전 -->
+  <text x="24" y="164" font-size="11" fill="#8a7f70">3회전</text>
+  <rect x="280" y="144" width="220" height="26" fill="#b08948" opacity="0.45"/>
+  <text x="390" y="161" font-size="11" fill="#4a453c" text-anchor="middle">IS 3</text>
+  <rect x="500" y="144" width="100" height="26" fill="#2c5a4c"/>
+  <text x="550" y="161" font-size="11" fill="#f7f1e6" text-anchor="middle">OOS 3</text>
+
+  <!-- 굴리는 화살표 -->
+  <path d="M310 92 C330 96, 370 96, 390 100" fill="none" stroke="#b08948" stroke-width="1.4" marker-end="url(#arr2)"/>
+  <path d="M410 134 C430 138, 470 138, 490 142" fill="none" stroke="#b08948" stroke-width="1.4" marker-end="url(#arr2)"/>
+  <defs>
+    <marker id="arr2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#b08948"/>
+    </marker>
+  </defs>
+  <text x="620" y="120" font-size="10" fill="#8a7f70" text-anchor="end">창을 앞으로 굴림</text>
+  <text x="620" y="133" font-size="10" fill="#8a7f70" text-anchor="end">roll forward →</text>
+
+  <!-- 이어 붙인 표본 외 성적표 -->
+  <text x="24" y="222" font-size="11" fill="#4a453c" font-weight="600">성적표</text>
+  <rect x="300" y="202" width="100" height="26" fill="#2c5a4c"/>
+  <rect x="400" y="202" width="100" height="26" fill="#2c5a4c"/>
+  <rect x="500" y="202" width="100" height="26" fill="#2c5a4c"/>
+  <text x="450" y="219" font-size="11" fill="#f7f1e6" text-anchor="middle">OOS 1 + OOS 2 + OOS 3</text>
+  <text x="300" y="246" font-size="10" fill="#4a453c">이어 붙인 표본 외 구간 = 이 전략의 유일하게 정직한 성적표</text>
+
+  <!-- 시간축 -->
+  <line x1="80" y1="262" x2="660" y2="262" stroke="#4a453c" stroke-width="1" marker-end="url(#arr2)"/>
+  <text x="666" y="266" font-size="10" fill="#4a453c">시간</text>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="330" fill="#f7f1e6"/>
+  <text x="40" y="30" fill="#4a453c" font-size="12" font-weight="600">같은 축은 하나 — 다른 축이 모여야 보완이다</text>
+  <text x="40" y="46" fill="#8a7f70" font-size="10.5">axis · 입력과 묻는 질문이 같은가</text>
+
+  <!-- divider -->
+  <line x1="352" y1="58" x2="352" y2="306" stroke="#b7ab98" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- LEFT: same axis -->
+  <text x="185" y="76" fill="#8f3d3a" font-size="11.5" font-weight="600" text-anchor="middle">같은 축 ×3 — 중복</text>
+  <circle cx="185" cy="98" r="5" fill="#4a453c"/>
+  <text x="185" y="116" fill="#8a7f70" font-size="10" text-anchor="middle">입력 — 같은 종가 열</text>
+
+  <line x1="185" y1="103" x2="131" y2="142" stroke="#b08948" stroke-width="1.2"/>
+  <line x1="185" y1="103" x2="185" y2="142" stroke="#b08948" stroke-width="1.2"/>
+  <line x1="185" y1="103" x2="239" y2="142" stroke="#b08948" stroke-width="1.2"/>
+
+  <rect x="97" y="142" width="68" height="30" rx="7" fill="none" stroke="#8a7f70" stroke-width="1.2"/>
+  <text x="131" y="161" fill="#4a453c" font-size="10.5" text-anchor="middle">RSI</text>
+  <rect x="151" y="142" width="68" height="30" rx="7" fill="none" stroke="#8a7f70" stroke-width="1.2"/>
+  <text x="185" y="161" fill="#4a453c" font-size="10.5" text-anchor="middle">스토캐스틱</text>
+  <rect x="205" y="142" width="68" height="30" rx="7" fill="none" stroke="#8a7f70" stroke-width="1.2"/>
+  <text x="239" y="161" fill="#4a453c" font-size="10.5" text-anchor="middle">CCI</text>
+
+  <line x1="131" y1="172" x2="168" y2="224" stroke="#b08948" stroke-width="1.2"/>
+  <line x1="185" y1="172" x2="185" y2="224" stroke="#b08948" stroke-width="1.2"/>
+  <line x1="239" y1="172" x2="202" y2="224" stroke="#b08948" stroke-width="1.2"/>
+
+  <rect x="110" y="224" width="150" height="34" rx="8" fill="#8f3d3a" opacity="0.10"/>
+  <rect x="110" y="224" width="150" height="34" rx="8" fill="none" stroke="#8f3d3a" stroke-width="1.2"/>
+  <text x="185" y="245" fill="#8f3d3a" font-size="10.5" text-anchor="middle">같은 답 — 모멘텀 하나</text>
+
+  <text x="185" y="290" fill="#8f3d3a" font-size="11" text-anchor="middle">✗ 질문이 하나 — 셋을 놓아도 하나</text>
+
+  <!-- RIGHT: different axes -->
+  <text x="530" y="76" fill="#2c5a4c" font-size="11.5" font-weight="600" text-anchor="middle">다른 축 ×4 — 보완</text>
+
+  <text x="409" y="96" fill="#8a7f70" font-size="9.5" text-anchor="middle">축 — 국면(강도)</text>
+  <rect x="375" y="102" width="68" height="40" rx="7" fill="none" stroke="#4a453c" stroke-width="1.2"/>
+  <text x="409" y="119" fill="#4a453c" font-size="10.5" text-anchor="middle">ADX</text>
+  <text x="409" y="133" fill="#8a7f70" font-size="9" text-anchor="middle">추세 강도</text>
+
+  <text x="484" y="96" fill="#8a7f70" font-size="9.5" text-anchor="middle">축 — 자리(위치)</text>
+  <rect x="450" y="102" width="68" height="40" rx="7" fill="none" stroke="#4a453c" stroke-width="1.2"/>
+  <text x="484" y="119" fill="#4a453c" font-size="10.5" text-anchor="middle">구조·존</text>
+  <text x="484" y="133" fill="#8a7f70" font-size="9" text-anchor="middle">가격 위치</text>
+
+  <text x="559" y="96" fill="#8a7f70" font-size="9.5" text-anchor="middle">축 — 수급(거래량)</text>
+  <rect x="525" y="102" width="68" height="40" rx="7" fill="none" stroke="#4a453c" stroke-width="1.2"/>
+  <text x="559" y="119" fill="#4a453c" font-size="10.5" text-anchor="middle">프로파일</text>
+  <text x="559" y="133" fill="#8a7f70" font-size="9" text-anchor="middle">체결 분포</text>
+
+  <text x="634" y="96" fill="#8a7f70" font-size="9.5" text-anchor="middle">축 — 크기(진폭)</text>
+  <rect x="600" y="102" width="68" height="40" rx="7" fill="none" stroke="#4a453c" stroke-width="1.2"/>
+  <text x="634" y="119" fill="#4a453c" font-size="10.5" text-anchor="middle">ATR</text>
+  <text x="634" y="133" fill="#8a7f70" font-size="9" text-anchor="middle">변동성</text>
+
+  <line x1="409" y1="142" x2="470" y2="176" stroke="#b08948" stroke-width="1.2"/>
+  <line x1="484" y1="142" x2="500" y2="176" stroke="#b08948" stroke-width="1.2"/>
+  <line x1="559" y1="142" x2="560" y2="176" stroke="#b08948" stroke-width="1.2"/>
+  <line x1="634" y1="142" x2="618" y2="176" stroke="#b08948" stroke-width="1.2"/>
+
+  <rect x="440" y="176" width="190" height="34" rx="8" fill="#2c5a4c" opacity="0.12"/>
+  <rect x="440" y="176" width="190" height="34" rx="8" fill="none" stroke="#2c5a4c" stroke-width="1.2"/>
+  <text x="535" y="197" fill="#2c5a4c" font-size="10.5" text-anchor="middle">한 거래의 네 답 — 컨플루언스</text>
+
+  <text x="530" y="290" fill="#2c5a4c" font-size="11" text-anchor="middle">✓ 질문이 넷 — 다른 데이터가 한 자리에</text>
+</svg>

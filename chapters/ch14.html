@@ -1,17 +1,143 @@
 <!-- CHAPTER 14 · relations -->
+<!-- LEX: [{"t": "컨플루언스", "k": "언어", "p": "relations", "aka": "confluence 합류", "d": "서로 다른 축의 근거가 한 자리에 모이는 것. 같은 데이터의 재계산은 중복."}, {"t": "국면", "k": "구조", "p": "relations", "aka": "regime 레짐 시장 상태", "d": "추세·레인지처럼 어떤 도구가 켜지는지를 정하는 시장 상태 구간."}, {"t": "스위치", "k": "지표", "p": "relations", "aka": "regime switch 선택기", "d": "국면을 읽어 켤 도구를 고르는 용법. ADX·밴드폭이 대표."}, {"t": "알파", "k": "언어", "p": "relations", "aka": "alpha α 초과수익", "d": "기준 수익을 넘는 부분으로 주장되는 우위. 이름이 아니라 기댓값이 만든다."}, {"t": "R배수", "k": "언어", "p": "relations", "aka": "R-multiple", "d": "손절 거리를 1R로 둔 손익의 단위. 크기 기록의 공용 자."}] -->
 
         <div class="crumb">Chapter 14</div>
         <h2 class="page-title">기법 간 관계</h2>
-        <h3>역할이 달라서 같이 쓰는 조합</h3>
+        <p class="lede">어떤 기법도 혼자 쓰이지 않는다. 거래 한 건은 여러 질문에 답을 요구하고, 기법 하나는 그중 하나에만 답한다. 관계의 지도가 곧 체계다.</p>
+
+        <div class="chapter-summary"><b>요약.</b> 이 챕터는 기법들 사이의 관계를 다룬다 — 무엇이 무엇과 같이 쓰이고, 무엇이 무엇에서 나왔는가. 조합의 원칙은 하나다 — 축이 달라야 보완이고, 같은 축의 지표는 늘려도 하나다. 다섯 조합 사례를 메커니즘으로 풀고, 테이프 리딩에서 오더플로까지의 계보에서 각 단계가 더한 것을 본다 — 새 이름은 대부분 새 알파가 아니라 어휘의 증가였다. 기법 선택은 질문에서 시작한다 — 국면인가, 자리인가, 시점인가, 크기인가. 체계는 국면 판독 하나, 실행 하나, 리스크 단위 하나로 조립되고, 조합의 한계는 추가할수록 늘어나는 과최적화다.</div>
+
+        <nav class="chapter-toc">
+          <div class="toc-title">이 챕터에서</div>
+          <ol>
+            <li><a data-scroll="sec-relations-1">조합의 원칙 — 축이 달라야 같이 쓴다</a></li>
+            <li><a data-scroll="sec-relations-2">조합 사례 — 다섯 조합의 메커니즘</a></li>
+            <li><a data-scroll="sec-relations-3">계보 — 각 단계가 더한 것</a></li>
+            <li><a data-scroll="sec-relations-4">어느 기법이 어느 질문에 답하는가</a></li>
+            <li><a data-scroll="sec-relations-5">체계를 만드는 법 — 국면 하나, 실행 하나, 리스크 하나</a></li>
+            <li><a data-scroll="sec-relations-6">조합의 한계 — 더할수록 커지는 착각</a></li>
+          </ol>
+        </nav>
+
+        <h3 id="sec-relations-1">조합의 원칙 — 축이 달라야 같이 쓴다</h3>
+        <p>조합의 출발점은 역할 분담이다. 기법 하나는 질문 하나에 답한다 — 이동평균은 방향을, ADX는 강도를, ATR은 크기를. 그런데 거래 한 건이 요구하는 답은 넷이다 — 어느 국면인가, 어디서인가, 언제인가, 얼마나인가. 네 답을 기법 하나에서 얻으려는 것이 지표 만능의 착각이고, 한 질문에 기법 넷을 붙이는 것이 중복의 착각이다. 조합은 취미가 아니라 빈칸 채우기다.</p>
+        <p>같이 쓸 수 있는지는 축<sup class="fnref" id="fnref-relations-1"><a data-scroll="fn-relations-1">1</a></sup>이 가른다. 축은 지표의 입력과 지표가 답하는 질문이다 — 같은 종가 열을 기간으로 평활해 방향을 묻는 것들은 전부 같은 축이다. RSI·스토캐스틱·CCI는 산식이 달라도 입력이 같다 — 한 종가 창의 상대 위치를 세 번 재는 것이다. 셋이 동의해도 증거는 하나다. 엘더의 지표 분류가 이 원리다 — 추세 지표·오실레이터·기타로 나누고 각 군에서 하나씩만 쓰라 했다<sup class="cit"><a data-scroll="src-relations-1">[1]</a></sup>. 머피의 재료 분리도 같다 — 가격·거래량·미결제 약정처럼 원료가 다른 것을 겹칠 때만 확인이 성립한다<sup class="cit"><a data-scroll="src-relations-2">[2]</a></sup>.</p>
+        <figure class="fig">
+          <img src="images/ch14/axes.svg" alt="왼쪽은 같은 종가 입력을 RSI·스토캐스틱·CCI가 나눠 쓰는 중복, 오른쪽은 ADX·구조·프로파일·ATR이 각기 다른 축에서 한 거래에 모이는 보완을 나타낸 도식" loading="lazy" />
+          <figcaption>그림 1. 같은 축과 다른 축. 왼쪽의 세 지표는 입력이 같아 답도 하나다. 오른쪽의 네 도구는 축이 달라 한 거래의 네 질문에 답한다 — 이것이 컨플루언스다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>컨플루언스<sup class="fnref" id="fnref-relations-2"><a data-scroll="fn-relations-2">2</a></sup>는 그래서 정의가 있다 — 다른 데이터, 다른 논리가 같은 결론에 모일 때다. 지지 존과 피보 눈금과 가치영역 하단의 겹침은 같은 스윙을 재는 눈금 셋이라 축이 하나에 가깝고, 구조 전환과 거래량 급증과 상위 국면의 일치는 입력이 달라 축이 셋이다. 판별 문장은 하나다 — "이 창의 입력은 앞의 창과 다른가." 한계는 공유 입력이다 — 겉모습이 다른 지표도 종가의 함수면 축이 하나로 접힌다(<a href="#indicators">보조지표</a>).</p>
+
+        <h3 id="sec-relations-2">조합 사례 — 다섯 조합의 메커니즘</h3>
+        <p>같은 원리를 실제 조합에 대입하면 메커니즘이 보인다. 각 행의 역할 분담이 곧 '두 기법이 다른 질문에 답한다'는 뜻이다.</p>
         <table>
-          <thead><tr><th>조합</th><th>이유</th></tr></thead>
+          <thead><tr><th>조합</th><th>역할 분담</th><th>왜 맞는가 — 메커니즘</th></tr></thead>
           <tbody>
-            <tr><td>다우 구조 + 거래량</td><td>정의와 확인</td></tr>
-            <tr><td>와이코프 국면 + 볼륨 프로파일</td><td>원인과 가치 영역</td></tr>
-            <tr><td>ADX 스위치 + (추세면 MA, 레인지면 RSI)</td><td>지표가 서로를 켬</td></tr>
-            <tr><td>아무 진입 + ATR 손절</td><td>예측과 리스크 분리</td></tr>
-            <tr><td>스윕 + CHoCH + 불균형 재방문</td><td>사건 → 확인 → 실행</td></tr>
+            <tr><td>다우 구조 + 거래량</td><td>정의와 확인</td><td>구조가 추세의 문장을 세우고(HH/HL) 거래량이 그 움직임의 실체력을 잰다 — "거래량은 추세를 확인해야 한다"가 다우 원리 안에 들어 있는 이유다<sup class="cit"><a data-scroll="src-relations-2">[2]</a></sup>. 거래량 없는 돌파는 확인 없는 문장이다.</td></tr>
+            <tr><td>와이코프 국면 + 볼륨 프로파일</td><td>원인과 가치 영역</td><td>국면 판독은 "지금 매집인가 분산인가"이고 프로파일은 "거래가 어느 가격대에 몰렸는가"다. 원인·결과 법칙의 원인이 쌓인 자리를 가치영역·HVN이 눈으로 보여준다 — 서사와 증거의 짝이다(<a href="#theories">고전 이론</a>, <a href="#charts">차트 유형</a>).</td></tr>
+            <tr><td>ADX 스위치 + (추세면 MA, 레인지면 RSI)</td><td>지표가 서로를 켬</td><td>ADX는 방향이 아니라 강도라서 진입 도구가 아니라 선택기다 — 기준선 위면 추세 추종(MA)을, 아래면 오실레이터(RSI)를 켠다. 지표가 지표를 켜는 구조가 스위치<sup class="fnref" id="fnref-relations-3"><a data-scroll="fn-relations-3">3</a></sup>다.</td></tr>
+            <tr><td>아무 진입 + ATR 손절</td><td>예측과 리스크 분리</td><td>진입은 방향 가설이고 ATR은 그 가설과 무관한 진폭의 자다 — 손절 거리를 시장의 변동성에 묶고 포지션 크기를 '고정 리스크 ÷ 거리'로 정한다. 진입이 틀려도 리스크는 이미 정해져 있다.</td></tr>
+            <tr><td>스윕 + CHoCH + 불균형 재방문</td><td>사건 → 확인 → 실행</td><td>시간 순서가 곧 필터다 — 스윕이 스톱이 실제로 털렸다는 사건, CHoCH가 구조의 동의, 재방문이 무효화가 가까운 진입 자리다(<a href="#smc">유동성 언어</a>).</td></tr>
           </tbody>
         </table>
-        <h3>계보</h3>
-        <p>테이프 → 다우 → 와이코프/P&amp;F → 패턴 사전 → 엘리엇·간 → 일목 → 컴퓨터 지표 → 프로파일 → VSA → 프라이스 액션 → ICT/SMC → 오더플로. 새 이름이 새 알파가 아니다.</p>
+        <figure class="fig">
+          <img src="images/ch14/sweep-choch-sequence.svg" alt="레인지 하단의 동일 저점 아래를 찔렀다 회수하는 스윕, 이어서 직전 소고점을 깨는 CHoCH, 남긴 불균형 존의 재방문에서 진입하고 스윕 저점을 무효화로 두는 순서도" loading="lazy" />
+          <figcaption>그림 2. 사건 → 확인 → 실행. 스윕이 유동성 사건, CHoCH가 구조의 동의, 불균형 재방문이 진입 자리다. 무효화는 스윕 저점 이탈이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>마지막 조합은 순서가 곧 논리라 따로 본다. 스윕만 보고 들어가면 레인지 이탈의 역추세에 말린다 — 이탈이 진짜면 그 자리에 스톱이 없다. CHoCH를 기다리면 이탈이 회수였다는 구조의 동의를 얻는다. 재방문까지 기다리는 이유는 손절 거리다 — 변위 직후 추격하면 무효화까지 멀고, 남긴 불균형을 다시 찍을 때 들어가면 스윕 저점이 가까운 스톱이 된다. 세 단계는 각각 앞 단계의 함정을 걸러낸다 — 사건 없는 확인은 근거 없는 진입이고, 확인 없는 사건은 가짜돌파와 구분이 안 된다.</p>
+
+        <h3 id="sec-relations-3">계보 — 각 단계가 더한 것</h3>
+        <p>조합 표의 기법들은 한 가문의 멤버다. <a href="#map">지식 지도</a>의 타임라인을 여기서는 '무엇을 더했는가'로 다시 읽는다.</p>
+        <figure class="fig">
+          <img src="images/ch01/lineage.svg" alt="테이프 리딩에서 오더플로까지 기술적 분석 계보의 타임라인" loading="lazy" />
+          <figcaption>그림 3. 계보의 골간(지식 지도의 타임라인). 점 색은 층과 같다 — 녹색 이론, 황금색 도구, 적색 언어.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <table>
+          <thead><tr><th>단계</th><th>더한 것</th></tr></thead>
+          <tbody>
+            <tr><td>테이프 리딩 (~1900)</td><td>원료 자체 — 체결 가격·물량의 흐름을 데이터로 삼은 최초의 읽기<sup class="cit"><a data-scroll="src-relations-3">[3]</a></sup></td></tr>
+            <tr><td>다우 (1902–32)</td><td>추세의 문법 — 세 운동, 세 국면, 상호 확인, 거래량 확인<sup class="cit"><a data-scroll="src-relations-2">[2]</a></sup></td></tr>
+            <tr><td>와이코프 · P&amp;F (1910–31)</td><td>수급의 서사 — 매집·분산 국면과 노력대결과. P&amp;F는 시간을 버린 기록법</td></tr>
+            <tr><td>패턴 사전 (1948)</td><td>형상의 분류 — Schabacker의 정리를 Edwards·Magee가 도감으로 묶었다<sup class="cit"><a data-scroll="src-relations-4">[4]</a></sup></td></tr>
+            <tr><td>엘리엇 · 간 (1930–50s)</td><td>법칙화 — 파동의 프랙탈과 시간=가격의 기하</td></tr>
+            <tr><td>일목 (1968)</td><td>패키지 — 시간·파동·가격 3론과 5선 도구가 한 상자</td></tr>
+            <tr><td>컴퓨터 지표 (1978–)</td><td>프록시의 대중화 — 와일더의 RSI·ATR·ADX 이후 계산이 누구의 것이 됐다<sup class="cit"><a data-scroll="src-relations-5">[5]</a></sup></td></tr>
+            <tr><td>프로파일 (1984)</td><td>축의 전환 — 시간을 가격 분포로 눕힌 TPO</td></tr>
+            <tr><td>VSA (1993)</td><td>공식화 — 와이코프를 봉의 스프레드×거래량×종가 위치로 옮김<sup class="cit"><a data-scroll="src-relations-6">[6]</a></sup></td></tr>
+            <tr><td>프라이스 액션 (2000s)</td><td>탈지표 — 봉 단위 읽기로의 회귀</td></tr>
+            <tr><td>ICT · SMC (2010s)</td><td>번역 — 고전 사건을 유동성 어휘로 재명명</td></tr>
+            <tr><td>오더플로 (현재)</td><td>귀환 — 풋프린트·델타·CVD로 테이프 리딩이 디지털로 돌아옴(<a href="#extra">보충 영역</a>)</td></tr>
+          </tbody>
+        </table>
+        <p>계보가 말해 주는 것은 어휘의 팽창이다. 진짜로 바뀐 것은 두 가지뿐이다 — 데이터의 해상도(전표에서 일봉·분봉·호가와 체결 단위로)와 이름이다. 스윕은 스프링이고 킬존은 세션이며 오더블록은 공급·수요 존이다 — 재명명은 지식의 증가가 아니라 색인의 증가다(<a href="#map">지식 지도</a>). 새 이름이 새 알파<sup class="fnref" id="fnref-relations-4"><a data-scroll="fn-relations-4">4</a></sup>는 아니다 — 알파는 기댓값이 만들고 이름은 검색이 만든다. 그렇다고 진보가 없던 것도 아니다 — 계산과 데이터 접근의 민주화는 실물이다. 다만 읽기의 문법은 다우의 것에서 거의 나가지 않았다.</p>
+        <p>계보는 진보 서사가 아니라 주의표다 — 재명명은 원전과의 연결을 끊어 검증 경로를 지운다. 대신 실용은 남는다 — 새 이름의 조상이 보이면 읽을 원전이 정해진다. 오더블록의 조상은 공급·수요 존이고 그 조상은 와이코프의 매집·분산 도표다.</p>
+
+        <h3 id="sec-relations-4">어느 기법이 어느 질문에 답하는가</h3>
+        <p>조합을 짜는 절차는 거꾸로다 — 기법에서 시작하지 않고 질문에서 시작한다. 거래 한 건은 네 질문의 답을 요구하고, 각 기법은 그중 하나의 답이다.</p>
+        <figure class="fig">
+          <img src="images/ch14/question-matrix.svg" alt="국면·자리·시점·크기 네 질문에 각각 어떤 기법이 답하는지를 대응시킨 매트릭스" loading="lazy" />
+          <figcaption>그림 4. 질문→기법 매트릭스. 읽는 순서도 이 순서다 — 국면을 먼저 읽고, 자리를 정하고, 트리거를 기다리고, 크기를 계산한다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <table>
+          <thead><tr><th>묻는 질문</th><th>답하는 기법</th><th>답의 형태</th></tr></thead>
+          <tbody>
+            <tr><td>지금 무슨 국면인가</td><td>구조의 HH/HL·레인지, ADX, 밴드폭, 상위 타임프레임, 와이코프 국면<sup class="fnref" id="fnref-relations-5"><a data-scroll="fn-relations-5">5</a></sup></td><td>추세 / 레인지 판독</td></tr>
+            <tr><td>어디서 할 것인가</td><td>지지저항 존, 프리미엄·디스카운트, 프로파일 노드, 피보 눈금</td><td>존 — 가격대</td></tr>
+            <tr><td>언제 들어가는가</td><td>스윕 회수, CHoCH, 패턴 완성·넥라인, 캔들 트리거, 세션·변화일 윈도</td><td>트리거 — 사건</td></tr>
+            <tr><td>얼마나 걸 것인가</td><td>ATR, 측정 목표가, R배수<sup class="fnref" id="fnref-relations-6"><a data-scroll="fn-relations-6">6</a></sup></td><td>거리와 크기</td></tr>
+          </tbody>
+        </table>
+        <p>같은 질문에 답하는 기법들은 확인이 아니라 대안이다. 지지 존과 EQ와 0.5 되돌림은 '어디서'의 세 후보다 — 겹치면 근거가 늘어난 게 아니라 눈금이 조밀해진 것이다(<a href="#ratios">비율과 투사</a>). 컨플루언스가 되려면 다른 질문의 답이 같은 자리를 가리켜야 한다. 반대로 답이 없는 질문은 허용된다 — "모른다"도 출력이다. 국면을 못 읽겠으면 실행 도구를 켜지 않는 것이 절차의 결과이고, 트리거가 안 오면 거래가 없다는 것이 시나리오 프레임의 마지막 문장이다.</p>
+
+        <h3 id="sec-relations-5">체계를 만드는 법 — 국면 하나, 실행 하나, 리스크 하나</h3>
+        <p>체계는 슬롯이다 — 국면 판독 하나, 자리 하나, 실행 트리거 하나, 리스크 단위 하나. 슬롯이 정해지면 기법은 교체 부품이 된다 — MA를 일목으로, 캔들 트리거를 패턴 완성으로 갈아 끼워도 틀이 산다. 이 조립의 고전이 엘더의 삼중창이다 — 상위가 국면, 중간이 되돌림, 하위가 실행이라는 역할 배정이다<sup class="cit"><a data-scroll="src-relations-1">[1]</a></sup>(<a href="#time">시간·장세</a>).</p>
+        <ol>
+          <li><b>국면.</b> 상위 타임프레임의 구조와 ADX로 추세·레인지를 읽는다. 추세로 읽히면 추세 도구만, 레인지면 오실레이터만 켠다. 판독 불가면 둘 다 끈다.</li>
+          <li><b>자리.</b> 읽은 방향으로 되돌림이 닿을 존을 정한다 — 지지·디스카운트·가치영역 하단처럼 축이 다른 근거 둘 이상이 겹치는 가격대.</li>
+          <li><b>실행.</b> 존 안에서 하위 구조 전환(CHoCH)이나 스윕 회수 한 가지를 트리거로 고정한다. 트리거가 두 개면 둘 다 흐려진다.</li>
+          <li><b>리스크.</b> 손절은 무효화 가격 너머, 거리는 ATR 단위로 재고, 크기는 고정 리스크 ÷ 거리다. 손익은 R배수로 기록한다.</li>
+          <li><b>무효화.</b> 진입 근거가 사라지는 가격을 주문 전에 적는다 — 존 이탈, 스윕 저점 재이탈, 상위 국면의 전환. 셋 중 하나가 닿으면 시나리오 폐기다.</li>
+        </ol>
+        <p>이 다섯 줄이 앞의 모든 조합을 한 절차로 꿴 것이다 — 국면(다우·ADX), 자리(존·프로파일), 확인(거래량·구조 전환), 실행(재방문), 크기(ATR·R). 조합은 부품 나열이 아니라 절차다.</p>
+        <div class="note">체크리스트는 세 문장이다 — 각 창이 다른 질문에 답하는가 / 무효화 가격이 미리 있는가 / 크기가 리스크 단위로 정해지는가. 하나라도 빠지면 체계가 아니라 모니터가 많은 화면이다.</div>
+
+        <h3 id="sec-relations-6">조합의 한계 — 더할수록 커지는 착각</h3>
+        <p>조합은 알파를 만들지 않는다 — 역할을 나눌 뿐이다. 다섯 창이 전부 답해도 기댓값은 시장이 정한다. 분담이 잘됐다는 것은 절차가 성립한다는 뜻이지 우위가 생겼다는 뜻이 아니다.</p>
+        <p>필터 하나는 파라미터 하나다. 규칙을 추가할수록 과거 설명력은 오르고 미래 성능은 떨어진다 — Aronson이 규칙으로 고정된 주장만을 검증 대상으로 삼은 이유다<sup class="cit"><a data-scroll="src-relations-7">[7]</a></sup>. 슬롯을 추가하는 것과 같은 슬롯에 부품을 추가하는 것은 다르다 — 후자는 자유도를 늘리지 않고 과최적화만 늘린다(<a href="#assumptions">전제와 한계</a>).</p>
+        <p>마지막 함정은 명목 축이다 — 창은 다섯인데 입력이 전부 종가면 축은 하나다. 겉으로 다른 기법이 같은 데이터의 함수면 분담은 서류상의 것이고, 동의는 사건이 아니라 같은 계산의 반복이다.</p>
+        <div class="warn">새 유행이 왔을 때의 편입 절차 — 색인에서 번역하고(기존 사건의 다른 이름인가), 어느 질문에 답하는지 배정하고, 같은 슬롯이 이미 차 있으면 추가가 아니라 교체 후보로 둔다. 늘어나는 것은 슬롯이 아니라 부품 목록이다.</div>
+
+        <div class="footnotes">
+          <div class="fn-title">용어 각주</div>
+          <ol>
+            <li id="fn-relations-1"><b>축(Axis)</b>: 지표의 입력과 지표가 답하는 질문의 차원 — 추세·모멘텀·변동성·거래량·구조. 같은 축의 도구는 아무리 늘려도 하나로 센다.
+              <a class="fnback" data-scroll="fnref-relations-1">↩</a></li>
+            <li id="fn-relations-2"><b>컨플루언스(Confluence)</b>: 서로 다른 축의 근거가 한 자리 또는 한 결론에 모이는 것. 같은 데이터의 재계산이 모이는 것은 중복이다.
+              <a class="fnback" data-scroll="fnref-relations-2">↩</a></li>
+            <li id="fn-relations-3"><b>스위치(Switch)</b>: 국면을 읽어 어떤 도구를 켤지 정하는 역할의 지표 — ADX·밴드폭이 대표다. 진입 신호가 아니라 도구 선택기다.
+              <a class="fnback" data-scroll="fnref-relations-3">↩</a></li>
+            <li id="fn-relations-4"><b>알파(Alpha, α)</b>: 기준이 되는 수익을 넘는 초과분 — 통계적 우위의 별칭으로도 쓰인다. 엣지와 같은 영역의 말이다.
+              <a class="fnback" data-scroll="fnref-relations-4">↩</a></li>
+            <li id="fn-relations-5"><b>국면(Regime)</b>: 추세·레인지처럼 어떤 도구가 유효한지를 정하는 시장 상태의 구간. 국면이 바뀌면 같은 지표의 성격이 바뀐다.
+              <a class="fnback" data-scroll="fnref-relations-5">↩</a></li>
+            <li id="fn-relations-6"><b>R배수(R-multiple)</b>: 손절 거리를 1R로 둔 손익의 단위 — 2R 수익은 위험의 두 배를 벌었다는 뜻. 크기 기록의 공용 자다.
+              <a class="fnback" data-scroll="fnref-relations-6">↩</a></li>
+          </ol>
+        </div>
+
+        <div class="sources">
+          <div class="src-title">출처</div>
+          <ol>
+            <li id="src-relations-1">Elder, Alexander, <i>Trading for a Living</i>, Wiley, 1993 — 지표 군 분류와 삼중창의 원전.</li>
+            <li id="src-relations-2">Murphy, John J., <i>Technical Analysis of the Financial Markets</i>, New York Institute of Finance, 1999 — 다우 원리(거래량 확인)와 분석 재료의 분류.</li>
+            <li id="src-relations-3">Wyckoff, Richard D., <i>Studies in Tape Reading</i>, 1910; <i>The Richard D. Wyckoff Method of Trading and Investing in Stocks</i>, 1931 코스 — 테이프 리딩과 수급 국면의 계보.</li>
+            <li id="src-relations-4">Edwards, Robert D. &amp; Magee, John, <i>Technical Analysis of Stock Trends</i>, 1948 — 패턴 도감의 정점.</li>
+            <li id="src-relations-5">Wilder, J. Welles Jr., <i>New Concepts in Technical Trading Systems</i>, Trend Research, 1978 — RSI·ATR·ADX, 지표 시대의 개막.</li>
+            <li id="src-relations-6">Williams, Tom, <i>Master the Markets</i>, TradeGuider, 2000 — VSA: 와이코프의 봉 단위 공식화.</li>
+            <li id="src-relations-7">Aronson, David R., <i>Evidence-Based Technical Analysis</i>, Wiley, 2006 — 규칙 추가와 데이터 마이닝의 비용.</li>
+          </ol>
+        </div>
