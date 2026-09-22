@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 290" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="720" height="290" fill="#f7f1e6"/>
+  <text x="24" y="24" font-size="12" fill="#8a7f70" letter-spacing="1">HEAD &amp; SHOULDERS · 헤드앤숄더 천장 — 확인은 넥라인 파괴</text>
+
+  <!-- 넥라인: 두 어깨 사이 저점 (212,156)과 (300,160)을 잇는 선 -->
+  <line x1="190" y1="155" x2="560" y2="172" stroke="#b08948" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="500" y="190" fill="#b08948" font-size="11" text-anchor="middle">넥라인 · neckline</text>
+
+  <!-- 가격 경로: 선행 상승 → 왼어깨 → 머리 → 오른어깨 → 넥라인 돌파 → 되돌림 → 하락 -->
+  <path d="M40 240 L95 190 L120 205 L180 128 L212 156 L262 70 L300 160 L352 130 L390 178 L418 170 L470 215 L560 245 L645 238"
+        fill="none" stroke="#4a453c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- 선행 상승 구간은 상승색 -->
+  <path d="M40 240 L95 190 L120 205 L180 128"
+        fill="none" stroke="#2c5a4c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- 넥라인 돌파 이후는 하락색 -->
+  <path d="M390 178 L418 170 L470 215 L560 245 L645 238"
+        fill="none" stroke="#8f3d3a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- 꼭짓점 표시 -->
+  <circle cx="180" cy="128" r="3.8" fill="#4a453c"/>
+  <circle cx="262" cy="70" r="4" fill="#4a453c"/>
+  <circle cx="352" cy="130" r="3.8" fill="#4a453c"/>
+  <circle cx="212" cy="156" r="3" fill="#b08948"/>
+  <circle cx="300" cy="160" r="3" fill="#b08948"/>
+  <circle cx="390" cy="178" r="4" fill="#8f3d3a"/>
+
+  <!-- 높이 H (머리 정점 → 넥라인) -->
+  <line x1="245" y1="72" x2="245" y2="157" stroke="#4a453c" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="232" y="118" fill="#4a453c" font-size="11" text-anchor="middle">H</text>
+
+  <!-- 측정 목표가 투사: 돌파점에서 높이만큼 아래로 -->
+  <line x1="560" y1="176" x2="560" y2="255" stroke="#8f3d3a" stroke-width="1" stroke-dasharray="3 3"/>
+  <path d="M560 255 l-4 -7 M560 255 l4 -7" stroke="#8f3d3a" stroke-width="1.2" fill="none"/>
+  <text x="572" y="262" fill="#8f3d3a" font-size="11">측정 목표가 · measured objective</text>
+
+  <!-- 라벨 -->
+  <text x="60" y="262" fill="#2c5a4c" font-size="11">선행 상승 · prior uptrend</text>
+  <text x="152" y="112" fill="#4a453c" font-size="11">왼어깨 · LS</text>
+  <text x="262" y="55" fill="#4a453c" font-size="11" text-anchor="middle">머리 · head</text>
+  <text x="360" y="114" fill="#4a453c" font-size="11">오른어깨 · RS</text>
+  <text x="352" y="196" fill="#8f3d3a" font-size="11">돌파 · break</text>
+  <text x="415" y="150" fill="#8f3d3a" font-size="10" opacity="0.85">되돌림 · throwback</text>
+</svg>

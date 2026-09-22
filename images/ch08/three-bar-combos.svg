@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 265" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="265" fill="#f7f1e6"/>
+  <line x1="360" y1="40" x2="360" y2="230" stroke="#b08948" stroke-width="1" stroke-dasharray="3 5"/>
+  <!-- 모닝스타 -->
+  <line x1="86" y1="85" x2="86" y2="200" stroke="#8f3d3a" stroke-width="2.4"/>
+  <rect x="70" y="95" width="32" height="95" fill="#8f3d3a"/>
+  <line x1="161" y1="195" x2="161" y2="222" stroke="#2c5a4c" stroke-width="2.4"/>
+  <rect x="150" y="200" width="22" height="14" fill="#2c5a4c"/>
+  <line x1="246" y1="80" x2="246" y2="180" stroke="#2c5a4c" stroke-width="2.4"/>
+  <rect x="230" y="90" width="32" height="80" fill="#2c5a4c"/>
+  <line x1="70" y1="142" x2="275" y2="142" stroke="#b08948" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="70" y="135" fill="#4a453c" font-size="10.5">첫째 몸통 절반 · midpoint</text>
+  <text x="161" y="235" fill="#4a453c" font-size="10.5" text-anchor="middle">별 · star</text>
+  <text x="165" y="256" fill="#4a453c" font-size="11" text-anchor="middle">모닝스타 · morning star</text>
+  <!-- 상승삼병 -->
+  <line x1="436" y1="142" x2="436" y2="218" stroke="#2c5a4c" stroke-width="2.4"/>
+  <rect x="420" y="150" width="32" height="60" fill="#2c5a4c"/>
+  <line x1="501" y1="107" x2="501" y2="183" stroke="#2c5a4c" stroke-width="2.4"/>
+  <rect x="485" y="115" width="32" height="60" fill="#2c5a4c"/>
+  <line x1="566" y1="72" x2="566" y2="148" stroke="#2c5a4c" stroke-width="2.4"/>
+  <rect x="550" y="80" width="32" height="60" fill="#2c5a4c"/>
+  <text x="500" y="256" fill="#4a453c" font-size="11" text-anchor="middle">상승삼병 · three white soldiers</text>
+</svg>

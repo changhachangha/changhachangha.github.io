@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="280" fill="#f7f1e6"/>
+  <text x="24" y="24" font-size="12" fill="#8a7f70" letter-spacing="1">FALSE BREAKOUT · 가짜 돌파 — 실패가 반대 방향의 연료</text>
+
+  <!-- 레인지 상·하단 -->
+  <line x1="60" y1="90" x2="520" y2="90" stroke="#b08948" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <line x1="60" y1="190" x2="560" y2="190" stroke="#b08948" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="64" y="84" fill="#b08948" font-size="11">레인지 상단 · range high</text>
+  <text x="64" y="206" fill="#b08948" font-size="11">레인지 하단 · range low</text>
+
+  <!-- 물린 돌파 물량 존 -->
+  <rect x="440" y="48" width="80" height="42" fill="#8f3d3a" opacity="0.10"/>
+  <text x="446" y="42" fill="#8f3d3a" font-size="10">물린 돌파 물량 · trapped longs</text>
+
+  <!-- 가격 경로: 상자 안 왕복 → 상단 이탈 → 회수 → 하단 이탈 -->
+  <path d="M60 130 L100 96 L140 165 L180 98 L220 172 L260 102 L300 165 L340 112 L380 152 L412 104 L445 62 L478 55 L505 112 L530 145 L555 205 L590 228 L650 240"
+        fill="none" stroke="#4a453c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- 이탈 구간은 하락색(거짓임이 드러난 봉) -->
+  <path d="M445 62 L478 55 L505 112"
+        fill="none" stroke="#8f3d3a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M555 205 L590 228 L650 240"
+        fill="none" stroke="#8f3d3a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- 실패 지점 -->
+  <circle cx="478" cy="55" r="4.5" fill="#8f3d3a"/>
+  <text x="540" y="70" fill="#8f3d3a" font-size="11">가짜 돌파 · false breakout</text>
+  <path d="M536 66 L490 58" stroke="#8f3d3a" stroke-width="1" fill="none"/>
+
+  <text x="505" y="130" fill="#4a453c" font-size="10" opacity="0.85">회수 · back inside</text>
+  <text x="560" y="256" fill="#8f3d3a" font-size="11">반대 방향 이탈</text>
+  <text x="70" y="256" fill="#4a453c" font-size="10" opacity="0.75">스프링 · 업스러스트 · 유동성 스윕과 같은 사건 — 이름은 넷, 봉은 하나</text>
+</svg>

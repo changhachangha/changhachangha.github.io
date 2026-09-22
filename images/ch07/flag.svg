@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="280" fill="#f7f1e6"/>
+  <text x="24" y="24" font-size="12" fill="#8a7f70" letter-spacing="1">FLAG · 깃발 — 깃대 뒤의 작은 역기울기 채널</text>
+
+  <!-- 깃발 채널: 추세 반대로 살짝 기운 평행선 -->
+  <line x1="200" y1="73" x2="345" y2="83" stroke="#b08948" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <line x1="222" y1="97" x2="367" y2="107" stroke="#b08948" stroke-width="1.2" stroke-dasharray="5 4"/>
+
+  <!-- 가격 경로: 깃대 → 깃발 → 돌파 후 지속 -->
+  <path d="M50 220 L110 172 L150 132 L205 72 L235 92 L265 78 L295 96 L330 82 L400 55 L480 38 L560 28 L640 22"
+        fill="none" stroke="#4a453c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- 깃대는 상승색 -->
+  <path d="M50 220 L110 172 L150 132 L205 72"
+        fill="none" stroke="#2c5a4c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- 돌파 이후도 상승색 -->
+  <path d="M330 82 L400 55 L480 38 L560 28 L640 22"
+        fill="none" stroke="#2c5a4c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- 거래량 막대: 깃대에서 크고 깃발 안에서 마르고 돌파에서 재증가 -->
+  <g fill="#4a453c" opacity="0.5">
+    <rect x="58" y="215" width="9" height="45"/>
+    <rect x="108" y="222" width="9" height="38"/>
+    <rect x="152" y="208" width="9" height="52"/>
+    <rect x="203" y="218" width="9" height="42"/>
+  </g>
+  <g fill="#4a453c" opacity="0.28">
+    <rect x="240" y="238" width="9" height="22"/>
+    <rect x="268" y="244" width="9" height="16"/>
+    <rect x="296" y="248" width="9" height="12"/>
+    <rect x="324" y="242" width="9" height="18"/>
+  </g>
+  <g fill="#2c5a4c" opacity="0.55">
+    <rect x="398" y="216" width="9" height="44"/>
+    <rect x="478" y="222" width="9" height="38"/>
+    <rect x="558" y="212" width="9" height="48"/>
+  </g>
+  <line x1="40" y1="262" x2="660" y2="262" stroke="#4a453c" stroke-width="0.8" opacity="0.5"/>
+  <text x="240" y="276" fill="#4a453c" font-size="10" opacity="0.75">거래량은 쉼표 안에서 마르고 돌파에서 다시 붙는다 · volume</text>
+
+  <!-- 라벨 -->
+  <text x="58" y="200" fill="#2c5a4c" font-size="11">깃대 · flagpole</text>
+  <text x="270" y="128" fill="#4a453c" font-size="11">깃발 · flag</text>
+  <text x="360" y="72" fill="#2c5a4c" font-size="11">돌파 · break</text>
+  <text x="470" y="18" fill="#2c5a4c" font-size="11">이후 이동 ≈ 깃대 (돛대 중간에서 분다)</text>
+</svg>

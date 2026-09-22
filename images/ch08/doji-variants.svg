@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 250" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="250" fill="#f7f1e6"/>
+  <!-- 십자 도지 -->
+  <line x1="110" y1="60" x2="110" y2="180" stroke="#4a453c" stroke-width="2.6"/>
+  <rect x="96" y="117" width="28" height="6" fill="#4a453c"/>
+  <text x="110" y="215" fill="#4a453c" font-size="11" text-anchor="middle">십자 · doji</text>
+  <!-- 장십자 -->
+  <line x1="270" y1="45" x2="270" y2="195" stroke="#4a453c" stroke-width="2.6"/>
+  <rect x="256" y="117" width="28" height="6" fill="#4a453c"/>
+  <text x="270" y="215" fill="#4a453c" font-size="11" text-anchor="middle">장십자 · long-legged</text>
+  <!-- 잠자리 -->
+  <line x1="430" y1="120" x2="430" y2="195" stroke="#4a453c" stroke-width="2.6"/>
+  <rect x="416" y="114" width="28" height="6" fill="#4a453c"/>
+  <text x="430" y="215" fill="#4a453c" font-size="11" text-anchor="middle">잠자리 · dragonfly</text>
+  <!-- 비석지 -->
+  <line x1="590" y1="45" x2="590" y2="120" stroke="#4a453c" stroke-width="2.6"/>
+  <rect x="576" y="120" width="28" height="6" fill="#4a453c"/>
+  <text x="590" y="215" fill="#4a453c" font-size="11" text-anchor="middle">비석지 · gravestone</text>
+</svg>

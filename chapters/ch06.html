@@ -1,14 +1,34 @@
 <!-- CHAPTER 06 · charts -->
-<!-- LEX: [{"t": "하이킨아시", "k": "패턴", "p": "charts", "aka": "Heikin Ashi 평균봉", "d": "추세 가독용. 표시 가격에 손절을 걸지 말 것."}, {"t": "렌코", "k": "패턴", "p": "charts", "aka": "Renko P&F 카기", "d": "시간을 버린 가격 필터."}, {"t": "TPO", "k": "지표", "p": "charts", "aka": "Market Profile 가치영역 POC", "d": "가격 세로, 시간 가로 분포. 경매시장 도구."}] -->
+<!-- LEX: [{"t": "하이킨아시", "k": "패턴", "p": "charts", "aka": "Heikin Ashi 평균봉", "d": "추세 가독용. 표시 가격에 손절을 걸지 말 것."}, {"t": "렌코", "k": "패턴", "p": "charts", "aka": "Renko P&F 카기", "d": "시간을 버린 가격 필터."}, {"t": "TPO", "k": "지표", "p": "charts", "aka": "Market Profile 가치영역 POC", "d": "가격 세로, 시간 가로 분포. 경매시장 도구."}, {"t": "OHLCV", "k": "언어", "p": "charts", "aka": "시가 고가 저가 종가 거래량 OHLC", "d": "봉 하나의 요약 값 다섯. 모든 차트의 원료."}, {"t": "P&F", "k": "패턴", "p": "charts", "aka": "Point and Figure X O 박스 전환", "d": "X·O 열의 가격 필터. 와이코프 카운트의 재료."}, {"t": "카기", "k": "패턴", "p": "charts", "aka": "Kagi 어깨 허리", "d": "직전 고저 돌파에 두께가 바뀌는 선. 시간 없음."}, {"t": "틱 차트", "k": "패턴", "p": "charts", "aka": "tick volume range bar 활동량축", "d": "체결·거래량·변동폭으로 봉을 닫는다. 시계를 버림."}, {"t": "가치영역", "k": "지표", "p": "charts", "aka": "value area 70% POC", "d": "TPO 약 70%의 가격 띠. 시장이 받아들인 범위."}, {"t": "이니셜 밸런스", "k": "지표", "p": "charts", "aka": "Initial Balance 첫 한 시간", "d": "개장 첫 두 블록의 레인지. 당일 확장의 기준선."}, {"t": "풋프린트", "k": "지표", "p": "charts", "aka": "footprint bid ask 오더플로", "d": "봉을 가격대별 매수·매도 체결로 쪼갠 표시."}] -->
 
         <div class="crumb">Chapter 06</div>
         <h2 class="page-title">차트 유형</h2>
         <p class="lede">가격은 같고 버리는 정보가 다르다. 차트 종류의 본질은 필터다.</p>
+
+        <div class="chapter-summary"><b>요약.</b> 이 챕터는 차트 유형을 새 도구가 아니라 필터의 선택으로 읽는다. 원료는 모두 같은 봉 — 시가·고가·저가·종가·거래량의 OHLCV다. 라인은 고저를 버리고, 렌코·카기·P&amp;F는 시간을 버리고, 틱·볼륨·레인지 바는 시계를 버리고, 하이킨아시는 실제 시가·종가를 버리고, TPO는 순서를 버린다. 버린 것이 곧 그 차트의 성격이고, 버린 것을 모른 채 쓰면 재계산된 표시 가격에 손절을 거는 사고가 난다. 끝에서 목적별 선택 절차로 묶는다.</div>
+
+        <nav class="chapter-toc">
+          <div class="toc-title">이 챕터에서</div>
+          <ol>
+            <li><a data-scroll="sec-charts-1">차트는 필터다 — 같은 OHLCV, 다른 버리기</a></li>
+            <li><a data-scroll="sec-charts-2">시간축 차트 — 라인·바·캔들</a></li>
+            <li><a data-scroll="sec-charts-3">가격축 차트 — 렌코·카기·P&amp;F</a></li>
+            <li><a data-scroll="sec-charts-4">활동량축 차트 — 틱·볼륨·레인지</a></li>
+            <li><a data-scroll="sec-charts-5">평균과 재계산 — 하이킨아시</a></li>
+            <li><a data-scroll="sec-charts-6">분포 차트 — TPO·프로파일·풋프린트</a></li>
+            <li><a data-scroll="sec-charts-7">선택 절차 — 목적이 차트를 고른다</a></li>
+          </ol>
+        </nav>
+
+        <h3 id="sec-charts-1">차트는 필터다 — 같은 OHLCV, 다른 버리기</h3>
+        <p>모든 차트의 원료는 하나다 — 거래소가 중계한 체결의 열. 이를 봉 단위로 자르면 시가·고가·저가·종가·거래량, OHLCV<sup class="fnref" id="fnref-charts-1"><a data-scroll="fn-charts-1">1</a></sup> 다섯 값이 나온다. 차트 유형이 갈리는 지점은 데이터가 아니라 버리기다. 같은 열에서 무엇을 지우고 무엇을 남기는가가 그 차트의 성격과 쓰임을 정한다.</p>
+        <p>버리는 축으로 나누면 네 계열이다. 시간축 차트는 가로축의 시간을 지키고 봉 안의 정보를 선택적으로 지운다 — 라인은 고저를, 캔들은 봉 안의 경로를 버린다. 가격축 차트는 시간 자체를 버린다 — 정한 폭만큼 움직일 때만 새 칸이 생긴다. 활동량축 차트는 시계를 버리고 체결 수·거래량으로 봉을 닫는다. 분포 차트는 순서를 버리고 가격대별 빈도만 남긴다.</p>
+        <p>필터의 대가는 해상도다. 잡음이 줄어든 만큼 버린 정보에는 답할 수 없다. 라인에서 당일 변동폭은 안 보이고, 렌코에서 반전이 며칠 걸렸는지는 지워졌고, TPO에서 어느 가격이 먼저 거래됐는지는 순서와 함께 사라진다. 차트를 고른다는 것은 어떤 질문에 답할지를 먼저 정하는 일이다.</p>
         <table>
           <thead><tr><th>종류</th><th>버림</th><th>쓰임</th></tr></thead>
           <tbody>
             <tr><td>라인</td><td>고저·시가</td><td>큰 그림, 지지저항 스캔</td></tr>
-            <tr><td>바 / 캔들</td><td>거의 없음</td><td>기본 분석, 패턴, 캔들</td></tr>
+            <tr><td>바 / 캔들</td><td>봉 안의 경로</td><td>기본 분석, 패턴, 캔들</td></tr>
             <tr><td>하이킨아시</td><td>실제 시가·종가</td><td>추세 가독. 주문 가격으로 쓰지 말 것</td></tr>
             <tr><td>렌코 · 카기 · P&amp;F</td><td>시간</td><td>추세 필터, 와이코프 목표가</td></tr>
             <tr><td>틱 · 볼륨 · 레인지</td><td>시계 시간</td><td>활동량 축</td></tr>
@@ -16,4 +36,109 @@
             <tr><td>풋프린트</td><td>요약</td><td>가격대별 매수·매도 체결</td></tr>
           </tbody>
         </table>
-        <div class="warn">하이킨아시와 렌코 위에 고전 캔들 패턴을 올리면 정의가 깨진다. 손절은 실제 호가에 둔다.</div>
+        <p>이 표가 이 챕터의 지도다. 각 행을 뒤 섹션에서 푼다.</p>
+
+        <h3 id="sec-charts-2">시간축 차트 — 라인·바·캔들</h3>
+        <p>가로축이 균등한 시간인 차트 — 봉 하나가 시간 단위 하나다. 이 계열에서 버리는 것은 봉 안의 정보다.</p>
+        <p>라인 차트는 종가만 잇는다. 고가·저가·시가를 버리니 하루 안의 출렁임이 사라지고 추세선과 지지·저항이 깨끗해진다 — 큰 그림과 장기 비교의 도구다. 대가는 봉 안의 변동폭 전부다.</p>
+        <p>바 차트는 OHLC 네 값을 다 남긴다 — 마디의 왼쪽 가지가 시가, 오른쪽 가지가 종가다. 서구의 표준 표기였고 캔들이 퍼진 뒤에도 선물·기관 화면에는 바가 남아 있다<sup class="cit"><a data-scroll="src-charts-2">[2]</a></sup>.</p>
+        <p>캔들은 같은 OHLC를 다르게 강조한다. 시가와 종가 사이를 몸통으로 칠하고 고저를 꼬리로 빼서 그 시간에 누가 이겼는지가 한눈에 읽힌다. 스티브 니슨이 1991년 서구에 소개한 뒤 사실상 표준이 됐고<sup class="cit"><a data-scroll="src-charts-1">[1]</a></sup>, 몸통과 꼬리의 해석이 곧 캔들 패턴의 문법이다(<a href="#candles">캔들 대표</a>).</p>
+        <figure class="fig">
+          <img src="images/ch06/three-views.svg" alt="같은 가격열을 라인·캔들·렌코 세 가지로 그린 비교 — 라인은 종가만, 캔들은 OHLC 전부, 렌코는 고정 폭 벽돌만 남긴다" loading="lazy" />
+          <figcaption>그림 1. 같은 가격열, 세 가지 필터. 라인은 종가만 남기고, 캔들은 OHLC를 다 남기며, 렌코는 정한 폭 미만의 움직임과 시간을 버린다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>공통 한계가 둘 있다. 봉 안의 순서는 여전히 없다 — 고가가 먼저였는지 저가가 먼저였는지는 OHLC만으로 알 수 없다. 그리고 시간은 균등해도 활동량은 균등하지 않다 — 점심의 빈 봉과 지표 발표 직후의 봉이 같은 너비를 차지한다.</p>
+
+        <h3 id="sec-charts-3">가격축 차트 — 시간을 버리는 설계</h3>
+        <p>렌코<sup class="fnref" id="fnref-charts-2"><a data-scroll="fn-charts-2">2</a></sup>·카기<sup class="fnref" id="fnref-charts-3"><a data-scroll="fn-charts-3">3</a></sup>·P&amp;F<sup class="fnref" id="fnref-charts-4"><a data-scroll="fn-charts-4">4</a></sup>는 시간을 버린다. 봉의 트리거가 시계가 아니라 가격 폭이다 — 정한 크기만큼 움직일 때만 새 칸이 그어지고, 미만의 움직임과 그 사이의 시간은 기록되지 않는다.</p>
+        <p>렌코는 벽돌이다. 벽돌 크기를 10포인트로 정하면 9포인트 움직임은 없던 일이고, 10포인트가 채워질 때 새 벽돌이 45도로 붙는다<sup class="cit"><a data-scroll="src-charts-4">[4]</a></sup>. 벽돌 크기가 곧 필터 강도다.</p>
+        <p>카기는 두께가 있는 선이다. 가격이 직전 고점 위로 올라가면 선이 굵어지고(양), 직전 저점 아래로 내려가면 가늘어진다(음) — 어깨와 허리의 돌파가 신호다.</p>
+        <p>P&amp;F는 상승을 X 열로, 하락을 O 열로 쌓는다. 필터는 두 겹이다 — 한 칸의 가격 크기(박스)와 반대 열로 넘어가는 데 필요한 칸수(전환, 고전은 3점 전환). 빅터 드빌리어스가 1933년에 체계화했고<sup class="cit"><a data-scroll="src-charts-3">[3]</a></sup>, 와이코프는 횡보 폭을 가로로 세는 카운트의 재료로 썼다 — 횡보의 칸수 × 박스 × 전환이 목표폭이다. 원인이 클수록 결과가 크다는 법칙의 계산이다(<a href="#theories">고전 이론</a>).</p>
+        <figure class="fig">
+          <img src="images/ch06/pnf-count.svg" alt="X와 O 열이 번갈아 쌓이는 P&F 차트에서 횡보 구간을 점선 상자로 묶고 그 폭을 위쪽으로 투사해 목표폭을 잡는 와이코프 카운트" loading="lazy" />
+          <figcaption>그림 2. P&amp;F와 와이코프 카운트. 횡보(원인)의 칸수를 가로로 세어 목표폭(결과)을 투사한다. 시간축이 없으므로 칸이 며칠에 걸쳐 생겼는지는 지워진다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>공통의 대가는 시간 감각이다. 며칠 걸린 움직임과 몇 분 걸린 움직임이 같은 칸을 차지하고, 차트가 조용한 동안에도 시계는 간다 — P&amp;F 한 칸이 한 달의 횡보일 수 있다. 그리고 필터 매개변수가 곧 세계다 — 박스 크기를 바꾸면 같은 데이터가 다른 차트가 된다.</p>
+
+        <h3 id="sec-charts-4">활동량축 차트 — 시계를 버린다는 것</h3>
+        <p>틱·볼륨·레인지 바<sup class="fnref" id="fnref-charts-5"><a data-scroll="fn-charts-5">5</a></sup>는 시계 시간을 버리고 활동량으로 봉을 자른다. 틱 바는 N 건의 체결마다, 볼륨 바는 N 주(계약)마다, 레인지 바는 정해진 고저 폭이 채워질 때마다 봉 하나를 닫는다.</p>
+        <p>얻는 것은 균등한 정보 밀도다. 활동이 몰리는 시간에는 봉이 빨리 쌓이고 한적한 시간에는 멈춘다 — 점심의 빈 봉 열 개가 봉 하나로 압축되고, 지표 발표의 한 시간이 수십 봉으로 팽창한다. 봉 하나가 같은 양의 일을 담으니 거래량 분석과 평균이 활동량 기준으로 재보정된다.</p>
+        <p>잃는 것은 달력 감각이다. 세션 경계가 축에서 지워지고 봉 사이에 흐른 실제 시간이 불균등해진다 — 아시아 장의 얇은 시간과 뉴욕 겹침이 같은 축을 쓴다. 데이터 의존도가 높다. 총거래량이 없는 현물 외환 같은 시장에서는 틱 수가 프록시로 들어가고, 프록시의 질이 곧 차트의 질이다.</p>
+
+        <h3 id="sec-charts-5">평균과 재계산 — 하이킨아시</h3>
+        <p>하이킨아시<sup class="fnref" id="fnref-charts-6"><a data-scroll="fn-charts-6">6</a></sup>는 표시를 위해 봉을 다시 계산한다. HA종가는 봉의 OHLC 평균이고, HA시가는 직전 HA봉의 시가·종가 평균이며, HA고가·저가는 실제 고저와 HA시가·종가를 겨뤄 잡는다<sup class="cit"><a data-scroll="src-charts-5">[5]</a></sup>. 평균을 거친 봉이 같은 색으로 연속하니 추세 구간이 매끄럽게 읽히고, 색이 바뀌는 지점이 조기 경고가 된다 — 추세 가독을 위한 필터다.</p>
+        <figure class="fig">
+          <img src="images/ch06/heikin-ashi.svg" alt="실제 봉 네 개와 그것을 재계산한 하이킨아시 봉 네 개의 나란한 비교 — 실제 하락봉이 HA에서는 상승봉으로 바뀌고 재계산 공식이 아래에 적혀 있다" loading="lazy" />
+          <figcaption>그림 3. 하이킨아시 재계산. 왼쪽 실제 봉 네 개가 오른쪽 HA 봉 네 개가 된다. 실제 하락봉이 HA에서는 상승봉으로 그려진다 — 표시 가격은 실제 호가가 아니다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>대가는 가격의 진위다. 화면의 시가·종가는 재계산 값이라 실제로 체결된 적 없는 숫자일 수 있다. HA봉의 종가를 주문 가격으로 써도 그 가격에는 호가가 없고, HA봉의 저가에 손절을 걸면 실제 저가가 깨지기 전에 빠져나간다.</p>
+        <div class="warn">하이킨아시와 렌코 위에 고전 캔들 패턴을 올리면 정의가 깨진다 — 해머의 시가·종가는 재계산 값이라 원래 정의의 대상이 아니다. 손절은 실제 호가에 둔다.</div>
+        <p>같은 이유로 이 차트 위에 얹는 지표도 원본과 다른 값을 낸다 — 렌코 위의 이동평균은 렌코 값의 평균이지 원본 봉의 평균이 아니다. 필터 위의 필터는 원본 시계열로 돌려 검증한다.</p>
+
+        <h3 id="sec-charts-6">분포 차트 — 순서를 버리고 분포를 본다</h3>
+        <p>TPO<sup class="fnref" id="fnref-charts-7"><a data-scroll="fn-charts-7">7</a></sup>와 볼륨 프로파일은 봉의 순서를 버리고 가격대별 빈도를 본다. 피터 스타이들마이어의 Market Profile은 30분 블록을 문자로 찍어 가격 눈금에 옆으로 쌓는다 — 가로축이 시간이 아니라 빈도다<sup class="cit"><a data-scroll="src-charts-6">[6]</a></sup>. 가장 긴 행이 POC<sup class="fnref" id="fnref-charts-8"><a data-scroll="fn-charts-8">8</a></sup>(최다 체결 가격)이고, 전체 TPO의 약 70%를 덮는 띠가 가치영역<sup class="fnref" id="fnref-charts-9"><a data-scroll="fn-charts-9">9</a></sup>, 첫 두 블록(A·B, 첫 한 시간)의 폭이 이니셜 밸런스<sup class="fnref" id="fnref-charts-10"><a data-scroll="fn-charts-10">10</a></sup>다 — 당일 확장의 기준선이다. 읽는 문법은 경매시장이다 — 가격이 가치영역을 받아들이는지(회귀), 거부하는지(이탈)를 본다.</p>
+        <figure class="fig">
+          <img src="images/ch06/tpo-profile.svg" alt="가격대별로 A부터 F까지의 문자가 쌓여 종 모양 분포를 이루는 TPO 프로파일 — 가장 긴 행이 POC이고 약 70%를 덮는 띠가 가치영역, 첫 두 블록이 이니셜 밸런스" loading="lazy" />
+          <figcaption>그림 4. TPO 분포. 30분 블록마다 문자 하나를 거래된 가격 행에 찍어 옆으로 쌓는다. 가장 긴 행이 POC, 약 70%를 덮는 띠가 가치영역, 첫 한 시간(A·B)의 폭이 이니셜 밸런스다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>볼륨 프로파일은 같은 분포를 문자가 아니라 거래량으로 쌓은 형제다(<a href="#indicators">보조지표</a>). 풋프린트<sup class="fnref" id="fnref-charts-11"><a data-scroll="fn-charts-11">11</a></sup>는 반대 방향의 필터다 — 봉을 가격대별 매수·매도 체결로 쪼개 요약을 버리고 체결 자체를 본다. 오더플로의 영역이다(<a href="#extra">보충 영역</a>).</p>
+        <p>한계는 순서의 상실과 데이터 의존이다. 분포는 어디서 거래됐는지는 보여도 무엇이 먼저였는지는 보이지 않는다. 그리고 프로파일은 먹이는 데이터를 따라간다 — 거래소별 집계와 세션 경계 설정에 따라 다른 그림이 나온다.</p>
+
+        <h3 id="sec-charts-7">선택 절차 — 목적이 차트를 고른다</h3>
+        <p>차트 고르기는 취향이 아니라 목적의 문제다. 하려는 판단이 필요로 하는 정보를 버리는 차트를 쓰면 안 된다 — 그게 전부다.</p>
+        <table>
+          <thead><tr><th>목적</th><th>차트</th><th>주의</th></tr></thead>
+          <tbody>
+            <tr><td>큰 그림 · 지지저항 스캔</td><td>라인 · 상위프레임 캔들</td><td>당일 변동폭은 안 보인다</td></tr>
+            <tr><td>추세 가독</td><td>하이킨아시 · 렌코</td><td>주문·손절은 원본 차트로</td></tr>
+            <tr><td>정밀 타이밍 · 패턴</td><td>캔들 · 바, 필요하면 풋프린트</td><td>재계산 차트 위 패턴 금지</td></tr>
+            <tr><td>가치 영역 · 수용/거부</td><td>TPO · 볼륨 프로파일</td><td>세션 경계·데이터 확인</td></tr>
+            <tr><td>목표가 계수</td><td>P&amp;F 카운트</td><td>박스·전환 값이 세계를 정한다</td></tr>
+            <tr><td>활동량 균등</td><td>틱 · 볼륨 · 레인지 바</td><td>거래량 없는 시장은 프록시</td></tr>
+          </tbody>
+        </table>
+        <p>규칙은 하나로 모인다 — 필터를 켠 채로 버린 정보가 필요한 결정을 하지 않는다. 손절과 주문 가격, 세션 경계, 체결 순서가 필요한 판단은 원본 시계열 차트로 돌아가 확인한다.</p>
+
+        <div class="footnotes">
+          <div class="fn-title">용어 각주</div>
+          <ol>
+            <li id="fn-charts-1"><b>OHLCV</b>: 시가(Open)·고가(High)·저가(Low)·종가(Close)·거래량(Volume). 봉 하나를 요약하는 다섯 값 — 모든 차트의 원료.
+              <a class="fnback" data-scroll="fnref-charts-1">↩</a></li>
+            <li id="fn-charts-2"><b>렌코(Renko)</b>: 일본어 렌가(煉瓦, 벽돌)에서 온 이름. 정한 폭의 벽돌만 나열해 시간을 지운다.
+              <a class="fnback" data-scroll="fnref-charts-2">↩</a></li>
+            <li id="fn-charts-3"><b>카기(Kagi)</b>: 가격이 직전 고저를 넘을 때만 방향을 트는 선 차트. 어깨(직전 고점) 돌파로 굵어지고 허리(직전 저점) 이탈로 가늘어진다.
+              <a class="fnback" data-scroll="fnref-charts-3">↩</a></li>
+            <li id="fn-charts-4"><b>P&amp;F(Point and Figure)</b>: 상승을 X 열, 하락을 O 열로 쌓는 차트. 박스(한 칸의 가격)와 전환(몇 칸 역행 시 열 교체)의 이중 필터.
+              <a class="fnback" data-scroll="fnref-charts-4">↩</a></li>
+            <li id="fn-charts-5"><b>틱·볼륨·레인지 바(tick·volume·range bar)</b>: 봉의 트리거가 시계가 아니라 체결 건수·거래량·변동폭인 활동량축 차트.
+              <a class="fnback" data-scroll="fnref-charts-5">↩</a></li>
+            <li id="fn-charts-6"><b>하이킨아시(Heikin-Ashi)</b>: 平均足, "평균 걸음". 실제 OHLC를 재계산한 표시용 봉 — 화면의 가격은 실제 호가가 아니다.
+              <a class="fnback" data-scroll="fnref-charts-6">↩</a></li>
+            <li id="fn-charts-7"><b>TPO(Time Price Opportunity)</b>: Market Profile의 기본 단위. 30분 블록마다 문자 하나를 거래된 가격 행에 찍는다.
+              <a class="fnback" data-scroll="fnref-charts-7">↩</a></li>
+            <li id="fn-charts-8"><b>POC(Point of Control)</b>: TPO가 가장 많이 쌓인 가격 행. 그 기간의 공정가 후보.
+              <a class="fnback" data-scroll="fnref-charts-8">↩</a></li>
+            <li id="fn-charts-9"><b>가치영역(Value Area)</b>: TPO의 약 70%를 덮는 가격 띠. 시장이 공정으로 받아들인 범위.
+              <a class="fnback" data-scroll="fnref-charts-9">↩</a></li>
+            <li id="fn-charts-10"><b>이니셜 밸런스(Initial Balance)</b>: 개장 첫 한 시간(A·B 블록)의 레인지. 당일 방향 확장의 기준선.
+              <a class="fnback" data-scroll="fnref-charts-10">↩</a></li>
+            <li id="fn-charts-11"><b>풋프린트(Footprint)</b>: 봉을 가격대별 매수·매도 체결로 쪼갠 표시. 오더플로의 차트.
+              <a class="fnback" data-scroll="fnref-charts-11">↩</a></li>
+          </ol>
+        </div>
+
+        <div class="sources">
+          <div class="src-title">출처</div>
+          <ol>
+            <li id="src-charts-1">Nison, Steve, <i>Japanese Candlestick Charting Techniques</i>, New York Institute of Finance, 1991 — 캔들의 서구 소개.</li>
+            <li id="src-charts-2">Murphy, John J., <i>Technical Analysis of the Financial Markets</i>, New York Institute of Finance, 1999 — 차트 유형 장.</li>
+            <li id="src-charts-3">de Villiers, Victor, <i>The Point and Figure Method of Anticipating Stock Price Movements</i>, 1933 — P&amp;F의 첫 체계화.</li>
+            <li id="src-charts-4">StockCharts ChartSchool, "Renko Charts", https://chartschool.stockcharts.com/table-of-contents/chart-analysis/chart-types/renko-charts (접속일 2026-09-23).</li>
+            <li id="src-charts-5">StockCharts ChartSchool, "Heikin-Ashi Candlesticks", https://chartschool.stockcharts.com/table-of-contents/chart-analysis/chart-types/heikin-ashi-candlesticks (접속일 2026-09-23) — HA 공식.</li>
+            <li id="src-charts-6">Steidlmayer, J. Peter, <i>Markets and Market Logic</i>, Porcupine Press, 1986 — Market Profile·TPO의 원전.</li>
+          </ol>
+        </div>

@@ -1244,16 +1244,36 @@
       <!-- PAGE:charts -->
       <section class="page" id="page-charts">
 <!-- CHAPTER 06 · charts -->
-<!-- LEX: [{"t": "하이킨아시", "k": "패턴", "p": "charts", "aka": "Heikin Ashi 평균봉", "d": "추세 가독용. 표시 가격에 손절을 걸지 말 것."}, {"t": "렌코", "k": "패턴", "p": "charts", "aka": "Renko P&F 카기", "d": "시간을 버린 가격 필터."}, {"t": "TPO", "k": "지표", "p": "charts", "aka": "Market Profile 가치영역 POC", "d": "가격 세로, 시간 가로 분포. 경매시장 도구."}] -->
+<!-- LEX: [{"t": "하이킨아시", "k": "패턴", "p": "charts", "aka": "Heikin Ashi 평균봉", "d": "추세 가독용. 표시 가격에 손절을 걸지 말 것."}, {"t": "렌코", "k": "패턴", "p": "charts", "aka": "Renko P&F 카기", "d": "시간을 버린 가격 필터."}, {"t": "TPO", "k": "지표", "p": "charts", "aka": "Market Profile 가치영역 POC", "d": "가격 세로, 시간 가로 분포. 경매시장 도구."}, {"t": "OHLCV", "k": "언어", "p": "charts", "aka": "시가 고가 저가 종가 거래량 OHLC", "d": "봉 하나의 요약 값 다섯. 모든 차트의 원료."}, {"t": "P&F", "k": "패턴", "p": "charts", "aka": "Point and Figure X O 박스 전환", "d": "X·O 열의 가격 필터. 와이코프 카운트의 재료."}, {"t": "카기", "k": "패턴", "p": "charts", "aka": "Kagi 어깨 허리", "d": "직전 고저 돌파에 두께가 바뀌는 선. 시간 없음."}, {"t": "틱 차트", "k": "패턴", "p": "charts", "aka": "tick volume range bar 활동량축", "d": "체결·거래량·변동폭으로 봉을 닫는다. 시계를 버림."}, {"t": "가치영역", "k": "지표", "p": "charts", "aka": "value area 70% POC", "d": "TPO 약 70%의 가격 띠. 시장이 받아들인 범위."}, {"t": "이니셜 밸런스", "k": "지표", "p": "charts", "aka": "Initial Balance 첫 한 시간", "d": "개장 첫 두 블록의 레인지. 당일 확장의 기준선."}, {"t": "풋프린트", "k": "지표", "p": "charts", "aka": "footprint bid ask 오더플로", "d": "봉을 가격대별 매수·매도 체결로 쪼갠 표시."}] -->
 
         <div class="crumb">Chapter 06</div>
         <h2 class="page-title">차트 유형</h2>
         <p class="lede">가격은 같고 버리는 정보가 다르다. 차트 종류의 본질은 필터다.</p>
+
+        <div class="chapter-summary"><b>요약.</b> 이 챕터는 차트 유형을 새 도구가 아니라 필터의 선택으로 읽는다. 원료는 모두 같은 봉 — 시가·고가·저가·종가·거래량의 OHLCV다. 라인은 고저를 버리고, 렌코·카기·P&amp;F는 시간을 버리고, 틱·볼륨·레인지 바는 시계를 버리고, 하이킨아시는 실제 시가·종가를 버리고, TPO는 순서를 버린다. 버린 것이 곧 그 차트의 성격이고, 버린 것을 모른 채 쓰면 재계산된 표시 가격에 손절을 거는 사고가 난다. 끝에서 목적별 선택 절차로 묶는다.</div>
+
+        <nav class="chapter-toc">
+          <div class="toc-title">이 챕터에서</div>
+          <ol>
+            <li><a data-scroll="sec-charts-1">차트는 필터다 — 같은 OHLCV, 다른 버리기</a></li>
+            <li><a data-scroll="sec-charts-2">시간축 차트 — 라인·바·캔들</a></li>
+            <li><a data-scroll="sec-charts-3">가격축 차트 — 렌코·카기·P&amp;F</a></li>
+            <li><a data-scroll="sec-charts-4">활동량축 차트 — 틱·볼륨·레인지</a></li>
+            <li><a data-scroll="sec-charts-5">평균과 재계산 — 하이킨아시</a></li>
+            <li><a data-scroll="sec-charts-6">분포 차트 — TPO·프로파일·풋프린트</a></li>
+            <li><a data-scroll="sec-charts-7">선택 절차 — 목적이 차트를 고른다</a></li>
+          </ol>
+        </nav>
+
+        <h3 id="sec-charts-1">차트는 필터다 — 같은 OHLCV, 다른 버리기</h3>
+        <p>모든 차트의 원료는 하나다 — 거래소가 중계한 체결의 열. 이를 봉 단위로 자르면 시가·고가·저가·종가·거래량, OHLCV<sup class="fnref" id="fnref-charts-1"><a data-scroll="fn-charts-1">1</a></sup> 다섯 값이 나온다. 차트 유형이 갈리는 지점은 데이터가 아니라 버리기다. 같은 열에서 무엇을 지우고 무엇을 남기는가가 그 차트의 성격과 쓰임을 정한다.</p>
+        <p>버리는 축으로 나누면 네 계열이다. 시간축 차트는 가로축의 시간을 지키고 봉 안의 정보를 선택적으로 지운다 — 라인은 고저를, 캔들은 봉 안의 경로를 버린다. 가격축 차트는 시간 자체를 버린다 — 정한 폭만큼 움직일 때만 새 칸이 생긴다. 활동량축 차트는 시계를 버리고 체결 수·거래량으로 봉을 닫는다. 분포 차트는 순서를 버리고 가격대별 빈도만 남긴다.</p>
+        <p>필터의 대가는 해상도다. 잡음이 줄어든 만큼 버린 정보에는 답할 수 없다. 라인에서 당일 변동폭은 안 보이고, 렌코에서 반전이 며칠 걸렸는지는 지워졌고, TPO에서 어느 가격이 먼저 거래됐는지는 순서와 함께 사라진다. 차트를 고른다는 것은 어떤 질문에 답할지를 먼저 정하는 일이다.</p>
         <table>
           <thead><tr><th>종류</th><th>버림</th><th>쓰임</th></tr></thead>
           <tbody>
             <tr><td>라인</td><td>고저·시가</td><td>큰 그림, 지지저항 스캔</td></tr>
-            <tr><td>바 / 캔들</td><td>거의 없음</td><td>기본 분석, 패턴, 캔들</td></tr>
+            <tr><td>바 / 캔들</td><td>봉 안의 경로</td><td>기본 분석, 패턴, 캔들</td></tr>
             <tr><td>하이킨아시</td><td>실제 시가·종가</td><td>추세 가독. 주문 가격으로 쓰지 말 것</td></tr>
             <tr><td>렌코 · 카기 · P&amp;F</td><td>시간</td><td>추세 필터, 와이코프 목표가</td></tr>
             <tr><td>틱 · 볼륨 · 레인지</td><td>시계 시간</td><td>활동량 축</td></tr>
@@ -1261,7 +1281,112 @@
             <tr><td>풋프린트</td><td>요약</td><td>가격대별 매수·매도 체결</td></tr>
           </tbody>
         </table>
-        <div class="warn">하이킨아시와 렌코 위에 고전 캔들 패턴을 올리면 정의가 깨진다. 손절은 실제 호가에 둔다.</div>
+        <p>이 표가 이 챕터의 지도다. 각 행을 뒤 섹션에서 푼다.</p>
+
+        <h3 id="sec-charts-2">시간축 차트 — 라인·바·캔들</h3>
+        <p>가로축이 균등한 시간인 차트 — 봉 하나가 시간 단위 하나다. 이 계열에서 버리는 것은 봉 안의 정보다.</p>
+        <p>라인 차트는 종가만 잇는다. 고가·저가·시가를 버리니 하루 안의 출렁임이 사라지고 추세선과 지지·저항이 깨끗해진다 — 큰 그림과 장기 비교의 도구다. 대가는 봉 안의 변동폭 전부다.</p>
+        <p>바 차트는 OHLC 네 값을 다 남긴다 — 마디의 왼쪽 가지가 시가, 오른쪽 가지가 종가다. 서구의 표준 표기였고 캔들이 퍼진 뒤에도 선물·기관 화면에는 바가 남아 있다<sup class="cit"><a data-scroll="src-charts-2">[2]</a></sup>.</p>
+        <p>캔들은 같은 OHLC를 다르게 강조한다. 시가와 종가 사이를 몸통으로 칠하고 고저를 꼬리로 빼서 그 시간에 누가 이겼는지가 한눈에 읽힌다. 스티브 니슨이 1991년 서구에 소개한 뒤 사실상 표준이 됐고<sup class="cit"><a data-scroll="src-charts-1">[1]</a></sup>, 몸통과 꼬리의 해석이 곧 캔들 패턴의 문법이다(<a href="#candles">캔들 대표</a>).</p>
+        <figure class="fig">
+          <img src="images/ch06/three-views.svg" alt="같은 가격열을 라인·캔들·렌코 세 가지로 그린 비교 — 라인은 종가만, 캔들은 OHLC 전부, 렌코는 고정 폭 벽돌만 남긴다" loading="lazy" />
+          <figcaption>그림 1. 같은 가격열, 세 가지 필터. 라인은 종가만 남기고, 캔들은 OHLC를 다 남기며, 렌코는 정한 폭 미만의 움직임과 시간을 버린다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>공통 한계가 둘 있다. 봉 안의 순서는 여전히 없다 — 고가가 먼저였는지 저가가 먼저였는지는 OHLC만으로 알 수 없다. 그리고 시간은 균등해도 활동량은 균등하지 않다 — 점심의 빈 봉과 지표 발표 직후의 봉이 같은 너비를 차지한다.</p>
+
+        <h3 id="sec-charts-3">가격축 차트 — 시간을 버리는 설계</h3>
+        <p>렌코<sup class="fnref" id="fnref-charts-2"><a data-scroll="fn-charts-2">2</a></sup>·카기<sup class="fnref" id="fnref-charts-3"><a data-scroll="fn-charts-3">3</a></sup>·P&amp;F<sup class="fnref" id="fnref-charts-4"><a data-scroll="fn-charts-4">4</a></sup>는 시간을 버린다. 봉의 트리거가 시계가 아니라 가격 폭이다 — 정한 크기만큼 움직일 때만 새 칸이 그어지고, 미만의 움직임과 그 사이의 시간은 기록되지 않는다.</p>
+        <p>렌코는 벽돌이다. 벽돌 크기를 10포인트로 정하면 9포인트 움직임은 없던 일이고, 10포인트가 채워질 때 새 벽돌이 45도로 붙는다<sup class="cit"><a data-scroll="src-charts-4">[4]</a></sup>. 벽돌 크기가 곧 필터 강도다.</p>
+        <p>카기는 두께가 있는 선이다. 가격이 직전 고점 위로 올라가면 선이 굵어지고(양), 직전 저점 아래로 내려가면 가늘어진다(음) — 어깨와 허리의 돌파가 신호다.</p>
+        <p>P&amp;F는 상승을 X 열로, 하락을 O 열로 쌓는다. 필터는 두 겹이다 — 한 칸의 가격 크기(박스)와 반대 열로 넘어가는 데 필요한 칸수(전환, 고전은 3점 전환). 빅터 드빌리어스가 1933년에 체계화했고<sup class="cit"><a data-scroll="src-charts-3">[3]</a></sup>, 와이코프는 횡보 폭을 가로로 세는 카운트의 재료로 썼다 — 횡보의 칸수 × 박스 × 전환이 목표폭이다. 원인이 클수록 결과가 크다는 법칙의 계산이다(<a href="#theories">고전 이론</a>).</p>
+        <figure class="fig">
+          <img src="images/ch06/pnf-count.svg" alt="X와 O 열이 번갈아 쌓이는 P&F 차트에서 횡보 구간을 점선 상자로 묶고 그 폭을 위쪽으로 투사해 목표폭을 잡는 와이코프 카운트" loading="lazy" />
+          <figcaption>그림 2. P&amp;F와 와이코프 카운트. 횡보(원인)의 칸수를 가로로 세어 목표폭(결과)을 투사한다. 시간축이 없으므로 칸이 며칠에 걸쳐 생겼는지는 지워진다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>공통의 대가는 시간 감각이다. 며칠 걸린 움직임과 몇 분 걸린 움직임이 같은 칸을 차지하고, 차트가 조용한 동안에도 시계는 간다 — P&amp;F 한 칸이 한 달의 횡보일 수 있다. 그리고 필터 매개변수가 곧 세계다 — 박스 크기를 바꾸면 같은 데이터가 다른 차트가 된다.</p>
+
+        <h3 id="sec-charts-4">활동량축 차트 — 시계를 버린다는 것</h3>
+        <p>틱·볼륨·레인지 바<sup class="fnref" id="fnref-charts-5"><a data-scroll="fn-charts-5">5</a></sup>는 시계 시간을 버리고 활동량으로 봉을 자른다. 틱 바는 N 건의 체결마다, 볼륨 바는 N 주(계약)마다, 레인지 바는 정해진 고저 폭이 채워질 때마다 봉 하나를 닫는다.</p>
+        <p>얻는 것은 균등한 정보 밀도다. 활동이 몰리는 시간에는 봉이 빨리 쌓이고 한적한 시간에는 멈춘다 — 점심의 빈 봉 열 개가 봉 하나로 압축되고, 지표 발표의 한 시간이 수십 봉으로 팽창한다. 봉 하나가 같은 양의 일을 담으니 거래량 분석과 평균이 활동량 기준으로 재보정된다.</p>
+        <p>잃는 것은 달력 감각이다. 세션 경계가 축에서 지워지고 봉 사이에 흐른 실제 시간이 불균등해진다 — 아시아 장의 얇은 시간과 뉴욕 겹침이 같은 축을 쓴다. 데이터 의존도가 높다. 총거래량이 없는 현물 외환 같은 시장에서는 틱 수가 프록시로 들어가고, 프록시의 질이 곧 차트의 질이다.</p>
+
+        <h3 id="sec-charts-5">평균과 재계산 — 하이킨아시</h3>
+        <p>하이킨아시<sup class="fnref" id="fnref-charts-6"><a data-scroll="fn-charts-6">6</a></sup>는 표시를 위해 봉을 다시 계산한다. HA종가는 봉의 OHLC 평균이고, HA시가는 직전 HA봉의 시가·종가 평균이며, HA고가·저가는 실제 고저와 HA시가·종가를 겨뤄 잡는다<sup class="cit"><a data-scroll="src-charts-5">[5]</a></sup>. 평균을 거친 봉이 같은 색으로 연속하니 추세 구간이 매끄럽게 읽히고, 색이 바뀌는 지점이 조기 경고가 된다 — 추세 가독을 위한 필터다.</p>
+        <figure class="fig">
+          <img src="images/ch06/heikin-ashi.svg" alt="실제 봉 네 개와 그것을 재계산한 하이킨아시 봉 네 개의 나란한 비교 — 실제 하락봉이 HA에서는 상승봉으로 바뀌고 재계산 공식이 아래에 적혀 있다" loading="lazy" />
+          <figcaption>그림 3. 하이킨아시 재계산. 왼쪽 실제 봉 네 개가 오른쪽 HA 봉 네 개가 된다. 실제 하락봉이 HA에서는 상승봉으로 그려진다 — 표시 가격은 실제 호가가 아니다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>대가는 가격의 진위다. 화면의 시가·종가는 재계산 값이라 실제로 체결된 적 없는 숫자일 수 있다. HA봉의 종가를 주문 가격으로 써도 그 가격에는 호가가 없고, HA봉의 저가에 손절을 걸면 실제 저가가 깨지기 전에 빠져나간다.</p>
+        <div class="warn">하이킨아시와 렌코 위에 고전 캔들 패턴을 올리면 정의가 깨진다 — 해머의 시가·종가는 재계산 값이라 원래 정의의 대상이 아니다. 손절은 실제 호가에 둔다.</div>
+        <p>같은 이유로 이 차트 위에 얹는 지표도 원본과 다른 값을 낸다 — 렌코 위의 이동평균은 렌코 값의 평균이지 원본 봉의 평균이 아니다. 필터 위의 필터는 원본 시계열로 돌려 검증한다.</p>
+
+        <h3 id="sec-charts-6">분포 차트 — 순서를 버리고 분포를 본다</h3>
+        <p>TPO<sup class="fnref" id="fnref-charts-7"><a data-scroll="fn-charts-7">7</a></sup>와 볼륨 프로파일은 봉의 순서를 버리고 가격대별 빈도를 본다. 피터 스타이들마이어의 Market Profile은 30분 블록을 문자로 찍어 가격 눈금에 옆으로 쌓는다 — 가로축이 시간이 아니라 빈도다<sup class="cit"><a data-scroll="src-charts-6">[6]</a></sup>. 가장 긴 행이 POC<sup class="fnref" id="fnref-charts-8"><a data-scroll="fn-charts-8">8</a></sup>(최다 체결 가격)이고, 전체 TPO의 약 70%를 덮는 띠가 가치영역<sup class="fnref" id="fnref-charts-9"><a data-scroll="fn-charts-9">9</a></sup>, 첫 두 블록(A·B, 첫 한 시간)의 폭이 이니셜 밸런스<sup class="fnref" id="fnref-charts-10"><a data-scroll="fn-charts-10">10</a></sup>다 — 당일 확장의 기준선이다. 읽는 문법은 경매시장이다 — 가격이 가치영역을 받아들이는지(회귀), 거부하는지(이탈)를 본다.</p>
+        <figure class="fig">
+          <img src="images/ch06/tpo-profile.svg" alt="가격대별로 A부터 F까지의 문자가 쌓여 종 모양 분포를 이루는 TPO 프로파일 — 가장 긴 행이 POC이고 약 70%를 덮는 띠가 가치영역, 첫 두 블록이 이니셜 밸런스" loading="lazy" />
+          <figcaption>그림 4. TPO 분포. 30분 블록마다 문자 하나를 거래된 가격 행에 찍어 옆으로 쌓는다. 가장 긴 행이 POC, 약 70%를 덮는 띠가 가치영역, 첫 한 시간(A·B)의 폭이 이니셜 밸런스다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>볼륨 프로파일은 같은 분포를 문자가 아니라 거래량으로 쌓은 형제다(<a href="#indicators">보조지표</a>). 풋프린트<sup class="fnref" id="fnref-charts-11"><a data-scroll="fn-charts-11">11</a></sup>는 반대 방향의 필터다 — 봉을 가격대별 매수·매도 체결로 쪼개 요약을 버리고 체결 자체를 본다. 오더플로의 영역이다(<a href="#extra">보충 영역</a>).</p>
+        <p>한계는 순서의 상실과 데이터 의존이다. 분포는 어디서 거래됐는지는 보여도 무엇이 먼저였는지는 보이지 않는다. 그리고 프로파일은 먹이는 데이터를 따라간다 — 거래소별 집계와 세션 경계 설정에 따라 다른 그림이 나온다.</p>
+
+        <h3 id="sec-charts-7">선택 절차 — 목적이 차트를 고른다</h3>
+        <p>차트 고르기는 취향이 아니라 목적의 문제다. 하려는 판단이 필요로 하는 정보를 버리는 차트를 쓰면 안 된다 — 그게 전부다.</p>
+        <table>
+          <thead><tr><th>목적</th><th>차트</th><th>주의</th></tr></thead>
+          <tbody>
+            <tr><td>큰 그림 · 지지저항 스캔</td><td>라인 · 상위프레임 캔들</td><td>당일 변동폭은 안 보인다</td></tr>
+            <tr><td>추세 가독</td><td>하이킨아시 · 렌코</td><td>주문·손절은 원본 차트로</td></tr>
+            <tr><td>정밀 타이밍 · 패턴</td><td>캔들 · 바, 필요하면 풋프린트</td><td>재계산 차트 위 패턴 금지</td></tr>
+            <tr><td>가치 영역 · 수용/거부</td><td>TPO · 볼륨 프로파일</td><td>세션 경계·데이터 확인</td></tr>
+            <tr><td>목표가 계수</td><td>P&amp;F 카운트</td><td>박스·전환 값이 세계를 정한다</td></tr>
+            <tr><td>활동량 균등</td><td>틱 · 볼륨 · 레인지 바</td><td>거래량 없는 시장은 프록시</td></tr>
+          </tbody>
+        </table>
+        <p>규칙은 하나로 모인다 — 필터를 켠 채로 버린 정보가 필요한 결정을 하지 않는다. 손절과 주문 가격, 세션 경계, 체결 순서가 필요한 판단은 원본 시계열 차트로 돌아가 확인한다.</p>
+
+        <div class="footnotes">
+          <div class="fn-title">용어 각주</div>
+          <ol>
+            <li id="fn-charts-1"><b>OHLCV</b>: 시가(Open)·고가(High)·저가(Low)·종가(Close)·거래량(Volume). 봉 하나를 요약하는 다섯 값 — 모든 차트의 원료.
+              <a class="fnback" data-scroll="fnref-charts-1">↩</a></li>
+            <li id="fn-charts-2"><b>렌코(Renko)</b>: 일본어 렌가(煉瓦, 벽돌)에서 온 이름. 정한 폭의 벽돌만 나열해 시간을 지운다.
+              <a class="fnback" data-scroll="fnref-charts-2">↩</a></li>
+            <li id="fn-charts-3"><b>카기(Kagi)</b>: 가격이 직전 고저를 넘을 때만 방향을 트는 선 차트. 어깨(직전 고점) 돌파로 굵어지고 허리(직전 저점) 이탈로 가늘어진다.
+              <a class="fnback" data-scroll="fnref-charts-3">↩</a></li>
+            <li id="fn-charts-4"><b>P&amp;F(Point and Figure)</b>: 상승을 X 열, 하락을 O 열로 쌓는 차트. 박스(한 칸의 가격)와 전환(몇 칸 역행 시 열 교체)의 이중 필터.
+              <a class="fnback" data-scroll="fnref-charts-4">↩</a></li>
+            <li id="fn-charts-5"><b>틱·볼륨·레인지 바(tick·volume·range bar)</b>: 봉의 트리거가 시계가 아니라 체결 건수·거래량·변동폭인 활동량축 차트.
+              <a class="fnback" data-scroll="fnref-charts-5">↩</a></li>
+            <li id="fn-charts-6"><b>하이킨아시(Heikin-Ashi)</b>: 平均足, "평균 걸음". 실제 OHLC를 재계산한 표시용 봉 — 화면의 가격은 실제 호가가 아니다.
+              <a class="fnback" data-scroll="fnref-charts-6">↩</a></li>
+            <li id="fn-charts-7"><b>TPO(Time Price Opportunity)</b>: Market Profile의 기본 단위. 30분 블록마다 문자 하나를 거래된 가격 행에 찍는다.
+              <a class="fnback" data-scroll="fnref-charts-7">↩</a></li>
+            <li id="fn-charts-8"><b>POC(Point of Control)</b>: TPO가 가장 많이 쌓인 가격 행. 그 기간의 공정가 후보.
+              <a class="fnback" data-scroll="fnref-charts-8">↩</a></li>
+            <li id="fn-charts-9"><b>가치영역(Value Area)</b>: TPO의 약 70%를 덮는 가격 띠. 시장이 공정으로 받아들인 범위.
+              <a class="fnback" data-scroll="fnref-charts-9">↩</a></li>
+            <li id="fn-charts-10"><b>이니셜 밸런스(Initial Balance)</b>: 개장 첫 한 시간(A·B 블록)의 레인지. 당일 방향 확장의 기준선.
+              <a class="fnback" data-scroll="fnref-charts-10">↩</a></li>
+            <li id="fn-charts-11"><b>풋프린트(Footprint)</b>: 봉을 가격대별 매수·매도 체결로 쪼갠 표시. 오더플로의 차트.
+              <a class="fnback" data-scroll="fnref-charts-11">↩</a></li>
+          </ol>
+        </div>
+
+        <div class="sources">
+          <div class="src-title">출처</div>
+          <ol>
+            <li id="src-charts-1">Nison, Steve, <i>Japanese Candlestick Charting Techniques</i>, New York Institute of Finance, 1991 — 캔들의 서구 소개.</li>
+            <li id="src-charts-2">Murphy, John J., <i>Technical Analysis of the Financial Markets</i>, New York Institute of Finance, 1999 — 차트 유형 장.</li>
+            <li id="src-charts-3">de Villiers, Victor, <i>The Point and Figure Method of Anticipating Stock Price Movements</i>, 1933 — P&amp;F의 첫 체계화.</li>
+            <li id="src-charts-4">StockCharts ChartSchool, "Renko Charts", https://chartschool.stockcharts.com/table-of-contents/chart-analysis/chart-types/renko-charts (접속일 2026-09-23).</li>
+            <li id="src-charts-5">StockCharts ChartSchool, "Heikin-Ashi Candlesticks", https://chartschool.stockcharts.com/table-of-contents/chart-analysis/chart-types/heikin-ashi-candlesticks (접속일 2026-09-23) — HA 공식.</li>
+            <li id="src-charts-6">Steidlmayer, J. Peter, <i>Markets and Market Logic</i>, Porcupine Press, 1986 — Market Profile·TPO의 원전.</li>
+          </ol>
+        </div>
         <div class="pager"><a href="#smc">← 유동성 언어</a><a href="#patterns">고전 패턴 →</a></div>
       </section>
       <!-- /PAGE:charts -->
@@ -1269,29 +1394,126 @@
       <!-- PAGE:patterns -->
       <section class="page" id="page-patterns">
 <!-- CHAPTER 07 · patterns -->
-<!-- LEX: [{"t": "헤드앤숄더", "k": "패턴", "p": "patterns", "aka": "H&S 넥라인", "d": "반전 패턴. 선행 추세와 넥라인 파괴가 필요."}, {"t": "확산형", "k": "패턴", "p": "patterns", "aka": "broadening megaphone", "d": "고점은 높고 저점은 낮아짐. 양방향, 가짜 돌파 많음."}] -->
+<!-- LEX: [{"t": "헤드앤숄더", "k": "패턴", "p": "patterns", "aka": "H&S 넥라인", "d": "반전 패턴. 선행 추세와 넥라인 파괴가 필요."}, {"t": "확산형", "k": "패턴", "p": "patterns", "aka": "broadening megaphone", "d": "고점은 높고 저점은 낮아짐. 양방향, 가짜 돌파 많음."}, {"t": "넥라인", "k": "패턴", "p": "patterns", "aka": "neckline 목선", "d": "머리어깨·이중 천장바닥의 경계선. 파괴가 완성이다."}, {"t": "이중 천장·바닥", "k": "패턴", "p": "patterns", "aka": "double top bottom M W", "d": "같은 자리를 두 번 시험. 중간 고점·저점 파괴가 확인."}, {"t": "라운딩", "k": "패턴", "p": "patterns", "aka": "rounding saucer 둥근 천장 바닥", "d": "서서히 기우는 전환. 넥라인이 없어 완성이 흐리다."}, {"t": "깃발", "k": "패턴", "p": "patterns", "aka": "flag 깃대 flagpole", "d": "급한 이동 뒤의 작은 역기울기 채널. 지속 후보."}, {"t": "페넌트", "k": "패턴", "p": "patterns", "aka": "pennant", "d": "깃대 뒤의 작은 대칭 삼각. 깃발의 사촌."}, {"t": "대칭 삼각", "k": "패턴", "p": "patterns", "aka": "symmetrical triangle coil", "d": "수렴하는 두 추세선. 압축이지 방향이 아니다."}, {"t": "직사각형", "k": "패턴", "p": "patterns", "aka": "rectangle box range", "d": "수평 지지·저항의 상자. 지속이기도 반전이기도."}, {"t": "컵앤핸들", "k": "패턴", "p": "patterns", "aka": "cup with handle O'Neil", "d": "둥근 바닥과 얕은 손잡이. 신고가 돌파가 확인."}, {"t": "측정 목표가", "k": "패턴", "p": "patterns", "aka": "measured objective measuring rule", "d": "패턴 높이를 돌파 방향으로 옮긴 최소 기대치."}, {"t": "되돌림", "k": "패턴", "p": "patterns", "aka": "pullback throwback 풀백 스로백", "d": "돌파 뒤 경계선으로 되돌아오는 재방문."}] -->
 
         <div class="crumb">Chapter 07</div>
         <h2 class="page-title">고전 패턴</h2>
-        <p class="lede">Edwards &amp; Magee 계열. 반전은 선행 추세가 있어야 한다. 없는 머리어깨는 출렁임이다.</p>
-        <h3>반전</h3>
-        <ul>
-          <li>헤드앤숄더 / 역헤드앤숄더: 넥라인 파괴가 확인</li>
-          <li>이중·삼중 천장과 바닥</li>
-          <li>라운딩 탑·바텀</li>
-        </ul>
-        <h3>지속</h3>
-        <ul>
-          <li>깃발, 페넌트, 채널</li>
-          <li>상승·하락 삼각, 컵앤핸들</li>
-        </ul>
-        <h3>양방향</h3>
-        <ul>
-          <li>대칭 삼각: 압축이지 방향이 아님</li>
-          <li>확산형(메가폰): 변동성 확대, 가짜 돌파가 많음</li>
-          <li>직사각형: 지속이기도 반전 직전이기도</li>
-        </ul>
-        <div class="note">측정 법칙은 패턴 높이를 돌파 방향으로 투사하는 것이다. 실패 돌파 자체가 신호가 되기도 한다. 스프링과 같은 사건.</div>
+        <p class="lede">에드워즈·메이기 계열의 형상 사전. 패턴은 예언이 아니라 확인과 무효화의 지리다. 그리고 반전 패턴의 첫 조건은 패턴 바깥에 있다 — 반전할 추세가 먼저 있어야 한다.</p>
+
+        <div class="chapter-summary"><b>요약.</b> 고전 차트 패턴은 샤바커가 분류하고 에드워즈와 메이기가 사전으로 묶은 형상의 목록이다. 패턴 이름은 조건 목록의 속기다 — 선행 추세, 경계선, 확인 돌파, 거래량 경향. 반전 패턴은 경계선이 깨질 때 완성되고, 지속 패턴은 추세 중간의 쉼표이며, 양방향 패턴은 방향을 주지 않는다. 측정 법칙은 패턴의 높이를 돌파 방향으로 옮겨 최소 기대치를 만들고, 실패한 패턴은 그 자체가 반대 방향의 신호다. 마지막으로 벌코프스키의 표본 통계와 주관 식별의 한계를 다룬다.</div>
+
+        <nav class="chapter-toc">
+          <div class="toc-title">이 챕터에서</div>
+          <ol>
+            <li><a data-scroll="sec-patterns-1">패턴의 전제 — 반전할 추세가 먼저다</a></li>
+            <li><a data-scroll="sec-patterns-2">반전 패턴 — 경계선이 깨질 때 완성된다</a></li>
+            <li><a data-scroll="sec-patterns-3">지속 패턴 — 추세가 숨 고르는 자리</a></li>
+            <li><a data-scroll="sec-patterns-4">양방향 패턴 — 압축과 확대</a></li>
+            <li><a data-scroll="sec-patterns-5">측정 법칙 — 높이를 돌파 방향으로 옮긴다</a></li>
+            <li><a data-scroll="sec-patterns-6">실패한 패턴 — 실패가 신호다</a></li>
+            <li><a data-scroll="sec-patterns-7">패턴의 검증 상태 — 통계와 주관 사이</a></li>
+          </ol>
+        </nav>
+
+        <h3 id="sec-patterns-1">패턴의 전제 — 반전할 추세가 먼저다</h3>
+        <p>고전 패턴의 계보는 샤바커에서 시작된다. 리처드 샤바커가 1932년 <i>Technical Analysis and Stock Market Profits</i>에서 차트 형상을 처음 체계적으로 분류했고<sup class="cit"><a data-scroll="src-patterns-1">[1]</a></sup>, 그 계보를 에드워즈와 메이기가 1948년 <i>Technical Analysis of Stock Trends</i>로 이어받아 오늘 읽히는 사전을 만들었다<sup class="cit"><a data-scroll="src-patterns-2">[2]</a></sup>. 머피의 종합서는 이 계열의 표준 요약이다<sup class="cit"><a data-scroll="src-patterns-3">[3]</a></sup>.</p>
+        <p>이 사전의 첫 규칙은 패턴이 아니라 전제다. 반전 패턴은 뒤집을 추세가 있어야 성립한다 — 상승 추세가 없는 자리의 머리어깨 모양은 패턴이 아니라 출렁임이다. 지속 패턴도 같다 — 계속될 추세가 없으면 쉼표가 아니다. 같은 형상이 맥락에 따라 패턴이 되기도 하고 잡음이 되기도 한다.</p>
+        <p>그래서 패턴 이름은 조건 목록의 속기로 읽는다. 목록은 네 칸이다 — 선행 추세, 경계선(넥라인이나 추세선), 확인 사건(경계선의 돌파, 보통 종가 기준), 거래량 경향. 여기서 거래량은 봉 아래에 쌓인 시간별 거래량 막대다 — 가격대별 체결 분포를 보는 볼륨 프로파일과는 다른 도구다<sup class="fnref" id="fnref-patterns-1"><a data-scroll="fn-patterns-1">1</a></sup>. 넷 중 마지막은 참고 사항이고 첫 셋이 성립 조건이다.</p>
+        <p>한계는 목록의 주관성이다. 선행 추세가 얼마나 길어야 추세인지, 경계선 관통이 어느 폭까지 허용인지에 공인 규격이 없다 — 에드워즈·메이기가 제안한 이탈 완충(3% 규칙, <a href="#structure">가격 구조</a>)도 관행이지 법칙이 아니다. 패턴은 발견하는 것이 아니라 조건을 먼저 선언하고 대조하는 것이다.</p>
+
+        <h3 id="sec-patterns-2">반전 패턴 — 경계선이 깨질 때 완성된다</h3>
+        <p>헤드앤숄더는 상승 추세 끝의 세 고점이다 — 왼어깨, 더 높은 머리, 다시 낮아진 오른어깨. 두 어깨 사이의 저점을 잇는 선이 넥라인<sup class="fnref" id="fnref-patterns-2"><a data-scroll="fn-patterns-2">2</a></sup>이다. 형상이 보이는 순간 패턴이 완성되는 게 아니다 — 오른어깨에서 되밀린 가격이 넥라인 아래로 종가를 박을 때 비로소 패턴이다. 그전까지는 머리어깨 후보다. 역헤드앤숄더는 하락 추세 끝의 거울상이고 확인은 넥라인의 상향 돌파다<sup class="cit"><a data-scroll="src-patterns-2">[2]</a></sup>.</p>
+        <figure class="fig">
+          <img src="images/ch07/hs-neckline.svg" alt="상승 추세 끝에 왼어깨·머리·오른어깨가 서고 넥라인 아래로 돌파되며, 머리에서 넥라인까지의 높이가 돌파점 아래로 투사되는 헤드앤숄더 도식" loading="lazy" />
+          <figcaption>그림 1. 헤드앤숄더 천장. 확인은 머리가 아니라 넥라인의 파괴다. 머리 정점에서 넥라인까지의 높이 H는 돌파점에서 아래로 투사된다(측정 법칙).
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>이중 천장·바닥은 같은 자리를 두 번 시험하는 형태다. 이중 천장은 두 번째 고점이 첫 고점 근처에서 거절되고, 두 고점 사이의 저점 — 이 형태의 넥라인 — 이 깨질 때 확인된다. 이중 바닥은 그 거울상으로, 같은 저점을 두 번 밟고 중간 고점을 위로 깰 때 완성된다. 삼중 천장·바닥은 시험이 한 번 더 반복된 같은 논리다 — 세 번 버틴 자리가 깨질 때의 무게는 더 크다.</p>
+        <figure class="fig">
+          <img src="images/ch07/double-bottom.svg" alt="하락 뒤 같은 저점을 두 번 시험하고 두 저점 사이의 중간 고점을 위로 깨며 완성되는 이중 바닥 도식" loading="lazy" />
+          <figcaption>그림 2. 이중 바닥(W). 두 저점 사이의 중간 고점이 이 형태의 넥라인이다 — 위로 깨는 순간이 완성이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>라운딩<sup class="fnref" id="fnref-patterns-3"><a data-scroll="fn-patterns-3">3</a></sup>은 모서리 없는 전환이다 — 천장이 서서히 아래로 기울거나(rounding top) 바닥이 오랫동안 둥글게 다져지는 형태(rounding bottom, saucer)다. 넥라인이 없어 완성 시점이 흐리다 — 대신 얻는 것은 전환의 시간적 무게다. 고전 해설은 거래량의 골격도 둔다 — 머리어깨 천장에서 거래량은 왼어깨에서 최대, 머리에서 줄고 오른어깨에서 마르는 배열이 교과서적이다. 한계는 대칭의 환상이다 — 어깨의 높이가 같을 필요는 없고 넥라인은 기울 수 있으며, 어깨가 여럿인 복합형도 같은 문법이다.</p>
+
+        <h3 id="sec-patterns-3">지속 패턴 — 추세가 숨 고르는 자리</h3>
+        <p>지속 패턴은 추세 중간의 정지다 — 앞의 이동이 빠르고 컸을수록 쉼표는 짧고 얕다. 깃발<sup class="fnref" id="fnref-patterns-4"><a data-scroll="fn-patterns-4">4</a></sup>은 깃대(급한 등락) 뒤에 추세 반대로 살짝 기운 작은 채널이고, 페넌트<sup class="fnref" id="fnref-patterns-5"><a data-scroll="fn-patterns-5">5</a></sup>는 깃대 뒤의 작은 대칭 삼각이다. 둘 다 쉼표 안에서 거래량이 마르고 돌파에서 다시 붙는다. 에드워즈·메이기는 "깃발은 돛대 중간에서 분다"고 적었다 — 쉼표 뒤의 이동이 깃대만큼 이어지는 경우가 잦다는 관찰이다<sup class="cit"><a data-scroll="src-patterns-2">[2]</a></sup>.</p>
+        <figure class="fig">
+          <img src="images/ch07/flag.svg" alt="급등 깃대 뒤 아래로 살짝 기운 작은 채널의 깃발이 나오고, 채널 안에서 거래량이 마르며, 상방 돌파 뒤 이동이 이어지는 도식" loading="lazy" />
+          <figcaption>그림 3. 깃발. 깃대 뒤의 역기울기 소채널 안에서 거래량이 마르고 돌파에서 다시 붙는다. "깃발은 돛대 중간에서 분다"는 관찰이 측정 법칙의 한 판이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>채널은 평행한 추세선 두 개의 통로다 — 되돌림이 반대편 선에서 멈추는 한 추세는 진행 중이고 통로 이탈이 경고다(<a href="#structure">가격 구조</a>). 상승 삼각은 수평 저항 아래로 저점이 높아지는 압축이고, 하락 삼각은 수평 지지 위로 고점이 낮아지는 압축이다 — 기울기는 방향의 편향이지 약속이 아니다. 반대로 깨지는 표본이 어느 쪽에나 있다.</p>
+        <p>컵앤핸들<sup class="fnref" id="fnref-patterns-6"><a data-scroll="fn-patterns-6">6</a></sup>은 오닐의 성장주 패턴이다 — 오랜 상승 뒤의 둥근 조정(컵)과 오른쪽 가장자리의 얕은 되돌림(손잡이). 확인은 손잡이를 지나 선행 고점을 깨는 돌파다<sup class="cit"><a data-scroll="src-patterns-4">[4]</a></sup>. 이름은 미국 성장주 서사에서 왔지만 형상의 문법은 라운딩과 깃발의 조합이다. 지속 패턴의 한계는 정의에 내장돼 있다 — 쉼표가 반대로 깨지면 그것은 지속 패턴이 아니었던 것이다. 사후에 이름이 정해지는 형상이다.</p>
+
+        <h3 id="sec-patterns-4">양방향 패턴 — 압축과 확대</h3>
+        <p>대칭 삼각<sup class="fnref" id="fnref-patterns-7"><a data-scroll="fn-patterns-7">7</a></sup>은 낮아지는 고점과 높아지는 저점이 만나는 수렴이다. 방향의 형상이 아니라 압축의 형상이다 — 수렴이 좁아질수록 변동성은 줄고 돌파는 가까워지지만 어느 쪽인지는 패턴이 말해 주지 않는다. 깨지는 봉을 기다리는 것이 이 패턴의 사용법이고, 추세 쪽으로 조금 기운다는 통계가 있어도 그것은 기대이지 정의가 아니다.</p>
+        <p>확산형(메가폰)<sup class="fnref" id="fnref-patterns-8"><a data-scroll="fn-patterns-8">8</a></sup>은 대칭 삼각의 반대다 — 고점은 높아지고 저점은 낮아지며 변동성이 커진다. 에드워즈·메이기는 이 형상을 분산 국면, 통제를 잃은 시장으로 읽었다<sup class="cit"><a data-scroll="src-patterns-2">[2]</a></sup>. 양쪽 경계를 번갈아 넘는 가짜 돌파가 잦아 경계선 추종이 가장 비싼 대가를 치르는 형상이다. 직사각형은 수평 지지·저항의 상자다 — 상자 안의 왕복이 끝날 때까지 방향이 없다. 지속으로 끝나는 경우가 많지만 분산·매집 레인지로 반전이 되기도 한다 — 지속이기도 반전 직전이기도 한 양방향이다.</p>
+        <figure class="fig">
+          <img src="images/ch07/triangles.svg" alt="수평 저항과 높아지는 저점의 상승 삼각, 낮아지는 고점과 수평 지지의 하락 삼각, 두 선이 수렴하는 대칭 삼각의 비교 도식" loading="lazy" />
+          <figcaption>그림 4. 삼각 계열. 상승·하락 삼각은 기울기가 편향을 주고, 대칭 삼각은 압축만 보여준다. 어느 쪽도 방향을 약속하지 않는다 — 깨지는 쪽이 답이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <div class="warn">대칭 삼각과 직사각형에서 방향을 미리 정해 걸지 말 것. 이 형상들이 보여주는 것은 압축과 왕복이지 방향이 아니다. 기울어진 편향마저 반대로 깨지는 표본이 있다.</div>
+
+        <h3 id="sec-patterns-5">측정 법칙 — 높이를 돌파 방향으로 옮긴다</h3>
+        <p>측정 법칙은 패턴의 높이를 돌파 지점에서 돌파 방향으로 투사하는 것이다. 머리어깨는 머리 정점에서 넥라인까지의 거리를 이탈점에서 아래로, 삼각과 직사각형은 초기 폭을 돌파선 너머로, 깃발은 깃대를 쉼표 끝에서 다시 세운다 — 고전 사전의 표준 산법이다<sup class="cit"><a data-scroll="src-patterns-2">[2]</a></sup>. 이 투사가 만드는 것이 측정 목표가<sup class="fnref" id="fnref-patterns-9"><a data-scroll="fn-patterns-9">9</a></sup>다.</p>
+        <p>목표가의 성격은 약속이 아니라 최소 기대치다. 벌코프스키의 표본은 기대치를 낮춘다 — 머리어깨 천장에서 측정 목표에 도달한 사례는 절반 남짓이다<sup class="cit"><a data-scroll="src-patterns-5">[5]</a></sup>. 그의 수정 산법은 높이에 패턴별 도달률을 곱해 목표를 당긴다. 목표가는 도착 예언이 아니라 손익비의 분모다 — 진입에서 무효화까지의 거리와 견주기 위한 눈금이다.</p>
+        <div class="note">측정 법칙은 패턴 높이를 돌파 방향으로 투사하는 것이다. 목표가는 보장이 아니라 최소 기대치다 — 도달률이 절반 남짓인 패턴도 있다. 목표를 넘는 이동과 목표 전의 실패는 모두 이 법칙 바깥의 일이다.</div>
+
+        <h3 id="sec-patterns-6">실패한 패턴 — 실패가 신호다</h3>
+        <p>확인 돌파도 자주 실패한다 — 넥라인을 깬 가격이 되돌아와 선을 다시 넘는다. 고전 사전은 이를 되돌림<sup class="fnref" id="fnref-patterns-10"><a data-scroll="fn-patterns-10">10</a></sup>과 실패 사이의 회색 지대로 넘겼지만, 벌코프스키는 실패한 패턴(busted pattern)을 따로 표본으로 모았다 — 실패가 잦은 패턴일수록 실패 뒤의 반대 방향 이동이 컸다는 관찰이다<sup class="cit"><a data-scroll="src-patterns-5">[5]</a></sup>. 실패한 신호가 그 반대의 신호가 된다는 오래된 격언은 이 관찰의 다른 표현이다.</p>
+        <p>메커니즘은 익숙하다 — 경계선을 넘어 체결된 스톱과 돌파 주문을 받아 낸 반대편 물량이 더 크면 가격은 되밀린다. 가짜 돌파(false breakout)는 그 되밀림의 고전 이름이고, 와이코프의 스프링·업스러스트(<a href="#theories">고전 이론</a>), SMC의 유동성 스윕(<a href="#smc">유동성 언어</a>)과 같은 사건이다 — 이름은 넷이고 봉은 하나다. 실패의 정보 가치는 여기서 나온다 — 돌파를 추종한 물량이 물린 자리가 되밀림의 연료다.</p>
+        <figure class="fig">
+          <img src="images/ch07/failed-breakout.svg" alt="레인지 상단을 잠시 넘겼다가 상자 안으로 회수된 뒤 하단으로 이탈하는 가짜 돌파 도식" loading="lazy" />
+          <figcaption>그림 5. 가짜 돌파의 구조. 상단 이탈이 유지되지 못하고 상자 안으로 회수되면 물린 돌파 추종 물량이 반대 방향의 연료가 된다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>실패한 패턴도 조건 문장으로 쓴다. 조건 — 확인된 돌파가 패턴 안으로 회수된다. 시나리오 — 돌파 반대 방향으로 진입을 검토한다. 무효화 — 실패 돌파 꼬리의 끝. 꼬리 너머로 다시 나가면 실패 시나리오도 폐기다.</p>
+
+        <h3 id="sec-patterns-7">패턴의 검증 상태 — 통계와 주관 사이</h3>
+        <p>고전 패턴의 검증은 두 갈래로 갈라진다. 표본 통계 쪽의 대표가 벌코프스키다 — 수만 개의 실제 사례를 패턴별로 세어 실패율, 평균 이동 폭, 되돌림 빈도를 매겼다<sup class="cit"><a data-scroll="src-patterns-5">[5]</a></sup>. 그의 공헌은 형상의 목록이 아니라 목록에 숫자를 붙인 것이다 — 머리어깨의 평균 하락과 목표 도달률 같은 값이 그제야 비교 가능해졌다. 기계화 쪽의 대표는 로·마마이스키·왕이다 — 커널 회귀로 가격 경로를 평활해 머리어깨·이중 천장 등 열 개 패턴을 알고리즘으로 식별하고 조건부 수익률이 무작위와 다른지 검정해, 일부 패턴에서 유의한 정보가 잡혔다고 보고했다<sup class="cit"><a data-scroll="src-patterns-6">[6]</a></sup>.</p>
+        <p>남는 문제는 식별의 주관이다. 아론슨의 지적대로 규칙으로 고정되지 않은 패턴은 검증이 서지 않고<sup class="cit"><a data-scroll="src-patterns-7">[7]</a></sup>, 같은 차트에서 머리어깨를 읽는 사람과 삼중 천장을 읽는 사람이 갈린다. 사후의 차트는 친절하다 — 확정된 경계선 위에서는 모든 것이 패턴으로 보인다. 룩어헤드 편향(<a href="#assumptions">전제와 한계</a>)과 같은 구멍이다. 방어는 선언이다 — 추세, 경계선, 확인 기준을 먼저 쓰고 그다음 형상에 이름을 붙인다.</p>
+        <p>형상 자체의 도감은 <a href="#atlas">패턴 도감</a>에 따로 모았다. 이 챕터의 사전은 형상이 아니라 형상의 조건과 실패를 읽는다.</p>
+
+        <div class="footnotes">
+          <div class="fn-title">용어 각주</div>
+          <ol>
+            <li id="fn-patterns-1"><b>거래량 확인(Volume)</b>: 고전 패턴 해설의 거래량은 봉 아래의 시간별 거래량 막대다. 가격대별 체결 분포를 보는 볼륨 프로파일·TPO(<a href="#charts">차트 유형</a>)와는 다른 도구다.
+              <a class="fnback" data-scroll="fnref-patterns-1">↩</a></li>
+            <li id="fn-patterns-2"><b>넥라인(Neckline)</b>: 머리어깨에서는 두 어깨 사이의 저점을, 이중 천장·바닥에서는 중간 고점·저점을 잇는 확인선. 이 선의 파괴가 패턴 완성이다.
+              <a class="fnback" data-scroll="fnref-patterns-2">↩</a></li>
+            <li id="fn-patterns-3"><b>라운딩(Rounding · saucer)</b>: 서서히 기우는 둥근 천장·바닥. 경계선이 없어 완성 시점이 흐리고, 대가로 전환의 시간적 무게를 얻는다.
+              <a class="fnback" data-scroll="fnref-patterns-3">↩</a></li>
+            <li id="fn-patterns-4"><b>깃발(Flag)</b>: 깃대(flagpole, 급한 등락) 뒤에 추세 반대로 살짝 기운 작은 채널. "깃발은 돛대 중간에서 분다"는 고전 관찰의 주인공.
+              <a class="fnback" data-scroll="fnref-patterns-4">↩</a></li>
+            <li id="fn-patterns-5"><b>페넌트(Pennant)</b>: 깃대 뒤의 작은 대칭 삼각. 깃발과 같은 국면의 다른 형상 — 수렴이면 페넌트, 평행 채널이면 깃발.
+              <a class="fnback" data-scroll="fnref-patterns-5">↩</a></li>
+            <li id="fn-patterns-6"><b>컵앤핸들(Cup with handle)</b>: 둥근 바닥(컵)과 그 오른쪽 가장자리의 얕은 조정(손잡이). 오닐이 명명한 성장주 지속 패턴 — 확인은 손잡이 위의 돌파다.
+              <a class="fnback" data-scroll="fnref-patterns-6">↩</a></li>
+            <li id="fn-patterns-7"><b>대칭 삼각(Symmetrical triangle)</b>: 낮아지는 고점과 높아지는 저점이 만나는 수렴. 압축의 형상이지 방향의 형상이 아니다 — 코일(coil)로도 부른다.
+              <a class="fnback" data-scroll="fnref-patterns-7">↩</a></li>
+            <li id="fn-patterns-8"><b>확산형(Broadening)</b>: 메가폰. 고점은 높아지고 저점은 낮아지는 발산 — 대칭 삼각의 반대. 변동성 확대와 가짜 돌파가 잦다.
+              <a class="fnback" data-scroll="fnref-patterns-8">↩</a></li>
+            <li id="fn-patterns-9"><b>측정 목표가(Measured objective)</b>: 패턴의 높이를 돌파점에서 돌파 방향으로 옮긴 최소 기대치. 도착 약속이 아니라 손익비 계산의 눈금이다.
+              <a class="fnback" data-scroll="fnref-patterns-9">↩</a></li>
+            <li id="fn-patterns-10"><b>되돌림(Pullback · throwback)</b>: 돌파 뒤 경계선으로 되돌아오는 재방문. 상방 돌파 뒤는 스로백, 하방 돌파 뒤는 풀백으로 가르기도 한다. 실패와의 경계는 복귀 깊이다.
+              <a class="fnback" data-scroll="fnref-patterns-10">↩</a></li>
+          </ol>
+        </div>
+
+        <div class="sources">
+          <div class="src-title">출처</div>
+          <ol>
+            <li id="src-patterns-1">Schabacker, R. W., <i>Technical Analysis and Stock Market Profits</i>, 1932 — 차트 패턴 분류의 원류. 에드워즈가 편집·계승했다.</li>
+            <li id="src-patterns-2">Edwards, R. D. &amp; Magee, J., <i>Technical Analysis of Stock Trends</i>, 1948 — 반전·지속 패턴의 표준 정의, 넥라인, 측정 법칙, "깃발은 돛대 중간에서 분다".</li>
+            <li id="src-patterns-3">Murphy, J. J., <i>Technical Analysis of the Financial Markets</i>, New York Institute of Finance, 1999, 5~6장 — 주요 반전 패턴과 지속 패턴의 교과서 정리.</li>
+            <li id="src-patterns-4">O'Neil, W. J., <i>How to Make Money in Stocks</i>, McGraw-Hill, 1988 — 컵앤핸들.</li>
+            <li id="src-patterns-5">Bulkowski, T. N., <i>Encyclopedia of Chart Patterns</i>, 2판, Wiley, 2005 — 패턴별 실패율과 목표 도달률, 실패한 패턴(busted pattern)의 통계.</li>
+            <li id="src-patterns-6">Lo, A. W., Mamaysky, H., Wang, J., "Foundations of Technical Analysis: Computational Algorithms, Statistical Inference, and Empirical Implementation", <i>Journal of Finance</i> 55(4), 2000 — 커널 회귀 기반 패턴 식별과 유의성 검정.</li>
+            <li id="src-patterns-7">Aronson, D. R., <i>Evidence-Based Technical Analysis</i>, Wiley, 2006 — 주관적 분석은 규칙화되어야 검증이 선다.</li>
+          </ol>
+        </div>
         <div class="pager"><a href="#charts">← 차트 유형</a><a href="#candles">캔들 대표 →</a></div>
       </section>
       <!-- /PAGE:patterns -->
@@ -1299,22 +1521,136 @@
       <!-- PAGE:candles -->
       <section class="page" id="page-candles">
 <!-- CHAPTER 08 · candles -->
-<!-- LEX: [{"t": "해머", "k": "패턴", "p": "candles", "aka": "교수형 핀바", "d": "같은 모양, 위치가 이름. 하락 말=해머."}] -->
+<!-- LEX: [{"t": "해머", "k": "패턴", "p": "candles", "aka": "hammer 교수형 핀바", "d": "긴 아랫꼬리 소몸통. 하락 말=해머, 상승 말=교수형."}, {"t": "도지", "k": "패턴", "p": "candles", "aka": "doji 십자", "d": "시가≈종가의 균형봉. 추세 말에서 경고로 무게를 얻는다."}, {"t": "교수형", "k": "패턴", "p": "candles", "aka": "hanging man", "d": "해머 모양이 상승 말에 선 것. 하방 확인을 요구."}, {"t": "슈팅스타", "k": "패턴", "p": "candles", "aka": "shooting star 역해머", "d": "긴 윗꼬리 소몸통. 상승 말=슈팅스타, 하락 말=역해머."}, {"t": "마루보즈", "k": "패턴", "p": "candles", "aka": "marubozu 대봉", "d": "꼬리 없는 장몸통. 한쪽이 장중 내내 밀어붙인 결과."}, {"t": "장악형", "k": "패턴", "p": "candles", "aka": "engulfing 포위형", "d": "둘째 몸통이 첫째 몸통을 덮는 2봉 구조."}, {"t": "하라미", "k": "패턴", "p": "candles", "aka": "harami 인사이드바", "d": "둘째 몸통이 첫째 몸통 안에 드는 2봉 구조."}, {"t": "관통형", "k": "패턴", "p": "candles", "aka": "piercing 흑운형", "d": "둘째 봉이 첫째 몸통 절반을 넘겨 닫는 2봉 반전."}, {"t": "트위저", "k": "패턴", "p": "candles", "aka": "tweezers 집게", "d": "두 봉 이상의 고점 또는 저점 일치. 같은 자리의 반복 거부."}, {"t": "모닝스타", "k": "패턴", "p": "candles", "aka": "morning star 이브닝스타", "d": "긴 봉-소봉-반대 긴 봉의 3봉 전환."}, {"t": "삼병", "k": "패턴", "p": "candles", "aka": "three soldiers 세 마리 까마귀", "d": "같은 색 긴 봉 셋의 연속. 상승삼병과 하락삼병."}, {"t": "사카타 오법", "k": "이론", "p": "candles", "aka": "Sakata five methods 혼마 무네히사", "d": "18세기 사카타 쌀 상인 계보의 다섯 패턴군."}] -->
 
         <div class="crumb">Chapter 08</div>
         <h2 class="page-title">캔들, 대표만</h2>
         <p class="lede">사전 전체를 외우지 않는다. 위치(추세 말인가)와 다음 봉 확인이 본체다.</p>
-        <div class="grid two">
-          <div class="card">
-            <h4>단일</h4>
-            <p>도지, 해머/교수형, 슈팅스타/역해머, 마루보즈, 핀바. 같은 해머 모양이 하락 말이면 해머, 상승 말이면 교수형.</p>
-          </div>
-          <div class="card">
-            <h4>2·3봉</h4>
-            <p>장악형, 하라미/인사이드바, 관통형/흑운형, 트위저. 모닝스타/이브닝스타, 삼병.</p>
-          </div>
+
+        <div class="chapter-summary"><b>요약.</b> 캔들 한 봉은 시가·고가·저가·종가 네 가격의 도식이다. 몸통은 봉 안에서 힘이 낸 결과이고, 꼬리는 한때 찍혔다가 지켜지지 못한 가격의 흔적이다. 같은 형상도 선행 추세의 위치가 이름과 읽기를 갈라 놓는다 — 긴 아랫꼬리의 작은 몸통은 하락 말에서 해머, 상승 말에서 교수형이다. 이 챕터는 단일봉과 2·3봉 조합, 그리고 이 사전의 뿌리인 사카타 오법을 위치와 확인의 문법으로 묶는다. 단독 캔들 신호의 기댓값은 얇으므로 캔들은 구조와 레벨 위에서만 쓴다.</div>
+
+        <nav class="chapter-toc">
+          <div class="toc-title">이 챕터에서</div>
+          <ol>
+            <li><a data-scroll="sec-candles-1">캔들의 해부 — 몸통과 꼬리</a></li>
+            <li><a data-scroll="sec-candles-2">단일봉 — 모양보다 위치</a></li>
+            <li><a data-scroll="sec-candles-3">두 봉 조합 — 덮기·들어앉기·같은 자리</a></li>
+            <li><a data-scroll="sec-candles-4">세 봉 조합 — 별과 병사</a></li>
+            <li><a data-scroll="sec-candles-5">사카타 오법 — 서양 패턴의 다른 언어</a></li>
+            <li><a data-scroll="sec-candles-6">기댓값 — 신호는 얇다</a></li>
+          </ol>
+        </nav>
+
+        <h3 id="sec-candles-1">캔들의 해부 — 몸통과 꼬리</h3>
+        <p>캔들 한 봉은 네 가격의 도식이다. 시가와 종가 사이가 몸통(real body)이고, 몸통 위아래로 고가·저가까지 뻗은 선이 꼬리(shadow)다. 몸통은 봉 안에서 힘이 낸 결과물이다 — 종가가 시가 위에서 닫히면 양봉, 아래면 음봉이다. 꼬리는 밀렸다가 되돌아온 범위, 한때 찍혔지만 지켜지지 못한 가격의 흔적이다. 긴 아랫꼬리는 아래로 밀린 물량이 흡수된 자국이고, 긴 윗꼬리는 위로 간 물량이 거부된 자국이다.</p>
+        <figure class="fig">
+          <img src="images/ch08/candle-anatomy.svg" alt="양봉과 음봉의 몸통·윗꼬리·아랫꼬리와 시가·종가·고가·저가 위치를 표시한 캔들 해부도" loading="lazy" />
+          <figcaption>그림 1. 캔들의 해부. 몸통은 시가~종가, 꼬리는 고가·저가까지 뻗은 거부 구간이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>이 사전의 첫 문법은 위치가 이름을 결정한다는 것이다. 긴 아랫꼬리의 작은 몸통은 형상이 같아도 하락 말에 서면 해머<sup class="fnref" id="fnref-candles-1"><a data-scroll="fn-candles-1">1</a></sup>, 상승 말에 서면 교수형<sup class="fnref" id="fnref-candles-2"><a data-scroll="fn-candles-2">2</a></sup>이다. 긴 윗꼬리 버전도 마찬가지다 — 상승 말이면 슈팅스타, 하락 말이면 역해머다<sup class="fnref" id="fnref-candles-3"><a data-scroll="fn-candles-3">3</a></sup>. 봉의 형상은 같고 선행 추세가 다를 뿐인데 이름과 읽기가 갈린다. 모양은 위치 없이 신호가 아니다.</p>
+        <figure class="fig">
+          <img src="images/ch08/position-names.svg" alt="하락 말 지지대 위에 선 해머와 상승 말 저항 아래 선 교수형, 같은 형상의 두 봉 비교" loading="lazy" />
+          <figcaption>그림 2. 같은 형상의 두 이름. 하락 말 지지대 위에서 꼬리가 찔렀다가 회수되면 해머, 상승 말 저항 아래에 서면 교수형이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>읽는 순서는 세 칸이다. 선행 추세의 위치를 확인하고, 봉의 형상을 읽고, 다음 봉이 몸통 방향으로 이어가는지 본다. 니슨이 서구에 소개한 이 체계에서 확인은 선택이 아니라 정의의 일부다<sup class="cit"><a data-scroll="src-candles-1">[1]</a></sup>.</p>
+
+        <h3 id="sec-candles-2">단일봉 — 모양보다 위치</h3>
+        <p>도지<sup class="fnref" id="fnref-candles-4"><a data-scroll="fn-candles-4">4</a></sup>는 시가와 종가가 같거나 거의 같은 봉, 균형의 십자다. 꼬리 배열이 변형을 만든다 — 양쪽 꼬리가 길면 장십자, 아랫꼬리만 길면 잠자리, 윗꼬리만 길면 비석지다. 도지 자체는 중립이고 추세 말에서 무게를 얻는다. 특히 상승 말의 도지는 매수 측 추진력 상실의 경고로 읽는다<sup class="cit"><a data-scroll="src-candles-1">[1]</a></sup>.</p>
+        <figure class="fig">
+          <img src="images/ch08/doji-variants.svg" alt="십자·장십자·잠자리·비석지 네 종류의 도지 형상" loading="lazy" />
+          <figcaption>그림 3. 도지의 변형. 좌에서 우로 십자, 장십자(long-legged), 잠자리(dragonfly), 비석지(gravestone). 모두 시가와 종가가 붙은 균형봉이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>해머의 조건은 관행적으로 이렇게 잡는다 — 몸통이 작고 아랫꼬리가 몸통의 두세 배 이상이며 윗꼬리는 거의 없다. 전제는 앞에 놓인 하락 추세다. 메커니즘은 흡수다 — 장중 깊이 밀린 가격이 종가까지 회수됐다는 건 그 가격대의 매도를 받아 낸 매수가 있었다는 뜻이다. 확인은 다음 봉이다. 종가가 해머 몸통 위로 올라서면 시나리오가 열리고, 무효화는 꼬리의 끝이다. 같은 모양이 상승 말에 나오면 교수형이고, 경고로 읽되 하방 확인을 요구한다.</p>
+        <p>슈팅스타는 그 거울이다 — 상승 말의 작은 몸통과 긴 윗꼬리, 위로 간 가격이 되밀린 거부다. 하락 말의 같은 형상인 역해머는 반전 후보로 약한 편이다. 저가권의 윗꼬리는 약한 회복 시도로도 읽혀 확인 요구가 더 크다.</p>
+        <p>마루보즈<sup class="fnref" id="fnref-candles-5"><a data-scroll="fn-candles-5">5</a></sup>는 꼬리 없는 장몸통이다. 백마루보즈는 저가에 열어 고가에 닫은 봉이다 — 한쪽이 장중 내내 밀어붙인 결과다. 반전이 아니라 지속 신호에 가깝고, 몸통의 절반이 이후 되돌림의 눈금으로 쓰인다. 핀바<sup class="fnref" id="fnref-candles-6"><a data-scroll="fn-candles-6">6</a></sup>는 해머 계열의 서양 이름(Pinocchio bar)이다 — 같은 꼬리와 위치 논리를 다른 어휘로 부른 것이니 따로 외울 대상이 아니다.</p>
+        <p>왜 모양보다 위치인가는 판정 비용 때문이다. 추세 말이 아닌 자리의 해머는 그냥 꼬리 긴 봉이고, 이름 없는 꼬리 긴 봉도 지지대 위의 회수라면 읽을 가치가 있다. 이름 붙이기보다 자리 확인이 먼저다. 한계는 관행성이다 — 꼬리가 몸통의 몇 배여야 하는지, 추세 말이 몇 봉 앞까지인지에 공인 규격이 없어 같은 봉이 사람마다 다른 이름을 얻는다.</p>
+
+        <h3 id="sec-candles-3">두 봉 조합 — 덮기·들어앉기·같은 자리</h3>
+        <p>장악형<sup class="fnref" id="fnref-candles-7"><a data-scroll="fn-candles-7">7</a></sup>은 둘째 봉의 몸통이 첫째 봉의 몸통을 완전히 덮는 구조다. 하락 말의 음봉 다음에 그보다 큰 양봉이 덮으면 상승 장악 — 세력 역전이 한 봉 안에 드러난다. 꼬리까지 덮어야 하는지는 문서마다 갈리고 몸통 기준이 표준이다<sup class="cit"><a data-scroll="src-candles-5">[5]</a></sup>. 확인은 장악 봉의 종가가 지켜지는 것이고, 무효화는 장악 봉의 반대쪽 끝이다.</p>
+        <p>하라미<sup class="fnref" id="fnref-candles-8"><a data-scroll="fn-candles-8">8</a></sup>는 반대 방향이다. 둘째 몸통이 첫째 몸통 안에 들어앉는다 — 옛 일본어로 임신이라는 뜻이다. 서양의 인사이드바와 같은 구조인데, 인사이드바는 몸통이 아니라 봉 전체(고가·저가)가 안에 들 때 붙는 이름이라 기준이 다르고 읽기는 같다. 의미는 모멘텀 소강 — 크게 밀던 쪽이 멈췄다. 작은 몸통이 도지면 하라미 크로스다.</p>
+        <p>관통형<sup class="fnref" id="fnref-candles-9"><a data-scroll="fn-candles-9">9</a></sup>은 절반 규칙을 쓴다. 하락 말에 양봉이 앞 음봉 몸통의 절반을 넘겨 닫으면 관통형, 상승 말에 음봉이 앞 양봉의 절반 아래로 닫으면 흑운형이다. 절반을 못 넘으면 신호가 아니라는 뚜렷한 조건이 있어 판정이 쉽다. 트위저<sup class="fnref" id="fnref-candles-10"><a data-scroll="fn-candles-10">10</a></sup>는 두 봉 이상의 고점(트위저 탑)이나 저점(트위저 바텀)이 일치하는 구조 — 같은 가격의 반복된 거부다. 이중천장·이중바닥을 봉 단위로 축소한 것과 같다.</p>
+        <figure class="fig">
+          <img src="images/ch08/two-bar-combos.svg" alt="장악형·하라미·트위저 세 가지 2봉 조합의 형상" loading="lazy" />
+          <figcaption>그림 4. 2봉 조합 셋. 장악형은 둘째 몸통이 첫째를 덮고, 하라미는 안에 들어앉고, 트위저는 같은 고점을 공유한다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>한계는 공통이다. 두 봉의 관계는 선명하게 보이는 데 그 관계가 반전으로 이어질지는 위치가 정한다 — 레인지 한가운데의 장악형은 의미가 얇다.</p>
+
+        <h3 id="sec-candles-4">세 봉 조합 — 별과 병사</h3>
+        <p>모닝스타<sup class="fnref" id="fnref-candles-11"><a data-scroll="fn-candles-11">11</a></sup>는 3막 구조다. 하락 말에 긴 음봉, 그 아래 작은 몸통(이상적으로는 갭을 동반한 소봉 — 별), 그리고 첫째 음봉 몸통의 절반 위로 회수하는 긴 양봉. 가속, 정지, 역전의 순서가 세 봉에 걸쳐 나온다. 가운데 별이 도지면 모닝 도지 스타로 더 강한 형태로 친다. 상승 말의 대칭이 이브닝스타다.</p>
+        <p>삼병<sup class="fnref" id="fnref-candles-12"><a data-scroll="fn-candles-12">12</a></sup>은 같은 색 긴 봉 셋의 연속이다. 상승삼병(three white soldiers)은 세 양봉이 각각 전봉 몸통 안에서 열리고 종가가 순차로 높아지는 구조 — 추진력의 지속이다. 하락 버전은 세 마리 까마귀(three black crows)다. 바닥 초기의 삼병은 전환 확인으로 읽히지만 이미 크게 진행된 추세 말의 삼병은 오히려 소진 경고가 된다 — 같은 셋도 위치가 읽기를 갈라 놓는다.</p>
+        <figure class="fig">
+          <img src="images/ch08/three-bar-combos.svg" alt="모닝스타의 3봉 전환과 상승삼병의 연속 양봉" loading="lazy" />
+          <figcaption>그림 5. 3봉 조합 둘. 모닝스타는 긴 음봉, 갭 아래 소봉(별), 절반 위로 회수하는 양봉. 상승삼병은 전봉 몸통 안에서 열리는 세 양봉의 연속이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>3봉 조합의 실용은 확인이 늦는 대신 구조가 분명하다는 데 있다 — 별의 회수가 끝난 뒤에 열리는 시나리오라 무효화 자리(별의 저점)가 잘 잡힌다.</p>
+
+        <h3 id="sec-candles-5">사카타 오법 — 서양 패턴의 다른 언어</h3>
+        <p>캔들 패턴의 계보는 서구보다 오래됐다. 18세기 사카타(현 야마가타현)의 쌀 상인 혼마 무네히사(本間宗久)의 매매 기록이 전승 문서로 남았고<sup class="cit"><a data-scroll="src-candles-3">[3]</a></sup>, 사카타 오법<sup class="fnref" id="fnref-candles-13"><a data-scroll="fn-candles-13">13</a></sup>은 그 전통을 다섯 패턴군으로 묶은 이름이다. 영어권 소개는 니슨의 두 번째 책 <i>Beyond Candlesticks</i>(1994)가 맡았다<sup class="cit"><a data-scroll="src-candles-2">[2]</a></sup>.</p>
+        <table>
+          <thead><tr><th>사카타 오법</th><th>구조</th><th>서양 대응</th></tr></thead>
+          <tbody>
+            <tr><td>삼산(三山)</td><td>세 번의 고점</td><td>트리플 탑, 머리어깨</td></tr>
+            <tr><td>삼천(三川)</td><td>세 번의 시험이 방향을 트는 전환군</td><td>삼중바닥, 세 번째 테스트</td></tr>
+            <tr><td>삼공(三空)</td><td>연속 세 갭 뒤 소진</td><td>갭 이론, 소진 갭</td></tr>
+            <tr><td>삼병(三兵)</td><td>같은 색 긴 봉 셋</td><td>상승삼병 · 세 마리 까마귀</td></tr>
+            <tr><td>삼법(三法)</td><td>긴 봉 안의 작은 조정 뒤 재돌파</td><td>깃발 등 지속형</td></tr>
+          </tbody>
+        </table>
+        <p>삼산은 <a href="#patterns">머리어깨</a>에, 삼공은 갭에 가깝다 — 캔들 사전의 반쪽이 서양 차트 패턴을 다른 언어로 다시 쓴 것이다. 둘은 경쟁 체계가 아니라 같은 형태의 이중 명명이다. 삼천은 문서마다 범위가 갈리는 유일한 칸이라 느슨한 대응으로 둔다.</p>
+
+        <h3 id="sec-candles-6">기댓값 — 신호는 얇다</h3>
+        <p>이름 있는 캔들이 단독으로 벌어 주는 것은 얇다. 벌코우스키는 수만 개 표본에 각 패턴의 반전·지속 성공률을 매겼는데, 상당수의 유명 패턴이 절반 언저리의 반전율에 머물렀다<sup class="cit"><a data-scroll="src-candles-4">[4]</a></sup>. 마셜·영·로즈는 다우지수 구성종목 일봉에 캔들 규칙을 대입해 매수 신호가 가치를 더하지 못한다고 보고했다<sup class="cit"><a data-scroll="src-candles-6">[6]</a></sup>. 통계는 같은 결론으로 모인다 — 봉 하나는 정보가 아니라 위치 위의 트리거다.</p>
+        <p>쓰임은 한 줄로 압축된다 — 구조와 레벨 위에서만 본다. 지지·저항, 추세 말, <a href="#smc">유동성 스윕</a> 자리에서 캔들은 진입의 트리거로 값을 하고, 아무 자리의 이름 있는 봉은 그냥 봉이다. 조건(레벨과 위치)이 서면 시나리오를 열고, 무효화는 패턴의 극단(꼬리 끝, 첫째 봉의 반대쪽)에 둔다. 사전 전체를 외우는 비용보다 자리를 보는 습관 쪽에 값이 있다.</p>
+        <div class="note">캔들 읽기의 기본값 — 선행 추세 확인(위치) → 형상 판독(조건) → 다음 봉 확인(트리거) → 패턴 극단에 무효화. 이름은 이 네 칸을 통과한 봉에 붙는다.</div>
+
+        <div class="footnotes">
+          <div class="fn-title">용어 각주</div>
+          <ol>
+            <li id="fn-candles-1"><b>해머(Hammer)</b>: 긴 아랫꼬리와 작은 몸통의 봉. 하락 추세 말에서만 이 이름을 얻는다.
+              <a class="fnback" data-scroll="fnref-candles-1">↩</a></li>
+            <li id="fn-candles-2"><b>교수형(Hanging man)</b>: 해머와 같은 형상이 상승 추세 말에 선 것. 경고로 읽고 하방 확인을 요구한다.
+              <a class="fnback" data-scroll="fnref-candles-2">↩</a></li>
+            <li id="fn-candles-3"><b>슈팅스타(Shooting star) · 역해머(Inverted hammer)</b>: 긴 윗꼬리와 작은 몸통. 상승 말이면 슈팅스타, 하락 말이면 역해머다.
+              <a class="fnback" data-scroll="fnref-candles-3">↩</a></li>
+            <li id="fn-candles-4"><b>도지(Doji)</b>: 시가와 종가가 같거나 거의 같은 균형봉. 변형으로 장십자, 잠자리, 비석지, 포프라이스(four-price)가 있다.
+              <a class="fnback" data-scroll="fnref-candles-4">↩</a></li>
+            <li id="fn-candles-5"><b>마루보즈(Marubozu)</b>: 꼬리가 없거나 거의 없는 장몸통. 일본어로 '깎은 머리'라는 뜻이다.
+              <a class="fnback" data-scroll="fnref-candles-5">↩</a></li>
+            <li id="fn-candles-6"><b>핀바(Pin bar)</b>: Pinocchio bar의 준말. 긴 꼬리가 '코'인 봉 — 해머·슈팅스타 계열의 서양 이름.
+              <a class="fnback" data-scroll="fnref-candles-6">↩</a></li>
+            <li id="fn-candles-7"><b>장악형(Engulfing)</b>: 둘째 몸통이 첫째 몸통 전부를 덮는 2봉 구조. 포위형으로도 옮긴다.
+              <a class="fnback" data-scroll="fnref-candles-7">↩</a></li>
+            <li id="fn-candles-8"><b>하라미(Harami)</b>: 둘째 몸통이 첫째 몸통 안에 드는 2봉 구조. 옛 일본어로 임신. 인사이드바(inside bar)와 같은 구조.
+              <a class="fnback" data-scroll="fnref-candles-8">↩</a></li>
+            <li id="fn-candles-9"><b>관통형(Piercing) · 흑운형(Dark cloud cover)</b>: 둘째 봉이 첫째 몸통의 절반을 넘겨 닫는 2봉 반전. 하락 말이면 관통형, 상승 말이면 흑운형.
+              <a class="fnback" data-scroll="fnref-candles-9">↩</a></li>
+            <li id="fn-candles-10"><b>트위저(Tweezers)</b>: 두 봉 이상의 고점 또는 저점이 일치하는 구조. 집게라는 뜻이다.
+              <a class="fnback" data-scroll="fnref-candles-10">↩</a></li>
+            <li id="fn-candles-11"><b>모닝스타(Morning star) · 이브닝스타(Evening star)</b>: 긴 봉–소봉(별)–반대 긴 봉의 3봉 전환. 하락 말이면 모닝스타, 상승 말이면 이브닝스타.
+              <a class="fnback" data-scroll="fnref-candles-11">↩</a></li>
+            <li id="fn-candles-12"><b>삼병(Three soldiers)</b>: 같은 색 긴 봉 셋의 연속. 상승삼병은 three white soldiers, 하락삼병은 three black crows(세 마리 까마귀).
+              <a class="fnback" data-scroll="fnref-candles-12">↩</a></li>
+            <li id="fn-candles-13"><b>사카타 오법(Sakata five methods)</b>: 삼산·삼천·삼공·삼병·삼법의 다섯 패턴군. 혼마 무네히사 계보의 사카타 전통.
+              <a class="fnback" data-scroll="fnref-candles-13">↩</a></li>
+          </ol>
         </div>
-        <p>사카타 오법의 삼산은 머리어깨에, 삼공은 갭에 가깝다. 단독 캔들 신호의 기대값은 얇다. 구조와 레벨 위에서만 본다.</p>
+
+        <div class="sources">
+          <div class="src-title">출처</div>
+          <ol>
+            <li id="src-candles-1">Nison, S., <i>Japanese Candlestick Charting Techniques</i>, New York Institute of Finance, 1991(2판 2001) — 캔들 패턴 정의의 서구 원전.</li>
+            <li id="src-candles-2">Nison, S., <i>Beyond Candlesticks</i>, Wiley, 1994 — 사카타 오법(삼산·삼천·삼공·삼병·삼법)의 영어 소개.</li>
+            <li id="src-candles-3">本間宗久 계보의 전승 문서 — 『宗久翁秘録』(1755)·『酒田戦術詳解』 등 사카타 매매 기록. 영어 정리는 Nison(1994) 참조.</li>
+            <li id="src-candles-4">Bulkowski, T. N., <i>Encyclopedia of Candlestick Charts</i>, Wiley, 2008 — 패턴별 반전·지속 빈도 통계.</li>
+            <li id="src-candles-5">Morris, G. L. &amp; Litchfield, R., <i>Candlestick Charting Explained</i>, 3판, McGraw-Hill, 2006.</li>
+            <li id="src-candles-6">Marshall, B. R., Young, M. R. &amp; Rose, L. C., "Candlestick Technical Trading Strategies: Can They Create Value for Investors?", <i>Journal of Banking &amp; Finance</i> 30(8), 2006.</li>
+          </ol>
+        </div>
         <div class="pager"><a href="#patterns">← 고전 패턴</a><a href="#atlas">패턴 도감 →</a></div>
       </section>
       <!-- /PAGE:candles -->
@@ -1322,10 +1658,26 @@
       <!-- PAGE:atlas -->
       <section class="page" id="page-atlas">
 <!-- CHAPTER 09 · atlas -->
+<!-- LEX: [{"t": "넥라인", "k": "구조", "p": "atlas", "aka": "neckline", "d": "반전 패턴의 확인 경계선. 이탈이 완성 신호."}, {"t": "이중 바닥", "k": "패턴", "p": "atlas", "aka": "double bottom W자", "d": "같은 높이 저점 둘. 중간 고점 파괴가 확인."}, {"t": "상승 삼각", "k": "패턴", "p": "atlas", "aka": "ascending triangle", "d": "수평 저항+높아지는 저점. 이탈은 양방향."}, {"t": "깃발", "k": "패턴", "p": "atlas", "aka": "flag pennant 깃대", "d": "급등·급락 뒤 기울어진 소채널. 지속 후보."}, {"t": "측정 법칙", "k": "언어", "p": "atlas", "aka": "measuring rule objective", "d": "패턴 높이를 이탈 방향으로 옮겨 목표를 잡는 관행."}] -->
 
         <div class="crumb">Chapter 09</div>
         <h2 class="page-title">패턴 도감</h2>
         <p class="lede">모양만 외우지 말고, 선행 추세와 실패 조건을 같이 본다.</p>
+
+        <div class="chapter-summary"><b>요약.</b> 이 챕터는 형상 카드 여덟 장의 도감과 그 읽는 법이다. 패턴은 모양이 아니라 선행 추세·경계선·확인·무효화라는 네 절이 붙은 문장으로 읽는다. 카드마다 구조·선행 조건·확인·실패를 해부하고, 도감에 없는 형상을 만났을 때 스스로 카드를 만드는 네 항목 절차를 둔다. 스프링=스윕, FVG=갭처럼 같은 형상이 다른 층의 이름을 쓰는 지점도 여기서 묶는다.</div>
+
+        <nav class="chapter-toc">
+          <div class="toc-title">이 챕터에서</div>
+          <ol>
+            <li><a data-scroll="sec-atlas-1">도감을 읽는 법 — 모양이 아니라 문장</a></li>
+            <li><a data-scroll="sec-atlas-2">반전 카드 — 헤드앤숄더와 이중 바닥</a></li>
+            <li><a data-scroll="sec-atlas-3">지속과 양방향 — 삼각·깃발·확산형</a></li>
+            <li><a data-scroll="sec-atlas-4">봉 이벤트 — 해머·장악·스프링·FVG</a></li>
+            <li><a data-scroll="sec-atlas-5">도감에 없는 패턴을 만났을 때</a></li>
+            <li><a data-scroll="sec-atlas-6">다른 층의 같은 모양</a></li>
+          </ol>
+        </nav>
+
         <div class="atlas">
           <figure class="card">
             <svg viewBox="0 0 200 90"><path d="M10 70 L40 40 L70 58 L100 18 L130 58 L160 40 L190 72" fill="none" stroke="#8f3d3a" stroke-width="2"/><line x1="40" y1="58" x2="160" y2="58" stroke="#b08948" stroke-dasharray="3 3"/></svg>
@@ -1367,6 +1719,87 @@
             <figcaption>FVG</figcaption>
             <p>첫째 봉과 셋째 봉이 겹치지 않는 빈 구간.</p>
           </figure>
+        </div>
+
+        <h3 id="sec-atlas-1">도감을 읽는 법 — 모양이 아니라 문장</h3>
+        <p>도감의 카드 한 장은 문장 하나의 약자다. "넥라인 하향. 실패는 넥라인 재탈환" 두 줄 안에 네 절이 압축돼 있다 — 이 형상이 무엇을 돌리는가, 완성을 선언하는 선은 어디인가, 무엇이 확인인가, 어디서 틀렸다고 하는가. 모양만 외우는 읽기가 실패하는 이유는 형상이 단독으로는 아무것도 주장하지 않기 때문이다. Edwards와 Magee의 반전 패턴 정의는 "돌릴 추세가 있어야 반전이다"에서 시작한다<sup class="cit"><a data-scroll="src-atlas-1">[1]</a></sup>. 선행 추세가 없는 세 고점은 머리어깨가 아니라 출렁임이다.</p>
+        <p>읽는 순서는 네 칸이다.</p>
+        <ol>
+          <li><b>선행 추세.</b> 형상 앞에 돌리거나 이을 추세가 있었는가. 없으면 패턴이 아니다.</li>
+          <li><b>경계선.</b> 완성을 선언하는 선이 한 줄로 그어지는가. 넥라인<sup class="fnref" id="fnref-atlas-1"><a data-scroll="fn-atlas-1">1</a></sup>이나 채널선이다.</li>
+          <li><b>확인.</b> 어떤 봉이 닫혀야 완성인가. 종가 이탈인가 꼬리 이탈인가, 되돌림을 기다리는가.</li>
+          <li><b>무효화.</b> 어느 가격에서 이 해석이 틀렸다고 선언하는가.</li>
+        </ol>
+        <figure class="fig">
+          <img src="images/ch09/reading-order.svg" alt="머리어깨 형상 위에 선행 추세·경계선·확인·무효화 네 단계를 번호로 표시한 읽기 순서도" loading="lazy" />
+          <figcaption>그림 1. 패턴 카드의 읽는 순서. 선행 추세가 보이고, 경계선이 그어지고, 경계 밖 종가가 확인이며, 재탈환이 무효화다. 측정 목표는 참고 눈금이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>확인의 정의가 먼저다. Edwards와 Magee는 돌파의 상당수가 경계선으로 되돌아오는 풀백·스로백<sup class="fnref" id="fnref-atlas-6"><a data-scroll="fn-atlas-6">6</a></sup>을 동반한다고 적었다<sup class="cit"><a data-scroll="src-atlas-1">[1]</a></sup>. 되돌림까지 기다릴지 첫 이탈에 들어갈지는 규칙의 문제지 그림의 문제가 아니다. 무효화 칸이 있어야 실패를 부를 수 있다 — 카드가 "넥라인 재탈환"을 따로 적는 것은 그 때문이다. 무효화 없는 읽기는 시나리오가 아니라 점술이다.</p>
+
+        <h3 id="sec-atlas-2">반전 카드 — 헤드앤숄더와 이중 바닥</h3>
+        <p>헤드앤숄더의 구조는 좌어깨·머리·우어깨다. 가운데 고점이 가장 높고, 두 반응 저점을 잇는 선이 넥라인이다. 선행 조건은 상승 추세 — 돌릴 것이 있어야 한다. 확인은 넥라인을 종가로 하향 이탈하는 것이고, 실패는 카드가 적은 대로 이탈한 가격이 다시 넥라인 위로 올라서는 재탈환이다. 거래량의 고전적 배열은 좌어깨에서 가장 크고 우어깨에서 마르는 것이다<sup class="cit"><a data-scroll="src-atlas-1">[1]</a></sup>. 측정 법칙<sup class="fnref" id="fnref-atlas-7"><a data-scroll="fn-atlas-7">7</a></sup>으로는 머리꼭지에서 넥라인까지의 높이를 이탈점 아래로 옮긴다. Bulkowski의 표본 집계에서 목표 도달률은 규칙이 암시하는 만큼 높지 않다<sup class="cit"><a data-scroll="src-atlas-2">[2]</a></sup> — 목표는 예언이 아니라 참고 눈금이다.</p>
+        <p>이중 바닥<sup class="fnref" id="fnref-atlas-2"><a data-scroll="fn-atlas-2">2</a></sup>은 같은 높이의 저점 둘과 사이의 반응 고점으로 이뤄진 W자다. 선행 조건은 하락 추세고, 확인은 중간 고점의 파괴다. 카드의 "중간 고점 파괴가 확인"이 그 말이다 — 두 번째 저점이 섰다고 완성이 아니다. 아직 세 번째 저점으로 내려갈 수 있는 출렁임이고, 반응 고점이 깨질 때 비로소 형상이 문장이 된다. 실패는 둘이다. 돌파 후 다시 저점대로 밀리는 것과 중간 고점 돌파 없이 두 번째 저점이 무너지는 것. Bulkowski의 수치에서도 확인 전 진입의 실패율은 확인 후보다 훨씬 높다<sup class="cit"><a data-scroll="src-atlas-2">[2]</a></sup>.</p>
+
+        <h3 id="sec-atlas-3">지속과 양방향 — 삼각·깃발·확산형</h3>
+        <p>상승 삼각<sup class="fnref" id="fnref-atlas-3"><a data-scroll="fn-atlas-3">3</a></sup>은 수평 저항과 높아지는 저점이 수렴하는 형상이다. 같은 가격에 매도 물량이 걸려 있는데 매수는 저점을 계속 높이는 그림이다. 고전 독법은 상방 우위지만 카드가 적은 대로 이탈은 양방향이다 — 수평선이든 저점 추세선이든 깨지는 쪽이 방향이고, 확정 전에 방향을 미리 적는 것은 예언이다. 확인은 경계의 종가 이탈, 실패는 이탈 직후 삼각 안으로 복귀하는 가짜 돌파다.</p>
+        <p>깃발<sup class="fnref" id="fnref-atlas-4"><a data-scroll="fn-atlas-4">4</a></sup>은 급등이나 급락(깃대) 뒤 추세 반대로 기울어진 좁은 채널이다. 지속 후보 — 조정이 얕고 거래량이 마른 채 채널 상단이 다시 깨지면 추세가 재개된다는 고전 독법이다<sup class="cit"><a data-scroll="src-atlas-1">[1]</a></sup>. 확인은 채널 상단 이탈이고, 실패는 채널 하단 이탈 또는 깃대의 상당 부분을 되돌리는 깊은 조정이다. 조정이 깃대를 거의 다 먹으면 지속이 아니라 레인지다.</p>
+        <p>확산형은 수렴의 반대다 — 고점은 높아지고 저점은 낮아진다. 양쪽 경계가 계속 멀어지므로 돌파의 정의 자체가 흔들리고 가짜 돌파가 잦다. 고전 도감에서는 통제 실패의 형상, 분산 말기의 그림자로 읽는다<sup class="cit"><a data-scroll="src-atlas-1">[1]</a></sup>. 실용은 진입보다 회피 신호에 가깝다 — 이 형상 안에서는 다른 패턴의 확인 기준도 신뢰가 떨어진다.</p>
+
+        <h3 id="sec-atlas-4">봉 이벤트 — 해머·장악·스프링·FVG</h3>
+        <p>"위치 없는 모양은 그냥 봉이다"가 이 카드들의 전제다. 해머는 긴 아래꼬리와 작은 몸통인데, 같은 형상이 상승 추세 말에 나오면 교수형으로 이름이 바뀐다 — <a href="#candles">캔들</a> 챕터의 문법 그대로다. 장악형<sup class="fnref" id="fnref-atlas-5"><a data-scroll="fn-atlas-5">5</a></sup>은 둘째 봉 몸통이 첫째 몸통을 삼키는 2봉 구성이고 하락 말의 상승 장악이 반전 후보다. Nison의 규약에서 캔들 신호는 서구식 확인(존, 추세선, 다음 봉)과 겹칠 때만 무게가 실린다<sup class="cit"><a data-scroll="src-atlas-3">[3]</a></sup>. 확인은 다음 봉의 방향이고 무효화는 꼬리나 몸통의 끝이다.</p>
+        <p>스프링=스윕은 레인지 하단을 깨고 즉시 회수하는 사건이다. 와이코프의 스프링, SMC의 유동성 스윕, 고전의 가짜 돌파가 같은 봉을 가리키는 세 이름이다<sup class="cit"><a data-scroll="src-atlas-4">[4]</a></sup>. 카드의 빨간 점은 스톱이 찔린 자리다. 확인은 레인지 안으로 닫히는 복귀 봉이고 무효화는 꼬리 끝이다 — 꼬리 너머로 다시 이탈하면 스윕이 아니라 진행 중인 돌파다. 국면 문맥은 <a href="#theories">고전 이론</a>, 언어 문맥은 <a href="#smc">유동성 언어</a>에 있다.</p>
+        <p>FVG는 세 봉에서 첫째 봉의 고가와 셋째 봉의 저가가 겹치지 않아 남는 빈 구간이다. 변위의 흔적이고 고전 어휘로는 갭이다<sup class="cit"><a data-scroll="src-atlas-5">[5]</a></sup>. 쓰임은 재방문 — 가격이 되돌아와 빈 구간을 채우는지, 존처럼 반응하는지를 본다. 모든 갭이 메워지는 것은 아니므로 "갭은 메워진다"라는 격언은 검증이 필요한 주장이다.</p>
+
+        <h3 id="sec-atlas-5">도감에 없는 패턴을 만났을 때</h3>
+        <p>새 이름의 형상은 계속 돌아온다. 도감에 추가할지는 1절의 네 칸을 채울 수 있는가로 판별한다.</p>
+        <ol>
+          <li><b>선행 추세.</b> 이 형상은 무엇을 돌리거나 잇는가. 앞에 추세가 없으면 패턴이 아니라 노이즈다.</li>
+          <li><b>경계선.</b> 완성을 선언하는 선을 한 줄로 그을 수 있는가. 그을 수 없으면 형상이 아니라 이야기다.</li>
+          <li><b>확인.</b> 어떤 봉이 닫혀야 완성인가. 확인 정의가 없으면 미완성 형상에 미리 진입하게 된다.</li>
+          <li><b>무효화.</b> 어느 가격에서 해석이 틀렸는가. 이 칸이 비면 검증 불가능한 이름이다.</li>
+        </ol>
+        <figure class="fig">
+          <img src="images/ch09/pattern-template.svg" alt="이름 없는 형상과 그 옆에 선행 추세·경계선·확인·무효화 네 칸으로 된 새 카드 양식" loading="lazy" />
+          <figcaption>그림 2. 새 형상의 도감 등록 양식. 선행 추세·경계선·확인·무효화 네 칸이 채워져야 카드가 된다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>네 칸을 채운 뒤에도 두 관문이 남는다. 첫째는 색인 검색 — 새 이름은 대개 기존 카드의 부분 조합이다. 복합 머리어깨, 삼각 변종, 갭의 다른 이름이면 새 항목이 아니라 기존 항목의 별칭이다. 둘째는 표본 — Bulkowski의 방식대로 확인 성공률과 목표 도달률을 스스로 세어 본다<sup class="cit"><a data-scroll="src-atlas-2">[2]</a></sup>. 이름은 셀 수 있게 된 뒤에 도감에 들어간다.</p>
+
+        <h3 id="sec-atlas-6">다른 층의 같은 모양</h3>
+        <p>도감 카드 여덟 장 중 넷이 다른 챕터에 중복으로 산다. 헤드앤숄더와 확산형은 <a href="#patterns">고전 패턴</a>의 도감 항목이고, 해머·장악은 <a href="#candles">캔들</a>의 문법이며, 스프링은 <a href="#theories">와이코프</a>의 매집 이벤트, FVG는 <a href="#smc">SMC</a>의 불균형이다. 이 챕터는 새 층이 아니라 색인 — 같은 형상이 몇 층의 이름을 가지는지 한 장에 모은 목록이다.</p>
+        <p>이름을 고르는 기준은 물을 질문이다. 같은 하단 이탈·회수 봉을 와이코프로 읽으면 매집 말의 테스트가 되고 — 국면이 문제다. SMC로 읽으면 스톱 군집 소화가 되고 — 유동성이 문제다. 고전으로 읽으면 가짜 돌파가 되고 — 경계선이 문제다. 봉은 하나고 프레임이 셋이다. 프레임이 바뀌면 앞에 붙는 문맥이 바뀔 뿐 확인과 무효화는 같다.</p>
+        <p>도감 읽기 공통의 한계는 식별의 주관성이다. 같은 차트에서 사람마다 다른 패턴을 읽고, Bulkowski조차 판정 규칙을 먼저 고정해야 집계가 됐다<sup class="cit"><a data-scroll="src-atlas-2">[2]</a></sup>. 확인 봉이 닫히기 전 모든 패턴은 미완성이고, 실패한 형상은 도감에서 빠진 채 성공 사례만 남는 <a href="#assumptions">확증편향</a>의 재료다. 도감은 예언서가 아니라 의심 목록이다.</p>
+
+        <div class="footnotes">
+          <div class="fn-title">용어 각주</div>
+          <ol>
+            <li id="fn-atlas-1"><b>넥라인(Neckline)</b>: 반전 패턴의 확인 경계선. 머리어깨는 두 반응 저점을 잇는 선, 이중 바닥은 중간 고점의 수평선이다.
+              <a class="fnback" data-scroll="fnref-atlas-1">↩</a></li>
+            <li id="fn-atlas-2"><b>이중 바닥(Double bottom)</b>: 같은 높이의 저점 둘과 사이의 반응 고점. W자. 이중 천장(double top)은 거울상이다.
+              <a class="fnback" data-scroll="fnref-atlas-2">↩</a></li>
+            <li id="fn-atlas-3"><b>상승 삼각(Ascending triangle)</b>: 수평 저항선과 높아지는 저점 추세선의 수렴. 대칭·하락 삼각과 한 가족이다.
+              <a class="fnback" data-scroll="fnref-atlas-3">↩</a></li>
+            <li id="fn-atlas-4"><b>깃발(Flag)</b>: 급등·급락(깃대) 뒤 추세 반대로 기울어진 좁은 채널. 수렴형 변종은 페넌트(pennant)다.
+              <a class="fnback" data-scroll="fnref-atlas-4">↩</a></li>
+            <li id="fn-atlas-5"><b>장악형(Engulfing)</b>: 둘째 봉 몸통이 첫째 몸통을 삼키는 2봉 구성. 서구식 대응물은 아웃사이드 바.
+              <a class="fnback" data-scroll="fnref-atlas-5">↩</a></li>
+            <li id="fn-atlas-6"><b>풀백·스로백(Pullback/Throwback)</b>: 경계선 이탈 뒤 그 선으로 되돌아오는 움직임. Edwards와 Magee는 돌파의 상당수가 이 되돌림을 동반한다고 적었다.
+              <a class="fnback" data-scroll="fnref-atlas-6">↩</a></li>
+            <li id="fn-atlas-7"><b>측정 법칙(Measuring rule)</b>: 패턴의 최대 높이를 이탈점에서 돌파 방향으로 옮겨 목표를 잡는 고전 관행. 목표 도달률은 규칙이 암시하는 것보다 낮다.
+              <a class="fnback" data-scroll="fnref-atlas-7">↩</a></li>
+          </ol>
+        </div>
+
+        <div class="sources">
+          <div class="src-title">출처</div>
+          <ol>
+            <li id="src-atlas-1">Edwards, R. D. &amp; Magee, J., <i>Technical Analysis of Stock Trends</i>, 9th ed., CRC Press, 2007 — 반전·지속 패턴, 넥라인, 측정 법칙, 풀백.</li>
+            <li id="src-atlas-2">Bulkowski, T. N., <i>Encyclopedia of Chart Patterns</i>, 2nd ed., Wiley, 2005 — 패턴별 실패율과 목표 도달률의 표본 집계.</li>
+            <li id="src-atlas-3">Nison, S., <i>Japanese Candlestick Charting Techniques</i>, 2nd ed., Wiley, 2001 — 해머·장악형의 위치 조건과 확인.</li>
+            <li id="src-atlas-4">Wyckoff, R. D., <i>The Richard D. Wyckoff Method of Trading and Investing in Stocks</i>, Wyckoff Associates, 1931 코스 — 스프링.</li>
+            <li id="src-atlas-5">Murphy, J. J., <i>Technical Analysis of the Financial Markets</i>, New York Institute of Finance, 1999 — 갭과 가짜 돌파 관련 장.</li>
+          </ol>
         </div>
         <div class="pager"><a href="#candles">← 캔들 대표</a><a href="#ratios">비율과 투사 →</a></div>
       </section>
@@ -1684,9 +2117,40 @@
       { t: "하이킨아시", k: "패턴", p: "charts", aka: "Heikin Ashi 평균봉", d: "추세 가독용. 표시 가격에 손절을 걸지 말 것." },
       { t: "렌코", k: "패턴", p: "charts", aka: "Renko P&F 카기", d: "시간을 버린 가격 필터." },
       { t: "TPO", k: "지표", p: "charts", aka: "Market Profile 가치영역 POC", d: "가격 세로, 시간 가로 분포. 경매시장 도구." },
+      { t: "OHLCV", k: "언어", p: "charts", aka: "시가 고가 저가 종가 거래량 OHLC", d: "봉 하나의 요약 값 다섯. 모든 차트의 원료." },
+      { t: "P&F", k: "패턴", p: "charts", aka: "Point and Figure X O 박스 전환", d: "X·O 열의 가격 필터. 와이코프 카운트의 재료." },
+      { t: "카기", k: "패턴", p: "charts", aka: "Kagi 어깨 허리", d: "직전 고저 돌파에 두께가 바뀌는 선. 시간 없음." },
+      { t: "틱 차트", k: "패턴", p: "charts", aka: "tick volume range bar 활동량축", d: "체결·거래량·변동폭으로 봉을 닫는다. 시계를 버림." },
+      { t: "가치영역", k: "지표", p: "charts", aka: "value area 70% POC", d: "TPO 약 70%의 가격 띠. 시장이 받아들인 범위." },
+      { t: "이니셜 밸런스", k: "지표", p: "charts", aka: "Initial Balance 첫 한 시간", d: "개장 첫 두 블록의 레인지. 당일 확장의 기준선." },
+      { t: "풋프린트", k: "지표", p: "charts", aka: "footprint bid ask 오더플로", d: "봉을 가격대별 매수·매도 체결로 쪼갠 표시." },
       { t: "헤드앤숄더", k: "패턴", p: "patterns", aka: "H&S 넥라인", d: "반전 패턴. 선행 추세와 넥라인 파괴가 필요." },
       { t: "확산형", k: "패턴", p: "patterns", aka: "broadening megaphone", d: "고점은 높고 저점은 낮아짐. 양방향, 가짜 돌파 많음." },
-      { t: "해머", k: "패턴", p: "candles", aka: "교수형 핀바", d: "같은 모양, 위치가 이름. 하락 말=해머." },
+      { t: "넥라인", k: "패턴", p: "patterns", aka: "neckline 목선", d: "머리어깨·이중 천장바닥의 경계선. 파괴가 완성이다." },
+      { t: "이중 천장·바닥", k: "패턴", p: "patterns", aka: "double top bottom M W", d: "같은 자리를 두 번 시험. 중간 고점·저점 파괴가 확인." },
+      { t: "라운딩", k: "패턴", p: "patterns", aka: "rounding saucer 둥근 천장 바닥", d: "서서히 기우는 전환. 넥라인이 없어 완성이 흐리다." },
+      { t: "깃발", k: "패턴", p: "patterns", aka: "flag 깃대 flagpole", d: "급한 이동 뒤의 작은 역기울기 채널. 지속 후보." },
+      { t: "페넌트", k: "패턴", p: "patterns", aka: "pennant", d: "깃대 뒤의 작은 대칭 삼각. 깃발의 사촌." },
+      { t: "대칭 삼각", k: "패턴", p: "patterns", aka: "symmetrical triangle coil", d: "수렴하는 두 추세선. 압축이지 방향이 아니다." },
+      { t: "직사각형", k: "패턴", p: "patterns", aka: "rectangle box range", d: "수평 지지·저항의 상자. 지속이기도 반전이기도." },
+      { t: "컵앤핸들", k: "패턴", p: "patterns", aka: "cup with handle O'Neil", d: "둥근 바닥과 얕은 손잡이. 신고가 돌파가 확인." },
+      { t: "측정 목표가", k: "패턴", p: "patterns", aka: "measured objective measuring rule", d: "패턴 높이를 돌파 방향으로 옮긴 최소 기대치." },
+      { t: "되돌림", k: "패턴", p: "patterns", aka: "pullback throwback 풀백 스로백", d: "돌파 뒤 경계선으로 되돌아오는 재방문." },
+      { t: "해머", k: "패턴", p: "candles", aka: "hammer 교수형 핀바", d: "긴 아랫꼬리 소몸통. 하락 말=해머, 상승 말=교수형." },
+      { t: "도지", k: "패턴", p: "candles", aka: "doji 십자", d: "시가≈종가의 균형봉. 추세 말에서 경고로 무게를 얻는다." },
+      { t: "교수형", k: "패턴", p: "candles", aka: "hanging man", d: "해머 모양이 상승 말에 선 것. 하방 확인을 요구." },
+      { t: "슈팅스타", k: "패턴", p: "candles", aka: "shooting star 역해머", d: "긴 윗꼬리 소몸통. 상승 말=슈팅스타, 하락 말=역해머." },
+      { t: "마루보즈", k: "패턴", p: "candles", aka: "marubozu 대봉", d: "꼬리 없는 장몸통. 한쪽이 장중 내내 밀어붙인 결과." },
+      { t: "장악형", k: "패턴", p: "candles", aka: "engulfing 포위형", d: "둘째 몸통이 첫째 몸통을 덮는 2봉 구조." },
+      { t: "하라미", k: "패턴", p: "candles", aka: "harami 인사이드바", d: "둘째 몸통이 첫째 몸통 안에 드는 2봉 구조." },
+      { t: "관통형", k: "패턴", p: "candles", aka: "piercing 흑운형", d: "둘째 봉이 첫째 몸통 절반을 넘겨 닫는 2봉 반전." },
+      { t: "트위저", k: "패턴", p: "candles", aka: "tweezers 집게", d: "두 봉 이상의 고점 또는 저점 일치. 같은 자리의 반복 거부." },
+      { t: "모닝스타", k: "패턴", p: "candles", aka: "morning star 이브닝스타", d: "긴 봉-소봉-반대 긴 봉의 3봉 전환." },
+      { t: "삼병", k: "패턴", p: "candles", aka: "three soldiers 세 마리 까마귀", d: "같은 색 긴 봉 셋의 연속. 상승삼병과 하락삼병." },
+      { t: "사카타 오법", k: "이론", p: "candles", aka: "Sakata five methods 혼마 무네히사", d: "18세기 사카타 쌀 상인 계보의 다섯 패턴군." },
+      { t: "이중 바닥", k: "패턴", p: "atlas", aka: "double bottom W자", d: "같은 높이 저점 둘. 중간 고점 파괴가 확인." },
+      { t: "상승 삼각", k: "패턴", p: "atlas", aka: "ascending triangle", d: "수평 저항+높아지는 저점. 이탈은 양방향." },
+      { t: "측정 법칙", k: "언어", p: "atlas", aka: "measuring rule objective", d: "패턴 높이를 이탈 방향으로 옮겨 목표를 잡는 관행." },
       { t: "피보나치", k: "지표", p: "ratios", aka: "0.618 0.786 되돌림 확장", d: "많이 쓰이는 격자. 같은 스윙에 여러 격자 겹치면 중복." },
       { t: "가르틀리", k: "패턴", p: "harmonic", aka: "Gartley 0.786 PRZ", d: "B=0.618, D=0.786. 내부 되돌림 하모닉." },
       { t: "PRZ", k: "패턴", p: "harmonic", aka: "Potential Reversal Zone", d: "하모닉 D 근처의 비율 겹침 구간." },

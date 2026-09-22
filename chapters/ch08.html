@@ -1,17 +1,131 @@
 <!-- CHAPTER 08 · candles -->
-<!-- LEX: [{"t": "해머", "k": "패턴", "p": "candles", "aka": "교수형 핀바", "d": "같은 모양, 위치가 이름. 하락 말=해머."}] -->
+<!-- LEX: [{"t": "해머", "k": "패턴", "p": "candles", "aka": "hammer 교수형 핀바", "d": "긴 아랫꼬리 소몸통. 하락 말=해머, 상승 말=교수형."}, {"t": "도지", "k": "패턴", "p": "candles", "aka": "doji 십자", "d": "시가≈종가의 균형봉. 추세 말에서 경고로 무게를 얻는다."}, {"t": "교수형", "k": "패턴", "p": "candles", "aka": "hanging man", "d": "해머 모양이 상승 말에 선 것. 하방 확인을 요구."}, {"t": "슈팅스타", "k": "패턴", "p": "candles", "aka": "shooting star 역해머", "d": "긴 윗꼬리 소몸통. 상승 말=슈팅스타, 하락 말=역해머."}, {"t": "마루보즈", "k": "패턴", "p": "candles", "aka": "marubozu 대봉", "d": "꼬리 없는 장몸통. 한쪽이 장중 내내 밀어붙인 결과."}, {"t": "장악형", "k": "패턴", "p": "candles", "aka": "engulfing 포위형", "d": "둘째 몸통이 첫째 몸통을 덮는 2봉 구조."}, {"t": "하라미", "k": "패턴", "p": "candles", "aka": "harami 인사이드바", "d": "둘째 몸통이 첫째 몸통 안에 드는 2봉 구조."}, {"t": "관통형", "k": "패턴", "p": "candles", "aka": "piercing 흑운형", "d": "둘째 봉이 첫째 몸통 절반을 넘겨 닫는 2봉 반전."}, {"t": "트위저", "k": "패턴", "p": "candles", "aka": "tweezers 집게", "d": "두 봉 이상의 고점 또는 저점 일치. 같은 자리의 반복 거부."}, {"t": "모닝스타", "k": "패턴", "p": "candles", "aka": "morning star 이브닝스타", "d": "긴 봉-소봉-반대 긴 봉의 3봉 전환."}, {"t": "삼병", "k": "패턴", "p": "candles", "aka": "three soldiers 세 마리 까마귀", "d": "같은 색 긴 봉 셋의 연속. 상승삼병과 하락삼병."}, {"t": "사카타 오법", "k": "이론", "p": "candles", "aka": "Sakata five methods 혼마 무네히사", "d": "18세기 사카타 쌀 상인 계보의 다섯 패턴군."}] -->
 
         <div class="crumb">Chapter 08</div>
         <h2 class="page-title">캔들, 대표만</h2>
         <p class="lede">사전 전체를 외우지 않는다. 위치(추세 말인가)와 다음 봉 확인이 본체다.</p>
-        <div class="grid two">
-          <div class="card">
-            <h4>단일</h4>
-            <p>도지, 해머/교수형, 슈팅스타/역해머, 마루보즈, 핀바. 같은 해머 모양이 하락 말이면 해머, 상승 말이면 교수형.</p>
-          </div>
-          <div class="card">
-            <h4>2·3봉</h4>
-            <p>장악형, 하라미/인사이드바, 관통형/흑운형, 트위저. 모닝스타/이브닝스타, 삼병.</p>
-          </div>
+
+        <div class="chapter-summary"><b>요약.</b> 캔들 한 봉은 시가·고가·저가·종가 네 가격의 도식이다. 몸통은 봉 안에서 힘이 낸 결과이고, 꼬리는 한때 찍혔다가 지켜지지 못한 가격의 흔적이다. 같은 형상도 선행 추세의 위치가 이름과 읽기를 갈라 놓는다 — 긴 아랫꼬리의 작은 몸통은 하락 말에서 해머, 상승 말에서 교수형이다. 이 챕터는 단일봉과 2·3봉 조합, 그리고 이 사전의 뿌리인 사카타 오법을 위치와 확인의 문법으로 묶는다. 단독 캔들 신호의 기댓값은 얇으므로 캔들은 구조와 레벨 위에서만 쓴다.</div>
+
+        <nav class="chapter-toc">
+          <div class="toc-title">이 챕터에서</div>
+          <ol>
+            <li><a data-scroll="sec-candles-1">캔들의 해부 — 몸통과 꼬리</a></li>
+            <li><a data-scroll="sec-candles-2">단일봉 — 모양보다 위치</a></li>
+            <li><a data-scroll="sec-candles-3">두 봉 조합 — 덮기·들어앉기·같은 자리</a></li>
+            <li><a data-scroll="sec-candles-4">세 봉 조합 — 별과 병사</a></li>
+            <li><a data-scroll="sec-candles-5">사카타 오법 — 서양 패턴의 다른 언어</a></li>
+            <li><a data-scroll="sec-candles-6">기댓값 — 신호는 얇다</a></li>
+          </ol>
+        </nav>
+
+        <h3 id="sec-candles-1">캔들의 해부 — 몸통과 꼬리</h3>
+        <p>캔들 한 봉은 네 가격의 도식이다. 시가와 종가 사이가 몸통(real body)이고, 몸통 위아래로 고가·저가까지 뻗은 선이 꼬리(shadow)다. 몸통은 봉 안에서 힘이 낸 결과물이다 — 종가가 시가 위에서 닫히면 양봉, 아래면 음봉이다. 꼬리는 밀렸다가 되돌아온 범위, 한때 찍혔지만 지켜지지 못한 가격의 흔적이다. 긴 아랫꼬리는 아래로 밀린 물량이 흡수된 자국이고, 긴 윗꼬리는 위로 간 물량이 거부된 자국이다.</p>
+        <figure class="fig">
+          <img src="images/ch08/candle-anatomy.svg" alt="양봉과 음봉의 몸통·윗꼬리·아랫꼬리와 시가·종가·고가·저가 위치를 표시한 캔들 해부도" loading="lazy" />
+          <figcaption>그림 1. 캔들의 해부. 몸통은 시가~종가, 꼬리는 고가·저가까지 뻗은 거부 구간이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>이 사전의 첫 문법은 위치가 이름을 결정한다는 것이다. 긴 아랫꼬리의 작은 몸통은 형상이 같아도 하락 말에 서면 해머<sup class="fnref" id="fnref-candles-1"><a data-scroll="fn-candles-1">1</a></sup>, 상승 말에 서면 교수형<sup class="fnref" id="fnref-candles-2"><a data-scroll="fn-candles-2">2</a></sup>이다. 긴 윗꼬리 버전도 마찬가지다 — 상승 말이면 슈팅스타, 하락 말이면 역해머다<sup class="fnref" id="fnref-candles-3"><a data-scroll="fn-candles-3">3</a></sup>. 봉의 형상은 같고 선행 추세가 다를 뿐인데 이름과 읽기가 갈린다. 모양은 위치 없이 신호가 아니다.</p>
+        <figure class="fig">
+          <img src="images/ch08/position-names.svg" alt="하락 말 지지대 위에 선 해머와 상승 말 저항 아래 선 교수형, 같은 형상의 두 봉 비교" loading="lazy" />
+          <figcaption>그림 2. 같은 형상의 두 이름. 하락 말 지지대 위에서 꼬리가 찔렀다가 회수되면 해머, 상승 말 저항 아래에 서면 교수형이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>읽는 순서는 세 칸이다. 선행 추세의 위치를 확인하고, 봉의 형상을 읽고, 다음 봉이 몸통 방향으로 이어가는지 본다. 니슨이 서구에 소개한 이 체계에서 확인은 선택이 아니라 정의의 일부다<sup class="cit"><a data-scroll="src-candles-1">[1]</a></sup>.</p>
+
+        <h3 id="sec-candles-2">단일봉 — 모양보다 위치</h3>
+        <p>도지<sup class="fnref" id="fnref-candles-4"><a data-scroll="fn-candles-4">4</a></sup>는 시가와 종가가 같거나 거의 같은 봉, 균형의 십자다. 꼬리 배열이 변형을 만든다 — 양쪽 꼬리가 길면 장십자, 아랫꼬리만 길면 잠자리, 윗꼬리만 길면 비석지다. 도지 자체는 중립이고 추세 말에서 무게를 얻는다. 특히 상승 말의 도지는 매수 측 추진력 상실의 경고로 읽는다<sup class="cit"><a data-scroll="src-candles-1">[1]</a></sup>.</p>
+        <figure class="fig">
+          <img src="images/ch08/doji-variants.svg" alt="십자·장십자·잠자리·비석지 네 종류의 도지 형상" loading="lazy" />
+          <figcaption>그림 3. 도지의 변형. 좌에서 우로 십자, 장십자(long-legged), 잠자리(dragonfly), 비석지(gravestone). 모두 시가와 종가가 붙은 균형봉이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>해머의 조건은 관행적으로 이렇게 잡는다 — 몸통이 작고 아랫꼬리가 몸통의 두세 배 이상이며 윗꼬리는 거의 없다. 전제는 앞에 놓인 하락 추세다. 메커니즘은 흡수다 — 장중 깊이 밀린 가격이 종가까지 회수됐다는 건 그 가격대의 매도를 받아 낸 매수가 있었다는 뜻이다. 확인은 다음 봉이다. 종가가 해머 몸통 위로 올라서면 시나리오가 열리고, 무효화는 꼬리의 끝이다. 같은 모양이 상승 말에 나오면 교수형이고, 경고로 읽되 하방 확인을 요구한다.</p>
+        <p>슈팅스타는 그 거울이다 — 상승 말의 작은 몸통과 긴 윗꼬리, 위로 간 가격이 되밀린 거부다. 하락 말의 같은 형상인 역해머는 반전 후보로 약한 편이다. 저가권의 윗꼬리는 약한 회복 시도로도 읽혀 확인 요구가 더 크다.</p>
+        <p>마루보즈<sup class="fnref" id="fnref-candles-5"><a data-scroll="fn-candles-5">5</a></sup>는 꼬리 없는 장몸통이다. 백마루보즈는 저가에 열어 고가에 닫은 봉이다 — 한쪽이 장중 내내 밀어붙인 결과다. 반전이 아니라 지속 신호에 가깝고, 몸통의 절반이 이후 되돌림의 눈금으로 쓰인다. 핀바<sup class="fnref" id="fnref-candles-6"><a data-scroll="fn-candles-6">6</a></sup>는 해머 계열의 서양 이름(Pinocchio bar)이다 — 같은 꼬리와 위치 논리를 다른 어휘로 부른 것이니 따로 외울 대상이 아니다.</p>
+        <p>왜 모양보다 위치인가는 판정 비용 때문이다. 추세 말이 아닌 자리의 해머는 그냥 꼬리 긴 봉이고, 이름 없는 꼬리 긴 봉도 지지대 위의 회수라면 읽을 가치가 있다. 이름 붙이기보다 자리 확인이 먼저다. 한계는 관행성이다 — 꼬리가 몸통의 몇 배여야 하는지, 추세 말이 몇 봉 앞까지인지에 공인 규격이 없어 같은 봉이 사람마다 다른 이름을 얻는다.</p>
+
+        <h3 id="sec-candles-3">두 봉 조합 — 덮기·들어앉기·같은 자리</h3>
+        <p>장악형<sup class="fnref" id="fnref-candles-7"><a data-scroll="fn-candles-7">7</a></sup>은 둘째 봉의 몸통이 첫째 봉의 몸통을 완전히 덮는 구조다. 하락 말의 음봉 다음에 그보다 큰 양봉이 덮으면 상승 장악 — 세력 역전이 한 봉 안에 드러난다. 꼬리까지 덮어야 하는지는 문서마다 갈리고 몸통 기준이 표준이다<sup class="cit"><a data-scroll="src-candles-5">[5]</a></sup>. 확인은 장악 봉의 종가가 지켜지는 것이고, 무효화는 장악 봉의 반대쪽 끝이다.</p>
+        <p>하라미<sup class="fnref" id="fnref-candles-8"><a data-scroll="fn-candles-8">8</a></sup>는 반대 방향이다. 둘째 몸통이 첫째 몸통 안에 들어앉는다 — 옛 일본어로 임신이라는 뜻이다. 서양의 인사이드바와 같은 구조인데, 인사이드바는 몸통이 아니라 봉 전체(고가·저가)가 안에 들 때 붙는 이름이라 기준이 다르고 읽기는 같다. 의미는 모멘텀 소강 — 크게 밀던 쪽이 멈췄다. 작은 몸통이 도지면 하라미 크로스다.</p>
+        <p>관통형<sup class="fnref" id="fnref-candles-9"><a data-scroll="fn-candles-9">9</a></sup>은 절반 규칙을 쓴다. 하락 말에 양봉이 앞 음봉 몸통의 절반을 넘겨 닫으면 관통형, 상승 말에 음봉이 앞 양봉의 절반 아래로 닫으면 흑운형이다. 절반을 못 넘으면 신호가 아니라는 뚜렷한 조건이 있어 판정이 쉽다. 트위저<sup class="fnref" id="fnref-candles-10"><a data-scroll="fn-candles-10">10</a></sup>는 두 봉 이상의 고점(트위저 탑)이나 저점(트위저 바텀)이 일치하는 구조 — 같은 가격의 반복된 거부다. 이중천장·이중바닥을 봉 단위로 축소한 것과 같다.</p>
+        <figure class="fig">
+          <img src="images/ch08/two-bar-combos.svg" alt="장악형·하라미·트위저 세 가지 2봉 조합의 형상" loading="lazy" />
+          <figcaption>그림 4. 2봉 조합 셋. 장악형은 둘째 몸통이 첫째를 덮고, 하라미는 안에 들어앉고, 트위저는 같은 고점을 공유한다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>한계는 공통이다. 두 봉의 관계는 선명하게 보이는 데 그 관계가 반전으로 이어질지는 위치가 정한다 — 레인지 한가운데의 장악형은 의미가 얇다.</p>
+
+        <h3 id="sec-candles-4">세 봉 조합 — 별과 병사</h3>
+        <p>모닝스타<sup class="fnref" id="fnref-candles-11"><a data-scroll="fn-candles-11">11</a></sup>는 3막 구조다. 하락 말에 긴 음봉, 그 아래 작은 몸통(이상적으로는 갭을 동반한 소봉 — 별), 그리고 첫째 음봉 몸통의 절반 위로 회수하는 긴 양봉. 가속, 정지, 역전의 순서가 세 봉에 걸쳐 나온다. 가운데 별이 도지면 모닝 도지 스타로 더 강한 형태로 친다. 상승 말의 대칭이 이브닝스타다.</p>
+        <p>삼병<sup class="fnref" id="fnref-candles-12"><a data-scroll="fn-candles-12">12</a></sup>은 같은 색 긴 봉 셋의 연속이다. 상승삼병(three white soldiers)은 세 양봉이 각각 전봉 몸통 안에서 열리고 종가가 순차로 높아지는 구조 — 추진력의 지속이다. 하락 버전은 세 마리 까마귀(three black crows)다. 바닥 초기의 삼병은 전환 확인으로 읽히지만 이미 크게 진행된 추세 말의 삼병은 오히려 소진 경고가 된다 — 같은 셋도 위치가 읽기를 갈라 놓는다.</p>
+        <figure class="fig">
+          <img src="images/ch08/three-bar-combos.svg" alt="모닝스타의 3봉 전환과 상승삼병의 연속 양봉" loading="lazy" />
+          <figcaption>그림 5. 3봉 조합 둘. 모닝스타는 긴 음봉, 갭 아래 소봉(별), 절반 위로 회수하는 양봉. 상승삼병은 전봉 몸통 안에서 열리는 세 양봉의 연속이다.
+            <span class="src">출처: 자체 제작</span></figcaption>
+        </figure>
+        <p>3봉 조합의 실용은 확인이 늦는 대신 구조가 분명하다는 데 있다 — 별의 회수가 끝난 뒤에 열리는 시나리오라 무효화 자리(별의 저점)가 잘 잡힌다.</p>
+
+        <h3 id="sec-candles-5">사카타 오법 — 서양 패턴의 다른 언어</h3>
+        <p>캔들 패턴의 계보는 서구보다 오래됐다. 18세기 사카타(현 야마가타현)의 쌀 상인 혼마 무네히사(本間宗久)의 매매 기록이 전승 문서로 남았고<sup class="cit"><a data-scroll="src-candles-3">[3]</a></sup>, 사카타 오법<sup class="fnref" id="fnref-candles-13"><a data-scroll="fn-candles-13">13</a></sup>은 그 전통을 다섯 패턴군으로 묶은 이름이다. 영어권 소개는 니슨의 두 번째 책 <i>Beyond Candlesticks</i>(1994)가 맡았다<sup class="cit"><a data-scroll="src-candles-2">[2]</a></sup>.</p>
+        <table>
+          <thead><tr><th>사카타 오법</th><th>구조</th><th>서양 대응</th></tr></thead>
+          <tbody>
+            <tr><td>삼산(三山)</td><td>세 번의 고점</td><td>트리플 탑, 머리어깨</td></tr>
+            <tr><td>삼천(三川)</td><td>세 번의 시험이 방향을 트는 전환군</td><td>삼중바닥, 세 번째 테스트</td></tr>
+            <tr><td>삼공(三空)</td><td>연속 세 갭 뒤 소진</td><td>갭 이론, 소진 갭</td></tr>
+            <tr><td>삼병(三兵)</td><td>같은 색 긴 봉 셋</td><td>상승삼병 · 세 마리 까마귀</td></tr>
+            <tr><td>삼법(三法)</td><td>긴 봉 안의 작은 조정 뒤 재돌파</td><td>깃발 등 지속형</td></tr>
+          </tbody>
+        </table>
+        <p>삼산은 <a href="#patterns">머리어깨</a>에, 삼공은 갭에 가깝다 — 캔들 사전의 반쪽이 서양 차트 패턴을 다른 언어로 다시 쓴 것이다. 둘은 경쟁 체계가 아니라 같은 형태의 이중 명명이다. 삼천은 문서마다 범위가 갈리는 유일한 칸이라 느슨한 대응으로 둔다.</p>
+
+        <h3 id="sec-candles-6">기댓값 — 신호는 얇다</h3>
+        <p>이름 있는 캔들이 단독으로 벌어 주는 것은 얇다. 벌코우스키는 수만 개 표본에 각 패턴의 반전·지속 성공률을 매겼는데, 상당수의 유명 패턴이 절반 언저리의 반전율에 머물렀다<sup class="cit"><a data-scroll="src-candles-4">[4]</a></sup>. 마셜·영·로즈는 다우지수 구성종목 일봉에 캔들 규칙을 대입해 매수 신호가 가치를 더하지 못한다고 보고했다<sup class="cit"><a data-scroll="src-candles-6">[6]</a></sup>. 통계는 같은 결론으로 모인다 — 봉 하나는 정보가 아니라 위치 위의 트리거다.</p>
+        <p>쓰임은 한 줄로 압축된다 — 구조와 레벨 위에서만 본다. 지지·저항, 추세 말, <a href="#smc">유동성 스윕</a> 자리에서 캔들은 진입의 트리거로 값을 하고, 아무 자리의 이름 있는 봉은 그냥 봉이다. 조건(레벨과 위치)이 서면 시나리오를 열고, 무효화는 패턴의 극단(꼬리 끝, 첫째 봉의 반대쪽)에 둔다. 사전 전체를 외우는 비용보다 자리를 보는 습관 쪽에 값이 있다.</p>
+        <div class="note">캔들 읽기의 기본값 — 선행 추세 확인(위치) → 형상 판독(조건) → 다음 봉 확인(트리거) → 패턴 극단에 무효화. 이름은 이 네 칸을 통과한 봉에 붙는다.</div>
+
+        <div class="footnotes">
+          <div class="fn-title">용어 각주</div>
+          <ol>
+            <li id="fn-candles-1"><b>해머(Hammer)</b>: 긴 아랫꼬리와 작은 몸통의 봉. 하락 추세 말에서만 이 이름을 얻는다.
+              <a class="fnback" data-scroll="fnref-candles-1">↩</a></li>
+            <li id="fn-candles-2"><b>교수형(Hanging man)</b>: 해머와 같은 형상이 상승 추세 말에 선 것. 경고로 읽고 하방 확인을 요구한다.
+              <a class="fnback" data-scroll="fnref-candles-2">↩</a></li>
+            <li id="fn-candles-3"><b>슈팅스타(Shooting star) · 역해머(Inverted hammer)</b>: 긴 윗꼬리와 작은 몸통. 상승 말이면 슈팅스타, 하락 말이면 역해머다.
+              <a class="fnback" data-scroll="fnref-candles-3">↩</a></li>
+            <li id="fn-candles-4"><b>도지(Doji)</b>: 시가와 종가가 같거나 거의 같은 균형봉. 변형으로 장십자, 잠자리, 비석지, 포프라이스(four-price)가 있다.
+              <a class="fnback" data-scroll="fnref-candles-4">↩</a></li>
+            <li id="fn-candles-5"><b>마루보즈(Marubozu)</b>: 꼬리가 없거나 거의 없는 장몸통. 일본어로 '깎은 머리'라는 뜻이다.
+              <a class="fnback" data-scroll="fnref-candles-5">↩</a></li>
+            <li id="fn-candles-6"><b>핀바(Pin bar)</b>: Pinocchio bar의 준말. 긴 꼬리가 '코'인 봉 — 해머·슈팅스타 계열의 서양 이름.
+              <a class="fnback" data-scroll="fnref-candles-6">↩</a></li>
+            <li id="fn-candles-7"><b>장악형(Engulfing)</b>: 둘째 몸통이 첫째 몸통 전부를 덮는 2봉 구조. 포위형으로도 옮긴다.
+              <a class="fnback" data-scroll="fnref-candles-7">↩</a></li>
+            <li id="fn-candles-8"><b>하라미(Harami)</b>: 둘째 몸통이 첫째 몸통 안에 드는 2봉 구조. 옛 일본어로 임신. 인사이드바(inside bar)와 같은 구조.
+              <a class="fnback" data-scroll="fnref-candles-8">↩</a></li>
+            <li id="fn-candles-9"><b>관통형(Piercing) · 흑운형(Dark cloud cover)</b>: 둘째 봉이 첫째 몸통의 절반을 넘겨 닫는 2봉 반전. 하락 말이면 관통형, 상승 말이면 흑운형.
+              <a class="fnback" data-scroll="fnref-candles-9">↩</a></li>
+            <li id="fn-candles-10"><b>트위저(Tweezers)</b>: 두 봉 이상의 고점 또는 저점이 일치하는 구조. 집게라는 뜻이다.
+              <a class="fnback" data-scroll="fnref-candles-10">↩</a></li>
+            <li id="fn-candles-11"><b>모닝스타(Morning star) · 이브닝스타(Evening star)</b>: 긴 봉–소봉(별)–반대 긴 봉의 3봉 전환. 하락 말이면 모닝스타, 상승 말이면 이브닝스타.
+              <a class="fnback" data-scroll="fnref-candles-11">↩</a></li>
+            <li id="fn-candles-12"><b>삼병(Three soldiers)</b>: 같은 색 긴 봉 셋의 연속. 상승삼병은 three white soldiers, 하락삼병은 three black crows(세 마리 까마귀).
+              <a class="fnback" data-scroll="fnref-candles-12">↩</a></li>
+            <li id="fn-candles-13"><b>사카타 오법(Sakata five methods)</b>: 삼산·삼천·삼공·삼병·삼법의 다섯 패턴군. 혼마 무네히사 계보의 사카타 전통.
+              <a class="fnback" data-scroll="fnref-candles-13">↩</a></li>
+          </ol>
         </div>
-        <p>사카타 오법의 삼산은 머리어깨에, 삼공은 갭에 가깝다. 단독 캔들 신호의 기대값은 얇다. 구조와 레벨 위에서만 본다.</p>
+
+        <div class="sources">
+          <div class="src-title">출처</div>
+          <ol>
+            <li id="src-candles-1">Nison, S., <i>Japanese Candlestick Charting Techniques</i>, New York Institute of Finance, 1991(2판 2001) — 캔들 패턴 정의의 서구 원전.</li>
+            <li id="src-candles-2">Nison, S., <i>Beyond Candlesticks</i>, Wiley, 1994 — 사카타 오법(삼산·삼천·삼공·삼병·삼법)의 영어 소개.</li>
+            <li id="src-candles-3">本間宗久 계보의 전승 문서 — 『宗久翁秘録』(1755)·『酒田戦術詳解』 등 사카타 매매 기록. 영어 정리는 Nison(1994) 참조.</li>
+            <li id="src-candles-4">Bulkowski, T. N., <i>Encyclopedia of Candlestick Charts</i>, Wiley, 2008 — 패턴별 반전·지속 빈도 통계.</li>
+            <li id="src-candles-5">Morris, G. L. &amp; Litchfield, R., <i>Candlestick Charting Explained</i>, 3판, McGraw-Hill, 2006.</li>
+            <li id="src-candles-6">Marshall, B. R., Young, M. R. &amp; Rose, L. C., "Candlestick Technical Trading Strategies: Can They Create Value for Investors?", <i>Journal of Banking &amp; Finance</i> 30(8), 2006.</li>
+          </ol>
+        </div>

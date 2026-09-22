@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 290" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="700" height="290" fill="#f7f1e6"/>
+
+  <text x="40" y="28" fill="#4a453c" font-size="12" font-weight="600">TPO · market profile — 가로축은 시간이 아니라 빈도</text>
+  <text x="40" y="44" fill="#8a7f70" font-size="10.5">가격 price ↑</text>
+
+  <!-- 가격 눈금 (왼쪽) -->
+  <text x="48" y="64"  fill="#8a7f70" font-size="10">105</text>
+  <text x="48" y="82"  fill="#8a7f70" font-size="10">104</text>
+  <text x="48" y="100" fill="#8a7f70" font-size="10">103</text>
+  <text x="48" y="118" fill="#8a7f70" font-size="10">102</text>
+  <text x="48" y="136" fill="#8a7f70" font-size="10">101</text>
+  <text x="48" y="154" fill="#8a7f70" font-size="10">100</text>
+  <text x="48" y="172" fill="#8a7f70" font-size="10">99</text>
+  <text x="48" y="190" fill="#8a7f70" font-size="10">98</text>
+  <text x="48" y="208" fill="#8a7f70" font-size="10">97</text>
+  <text x="48" y="226" fill="#8a7f70" font-size="10">96</text>
+  <text x="48" y="244" fill="#8a7f70" font-size="10">95</text>
+
+  <!-- 이니셜 밸런스 브래킷 (왼쪽, 행 2~7) -->
+  <line x1="168" y1="69" x2="168" y2="177" stroke="#b08948" stroke-width="1.4"/>
+  <line x1="162" y1="69" x2="168" y2="69" stroke="#b08948" stroke-width="1.4"/>
+  <line x1="162" y1="177" x2="168" y2="177" stroke="#b08948" stroke-width="1.4"/>
+  <text x="160" y="126" fill="#b08948" font-size="10.5" text-anchor="end">IB</text>
+
+  <!-- POC 행 하이라이트 (행 6, 가격 100) -->
+  <rect x="176" y="141" width="146" height="17" fill="#b08948" opacity="0.14"/>
+
+  <!-- TPO 문자 -->
+  <g fill="#4a453c" font-size="13" text-anchor="middle">
+    <!-- r1 y60 105: C -->
+    <text x="238" y="64">C</text>
+    <!-- r2 y78 104: B C -->
+    <text x="214" y="82">B</text><text x="238" y="82">C</text>
+    <!-- r3 y96 103: B C D -->
+    <text x="214" y="100">B</text><text x="238" y="100">C</text><text x="262" y="100">D</text>
+    <!-- r4 y114 102: A B C D -->
+    <text x="190" y="118">A</text><text x="214" y="118">B</text><text x="238" y="118">C</text><text x="262" y="118">D</text>
+    <!-- r5 y132 101: A B C D E -->
+    <text x="190" y="136">A</text><text x="214" y="136">B</text><text x="238" y="136">C</text><text x="262" y="136">D</text><text x="286" y="136">E</text>
+    <!-- r6 y150 100: A B C D E F = POC -->
+    <text x="190" y="154">A</text><text x="214" y="154">B</text><text x="238" y="154">C</text><text x="262" y="154">D</text><text x="286" y="154">E</text><text x="310" y="154">F</text>
+    <!-- r7 y168 99: B C D E F -->
+    <text x="214" y="172">B</text><text x="238" y="172">C</text><text x="262" y="172">D</text><text x="286" y="172">E</text><text x="310" y="172">F</text>
+    <!-- r8 y186 98: C D E F -->
+    <text x="238" y="190">C</text><text x="262" y="190">D</text><text x="286" y="190">E</text><text x="310" y="190">F</text>
+    <!-- r9 y204 97: D E F -->
+    <text x="262" y="208">D</text><text x="286" y="208">E</text><text x="310" y="208">F</text>
+    <!-- r10 y222 96: E F -->
+    <text x="286" y="226">E</text><text x="310" y="226">F</text>
+    <!-- r11 y240 95: F -->
+    <text x="310" y="244">F</text>
+  </g>
+
+  <!-- 가치영역 브래킷 (오른쪽, 행 4~8) -->
+  <line x1="340" y1="105" x2="340" y2="195" stroke="#2c5a4c" stroke-width="1.6"/>
+  <line x1="340" y1="105" x2="332" y2="105" stroke="#2c5a4c" stroke-width="1.6"/>
+  <line x1="340" y1="195" x2="332" y2="195" stroke="#2c5a4c" stroke-width="1.6"/>
+
+  <!-- 주석 -->
+  <text x="356" y="110" fill="#2c5a4c" font-size="11.5">가치영역 · value area — TPO의 약 70%</text>
+  <line x1="352" y1="150" x2="368" y2="150" stroke="#b08948" stroke-width="1.2"/>
+  <text x="372" y="154" fill="#4a453c" font-size="11.5">POC · point of control — 가장 오래 머문 가격</text>
+  <text x="180" y="268" fill="#4a453c" font-size="11.5">이니셜 밸런스 IB · initial balance — 첫 1시간(A·B)의 레인지</text>
+  <text x="490" y="268" fill="#8a7f70" font-size="11">문자 하나 = 30분 블록 · one letter = 30 min</text>
+</svg>
