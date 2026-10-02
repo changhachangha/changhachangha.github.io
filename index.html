@@ -216,6 +216,13 @@
       border-radius: 6px;
     }
     #searchHits a:hover { background: #241f1b; }
+    #searchHits a .hit-sub {
+      display: block;
+      margin-top: 1px;
+      color: #8d8374;
+      font-size: 11px;
+      line-height: 1.4;
+    }
     .lex-toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
     .lex-toolbar button, .lex-toolbar input {
       font: inherit;
@@ -2697,6 +2704,26 @@
     function loadNotes() {
       try { return JSON.parse(localStorage.getItem(noteKey) || "[]"); } catch (e) { return []; }
     }
+    let pendingHit = null;
+    let revealToken = 0;
+    function reveal(el) {
+      const token = ++revealToken;
+      const started = performance.now();
+      const jump = force => {
+        if (token !== revealToken) return;
+        if (!force && performance.now() - started > 1200) return;
+        el.scrollIntoView({ behavior: "auto", block: "start" });
+      };
+      jump(true);
+      requestAnimationFrame(() => jump(true));
+      const pageEl = el.closest(".page");
+      if (!pageEl) return;
+      [...pageEl.querySelectorAll("img")].filter(img => !img.complete).forEach(img => {
+        const done = () => jump(false);
+        img.addEventListener("load", done, { once: true });
+        img.addEventListener("error", done, { once: true });
+      });
+    }
     function render() {
       const id = current();
       document.querySelectorAll(".page").forEach(p => p.classList.toggle("show", p.id === "page-" + id));
@@ -2715,7 +2742,14 @@
         document.getElementById("memoField").value = loadMemos()[id] || "";
       }
       if (id === "notes") renderNotes();
-      window.scrollTo(0, 0);
+      const hit = pendingHit;
+      pendingHit = null;
+      const target = hit && hit.page === id ? locateTerm(document.getElementById("page-" + id), hit.term, hit.aka) : null;
+      if (target) reveal(target);
+      else {
+        revealToken += 1;
+        window.scrollTo(0, 0);
+      }
     }
     window.addEventListener("hashchange", render);
     document.addEventListener("click", e => {
@@ -2884,6 +2918,110 @@
       { t: "워크포워드", k: "언어", p: "extra", aka: "walk-forward 롤링 검증", d: "인샘플 최적화 → 다음 구간 채점 → 창 전진의 반복." },
     ];
     // LEXICON:END
+    function hay(t, aka, d) {
+      return (t + " " + aka + " " + d).toLowerCase();
+    }
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/[&<>"']/g, ch => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[ch]));
+    }
+    function compactLabel(s) {
+      return (s || "").toLowerCase().replace(/[\s·・/,&]+/g, "").replace(/와|과/g, "");
+    }
+    function primaryLabel(bold) {
+      return (bold || "").split("(")[0].trim();
+    }
+    function textHasTerm(text, term) {
+      const haystack = (text || "").toLowerCase();
+      const needle = (term || "").trim().toLowerCase();
+      if (!needle) return false;
+      const latin = /[a-z0-9&]/i;
+      let i = haystack.indexOf(needle);
+      while (i >= 0) {
+        const before = i > 0 ? haystack.charAt(i - 1) : "";
+        const after = haystack.charAt(i + needle.length);
+        const badBefore = latin.test(needle.charAt(0)) && latin.test(before);
+        const badAfter = latin.test(needle.charAt(needle.length - 1)) && latin.test(after);
+        if (!badBefore && !badAfter) return true;
+        i = haystack.indexOf(needle, i + 1);
+      }
+      return false;
+    }
+    function fnrefOf(page, li) {
+      if (!li || !li.id || li.id.indexOf("fn-") !== 0) return li;
+      const ref = document.getElementById("fnref-" + li.id.slice(3));
+      return ref && page.contains(ref) ? ref : li;
+    }
+    function headingMatches(term, text) {
+      const h = (text || "").trim().toLowerCase();
+      const t = (term || "").trim().toLowerCase();
+      if (!t || !h) return false;
+      if (h.startsWith(t)) {
+        const next = h.charAt(t.length);
+        if (!next || /[\s·—\-:：,.]/.test(next)) return true;
+      }
+      const ct = compactLabel(term);
+      return ct.length >= 2 && compactLabel(text) === ct;
+    }
+    function akaTokens(aka) {
+      return (aka || "").split(/\s+/).map(s => s.trim()).filter(tok => {
+        if (!tok || /^[0-9.]+$/.test(tok)) return false;
+        if (/[가-힣]/.test(tok)) return [...tok].length >= 2;
+        return tok.length >= 4;
+      });
+    }
+    function akaTarget(page, aka) {
+      const toks = akaTokens(aka).map(t => t.toLowerCase());
+      if (!toks.length) return null;
+      const need = toks.length >= 2 ? 2 : 1;
+      let best = null;
+      let bestScore = 0;
+      page.querySelectorAll(".footnotes li[id], h2[id], h3[id], h4[id]").forEach(el => {
+        const label = el.querySelector("b");
+        const text = (label ? label.textContent : el.textContent).toLowerCase();
+        let score = 0;
+        toks.forEach(tok => { if (text.includes(tok)) score++; });
+        if (score > bestScore) { bestScore = score; best = el; }
+      });
+      if (!best || bestScore < need) return null;
+      return best.tagName === "LI" ? fnrefOf(page, best) : best;
+    }
+    function locateTerm(page, term, aka) {
+      if (!page || !term) return null;
+      const notes = page.querySelectorAll(".footnotes li[id]");
+      const tNorm = term.trim().toLowerCase();
+      const ct = compactLabel(term);
+      for (const li of notes) {
+        const b = li.querySelector("b");
+        if (!b) continue;
+        const pr = primaryLabel(b.textContent);
+        if (pr.toLowerCase() === tNorm || (ct.length >= 2 && compactLabel(pr) === ct)) return fnrefOf(page, li);
+      }
+      for (const h of page.querySelectorAll("h2[id], h3[id], h4[id]")) {
+        if (headingMatches(term, h.textContent)) return h;
+      }
+      if (ct.length >= 2) {
+        for (const li of notes) {
+          const b = li.querySelector("b");
+          if (!b) continue;
+          const pr = compactLabel(primaryLabel(b.textContent));
+          if (pr.startsWith(ct) && pr !== ct) return fnrefOf(page, li);
+        }
+      }
+      if ([...term.trim()].length >= 2) {
+        const blocks = page.querySelectorAll("h2, h3, h4, p, li, figcaption, .chapter-summary");
+        let summary = null;
+        for (const el of blocks) {
+          if (el.closest(".chapter-toc, .footnotes, .sources, .pager")) continue;
+          if (!textHasTerm(el.textContent, term)) continue;
+          if (el.classList.contains("chapter-summary")) { summary = summary || el; continue; }
+          return el;
+        }
+        if (summary) return summary;
+      }
+      return akaTarget(page, aka);
+    }
     let lexCat = "";
     function drawLex() {
       const q = (document.getElementById("lexFilter").value || "").trim().toLowerCase();
@@ -2891,7 +3029,7 @@
       const rows = lexicon.filter(x => {
         if (lexCat && x.k !== lexCat) return false;
         if (!q) return true;
-        return (x.t + " " + x.aka + " " + x.d).toLowerCase().includes(q);
+        return hay(x.t, x.aka, x.d).includes(q);
       });
       list.innerHTML = rows.map(x => "<div class=\"card lex-item\"><span class=\"tag\">" + x.k + "</span><h4 style=\"display:inline\">" + x.t + "</h4><div class=\"aka\">" + x.aka + "</div><p>" + x.d + "</p><p><a href=\"#" + x.p + "\">" + titles[x.p] + "에서 보기</a></p></div>").join("") || "<p>해당 용어가 색인에 없다.</p>";
     }
@@ -2899,14 +3037,31 @@
     document.querySelectorAll("[data-lex]").forEach(btn => {
       btn.onclick = () => { lexCat = btn.dataset.lex; drawLex(); };
     });
-    const searchIndex = lexicon.map(x => ({ id: x.p, label: x.t, hint: x.d })).
-      concat(Object.keys(titles).map(id => ({ id: id, label: titles[id], hint: "챕터" })));
+    const searchIndex = lexicon.map(x => ({ id: x.p, label: x.t, aka: x.aka, hint: x.d, term: x.t })).
+      concat(Object.keys(titles).map(id => ({ id: id, label: titles[id], aka: "", hint: "챕터", term: "" })));
     document.getElementById("q").addEventListener("input", () => {
       const q = document.getElementById("q").value.trim().toLowerCase();
       const box = document.getElementById("searchHits");
       if (!q) { box.innerHTML = ""; return; }
-      const hits = searchIndex.filter(x => (x.label + " " + x.hint).toLowerCase().includes(q)).slice(0, 8);
-      box.innerHTML = hits.map(x => "<a href=\"#" + x.id + "\">" + x.label + " · " + x.hint.slice(0, 28) + "</a>").join("");
+      const hits = searchIndex.filter(x => hay(x.label, x.aka, x.hint).includes(q)).slice(0, 8);
+      box.innerHTML = hits.map(x => {
+        const akaHit = x.aka && x.aka.toLowerCase().includes(q);
+        const sub = akaHit
+          ? "<span class=\"hit-sub\">" + esc(x.aka) + "</span>"
+          : " · " + esc((x.hint || "").slice(0, 28));
+        return "<a href=\"#" + esc(x.id) + "\" data-hit-page=\"" + esc(x.id) + "\" data-hit-term=\"" + esc(x.term) + "\">" + esc(x.label) + sub + "</a>";
+      }).join("");
+    });
+    document.getElementById("searchHits").addEventListener("click", e => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      e.preventDefault();
+      const page = a.dataset.hitPage;
+      const term = a.dataset.hitTerm || "";
+      const entry = term ? lexicon.find(x => x.t === term && x.p === page) : null;
+      pendingHit = term ? { page: page, term: term, aka: entry ? entry.aka : "" } : null;
+      if (current() === page) render();
+      else location.hash = page;
     });
     function renderNotes() {
       const list = document.getElementById("noteList");
