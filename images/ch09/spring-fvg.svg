@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="IBM Plex Sans KR, sans-serif">
+  <rect width="720" height="300" fill="#f7f1e6"/>
+  <text x="24" y="26" font-size="12" fill="#8a7f70" letter-spacing="0.4">SPRING AND FVG · 스프링과 갭 — 복귀와 재방문</text>
+  <line x1="360" y1="44" x2="360" y2="278" stroke="#b08948" stroke-width="0.7" opacity="0.4"/>
+
+  <text x="24" y="52" fill="#4a453c" font-size="13">스프링 = 스윕 · spring / sweep</text>
+  <line x1="28" y1="78" x2="330" y2="78" stroke="#b08948" stroke-width="1.3" stroke-dasharray="6 4"/>
+  <line x1="28" y1="168" x2="330" y2="168" stroke="#b08948" stroke-width="1.3" stroke-dasharray="6 4"/>
+  <text x="28" y="70" fill="#4a453c" font-size="10">레인지 상단</text>
+  <text x="230" y="160" fill="#4a453c" font-size="10">레인지 하단</text>
+  <rect x="28" y="168" width="302" height="40" fill="#8f3d3a" opacity="0.1"/>
+  <path d="M36 146 L72 98 L110 154 L148 110 L186 166 L216 136 L238 200 L262 152 L304 96 L336 74" fill="none" stroke="#4a453c" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M238 200 L262 152 L304 96" fill="none" stroke="#2c5a4c" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M238 200 L252 232" fill="none" stroke="#8f3d3a" stroke-width="1.6" stroke-dasharray="4 3" stroke-linecap="round"/>
+  <circle cx="186" cy="166" r="3" fill="#4a453c"/>
+  <circle cx="238" cy="200" r="4" fill="#8f3d3a"/>
+  <text x="28" y="256" fill="#8f3d3a" font-size="11">빨간 점 · 스톱이 찔린 자리</text>
+  <text x="28" y="276" fill="#4a453c" font-size="11">안쪽 종가 = 확인 · 꼬리 너머 점선 = 무효화</text>
+
+  <text x="384" y="52" fill="#4a453c" font-size="13">FVG = 갭 · fair value gap</text>
+  <rect x="548" y="108" width="152" height="40" fill="#b08948" opacity="0.2"/>
+  <line x1="420" y1="148" x2="700" y2="148" stroke="#b08948" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <line x1="548" y1="108" x2="700" y2="108" stroke="#b08948" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <line x1="448" y1="148" x2="448" y2="208" stroke="#8f3d3a" stroke-width="1.8"/>
+  <rect x="434" y="158" width="28" height="34" fill="#8f3d3a"/>
+  <line x1="508" y1="58" x2="508" y2="172" stroke="#2c5a4c" stroke-width="1.8"/>
+  <rect x="492" y="70" width="32" height="86" fill="#2c5a4c"/>
+  <line x1="566" y1="48" x2="566" y2="108" stroke="#2c5a4c" stroke-width="1.8"/>
+  <rect x="552" y="56" width="28" height="40" fill="#2c5a4c"/>
+  <line x1="648" y1="64" x2="648" y2="132" stroke="#8f3d3a" stroke-width="1.8"/>
+  <rect x="634" y="74" width="28" height="42" fill="#8f3d3a" opacity="0.85"/>
+  <text x="424" y="228" fill="#4a453c" font-size="10">첫째 고가</text>
+  <text x="492" y="228" fill="#4a453c" font-size="10">둘째 · 변위</text>
+  <text x="548" y="228" fill="#4a453c" font-size="10">셋째 저가</text>
+  <text x="632" y="168" fill="#4a453c" font-size="10">재방문</text>
+  <text x="384" y="256" fill="#4a453c" font-size="11">빈 구간은 첫째 고가와 셋째 저가 사이</text>
+  <text x="384" y="276" fill="#8a7f70" font-size="10">재방문은 일부 · 메움의 보장은 없다</text>
+</svg>
