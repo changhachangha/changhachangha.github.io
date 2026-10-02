@@ -12,8 +12,8 @@
   <line x1="430" y1="120" x2="430" y2="195" stroke="#4a453c" stroke-width="2.6"/>
   <rect x="416" y="114" width="28" height="6" fill="#4a453c"/>
   <text x="430" y="215" fill="#4a453c" font-size="11" text-anchor="middle">잠자리 · dragonfly</text>
-  <!-- 비석지 -->
+  <!-- 비석형 -->
   <line x1="590" y1="45" x2="590" y2="120" stroke="#4a453c" stroke-width="2.6"/>
   <rect x="576" y="120" width="28" height="6" fill="#4a453c"/>
-  <text x="590" y="215" fill="#4a453c" font-size="11" text-anchor="middle">비석지 · gravestone</text>
+  <text x="590" y="215" fill="#4a453c" font-size="11" text-anchor="middle">비석형 · gravestone</text>
 </svg>

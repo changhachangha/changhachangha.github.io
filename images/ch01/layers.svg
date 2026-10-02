@@ -21,14 +21,14 @@
     <rect x="20" y="142" width="680" height="44" rx="6" fill="#fffdf8" stroke="#d8cdb8"/>
     <rect x="20" y="142" width="8" height="44" rx="4" fill="#b08948"/>
     <text x="44" y="161" font-size="14" font-weight="600" fill="#4a453c">3 구조 읽기 <tspan font-size="10" fill="#8a7f70" font-weight="400">Structure reading</tspan></text>
-    <text x="44" y="178" font-size="11" fill="#6b6355">지지저항, 채널, HH/HL, BOS/CHoCH</text>
+    <text x="44" y="178" font-size="11" fill="#6b6355">지지·저항, 채널, HH/HL, BOS/CHoCH</text>
     <text x="688" y="167" font-size="11" fill="#b08948" text-anchor="end">문법 grammar</text>
   </g>
   <g>
     <rect x="20" y="194" width="680" height="44" rx="6" fill="#fffdf8" stroke="#d8cdb8"/>
     <rect x="20" y="194" width="8" height="44" rx="4" fill="#b08948"/>
     <text x="44" y="213" font-size="14" font-weight="600" fill="#4a453c">4 패턴 사전 <tspan font-size="10" fill="#8a7f70" font-weight="400">Pattern dictionary</tspan></text>
-    <text x="44" y="230" font-size="11" fill="#6b6355">머리어깨, 삼각, 깃발, 대표 캔들, 하모닉</text>
+    <text x="44" y="230" font-size="11" fill="#6b6355">헤드앤숄더, 삼각, 깃발, 대표 캔들, 하모닉</text>
     <text x="688" y="219" font-size="11" fill="#b08948" text-anchor="end">사전 dictionary</text>
   </g>
   <g>
