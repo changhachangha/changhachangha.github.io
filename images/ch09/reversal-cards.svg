@@ -20,9 +20,9 @@
   <circle cx="286" cy="218" r="2.8" fill="#b08948"/>
   <circle cx="348" cy="262" r="3.3" fill="#8f3d3a"/>
 
-  <text x="128" y="148" fill="#4a453c" font-size="11">좌어깨</text>
+  <text x="128" y="148" fill="#4a453c" font-size="11">왼어깨</text>
   <text x="242" y="98" fill="#4a453c" font-size="11" text-anchor="middle">머리 · head</text>
-  <text x="292" y="152" fill="#4a453c" font-size="11">우어깨</text>
+  <text x="292" y="152" fill="#4a453c" font-size="11">오른어깨</text>
   <text x="156" y="242" fill="#b08948" font-size="11">넥라인 · neckline</text>
   <text x="24" y="312" fill="#2c5a4c" font-size="11">선행 상승</text>
   <text x="110" y="312" fill="#8f3d3a" font-size="11">실선 이탈 = 확인</text>

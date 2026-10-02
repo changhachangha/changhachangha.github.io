@@ -1,9 +1,9 @@
 <!-- CHAPTER 12 · indicators -->
-<!-- LEX: [{"t": "ADX", "k": "지표", "p": "indicators", "aka": "추세 강도 DMI", "d": "방향이 아니라 강도. 전략 스위치."}, {"t": "ATR", "k": "지표", "p": "indicators", "aka": "Average True Range", "d": "방향 없음. 손절과 포지션 크기의 단위."}, {"t": "VWAP", "k": "지표", "p": "indicators", "aka": "앵커드 VWAP", "d": "거래량 가중 평균가. 세션 공정가."}, {"t": "볼륨 프로파일", "k": "지표", "p": "indicators", "aka": "HVN LVN VP", "d": "가격대별 거래량 분포. TPO의 거래량 형제."}, {"t": "이동평균", "k": "지표", "p": "indicators", "aka": "MA SMA EMA WMA 골든크로스", "d": "기간 가격의 평활. 늦는 것이 곧 용도."}, {"t": "MACD", "k": "지표", "p": "indicators", "aka": "이동평균 수렴확산 Appel", "d": "두 EMA의 차이와 그 신호선. 이평 크로스의 재포장."}, {"t": "RSI", "k": "지표", "p": "indicators", "aka": "Relative Strength Index 와일더", "d": "상승폭과 하락폭의 비. 70/30보다 다이버전스·실패 스윙."}, {"t": "스토캐스틱", "k": "지표", "p": "indicators", "aka": "Stochastic %K %D Lane", "d": "기간 레인지 안 종가의 위치. 레인지의 도구."}, {"t": "볼린저 밴드", "k": "지표", "p": "indicators", "aka": "Bollinger Bands 20 2σ 스퀴즈", "d": "20 SMA ± 2표준편차. 폭이 곧 변동성의 지도."}, {"t": "켈트너 채널", "k": "지표", "p": "indicators", "aka": "Keltner Channel ATR 밴드", "d": "EMA ± ATR 배수. 볼린저와 같은 축."}, {"t": "OBV", "k": "지표", "p": "indicators", "aka": "On Balance Volume Granville", "d": "방향별 거래량의 누적. 노력의 합계."}, {"t": "다이버전스", "k": "지표", "p": "indicators", "aka": "divergence 괴리", "d": "가격은 신고가인데 지표가 못 따라가는 불일치. 경고."}] -->
+<!-- LEX: [{"t": "ADX", "k": "지표", "p": "indicators", "aka": "추세 강도 DMI", "d": "방향이 아니라 강도. 전략 스위치."}, {"t": "ATR", "k": "지표", "p": "indicators", "aka": "Average True Range", "d": "방향 없음. 손절과 포지션 크기의 단위."}, {"t": "VWAP", "k": "지표", "p": "indicators", "aka": "앵커드 VWAP", "d": "거래량 가중 평균가. 세션 공정가치."}, {"t": "볼륨 프로파일", "k": "지표", "p": "indicators", "aka": "HVN LVN VP", "d": "가격대별 거래량 분포. TPO의 거래량 형제."}, {"t": "이동평균", "k": "지표", "p": "indicators", "aka": "MA SMA EMA WMA 골든크로스", "d": "기간 가격의 평활. 늦는 것이 곧 용도."}, {"t": "MACD", "k": "지표", "p": "indicators", "aka": "이동평균 수렴확산 Appel", "d": "두 EMA의 차이와 그 신호선. 이평 크로스의 재포장."}, {"t": "RSI", "k": "지표", "p": "indicators", "aka": "Relative Strength Index 와일더", "d": "상승폭과 하락폭의 비. 70/30보다 다이버전스·실패 스윙."}, {"t": "스토캐스틱", "k": "지표", "p": "indicators", "aka": "Stochastic %K %D Lane", "d": "기간 레인지 안 종가의 위치. 레인지의 도구."}, {"t": "볼린저 밴드", "k": "지표", "p": "indicators", "aka": "Bollinger Bands 20 2σ 스퀴즈", "d": "20 SMA ± 2표준편차. 폭이 곧 변동성의 지도."}, {"t": "켈트너 채널", "k": "지표", "p": "indicators", "aka": "Keltner Channel ATR 밴드", "d": "EMA ± ATR 배수. 볼린저와 같은 축."}, {"t": "OBV", "k": "지표", "p": "indicators", "aka": "On Balance Volume Granville", "d": "방향별 거래량의 누적. 노력의 합계."}, {"t": "다이버전스", "k": "지표", "p": "indicators", "aka": "divergence 괴리", "d": "가격은 신고가인데 지표가 못 따라가는 불일치. 경고."}] -->
 
         <div class="crumb">Chapter 12</div>
         <h2 class="page-title">보조지표 네 칸</h2>
-        <p class="lede">대부분 가격의 함수다. 같은 종가를 네 번 세고 컨플루언스라고 부르지 말 것.</p>
+        <p class="lede">대부분 가격의 함수다. 같은 종가를 네 번 세고 컨플루언스라고 부르지 않는다.</p>
 
         <div class="chapter-summary"><b>요약.</b> 보조지표는 전부 같은 원료 — OHLCV — 의 함수다. 지표는 정보를 만들지 않고 재배열하며, 평활의 대가로 항상 늦는다. 분류는 입력 축 기준의 네 칸이다 — 추세(MA·MACD·ADX·일목), 모멘텀(RSI·스토캐스틱), 변동성(볼린저·ATR·켈트너), 거래량(VWAP·OBV·볼륨 프로파일). ADX는 방향이 아니라 강도이고, RSI의 본체는 70/30이 아니라 다이버전스와 실패 스윙이며, ATR은 방향 없는 크기의 단위다. 같은 축의 지표를 겹치면 컨플루언스가 아니라 중복이다 — 보완이 되려면 축이 달라야 한다.</div>
 
@@ -28,7 +28,7 @@
           <div class="card"><span class="tag">추세</span><h4>MA · MACD · ADX · 일목</h4><p>ADX는 방향이 아니라 강도. 25 위 추세, 아래 레인지. 전략 스위치.</p></div>
           <div class="card"><span class="tag">모멘텀</span><h4>RSI · 스토캐스틱</h4><p>숫자 70/30보다 다이버전스와 구조. 추세장에서 과매수는 오래 간다.</p></div>
           <div class="card"><span class="tag">변동성</span><h4>볼린저 · ATR</h4><p>ATR은 방향이 없다. 손절과 포지션 크기의 단위. 볼린저 터치가 곧 반전은 아니다.</p></div>
-          <div class="card"><span class="tag">거래량</span><h4>VWAP · OBV · 프로파일</h4><p>VWAP은 세션 공정가. OBV는 노력. 프로파일은 가격대별 가치.</p></div>
+          <div class="card"><span class="tag">거래량</span><h4>VWAP · OBV · 프로파일</h4><p>VWAP은 세션 공정가치. OBV는 노력. 프로파일은 가격대별 가치.</p></div>
         </div>
 
         <h3 id="sec-indicators-2">추세 칸 — 이동평균 · MACD · ADX · 일목</h3>
@@ -61,14 +61,14 @@
         <p>한계는 방향의 부재다 — 약점이 아니라 용도의 경계다. 스퀴즈가 팽창을 예고해도 방향은 구조가 답한다. σ 기반 밴드는 정규분포 직관에 기대는데 수익률의 꼬리는 정규보다 두껍다 — "2σ 밖은 드물다"는 감각이 실제보다 자주 깨진다.</p>
 
         <h3 id="sec-indicators-5">거래량 칸 — VWAP · OBV · 볼륨 프로파일</h3>
-        <p>VWAP<sup class="fnref" id="fnref-indicators-12"><a data-scroll="fn-indicators-12">12</a></sup>은 거래량 가중 평균가다 — Σ(가격×거래량) ÷ Σ거래량을 세션 시작부터 누적한다. 세션마다 리셋되는 장중 공정가이고, 기관 체결이 VWAP 대비로 평가되는 관행 덕에 선 근처 회귀는 자기실현 성분을 갖는다. 앵커드 VWAP은 앵커를 세션이 아니라 사건 — 갭·실적 발표·스윙 저점 — 으로 옮긴 변형이다. 선의 뜻이 바뀐다: "그 사건 이후 평균 매수자의 손익분기"다.</p>
+        <p>VWAP<sup class="fnref" id="fnref-indicators-12"><a data-scroll="fn-indicators-12">12</a></sup>은 거래량 가중 평균가다 — Σ(가격×거래량) ÷ Σ거래량을 세션 시작부터 누적한다. 세션마다 리셋되는 장중 공정가치이고, 기관 체결이 VWAP 대비로 평가되는 관행 덕에 선 근처 회귀는 자기실현 성분을 갖는다. 앵커드 VWAP은 앵커를 세션이 아니라 사건 — 갭·실적 발표·스윙 저점 — 으로 옮긴 변형이다. 선의 뜻이 바뀐다: "그 사건 이후 평균 매수자의 손익분기"다.</p>
         <figure class="fig">
           <img src="images/ch12/vwap-anchor.svg" alt="세션 시가부터 누적되는 VWAP과 뉴스 갭 시점부터 누적되는 앵커드 VWAP 두 선, 가격이 앵커드 VWAP로 되돌아와 지지받는 모습" loading="lazy" />
           <figcaption>그림 3. VWAP과 앵커드 VWAP. 같은 누적 평균이지만 시작점이 다르면 선이 다르다 — 실선은 시가부터, 점선은 갭 사건 지점부터 누적한다.
             <span class="src">출처: 자체 제작</span></figcaption>
         </figure>
         <p>OBV<sup class="fnref" id="fnref-indicators-13"><a data-scroll="fn-indicators-13">13</a></sup>은 조지프 그랜빌이 1963년에 낸 누적 지표다<sup class="cit"><a data-scroll="src-indicators-4">[4]</a></sup>. 종가가 전일보다 높으면 그날 거래량을 더하고 낮으면 뺀다 — 방향별 거래량의 누적 합이다. 그랜빌의 비유는 증기압 — 거래량은 가격을 미는 노력이고, OBV가 가격의 신고가를 확인하지 못하면 노력 부족의 다이버전스다.</p>
-        <p>볼륨 프로파일은 봉의 시간축을 버리고 가격대별 거래량을 옆으로 쌓은 분포다. POC<sup class="fnref" id="fnref-indicators-14"><a data-scroll="fn-indicators-14">14</a></sup>는 가장 많이 거래된 가격 — 그 기간의 공정가 후보다. 가치영역은 거래량의 약 70%를 덮는 띠고 경계가 VAH·VAL이다. HVN<sup class="fnref" id="fnref-indicators-15"><a data-scroll="fn-indicators-15">15</a></sup>은 두꺼운 노드 — 수용의 흔적이라 천천히 통과하는 회귀의 자석이고, LVN은 얇은 노드 — 거부의 흔적이라 빠르게 지나간다. 종 모양은 균형의 날(회귀), 얇고 긴 꼬리는 비균형의 날(이니셔티브)이다<sup class="cit"><a data-scroll="src-indicators-6">[6]</a></sup>.</p>
+        <p>볼륨 프로파일은 봉의 시간축을 버리고 가격대별 거래량을 옆으로 쌓은 분포다. POC<sup class="fnref" id="fnref-indicators-14"><a data-scroll="fn-indicators-14">14</a></sup>는 가장 많이 거래된 가격 — 그 기간의 공정가치 후보다. 가치영역은 거래량의 약 70%를 덮는 띠고 경계가 VAH·VAL이다. HVN<sup class="fnref" id="fnref-indicators-15"><a data-scroll="fn-indicators-15">15</a></sup>은 두꺼운 노드 — 수용의 흔적이라 천천히 통과하는 회귀의 자석이고, LVN은 얇은 노드 — 거부의 흔적이라 빠르게 지나간다. 종 모양은 균형의 날(회귀), 얇고 긴 꼬리는 비균형의 날(이니셔티브)이다<sup class="cit"><a data-scroll="src-indicators-6">[6]</a></sup>.</p>
         <figure class="fig">
           <img src="images/ch12/volume-profile.svg" alt="가격대별 가로 막대로 쌓은 거래량 분포 — 가장 긴 행이 POC, 약 70%를 덮는 띠의 경계가 VAH·VAL, 두꺼운 구간이 HVN, 얇은 구간이 LVN" loading="lazy" />
           <figcaption>그림 4. 볼륨 프로파일. 가로축은 시간이 아니라 거래량이다. 가장 긴 막대가 POC, 약 70%를 덮는 띠가 가치영역(VAH~VAL)이다. HVN은 수용의 자석, LVN은 빠르게 통과하는 거부 영역이다.
