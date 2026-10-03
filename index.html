@@ -232,6 +232,38 @@
     .atlas svg { width: 100%; height: 120px; display: block; background: #f7f1e6; border-radius: 8px; }
     .atlas figcaption { margin-top: 10px; font-size: 14px; font-weight: 600; }
     .atlas p { font-size: 13px; color: var(--ink-soft); margin: 4px 0 0; }
+    #page-figs .lede { margin-bottom: 8px; font-size: 15px; }
+    #page-figs h3 { margin: 14px 0 6px; font-size: 18px; }
+    #page-figs .atlas {
+      grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+      gap: 6px;
+    }
+    #page-figs .atlas .card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      padding: 5px 5px 6px;
+      border-radius: 8px;
+      box-shadow: none;
+    }
+    #page-figs .atlas svg {
+      grid-column: 1 / -1;
+      height: 52px;
+      border-radius: 4px;
+    }
+    #page-figs .atlas figcaption {
+      margin-top: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    #page-figs .atlas p {
+      margin: 3px 0 0 4px;
+      font-size: 11px;
+      line-height: 1.25;
+      text-align: right;
+    }
+    #page-figs .atlas p a { color: var(--pine); text-decoration: none; }
     .search {
       margin: 0 10px 14px;
     }
@@ -463,7 +495,7 @@
         <a href="#notes" data-page="notes"><span class="num">17</span>내 메모</a>
         <a href="#sheet" data-page="sheet"><span class="num">18</span>무효화 표</a>
         <a href="#read" data-page="read"><span class="num">19</span>차트 읽기</a>
-        <a href="#figs" data-page="figs"><span class="num">20</span>도해</a>
+        <a href="#figs" data-page="figs"><span class="num">20</span>도해 표</a>
       </nav>
       <div class="progress-wrap">
         <span id="progressLabel">열람 0 / 15</span>
@@ -3522,7 +3554,7 @@
       "home","map","assumptions","theories","structure","smc","charts",
       "patterns","candles","atlas","ratios","harmonic","indicators","time","relations","extra","lexicon","notes","sheet","read","figs"
     ];
-    // 열람 분모는 01–15 본문 챕터. 00 표지·16 색인·17 메모·18 무효화 표·19 차트 읽기·20 도해는 제외한다.
+    // 열람 분모는 01–15 본문 챕터. 00 표지·16 색인·17 메모·18 무효화 표·19 차트 읽기·20 도해 표는 제외한다.
     // 사이드바 초기 문구의 분모는 chapterPages.length 와 같아야 한다.
     const chapterPages = pages.filter(id => id !== "home" && id !== "lexicon" && id !== "notes" && id !== "sheet" && id !== "read" && id !== "figs");
     const titles = {
@@ -3530,7 +3562,7 @@
       structure: "가격 구조", smc: "유동성 언어", charts: "차트 유형", patterns: "고전 패턴",
       candles: "candle 대표", atlas: "패턴 도감", ratios: "비율과 투사", harmonic: "harmonic",
       indicators: "보조지표", time: "시간·장세", relations: "기법 간 관계", extra: "보충 영역",
-      lexicon: "용어 색인", notes: "내 메모", sheet: "무효화 표", read: "차트 읽기", figs: "도해"
+      lexicon: "용어 색인", notes: "내 메모", sheet: "무효화 표", read: "차트 읽기", figs: "도해 표"
     };
     const readKey = "chart-grammar-read";
     const memoKey = "chart-grammar-memos";
