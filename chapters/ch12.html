@@ -1,5 +1,5 @@
 <!-- CHAPTER 12 · indicators -->
-<!-- LEX: [{"t": "ADX", "k": "지표", "p": "indicators", "aka": "추세 강도 DMI", "d": "방향이 아니라 강도. 전략 스위치."}, {"t": "ATR", "k": "지표", "p": "indicators", "aka": "Average True Range", "d": "방향 없음. 손절과 포지션 크기의 단위."}, {"t": "VWAP", "k": "지표", "p": "indicators", "aka": "세션 앵커드 VWAP", "d": "거래량 가중 평균가. session 공정가치."}, {"t": "volume profile(가격대별 거래량 분포)", "k": "지표", "p": "indicators", "aka": "볼륨 프로파일 프로파일 볼륨 HVN LVN VP", "d": "가격대별 거래량 분포. TPO의 거래량 형제."}, {"t": "이동평균", "k": "지표", "p": "indicators", "aka": "이동평균 MA SMA EMA WMA 골든크로스", "d": "기간 가격의 평활. 늦는 것이 곧 용도."}, {"t": "MACD", "k": "지표", "p": "indicators", "aka": "크로스 이동평균 수렴확산 Appel", "d": "두 EMA의 차이와 그 신호선. 이평 cross의 재포장."}, {"t": "RSI", "k": "지표", "p": "indicators", "aka": "실패 스윙 다이버전스 스윙 Relative Strength Index 와일더", "d": "상승폭과 하락폭의 비. 70/30보다 divergence·failure swing."}, {"t": "stochastic", "k": "지표", "p": "indicators", "aka": "스토캐스틱 레인지 Stochastic %K %D Lane", "d": "기간 range 안 종가의 위치. range의 도구."}, {"t": "Bollinger Bands", "k": "지표", "p": "indicators", "aka": "볼린저 밴드 볼린저 밴드 Bollinger Bands 20 2σ 스퀴즈", "d": "20 SMA ± 2표준편차. 폭이 곧 변동성의 지도."}, {"t": "Keltner Channel", "k": "지표", "p": "indicators", "aka": "켈트너 채널 볼린저 켈트너 채널 Keltner Channel ATR 밴드", "d": "EMA ± ATR 배수. Bollinger와 같은 축."}, {"t": "OBV", "k": "지표", "p": "indicators", "aka": "On Balance Volume Granville", "d": "방향별 거래량의 누적. 노력의 합계."}, {"t": "divergence(괴리)", "k": "지표", "p": "indicators", "aka": "다이버전스 divergence 괴리", "d": "가격은 신고가인데 지표가 못 따라가는 불일치. 경고."}] -->
+<!-- LEX: [{"t": "ADX", "k": "지표", "p": "indicators", "aka": "추세 강도 DMI", "d": "방향이 아니라 강도. 전략 스위치."}, {"t": "ATR", "k": "지표", "p": "indicators", "aka": "Average True Range", "d": "방향 없음. 손절 거리의 단위."}, {"t": "VWAP", "k": "지표", "p": "indicators", "aka": "세션 앵커드 VWAP", "d": "거래량 가중 평균가. session 공정가치."}, {"t": "volume profile(가격대별 거래량 분포)", "k": "지표", "p": "indicators", "aka": "볼륨 프로파일 프로파일 볼륨 HVN LVN VP", "d": "가격대별 거래량 분포. TPO의 거래량 형제."}, {"t": "이동평균", "k": "지표", "p": "indicators", "aka": "이동평균 MA SMA EMA WMA 골든크로스", "d": "기간 가격의 평활. 늦는 것이 곧 용도."}, {"t": "MACD", "k": "지표", "p": "indicators", "aka": "크로스 이동평균 수렴확산 Appel", "d": "두 EMA의 차이와 그 신호선. 이평 cross의 재포장."}, {"t": "RSI", "k": "지표", "p": "indicators", "aka": "실패 스윙 다이버전스 스윙 Relative Strength Index 와일더", "d": "상승폭과 하락폭의 비. 70/30보다 divergence·failure swing."}, {"t": "stochastic", "k": "지표", "p": "indicators", "aka": "스토캐스틱 레인지 Stochastic %K %D Lane", "d": "기간 range 안 종가의 위치. range의 도구."}, {"t": "Bollinger Bands", "k": "지표", "p": "indicators", "aka": "볼린저 밴드 볼린저 밴드 Bollinger Bands 20 2σ 스퀴즈", "d": "20 SMA ± 2표준편차. 폭이 곧 변동성의 지도."}, {"t": "Keltner Channel", "k": "지표", "p": "indicators", "aka": "켈트너 채널 볼린저 켈트너 채널 Keltner Channel ATR 밴드", "d": "EMA ± ATR 배수. Bollinger와 같은 축."}, {"t": "OBV", "k": "지표", "p": "indicators", "aka": "On Balance Volume Granville", "d": "방향별 거래량의 누적. 노력의 합계."}, {"t": "divergence(괴리)", "k": "지표", "p": "indicators", "aka": "다이버전스 divergence 괴리", "d": "가격은 신고가인데 지표가 못 따라가는 불일치. 경고."}] -->
 
         <div class="crumb">Chapter 12</div>
         <h2 class="page-title">보조지표 네 칸</h2>
@@ -27,15 +27,15 @@
         <div class="grid two">
           <div class="card"><span class="tag">추세</span><h4>MA · MACD · ADX · 일목</h4><p>ADX는 방향이 아니라 강도. 25 위 추세, 아래 range(구간). 전략 스위치.</p></div>
           <div class="card"><span class="tag">momentum</span><h4>RSI · stochastic</h4><p>숫자 70/30보다 divergence와 구조. 추세장에서 과매수는 오래 간다.</p></div>
-          <div class="card"><span class="tag">변동성</span><h4>Bollinger · ATR</h4><p>ATR은 방향이 없다. 손절과 포지션 크기의 단위. Bollinger 터치가 곧 반전은 아니다.</p></div>
+          <div class="card"><span class="tag">변동성</span><h4>Bollinger · ATR</h4><p>ATR은 방향이 없다. 손절 거리의 단위. Bollinger 터치가 곧 반전은 아니다.</p></div>
           <div class="card"><span class="tag">거래량</span><h4>VWAP · OBV · profile</h4><p>VWAP은 session(장) 공정가치. OBV는 노력. profile은 가격대별 가치.</p></div>
         </div>
 
         <h3 id="sec-indicators-2">추세 칸 — 이동평균 · MACD · ADX · 일목</h3>
         <p>이동평균<sup class="fnref" id="fnref-indicators-1"><a data-scroll="fn-indicators-1">1</a></sup>은 기간 가격의 평활이다. SMA는 종가의 산술평균, EMA는 최근값에 지수 가중(k=2/(N+1)), WMA는 선형 가중이다. 차이는 반응 속도뿐 — 빠를수록 거짓 신호가 늘고 느릴수록 출발이 늦는다. 읽는 문법은 기울기·배열 순서·cross(golden·dead cross)다.</p>
-        <p>MACD<sup class="fnref" id="fnref-indicators-2"><a data-scroll="fn-indicators-2">2</a></sup>는 Gerald Appel이 1979년에 낸 변환기다<sup class="cit"><a data-scroll="src-indicators-2">[2]</a></sup>. 본선은 EMA12 − EMA26, signal line은 그 EMA9, 히스토그램은 둘의 차이다. 본질은 두 이동평균의 벌어짐과 좁아짐 — 이평 cross를 한 줄로 재포장한 것이라, MACD cross와 이평 cross를 나란히 보는 것은 같은 문장을 두 번 읽는 것이다.</p>
+        <p>MACD<sup class="fnref" id="fnref-indicators-2"><a data-scroll="fn-indicators-2">2</a></sup>는 Gerald Appel이 1979년에 낸 변환기다<sup class="cit"><a data-scroll="src-indicators-2">[2]</a></sup>. 본선은 EMA12 − EMA26이고 signal line은 그 EMA9다. 둘의 차를 막대로 그린 히스토그램은 Thomas Aspray가 1986년에 만들어 1988년 글에서 공개한 것이다<sup class="cit"><a data-scroll="src-indicators-10">[10]</a></sup>. 본질은 두 이동평균의 벌어짐과 좁아짐 — 이평 cross를 한 줄로 재포장한 것이라, MACD cross와 이평 cross를 나란히 보는 것은 같은 문장을 두 번 읽는 것이다.</p>
         <p>ADX<sup class="fnref" id="fnref-indicators-3"><a data-scroll="fn-indicators-3">3</a></sup>는 Wilder가 1978년 <i>New Concepts in Technical Trading Systems</i>에서 낸 지표다<sup class="cit"><a data-scroll="src-indicators-1">[1]</a></sup>. +DI와 −DI의 차이에서 DX를 내고 평활한다 — 방향은 DI가 말하고 ADX는 강도만 말한다. 기준선은 25 — 그 위는 추세, 20 아래는 비추세다. 용도는 진입이 아니라 전략의 스위치다 — 추세 국면이면 추세 추종 도구를, range 국면이면 oscillator를 켠다(<a href="#relations">기법 간 관계</a>).</p>
-        <p>일목균형표의 다섯 선 — 전환선(9기간), 기준선(26), 후행스팬, 선행스팬 A·B(구름) — 은 추세 칸의 재료로 읽힌다. 전환선·기준선은 이동평균이 아니라 기간 최고·최저의 중간값이라, 이평 cross·MACD와 같은 평활 축의 변형이다. 시간론·수준론이라는 원전의 본체는 <a href="#theories">고전 이론</a>에 있다.</p>
+        <p>일목균형표의 다섯 선 — 전환선(9기간), 기준선(26), 후행스팬, 선행스팬 A·B(구름) — 은 추세 칸의 재료로 읽힌다. 전환선·기준선은 이동평균이 아니라 기간 최고·최저의 중간값이라, 이평 cross·MACD와 같은 평활 축의 변형이다. 시간론을 뼈대로 한 4론은 <a href="#theories">고전 이론</a>에 있다.</p>
         <p>공통 실패는 range다 — cross가 열리자마자 접히는 휩소가 반복되고, 추세 추종 도구의 승률은 지표가 아니라 국면에 종속된다.</p>
 
         <h3 id="sec-indicators-3">momentum 칸 — RSI · stochastic</h3>
@@ -56,7 +56,7 @@
           <figcaption>그림 2. squeeze와 팽창. bandwidth가 극단으로 좁아진 구간(음영)은 변동성 축소의 표지다. 팽창은 오되 방향은 구조가 답한다 — 상단 band를 타고 걷는 구간에서 상단 터치는 매도 신호가 아니다.
             <span class="src">출처: 자체 제작</span></figcaption>
         </figure>
-        <p>ATR<sup class="fnref" id="fnref-indicators-11"><a data-scroll="fn-indicators-11">11</a></sup>은 Wilder의 세 번째 산출물이다<sup class="cit"><a data-scroll="src-indicators-1">[1]</a></sup>. TR — 고저 폭, 전일 종가와 당일 고가·저가의 차이 중 최대값 — 를 14기간 평활한다. gap(창)까지 담은 진짜 변동폭이고 방향이 없다 — 순수한 크기의 단위다. 쓰임은 리스크 관리로 모인다 — 손절 거리의 자(예: 2 ATR), 포지션 크기의 분모(고정 리스크 ÷ ATR), 시장 간 변동성 비교의 공용 자다.</p>
+        <p>ATR<sup class="fnref" id="fnref-indicators-11"><a data-scroll="fn-indicators-11">11</a></sup>은 Wilder의 세 번째 산출물이다<sup class="cit"><a data-scroll="src-indicators-1">[1]</a></sup>. TR — 고저 폭, 전일 종가와 당일 고가·저가의 차이 중 최대값 — 를 14기간 평활한다. gap(창)까지 담은 진짜 변동폭이고 방향이 없다 — 순수한 크기의 단위다. 쓰임은 리스크 관리로 모인다 — 손절 거리의 자(예: 2 ATR), 시장 간 변동성 비교의 공용 자다.</p>
         <p>Keltner Channel은 Chester Keltner가 1960년 상품 책에서 낸 band다<sup class="cit"><a data-scroll="src-indicators-5">[5]</a></sup>. 원본은 typical price의 10일 평균 ± 평균 range, 현대 버전은 EMA ± ATR 배수다. Bollinger와의 차이는 폭의 재료 — 표준편차 대 ATR — 뿐이라 한 차트에 둘을 얹으면 같은 축의 중복이다.</p>
         <p>한계는 방향의 부재다 — 약점이 아니라 용도의 경계다. squeeze가 팽창을 예고해도 방향은 구조가 답한다. σ 기반 band는 정규분포 직관에 기대는데 수익률의 꼬리는 정규보다 두껍다 — "2σ 밖은 드물다"는 감각이 실제보다 자주 깨진다.</p>
 
@@ -90,10 +90,10 @@
             <tr><td>구조</td><td>swing · polarity · 추세선</td><td>어디서 싸우는가</td></tr>
             <tr><td>시장 폭 · 국면</td><td>ADX · bandwidth</td><td>추세인가 range인가</td></tr>
             <tr><td>거래량 · 체결</td><td>profile · OBV · VWAP</td><td>그 가격은 수용됐는가 — 노력이 따르는가</td></tr>
-            <tr><td>크기</td><td>ATR</td><td>손절은 얼마나, 포지션은 얼마나</td></tr>
+            <tr><td>크기</td><td>ATR</td><td>손절은 얼마나</td></tr>
           </tbody>
         </table>
-        <p>조합은 절차다. 구조가 자리를 정하고(<a href="#structure">가격 구조</a>), ADX가 국면을 가르고, profile·OBV가 수용을 확인하며, ATR이 거리와 크기를 결정한다 — 네 창이 네 질문에 답할 때만 보완이다. ADX가 추세 추종과 oscillator 사이의 스위치가 되는 식으로 지표가 지표를 켜는 것도 같은 논리다(<a href="#relations">기법 간 관계</a>).</p>
+        <p>조합은 절차다. 구조가 자리를 정하고(<a href="#structure">가격 구조</a>), ADX가 국면을 가르고, profile·OBV가 수용을 확인하며, ATR이 손절 거리를 잰다 — 네 창이 네 질문에 답할 때만 보완이다. ADX가 추세 추종과 oscillator 사이의 스위치가 되는 식으로 지표가 지표를 켜는 것도 같은 논리다(<a href="#relations">기법 간 관계</a>).</p>
         <p>지표는 답을 주는 기계가 아니라 질문을 나누는 프레임이다. 같은 질문을 네 창에 물어도 답은 하나다.</p>
 
         <div class="footnotes">
@@ -101,7 +101,7 @@
           <ol>
             <li id="fn-indicators-1"><b>이동평균(Moving Average, MA)</b>: 기간 가격의 평균선. 지수이동평균(EMA)은 최근값에 지수 가중(k=2/(N+1)).
               <a class="fnback" data-scroll="fnref-indicators-1">↩</a></li>
-            <li id="fn-indicators-2"><b>MACD(Moving Average Convergence-Divergence)</b>: EMA12 − EMA26 본선, 그 EMA9인 signal line, 둘의 차인 히스토그램.
+            <li id="fn-indicators-2"><b>MACD(Moving Average Convergence-Divergence)</b>: Appel의 본선(EMA12 − EMA26)과 그 EMA9인 signal line. 히스토그램은 둘의 차로, Aspray가 더했다.
               <a class="fnback" data-scroll="fnref-indicators-2">↩</a></li>
             <li id="fn-indicators-3"><b>ADX(Average Directional Index)</b>: +DI·−DI의 DX를 평활한 강도 지표 — Wilder의 DMI 체계.
               <a class="fnback" data-scroll="fnref-indicators-3">↩</a></li>
@@ -146,5 +146,6 @@
             <li id="src-indicators-7">Elder, Alexander, <i>Trading for a Living</i>, Wiley, 1993 — 지표의 3분류.</li>
             <li id="src-indicators-8">StockCharts ChartSchool, "Relative Strength Index (RSI)", https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi (접속일 2026-09-23).</li>
             <li id="src-indicators-9">StockCharts ChartSchool, "Stochastic Oscillator", https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/stochastic-oscillator-fast-slow-and-full (접속일 2026-09-23).</li>
+            <li id="src-indicators-10">Aspray, Thomas, "MACD Momentum", <i>Technical Analysis of Stocks &amp; Commodities</i> 6(8), 1988, pp. 294–297 — 히스토그램. 1986년 작업의 공개.</li>
           </ol>
         </div>

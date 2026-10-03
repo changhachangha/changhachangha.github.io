@@ -26,7 +26,7 @@
     <text x="388" y="88">computer indicators</text><text x="388" y="102" font-size="10" fill="#8a7f70">Indicators 1978–</text>
 
     <line x1="504" y1="140" x2="504" y2="108" stroke="#b7ab98"/><circle cx="504" cy="140" r="4.5" fill="#2c5a4c"/>
-    <text x="504" y="88">VSA</text><text x="504" y="102" font-size="10" fill="#8a7f70">1993</text>
+    <text x="504" y="88">VSA</text><text x="504" y="102" font-size="10" fill="#8a7f70">2000</text>
 
     <line x1="620" y1="140" x2="620" y2="108" stroke="#b7ab98"/><circle cx="620" cy="140" r="4.5" fill="#8f3d3a"/>
     <text x="620" y="88">ICT·SMC</text><text x="620" y="102" font-size="10" fill="#8a7f70">2010s</text>
@@ -41,7 +41,7 @@
     <text x="214" y="190">pattern dictionary</text><text x="214" y="204" font-size="10" fill="#8a7f70">Edwards·Magee 1948</text>
 
     <line x1="330" y1="140" x2="330" y2="172" stroke="#b7ab98"/><circle cx="330" cy="140" r="4.5" fill="#2c5a4c"/>
-    <text x="330" y="190">Ichimoku</text><text x="330" y="204" font-size="10" fill="#8a7f70">Ichimoku 1968</text>
+    <text x="330" y="190">Ichimoku</text><text x="330" y="204" font-size="10" fill="#8a7f70">Ichimoku 1969</text>
 
     <line x1="446" y1="140" x2="446" y2="172" stroke="#b7ab98"/><circle cx="446" cy="140" r="4.5" fill="#b08948"/>
     <text x="446" y="190">profile</text><text x="446" y="204" font-size="10" fill="#8a7f70">Profile 1984</text>
