@@ -1,11 +1,11 @@
 <!-- CHAPTER 15 · extra -->
-<!-- LEX: [{"t": "VSA", "k": "이론", "p": "extra", "aka": "와이코프 스프레드 Volume Spread Analysis", "d": "봉 단위 Wyckoff. spread×거래량×종가 위치."}, {"t": "order flow", "k": "지표", "p": "extra", "aka": "오더플로 footprint delta CVD", "d": "가격대별 매수·매도 체결. 데이터 품질이 생명."}, {"t": "No Demand", "k": "패턴", "p": "extra", "aka": "노 디맨드 수요 부재", "d": "상승 봉에 거래량이 없는 VSA 약세 신호."}, {"t": "Stopping Volume", "k": "패턴", "p": "extra", "aka": "정지 거래량 멈춤 물량", "d": "하락을 멈추는 초고 거래량 봉. 흡수의 신호."}, {"t": "delta", "k": "지표", "p": "extra", "aka": "델타 오더플로 delta 순수급", "d": "매수 측 체결 − 매도 측 체결. order flow의 기본 단위."}, {"t": "CVD", "k": "지표", "p": "extra", "aka": "Cumulative Volume Delta 누적 델타", "d": "delta의 누적선. 가격 고저와의 괴리를 본다."}, {"t": "흡수", "k": "구조", "p": "extra", "aka": "흡수 absorption", "d": "공격 주문이 쏟아져도 가격이 안 움직이는 상태."}, {"t": "walk-forward", "k": "언어", "p": "extra", "aka": "워크포워드 인샘플 walk-forward 롤링 검증", "d": "in-sample 최적화 → 다음 구간 채점 → 창 전진의 반복."}] -->
+<!-- LEX: [{"t": "VSA", "k": "이론", "p": "extra", "aka": "와이코프 스프레드 Volume Spread Analysis", "d": "봉 단위 Wyckoff. spread×거래량×종가 위치."}, {"t": "order flow", "k": "지표", "p": "extra", "aka": "오더플로 footprint delta CVD", "d": "가격대별 매수·매도 체결. 데이터 품질이 생명."}, {"t": "No Demand", "k": "패턴", "p": "extra", "aka": "노 디맨드 수요 부재", "d": "상승 봉에 거래량이 없는 VSA 약세 신호."}, {"t": "Stopping Volume", "k": "패턴", "p": "extra", "aka": "정지 거래량 멈춤 물량", "d": "하락을 멈추는 초고 거래량 봉. 흡수의 신호."}, {"t": "delta", "k": "지표", "p": "extra", "aka": "델타 오더플로 delta 순수급", "d": "매수 측 체결 − 매도 측 체결. order flow의 기본 단위."}, {"t": "CVD", "k": "지표", "p": "extra", "aka": "Cumulative Volume Delta 누적 델타", "d": "delta의 누적선. 가격 고저와의 괴리를 본다."}, {"t": "흡수", "k": "구조", "p": "extra", "aka": "흡수 absorption", "d": "공격 주문이 쏟아져도 가격이 안 움직이는 상태."}, {"t": "walk-forward", "k": "언어", "p": "extra", "aka": "워크포워드 인샘플 walk-forward 롤링 검증", "d": "in-sample 최적화 → 다음 구간 채점 → 창 전진의 반복."}, {"t": "No Supply", "k": "패턴", "p": "extra", "aka": "No Supply", "d": "하락 봉의 좁은 spread와 평균 이하 거래량. No Demand의 거울. 무효화는 그 봉의 저가."}] -->
 
         <div class="crumb">Chapter 15</div>
         <h2 class="page-title">골격 밖 보충</h2>
         <p class="lede">다섯 층 어디에도 앉지 않는 영역이 남는다. 봉 단위 수급(VSA), 경매로서의 시장(TPO), 체결 수준의 order flow, 그 밑의 backtest 위생이 있고, 주변부와 함정이 뒤를 잇는다.</p>
 
-        <div class="chapter-summary"><b>요약.</b> VSA는 Wyckoff의 노력 대 결과를 봉 하나로 압축한 Williams의 체계다 — spread·거래량·종가 위치 셋으로 읽고, No Demand·Stopping Volume·Upthrust가 대표 신호다. 경매시장 이론은 시장이 공정가치를 찾는 경매라는 Steidlmayer의 철학이고, 가치 영역 밖의 거부와 수용이 판정의 전부다. order flow는 봉을 체결로 쪼개 delta와 흡수를 보는 확대경이지만, 데이터 품질이 곧 한계다. backtest 위생은 이 책의 다른 모든 장이 서는 바닥이다 — 규칙이 사전에 고정되지 않으면 승률 스크린샷은 증거가 아니다. 달 주기와 점성술은 기호의 자유 구역이지 검증 대상이 못 되고, 함정은 열 가지다.</div>
+        <div class="chapter-summary"><b>요약.</b> VSA는 Wyckoff의 노력 대 결과를 봉 하나로 압축한 Williams의 체계다 — spread·거래량·종가 위치 셋으로 읽고, No Demand·No Supply·Stopping Volume·Upthrust가 대표 신호다. 경매시장 이론은 시장이 공정가치를 찾는 경매라는 Steidlmayer의 철학이고, 가치 영역 밖의 거부와 수용이 판정의 전부다. order flow는 봉을 체결로 쪼개 delta와 흡수를 보는 확대경이지만, 데이터 품질이 곧 한계다. backtest 위생은 이 책의 다른 모든 장이 서는 바닥이다 — 규칙이 사전에 고정되지 않으면 승률 스크린샷은 증거가 아니다. 달 주기와 점성술은 기호의 자유 구역이지 검증 대상이 못 되고, 함정은 열 가지다.</div>
 
         <nav class="chapter-toc">
           <div class="toc-title">이 챕터에서</div>
@@ -21,7 +21,7 @@
 
         <h3 id="sec-extra-1">VSA — 봉 단위 Wyckoff</h3>
         <p>Tom Williams가 2000년 <i>Master the Markets</i>에서 낸 VSA<sup class="fnref" id="fnref-extra-1"><a data-scroll="fn-extra-1">1</a></sup>는 Wyckoff의 노력 대 결과를 봉 하나로 압축한 읽기다<sup class="cit"><a data-scroll="src-extra-1">[1]</a></sup>. 입력은 세 개다 — spread(고저 폭), 거래량, 종가의 봉 내 위치. 넓은 spread에 큰 거래량은 노력이 일을 한 것이고, 같은 노력에 좁은 spread는 저항에 부딪힌 것이다. Wyckoff가 range(구간) 국면에서 읽던 판정을 Williams는 봉 단위 신호의 도감으로 내렸다(<a href="#theories">고전 이론</a>).</p>
-        <p>대표 신호는 이름 있는 세 사건이다. <b>No Demand</b><sup class="fnref" id="fnref-extra-2"><a data-scroll="fn-extra-2">2</a></sup>는 상승 봉인데 spread가 좁고 거래량이 평균 이하로 닫히는 상태 — 전업 매수가 실리지 않은 상승이라 약세 배경에서 경고다. <b>Stopping Volume</b><sup class="fnref" id="fnref-extra-3"><a data-scroll="fn-extra-3">3</a></sup>은 반대 끝이다 — 하락 봉에 구간 최고 거래량이 붙는데 종가가 저가 위로 밀려 닫힌다. 쏟아진 매도를 받아 낸 주문이 있었다는 뜻이다. <b>Upthrust</b><sup class="fnref" id="fnref-extra-4"><a data-scroll="fn-extra-4">4</a></sup>는 저항 위를 찌르는 봉이 큰 거래량과 함께 하단에서 닫히는 것 — Wyckoff의 UT/UTAD와 같은 사건이고 분산의 확인이다.</p>
+        <p>대표 신호는 이름 있는 사건이다. <b>No Demand</b><sup class="fnref" id="fnref-extra-2"><a data-scroll="fn-extra-2">2</a></sup>는 상승 봉인데 spread가 좁고 거래량이 평균 이하로 닫히는 상태 — 전업 매수가 실리지 않은 상승이라 약세 배경에서 경고다. <b>No Supply</b><sup class="fnref" id="fnref-extra-11"><a data-scroll="fn-extra-11">11</a></sup>는 그 거울이다. 하락 봉인데 spread가 좁고 거래량이 평균 이하면 매도가 실리지 않은 하락이고, 무효화는 그 봉의 저가 이탈이다. <b>Stopping Volume</b><sup class="fnref" id="fnref-extra-3"><a data-scroll="fn-extra-3">3</a></sup>은 반대 끝이다 — 하락 봉에 구간 최고 거래량이 붙는데 종가가 저가 위로 밀려 닫힌다. 쏟아진 매도를 받아 낸 주문이 있었다는 뜻이다. <b>Upthrust</b><sup class="fnref" id="fnref-extra-4"><a data-scroll="fn-extra-4">4</a></sup>는 저항 위를 찌르는 봉이 큰 거래량과 함께 하단에서 닫히는 것 — Wyckoff의 UT/UTAD와 같은 사건이고 분산의 확인이다.</p>
         <figure class="fig">
           <img src="images/ch15/vsa-bar.svg" alt="No Demand·Stopping Volume·Upthrust 세 VSA 봉의 spread, 거래량 막대, 종가 위치를 나란히 비교한 해부도" loading="lazy" />
           <figcaption>그림 1. VSA 봉의 해부. 읽는 재료는 셋뿐이다 — spread, 거래량, 종가의 봉 내 위치. No Demand는 노력 없는 상승, Stopping Volume은 받아 낸 하락, Upthrust는 찔러 올리고 되밀린 분산 사건이다.
@@ -96,6 +96,8 @@
               <a class="fnback" data-scroll="fnref-extra-9">↩</a></li>
             <li id="fn-extra-10"><b>기댓값(Expectancy)</b>: (승률 × 평균 이익) − (패율 × 평균 손실). 승률만으로는 전략의 수익성이 정해지지 않는다.
               <a class="fnback" data-scroll="fnref-extra-10">↩</a></li>
+            <li id="fn-extra-11"><b>No Supply</b>: 하락 봉에 좁은 spread와 평균 이하 거래량. No Demand의 거울이고, 무효화는 그 봉의 저가다.
+              <a class="fnback" data-scroll="fnref-extra-11">↩</a></li>
           </ol>
         </div>
 

@@ -1,5 +1,5 @@
 <!-- CHAPTER 06 · charts -->
-<!-- LEX: [{"t": "하이킨아시", "k": "패턴", "p": "charts", "aka": "하이킨아시 Heikin Ashi 평균봉", "d": "추세 가독용. 표시 가격에 손절을 걸지 않는다."}, {"t": "렌코", "k": "패턴", "p": "charts", "aka": "렌코 Renko P&F 카기", "d": "시간을 버린 가격 필터."}, {"t": "TPO", "k": "지표", "p": "charts", "aka": "Market Profile 가치영역 POC", "d": "가격 세로, 시간 가로 분포. 경매시장 도구."}, {"t": "OHLCV", "k": "언어", "p": "charts", "aka": "시가 고가 저가 종가 거래량 OHLC", "d": "봉 하나의 요약 값 다섯. 모든 차트의 원료."}, {"t": "P&F", "k": "패턴", "p": "charts", "aka": "와이코프 Point and Figure X O 박스 전환", "d": "X·O 열의 가격 필터. Wyckoff 카운트의 재료."}, {"t": "카기", "k": "패턴", "p": "charts", "aka": "카기 Kagi 어깨 허리", "d": "직전 고저 돌파에 두께가 바뀌는 선. 시간 없음."}, {"t": "틱 차트", "k": "패턴", "p": "charts", "aka": "틱 차트 tick volume range bar 활동량축", "d": "체결·거래량·변동폭으로 봉을 닫는다. 시계를 버림."}, {"t": "가치영역", "k": "지표", "p": "charts", "aka": "가치영역 value area 70% POC", "d": "TPO 약 70%의 가격 띠. 시장이 받아들인 범위."}, {"t": "Initial Balance", "k": "지표", "p": "charts", "aka": "이니셜 밸런스 레인지 Initial Balance 첫 한 시간", "d": "개장 첫 두 블록의 range. 당일 확장의 기준선."}, {"t": "footprint", "k": "지표", "p": "charts", "aka": "풋프린트 footprint bid ask 오더플로", "d": "봉을 가격대별 매수·매도 체결로 쪼갠 표시."}] -->
+<!-- LEX: [{"t": "하이킨아시", "k": "패턴", "p": "charts", "aka": "하이킨아시 Heikin Ashi 평균봉", "d": "추세 가독용. 표시 가격에 손절을 걸지 않는다."}, {"t": "렌코", "k": "패턴", "p": "charts", "aka": "렌코 Renko P&F 카기", "d": "시간을 버린 가격 필터."}, {"t": "TPO", "k": "지표", "p": "charts", "aka": "Market Profile 가치영역 POC", "d": "가격 세로, 시간 가로 분포. 경매시장 도구."}, {"t": "OHLCV", "k": "언어", "p": "charts", "aka": "시가 고가 저가 종가 거래량 OHLC", "d": "봉 하나의 요약 값 다섯. 모든 차트의 원료."}, {"t": "P&F", "k": "패턴", "p": "charts", "aka": "와이코프 Point and Figure X O 박스 전환", "d": "X·O 열의 가격 필터. Wyckoff 카운트의 재료."}, {"t": "카기", "k": "패턴", "p": "charts", "aka": "카기 Kagi 어깨 허리", "d": "직전 고저 돌파에 두께가 바뀌는 선. 시간 없음."}, {"t": "틱 차트", "k": "패턴", "p": "charts", "aka": "틱 차트 tick volume range bar 활동량축", "d": "체결·거래량·변동폭으로 봉을 닫는다. 시계를 버림."}, {"t": "가치영역", "k": "지표", "p": "charts", "aka": "가치영역 value area 70% POC", "d": "TPO 약 70%의 가격 띠. 시장이 받아들인 범위."}, {"t": "Initial Balance", "k": "지표", "p": "charts", "aka": "이니셜 밸런스 레인지 Initial Balance 첫 한 시간", "d": "개장 첫 두 블록의 range. 당일 확장의 기준선."}, {"t": "footprint", "k": "지표", "p": "charts", "aka": "풋프린트 footprint bid ask 오더플로", "d": "봉을 가격대별 매수·매도 체결로 쪼갠 표시."}, {"t": "three-line break", "k": "패턴", "p": "charts", "aka": "three-line break 삼선", "d": "세 선의 종가 돌파가 있어야 반전하는 가격 차트."}, {"t": "excess", "k": "지표", "p": "charts", "aka": "excess poor high single print Dalton", "d": "극단의 꼬리. poor high는 excess 없는 고점, single print는 문자 하나의 행."}] -->
 
         <div class="crumb">Chapter 06</div>
         <h2 class="page-title">차트 유형</h2>
@@ -51,8 +51,8 @@
         <h3 id="sec-charts-3">가격축 차트 — 렌코·카기·P&amp;F</h3>
         <p>렌코<sup class="fnref" id="fnref-charts-2"><a data-scroll="fn-charts-2">2</a></sup>·카기<sup class="fnref" id="fnref-charts-3"><a data-scroll="fn-charts-3">3</a></sup>·P&amp;F<sup class="fnref" id="fnref-charts-4"><a data-scroll="fn-charts-4">4</a></sup>는 시간을 버린다. 봉의 트리거가 시계가 아니라 가격 폭이다 — 정한 크기만큼 움직일 때만 새 칸이 그어지고, 미만의 움직임과 그 사이의 시간은 기록되지 않는다.</p>
         <p>렌코는 벽돌이다. 벽돌 크기를 10포인트로 정하면 9포인트 움직임은 없던 일이고, 10포인트가 채워질 때 새 벽돌이 45도로 붙는다<sup class="cit"><a data-scroll="src-charts-4">[4]</a></sup>. 벽돌 크기가 곧 필터 강도다.</p>
-        <p>카기는 두께가 있는 선이다. 가격이 직전 고점 위로 올라가면 선이 굵어지고(양), 직전 저점 아래로 내려가면 가늘어진다(음) — 어깨와 허리의 돌파가 신호다.</p>
-        <p>P&amp;F는 상승을 X 열로, 하락을 O 열로 쌓는다. 필터는 두 겹이다 — 한 칸의 가격 크기(박스)와 반대 열로 넘어가는 데 필요한 칸수(전환, 고전은 3점 전환). Victor de Villiers가 1933년에 체계화했고<sup class="cit"><a data-scroll="src-charts-3">[3]</a></sup>, Wyckoff는 횡보 폭을 가로로 세는 카운트의 재료로 썼다 — 횡보의 칸수 × 박스 × 전환이 목표폭이다. 원인이 클수록 결과가 크다는 법칙의 계산이다(<a href="#theories">고전 이론</a>).</p>
+        <p>카기는 두께가 있는 선이다. 가격이 직전 고점 위로 올라가면 선이 굵어지고(양), 직전 저점 아래로 내려가면 가늘어진다(음) — 어깨와 허리의 돌파가 신호다. three-line break<sup class="fnref" id="fnref-charts-12"><a data-scroll="fn-charts-12">12</a></sup>는 그 옆의 선 차트다. 직전 선의 끝을 넘겨야 새 선이 생기고, 반전은 최근 세 선을 종가가 넘겨야 그려진다<sup class="cit"><a data-scroll="src-charts-7">[7]</a></sup>. 무효화는 그 세 선의 반대 돌파다.</p>
+        <p>P&amp;F는 상승을 X 열로, 하락을 O 열로 쌓는다. 필터는 두 겹이다 — 한 칸의 가격 크기(박스)와 반대 열로 넘어가는 데 필요한 칸수(전환, 고전은 3점 전환). Victor de Villiers가 1933년에 체계화했고<sup class="cit"><a data-scroll="src-charts-3">[3]</a></sup>, Wyckoff는 횡보 폭을 가로로 세는 카운트의 재료로 썼다 — 횡보의 칸수 × 박스 × 전환이 목표폭이다. 원인이 클수록 결과가 크다는 법칙의 계산이다(<a href="#theories">고전 이론</a>). 신호의 이름은 카운트와 따로다. double-top breakout은 X 열이 직전 X 열의 고점을 넘는 돌파이고, triple-top breakout은 고점 둘을 넘는 돌파다. 바닥은 double-bottom·triple-bottom breakdown으로 거울이다<sup class="cit"><a data-scroll="src-charts-8">[8]</a></sup>. 무효화는 신호를 낸 칸을 반대 열이 다시 통과하는 것이다.</p>
         <figure class="fig">
           <img src="images/ch06/pnf-count.svg" alt="X와 O 열이 번갈아 쌓이는 P&F 차트에서 횡보 구간을 점선 상자로 묶고 그 폭을 위쪽으로 투사해 목표폭을 잡는 Wyckoff 카운트" loading="lazy" />
           <figcaption>그림 2. P&amp;F와 Wyckoff 카운트. 횡보(원인)의 칸수를 가로로 세어 목표폭(결과)을 투사한다. 시간축이 없으므로 칸이 며칠에 걸쳐 생겼는지는 지워진다.
@@ -77,7 +77,7 @@
         <p>같은 이유로 이 차트 위에 얹는 지표도 원본과 다른 값을 낸다 — 렌코 위의 이동평균은 렌코 값의 평균이지 원본 봉의 평균이 아니다. 필터 위의 필터는 원본 시계열로 돌려 검증한다.</p>
 
         <h3 id="sec-charts-6">분포 차트 — TPO·profile·footprint</h3>
-        <p>TPO<sup class="fnref" id="fnref-charts-7"><a data-scroll="fn-charts-7">7</a></sup>와 volume profile은 봉의 순서를 버리고 가격대별 빈도를 본다. Peter Steidlmayer의 Market Profile은 30분 블록을 문자로 찍어 가격 눈금에 옆으로 쌓는다 — 가로축이 시간이 아니라 빈도다<sup class="cit"><a data-scroll="src-charts-6">[6]</a></sup>. 가장 긴 행이 POC<sup class="fnref" id="fnref-charts-8"><a data-scroll="fn-charts-8">8</a></sup>(최다 체결 가격)이고, 전체 TPO의 약 70%를 덮는 띠가 가치영역<sup class="fnref" id="fnref-charts-9"><a data-scroll="fn-charts-9">9</a></sup>, 첫 두 블록(A·B, 첫 한 시간)의 폭이 Initial Balance<sup class="fnref" id="fnref-charts-10"><a data-scroll="fn-charts-10">10</a></sup>다 — 당일 확장의 기준선이다. 읽는 문법은 경매시장이다 — 가격이 가치영역을 받아들이는지(회귀), 거부하는지(이탈)를 본다.</p>
+        <p>TPO<sup class="fnref" id="fnref-charts-7"><a data-scroll="fn-charts-7">7</a></sup>와 volume profile은 봉의 순서를 버리고 가격대별 빈도를 본다. Peter Steidlmayer의 Market Profile은 30분 블록을 문자로 찍어 가격 눈금에 옆으로 쌓는다 — 가로축이 시간이 아니라 빈도다<sup class="cit"><a data-scroll="src-charts-6">[6]</a></sup>. 가장 긴 행이 POC<sup class="fnref" id="fnref-charts-8"><a data-scroll="fn-charts-8">8</a></sup>(최다 체결 가격)이고, 전체 TPO의 약 70%를 덮는 띠가 가치영역<sup class="fnref" id="fnref-charts-9"><a data-scroll="fn-charts-9">9</a></sup>, 첫 두 블록(A·B, 첫 한 시간)의 폭이 Initial Balance<sup class="fnref" id="fnref-charts-10"><a data-scroll="fn-charts-10">10</a></sup>다 — 당일 확장의 기준선이다. 읽는 문법은 경매시장이다 — 가격이 가치영역을 받아들이는지(회귀), 거부하는지(이탈)를 본다. 하루의 형태 이름은 Dalton의 <i>Mind Over Markets</i>에 있다<sup class="cit"><a data-scroll="src-charts-9">[9]</a></sup>. normal day는 Initial Balance 안에서 끝나고, normal variation은 한쪽으로만 확장한다. neutral day는 양쪽으로 확장하고, trend day는 좁은 Initial Balance에서 한 방향으로 달리며, double-distribution trend day는 가치영역이 둘로 갈라진다. nontrend day는 방향이 없다. excess<sup class="fnref" id="fnref-charts-13"><a data-scroll="fn-charts-13">13</a></sup>는 극단의 꼬리로, 경매가 거절하며 끝난 자리다. poor high는 excess 없는 고점이고, single print는 문자 하나만 찍힌 얇은 행이다. poor high의 무효화는 그 고점이 다음 경매에서 깨지는 것이고, excess로 읽은 거절의 무효화는 꼬리 안으로의 재진입이다.</p>
         <figure class="fig">
           <img src="images/ch06/tpo-profile.svg" alt="가격대별로 A부터 F까지의 문자가 쌓여 종 모양 분포를 이루는 TPO profile — 가장 긴 행이 POC이고 약 70%를 덮는 띠가 가치영역, 첫 두 블록이 Initial Balance" loading="lazy" />
           <figcaption>그림 4. TPO 분포. 30분 블록마다 문자 하나를 거래된 가격 행에 찍어 옆으로 쌓는다. 가장 긴 행이 POC, 약 70%를 덮는 띠가 가치영역, 첫 한 시간(A·B)의 폭이 Initial Balance다.
@@ -126,6 +126,10 @@
               <a class="fnback" data-scroll="fnref-charts-10">↩</a></li>
             <li id="fn-charts-11"><b>footprint</b>: 봉을 가격대별 매수·매도 체결로 쪼갠 표시. order flow의 차트.
               <a class="fnback" data-scroll="fnref-charts-11">↩</a></li>
+            <li id="fn-charts-12"><b>three-line break</b>: 직전 선의 끝을 넘겨야 새 선이 생기는 가격 차트. 반전은 최근 세 선의 종가 돌파를 요구한다.
+              <a class="fnback" data-scroll="fnref-charts-12">↩</a></li>
+            <li id="fn-charts-13"><b>excess·poor high·single print</b>: excess는 극단의 단일 꼬리(거절), poor high는 excess 없는 고점(덜 끝난 경매), single print는 TPO 문자 하나의 얇은 행. Dalton의 어휘다.
+              <a class="fnback" data-scroll="fnref-charts-13">↩</a></li>
           </ol>
         </div>
 
@@ -137,6 +141,9 @@
             <li id="src-charts-3">de Villiers, Victor, <i>The Point and Figure Method of Anticipating Stock Price Movements</i>, 1933 — P&amp;F의 첫 체계화.</li>
             <li id="src-charts-4">StockCharts ChartSchool, "Renko Charts", https://chartschool.stockcharts.com/table-of-contents/chart-analysis/chart-types/renko-charts (접속일 2026-09-23).</li>
             <li id="src-charts-5">StockCharts ChartSchool, "Heikin-Ashi Candlesticks", https://chartschool.stockcharts.com/table-of-contents/chart-analysis/chart-types/heikin-ashi-candlesticks (접속일 2026-09-23) — HA 공식.</li>
-            <li id="src-charts-6">Steidlmayer, J. Peter, <i>Markets and Market Logic</i>, Porcupine Press, 1986 — Market Profile·TPO의 원전.</li>
+            <li id="src-charts-6">Steidlmayer, J. Peter, <i>Markets and Market Logic</i>, Porcupine Press, 1986 — Market Profile·TPO·가치영역의 원전. day type의 이름은 Dalton, <i>Mind Over Markets</i>, 1990.</li>
+            <li id="src-charts-7">Nison, Steve, <i>Beyond Candlesticks</i>, Wiley, 1994 — three-line break.</li>
+            <li id="src-charts-8">Cohen, A. W., <i>How to Use the Three-Point Reversal Method of Point and Figure Stock Market Trading</i>, Chartcraft — double-top·triple-top breakout과 바닥의 거울.</li>
+            <li id="src-charts-9">Dalton, James F., Jones, Eric T., Dalton, Robert B., <i>Mind Over Markets</i>, Probus, 1990 — day type, excess, poor high, single print.</li>
           </ol>
         </div>
