@@ -9,8 +9,8 @@
   <line x1="246" y1="80" x2="246" y2="180" stroke="#2c5a4c" stroke-width="2.4"/>
   <rect x="230" y="90" width="32" height="80" fill="#2c5a4c"/>
   <line x1="70" y1="142" x2="275" y2="142" stroke="#b08948" stroke-width="1.2" stroke-dasharray="4 4"/>
-  <text x="70" y="135" fill="#4a453c" font-size="10.5">첫째 몸통 절반 · midpoint</text>
-  <text x="161" y="235" fill="#4a453c" font-size="10.5" text-anchor="middle">별 · star</text>
+  <text x="70" y="135" fill="#4a453c" font-size="10.5">midpoint</text>
+  <text x="161" y="235" fill="#4a453c" font-size="10.5" text-anchor="middle">star</text>
   <text x="165" y="256" fill="#4a453c" font-size="11" text-anchor="middle">morning star</text>
   <!-- 상승삼병 -->
   <line x1="436" y1="142" x2="436" y2="218" stroke="#2c5a4c" stroke-width="2.4"/>
@@ -19,5 +19,5 @@
   <rect x="485" y="115" width="32" height="60" fill="#2c5a4c"/>
   <line x1="566" y1="72" x2="566" y2="148" stroke="#2c5a4c" stroke-width="2.4"/>
   <rect x="550" y="80" width="32" height="60" fill="#2c5a4c"/>
-  <text x="500" y="256" fill="#4a453c" font-size="11" text-anchor="middle">상승삼병 · three white soldiers</text>
+  <text x="500" y="256" fill="#4a453c" font-size="11" text-anchor="middle">three white soldiers</text>
 </svg>

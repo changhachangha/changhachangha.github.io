@@ -30,8 +30,8 @@
   <line x1="620" y1="110" x2="620" y2="190" stroke="#2c5a4c" stroke-width="1.6"/>
   <rect x="600" y="120" width="40" height="60" fill="#2c5a4c"/>
   <!-- 라벨 -->
-  <text x="290" y="212" fill="#4a453c" font-size="11">order block — 변위 직전 마지막 하락봉</text>
-  <text x="340" y="52" fill="#2c5a4c" font-size="11">변위 · displacement</text>
+  <text x="290" y="212" fill="#4a453c" font-size="11">order block — last down bar before the displacement</text>
+  <text x="340" y="52" fill="#2c5a4c" font-size="11">displacement</text>
   <line x1="342" y1="56" x2="368" y2="76" stroke="#2c5a4c" stroke-width="0.8" opacity="0.5"/>
-  <text x="536" y="238" fill="#4a453c" font-size="11" opacity="0.8">존 재방문 · revisit</text>
+  <text x="536" y="238" fill="#4a453c" font-size="11" opacity="0.8">revisit</text>
 </svg>

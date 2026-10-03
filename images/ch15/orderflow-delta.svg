@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" font-family="IBM Plex Sans KR, sans-serif">
   <rect width="700" height="300" fill="#f7f1e6"/>
-  <text x="24" y="26" font-size="12" fill="#8a7f70" letter-spacing="1">ORDER FLOW · FOOTPRINT — 봉을 가격대별 체결로 쪼갠다</text>
+  <text x="24" y="26" font-size="12" fill="#8a7f70" letter-spacing="1">ORDER FLOW · FOOTPRINT — one bar split into trades by price</text>
 
   <!-- 왼쪽: 보통 봉 -->
   <line x1="86" y1="72" x2="86" y2="200" stroke="#2c5a4c" stroke-width="2"/>
   <rect x="74" y="98" width="24" height="66" fill="#2c5a4c"/>
-  <text x="66" y="222" font-size="11" fill="#4a453c">한 봉</text>
+  <text x="66" y="222" font-size="11" fill="#4a453c">one bar</text>
   <path d="M110 140 L150 140" stroke="#b08948" stroke-width="1.6" fill="none" marker-end="url(#arr)"/>
   <defs>
     <marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
@@ -14,9 +14,9 @@
   </defs>
 
   <!-- 중앙: 풋프린트 사다리 -->
-  <text x="166" y="62" font-size="10" fill="#8a7f70">가격</text>
-  <text x="222" y="62" font-size="10" fill="#8a7f70">매도 bid</text>
-  <text x="296" y="62" font-size="10" fill="#8a7f70">매수 ask</text>
+  <text x="166" y="62" font-size="10" fill="#8a7f70">price</text>
+  <text x="222" y="62" font-size="10" fill="#8a7f70">bid</text>
+  <text x="296" y="62" font-size="10" fill="#8a7f70">ask</text>
   <text x="392" y="62" font-size="10" fill="#8a7f70">Δ delta</text>
   <g font-size="11" fill="#4a453c">
     <text x="166" y="82">103.50</text><text x="230" y="82">14</text><text x="302" y="82">31</text>
@@ -49,14 +49,14 @@
   <text x="310" y="202" font-size="10" fill="#8f3d3a">−31</text>
 
   <!-- 오른쪽: CVD 다이버전스 미니 패널 -->
-  <text x="506" y="62" font-size="10" fill="#8a7f70">가격 price</text>
+  <text x="506" y="62" font-size="10" fill="#8a7f70">price</text>
   <path d="M506 120 L540 96 L574 106 L608 84 L660 74" fill="none" stroke="#4a453c" stroke-width="1.8"/>
   <circle cx="608" cy="84" r="2.5" fill="#4a453c"/><circle cx="660" cy="74" r="2.5" fill="#4a453c"/>
-  <text x="612" y="64" font-size="10" fill="#4a453c">신고가 HH</text>
+  <text x="612" y="64" font-size="10" fill="#4a453c">HH new high</text>
 
-  <text x="506" y="176" font-size="10" fill="#8a7f70">CVD 누적 delta</text>
+  <text x="506" y="176" font-size="10" fill="#8a7f70">CVD cumulative delta</text>
   <path d="M506 250 L540 210 L574 224 L608 214 L660 218" fill="none" stroke="#b08948" stroke-width="1.8"/>
   <circle cx="608" cy="214" r="2.5" fill="#b08948"/><circle cx="660" cy="218" r="2.5" fill="#b08948"/>
-  <text x="586" y="248" font-size="10" fill="#8f3d3a">고점이 낮아짐 LH</text>
-  <text x="506" y="284" font-size="10" fill="#4a453c">가격은 신고가, CVD는 못 미침 → 흡수 경고</text>
+  <text x="586" y="248" font-size="10" fill="#8f3d3a">LH lower high</text>
+  <text x="506" y="284" font-size="10" fill="#4a453c">new high, CVD lags → absorption</text>
 </svg>
