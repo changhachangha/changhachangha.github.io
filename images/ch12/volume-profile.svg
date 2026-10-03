@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" font-family="IBM Plex Sans KR, sans-serif">
   <rect width="700" height="320" fill="#f7f1e6"/>
 
-  <text x="40" y="28" fill="#4a453c" font-size="12" font-weight="600">볼륨 프로파일 — 가격대별 거래량 분포 · volume profile</text>
+  <text x="40" y="28" fill="#4a453c" font-size="12" font-weight="600">volume profile — 가격대별 거래량 분포 · volume profile</text>
   <text x="40" y="44" fill="#8a7f70" font-size="10.5">막대 길이 = 그 가격대에서 거래된 양 · bar = volume at price</text>
 
   <!-- 가격 눈금 (왼쪽) -->

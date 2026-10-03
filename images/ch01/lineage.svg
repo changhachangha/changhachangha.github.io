@@ -14,13 +14,13 @@
   <!-- above-axis nodes (even i): tick up to y=104, label two lines -->
   <g font-size="12" fill="#4a453c" text-anchor="middle">
     <line x1="40" y1="140" x2="40" y2="108" stroke="#b7ab98"/><circle cx="40" cy="140" r="4.5" fill="#2c5a4c"/>
-    <text x="40" y="88">테이프 리딩</text><text x="40" y="102" font-size="10" fill="#8a7f70">Tape ~1900</text>
+    <text x="40" y="88">tape reading</text><text x="40" y="102" font-size="10" fill="#8a7f70">Tape ~1900</text>
 
     <line x1="156" y1="140" x2="156" y2="108" stroke="#b7ab98"/><circle cx="156" cy="140" r="4.5" fill="#2c5a4c"/>
-    <text x="156" y="88">와이코프</text><text x="156" y="102" font-size="10" fill="#8a7f70">Wyckoff 1910–31</text>
+    <text x="156" y="88">Wyckoff</text><text x="156" y="102" font-size="10" fill="#8a7f70">Wyckoff 1910–31</text>
 
     <line x1="272" y1="140" x2="272" y2="108" stroke="#b7ab98"/><circle cx="272" cy="140" r="4.5" fill="#2c5a4c"/>
-    <text x="272" y="88">엘리엇·간</text><text x="272" y="102" font-size="10" fill="#8a7f70">Elliott·Gann</text>
+    <text x="272" y="88">Elliott·Gann</text><text x="272" y="102" font-size="10" fill="#8a7f70">Elliott·Gann</text>
 
     <line x1="388" y1="140" x2="388" y2="108" stroke="#b7ab98"/><circle cx="388" cy="140" r="4.5" fill="#b08948"/>
     <text x="388" y="88">컴퓨터 지표</text><text x="388" y="102" font-size="10" fill="#8a7f70">Indicators 1978–</text>
@@ -35,7 +35,7 @@
   <!-- below-axis nodes (odd i): tick down to y=172 -->
   <g font-size="12" fill="#4a453c" text-anchor="middle">
     <line x1="98" y1="140" x2="98" y2="172" stroke="#b7ab98"/><circle cx="98" cy="140" r="4.5" fill="#2c5a4c"/>
-    <text x="98" y="190">다우 이론</text><text x="98" y="204" font-size="10" fill="#8a7f70">Dow 1902–32</text>
+    <text x="98" y="190">Dow 이론</text><text x="98" y="204" font-size="10" fill="#8a7f70">Dow 1902–32</text>
 
     <line x1="214" y1="140" x2="214" y2="172" stroke="#b7ab98"/><circle cx="214" cy="140" r="4.5" fill="#b08948"/>
     <text x="214" y="190">패턴 사전</text><text x="214" y="204" font-size="10" fill="#8a7f70">Edwards·Magee 1948</text>
@@ -44,12 +44,12 @@
     <text x="330" y="190">일목</text><text x="330" y="204" font-size="10" fill="#8a7f70">Ichimoku 1968</text>
 
     <line x1="446" y1="140" x2="446" y2="172" stroke="#b7ab98"/><circle cx="446" cy="140" r="4.5" fill="#b08948"/>
-    <text x="446" y="190">프로파일</text><text x="446" y="204" font-size="10" fill="#8a7f70">Profile 1984</text>
+    <text x="446" y="190">profile</text><text x="446" y="204" font-size="10" fill="#8a7f70">Profile 1984</text>
 
     <line x1="562" y1="140" x2="562" y2="172" stroke="#b7ab98"/><circle cx="562" cy="140" r="4.5" fill="#b08948"/>
-    <text x="562" y="190">프라이스 액션</text><text x="562" y="204" font-size="10" fill="#8a7f70">Price action</text>
+    <text x="562" y="190">price action</text><text x="562" y="204" font-size="10" fill="#8a7f70">Price action</text>
 
     <line x1="678" y1="140" x2="678" y2="172" stroke="#b7ab98"/><circle cx="678" cy="140" r="4.5" fill="#b08948"/>
-    <text x="678" y="190">오더플로</text><text x="678" y="204" font-size="10" fill="#8a7f70">Orderflow</text>
+    <text x="678" y="190">order flow</text><text x="678" y="204" font-size="10" fill="#8a7f70">Orderflow</text>
   </g>
 </svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" font-family="IBM Plex Sans KR, sans-serif">
   <rect width="700" height="300" fill="#f7f1e6"/>
-  <text x="350" y="24" fill="#4a453c" font-size="12" text-anchor="middle">시장 폭 다이버전스 — 지수는 오르는데 참여는 줄다</text>
+  <text x="350" y="24" fill="#4a453c" font-size="12" text-anchor="middle">시장 폭 divergence — 지수는 오르는데 참여는 줄다</text>
   <!-- 위 패널: 지수 -->
   <text x="50" y="46" fill="#4a453c" font-size="11">지수 · index</text>
   <path d="M50 120 L140 95 L230 78 L300 106 L390 92 L520 46 L590 74 L660 56" fill="none" stroke="#4a453c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
