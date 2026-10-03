@@ -17,8 +17,8 @@
   <text x="46" y="248" fill="#4a453c" font-size="11" font-weight="600">P0</text>
   <text x="238" y="104" fill="#4a453c" font-size="11" font-weight="600">P1</text>
   <text x="380" y="193" fill="#4a453c" font-size="11" font-weight="600">P2</text>
-  <text x="308" y="158" fill="#b08948" font-size="10">M = P1–P2 중점</text>
-  <text x="470" y="52" fill="#b08948" font-size="11" font-weight="600">중앙값선 median line</text>
-  <text x="392" y="32" fill="#8f3d3a" font-size="10">상단 평행선</text>
-  <text x="540" y="100" fill="#2c5a4c" font-size="10">하단 평행선</text>
+  <text x="308" y="158" fill="#b08948" font-size="10">M = midpoint of P1–P2</text>
+  <text x="470" y="52" fill="#b08948" font-size="11" font-weight="600">median line</text>
+  <text x="392" y="32" fill="#8f3d3a" font-size="10">upper parallel</text>
+  <text x="540" y="100" fill="#2c5a4c" font-size="10">lower parallel</text>
 </svg>

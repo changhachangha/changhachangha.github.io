@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 290" font-family="IBM Plex Sans KR, sans-serif">
   <rect width="700" height="290" fill="#f7f1e6"/>
 
-  <text x="40" y="28" fill="#4a453c" font-size="12" font-weight="600">TPO · market profile — 가로축은 시간이 아니라 빈도</text>
-  <text x="40" y="44" fill="#8a7f70" font-size="10.5">가격 price ↑</text>
+  <text x="40" y="28" fill="#4a453c" font-size="12" font-weight="600">TPO · market profile — the horizontal axis is frequency, not time</text>
+  <text x="40" y="44" fill="#8a7f70" font-size="10.5">price ↑</text>
 
   <!-- 가격 눈금 (왼쪽) -->
   <text x="48" y="64"  fill="#8a7f70" font-size="10">105</text>
@@ -58,9 +58,9 @@
   <line x1="340" y1="195" x2="332" y2="195" stroke="#2c5a4c" stroke-width="1.6"/>
 
   <!-- 주석 -->
-  <text x="356" y="110" fill="#2c5a4c" font-size="11.5">가치영역 · value area — TPO의 약 70%</text>
+  <text x="356" y="110" fill="#2c5a4c" font-size="11.5">value area — about 70% of the TPOs</text>
   <line x1="352" y1="150" x2="368" y2="150" stroke="#b08948" stroke-width="1.2"/>
-  <text x="372" y="154" fill="#4a453c" font-size="11.5">POC · point of control — 가장 오래 머문 가격</text>
-  <text x="180" y="268" fill="#4a453c" font-size="11.5">Initial Balance IB · initial balance — 첫 1시간(A·B)의 range</text>
-  <text x="490" y="268" fill="#8a7f70" font-size="11">문자 하나 = 30분 블록 · one letter = 30 min</text>
+  <text x="372" y="154" fill="#4a453c" font-size="11.5">POC · point of control — the price that spent the most time</text>
+  <text x="180" y="268" fill="#4a453c" font-size="11.5">IB · initial balance — the first hour's range (A·B)</text>
+  <text x="490" y="268" fill="#8a7f70" font-size="11">one letter = 30 min</text>
 </svg>

@@ -4,7 +4,7 @@
   <rect x="250" y="86" width="390" height="26" fill="#b08948" opacity="0.18"/>
   <line x1="250" y1="112" x2="640" y2="112" stroke="#b08948" stroke-width="1.2" stroke-dasharray="5 4"/>
   <line x1="380" y1="86" x2="640" y2="86" stroke="#b08948" stroke-width="1.2" stroke-dasharray="5 4"/>
-  <text x="470" y="103" fill="#4a453c" font-size="11">FVG · 불균형 gap — 첫째 고가와 셋째 저가가 안 겹침</text>
+  <text x="470" y="103" fill="#4a453c" font-size="11">FVG — first high and third low: no overlap</text>
   <!-- 첫째 봉 (하락) -->
   <line x1="227" y1="112" x2="227" y2="168" stroke="#8f3d3a" stroke-width="1.6"/>
   <rect x="205" y="122" width="44" height="30" fill="#8f3d3a"/>
@@ -17,13 +17,13 @@
   <!-- 재방문 봉 -->
   <line x1="570" y1="42" x2="570" y2="98" stroke="#8f3d3a" stroke-width="1.6"/>
   <rect x="548" y="52" width="44" height="34" fill="#8f3d3a" opacity="0.75"/>
-  <text x="524" y="126" fill="#4a453c" font-size="10" opacity="0.8">gap 재방문</text>
+  <text x="524" y="126" fill="#4a453c" font-size="10" opacity="0.8">gap revisit</text>
   <!-- 라벨 -->
-  <text x="205" y="188" fill="#4a453c" font-size="11">첫째</text>
-  <text x="275" y="188" fill="#4a453c" font-size="11">둘째 · 변위</text>
-  <text x="345" y="188" fill="#4a453c" font-size="11">셋째</text>
-  <text x="48" y="114" fill="#4a453c" font-size="11">첫째 봉 고가</text>
+  <text x="205" y="188" fill="#4a453c" font-size="11">first</text>
+  <text x="275" y="188" fill="#4a453c" font-size="11">displacement</text>
+  <text x="345" y="188" fill="#4a453c" font-size="11">third</text>
+  <text x="48" y="114" fill="#4a453c" font-size="11">first bar high</text>
   <line x1="48" y1="118" x2="205" y2="112" stroke="#4a453c" stroke-width="0.8" opacity="0.5"/>
-  <text x="392" y="34" fill="#4a453c" font-size="11">셋째 봉 저가</text>
+  <text x="392" y="34" fill="#4a453c" font-size="11">third bar low</text>
   <line x1="392" y1="40" x2="372" y2="82" stroke="#4a453c" stroke-width="0.8" opacity="0.5"/>
 </svg>

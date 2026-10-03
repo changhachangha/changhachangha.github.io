@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" font-family="IBM Plex Sans KR, sans-serif">
   <rect width="700" height="320" fill="#f7f1e6"/>
 
-  <text x="40" y="28" fill="#4a453c" font-size="12" font-weight="600">volume profile — 가격대별 거래량 분포 · volume profile</text>
-  <text x="40" y="44" fill="#8a7f70" font-size="10.5">막대 길이 = 그 가격대에서 거래된 양 · bar = volume at price</text>
+  <text x="40" y="28" fill="#4a453c" font-size="12" font-weight="600">volume profile</text>
+  <text x="40" y="44" fill="#8a7f70" font-size="10.5">bar = volume at price</text>
 
   <!-- 가격 눈금 (왼쪽) -->
   <g fill="#8a7f70" font-size="10">
@@ -52,15 +52,15 @@
 
   <!-- 주석 (오른쪽) -->
   <line x1="452" y1="174" x2="472" y2="174" stroke="#b08948" stroke-width="1.2"/>
-  <text x="476" y="178" fill="#4a453c" font-size="11.5">POC · point of control — 최다 거래 가격</text>
+  <text x="476" y="178" fill="#4a453c" font-size="11.5">POC — most traded price</text>
 
   <text x="476" y="104" fill="#8f3d3a" font-size="11">VAH · value area high</text>
   <text x="476" y="254" fill="#8f3d3a" font-size="11">VAL · value area low</text>
-  <text x="476" y="126" fill="#2c5a4c" font-size="11">가치영역 · value area ≈ 거래량의 70%</text>
+  <text x="476" y="126" fill="#2c5a4c" font-size="11">value area ≈ 70% of volume</text>
 
-  <text x="130" y="66"  fill="#8a7f70" font-size="10">LVN — 얇은 노드, 빠르게 통과</text>
+  <text x="130" y="66"  fill="#8a7f70" font-size="10">LVN — a thin node, passed through quickly</text>
   <text x="140" y="264" fill="#8a7f70" font-size="10">LVN · low volume node</text>
-  <text x="320" y="132" fill="#4a453c" font-size="10">HVN · high volume node — 두꺼운 노드, 수용의 자석</text>
+  <text x="320" y="132" fill="#4a453c" font-size="10">HVN · high volume node — a thick node, a magnet of acceptance</text>
 
-  <text x="40" y="312" fill="#4a453c" font-size="11">가로축은 시간이 아니라 거래량 — TPO의 문자 대신 체결량으로 쌓은 형제다</text>
+  <text x="40" y="312" fill="#4a453c" font-size="11">the horizontal axis is volume, not time — TPO's sibling, built from size instead of letters</text>
 </svg>

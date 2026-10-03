@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" font-family="IBM Plex Sans KR, sans-serif">
   <rect width="700" height="300" fill="#f7f1e6"/>
-  <text x="350" y="26" fill="#4a453c" font-size="12" text-anchor="middle">gap의 4종 — 위치와 메워짐이 종을 가른다</text>
+  <text x="350" y="26" fill="#4a453c" font-size="12" text-anchor="middle">four kinds of gap — location and filling separate them</text>
 
   <!-- 패널 1: 보통 갭 (레인지 안, 곧 충전) -->
   <line x1="14" y1="105" x2="170" y2="105" stroke="#b08948" stroke-width="1.2" stroke-dasharray="6 4"/>
@@ -18,8 +18,8 @@
   <rect x="120" y="120" width="14" height="20" fill="#8f3d3a"/>
   <line x1="152" y1="110" x2="152" y2="145" stroke="#2c5a4c" stroke-width="2.2"/>
   <rect x="145" y="118" width="14" height="14" fill="#2c5a4c"/>
-  <text x="92" y="272" fill="#4a453c" font-size="11" text-anchor="middle">보통 · common</text>
-  <text x="92" y="288" fill="#4a453c" font-size="10" text-anchor="middle">range 안 — 곧 충전</text>
+  <text x="92" y="272" fill="#4a453c" font-size="11" text-anchor="middle">common</text>
+  <text x="92" y="288" fill="#4a453c" font-size="10" text-anchor="middle">inside the range — filled soon</text>
 
   <!-- 패널 2: 돌파 갭 (레인지 탈출) -->
   <line x1="188" y1="140" x2="262" y2="140" stroke="#b08948" stroke-width="1.2" stroke-dasharray="6 4"/>
@@ -37,8 +37,8 @@
   <rect x="294" y="88" width="14" height="12" fill="#2c5a4c"/>
   <line x1="326" y1="60" x2="326" y2="85" stroke="#2c5a4c" stroke-width="2.2"/>
   <rect x="319" y="66" width="14" height="12" fill="#2c5a4c"/>
-  <text x="266" y="272" fill="#4a453c" font-size="11" text-anchor="middle">돌파 · breakaway</text>
-  <text x="266" y="288" fill="#4a453c" font-size="10" text-anchor="middle">range 탈출 — 거래량 동반</text>
+  <text x="266" y="272" fill="#4a453c" font-size="11" text-anchor="middle">breakaway</text>
+  <text x="266" y="288" fill="#4a453c" font-size="10" text-anchor="middle">leaves the range — with volume</text>
 
   <!-- 패널 3: 도피 갭 (추세 중간) -->
   <rect x="428" y="118" width="20" height="10" fill="#b08948" opacity="0.35"/>
@@ -54,8 +54,8 @@
   <rect x="468" y="88" width="14" height="10" fill="#2c5a4c"/>
   <line x1="500" y1="62" x2="500" y2="86" stroke="#2c5a4c" stroke-width="2.2"/>
   <rect x="493" y="66" width="14" height="10" fill="#2c5a4c"/>
-  <text x="435" y="272" fill="#4a453c" font-size="11" text-anchor="middle">도피 · runaway</text>
-  <text x="435" y="288" fill="#4a453c" font-size="10" text-anchor="middle">추세 중간 — 측정 gap</text>
+  <text x="435" y="272" fill="#4a453c" font-size="11" text-anchor="middle">runaway</text>
+  <text x="435" y="288" fill="#4a453c" font-size="10" text-anchor="middle">mid-trend — measuring gap</text>
 
   <!-- 패널 4: 소진 갭 (추세 말, 충전) -->
   <rect x="577" y="96" width="20" height="14" fill="#b08948" opacity="0.35"/>
@@ -71,6 +71,6 @@
   <rect x="642" y="94" width="14" height="16" fill="#8f3d3a"/>
   <line x1="674" y1="108" x2="674" y2="138" stroke="#8f3d3a" stroke-width="2.2"/>
   <rect x="667" y="115" width="14" height="15" fill="#8f3d3a"/>
-  <text x="615" y="272" fill="#4a453c" font-size="11" text-anchor="middle">소진 · exhaustion</text>
-  <text x="615" y="288" fill="#4a453c" font-size="10" text-anchor="middle">추세 말 — 충전되면 확정</text>
+  <text x="615" y="272" fill="#4a453c" font-size="11" text-anchor="middle">exhaustion</text>
+  <text x="615" y="288" fill="#4a453c" font-size="10" text-anchor="middle">end of the trend — filling confirms it</text>
 </svg>

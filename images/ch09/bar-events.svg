@@ -1,28 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="IBM Plex Sans KR, sans-serif">
   <rect width="720" height="300" fill="#f7f1e6"/>
-  <text x="24" y="26" font-size="12" fill="#8a7f70" letter-spacing="0.4">BAR EVENTS · 봉 이벤트 — 위치 없는 모양은 봉일 뿐이다</text>
+  <text x="24" y="26" font-size="12" fill="#8a7f70" letter-spacing="0.4">BAR EVENTS — a shape with no location is only a bar</text>
   <line x1="246" y1="44" x2="246" y2="278" stroke="#b08948" stroke-width="0.7" opacity="0.4"/>
   <line x1="486" y1="44" x2="486" y2="278" stroke="#b08948" stroke-width="0.7" opacity="0.4"/>
 
   <text x="24" y="52" fill="#4a453c" font-size="13">hammer</text>
   <line x1="28" y1="188" x2="220" y2="188" stroke="#b08948" stroke-width="1.3" stroke-dasharray="6 4"/>
-  <text x="28" y="180" fill="#b08948" font-size="10">지지 · support</text>
+  <text x="28" y="180" fill="#b08948" font-size="10">support</text>
   <path d="M36 78 L72 112 L104 96 L132 150" fill="none" stroke="#8f3d3a" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
   <line x1="164" y1="146" x2="164" y2="224" stroke="#4a453c" stroke-width="2.2"/>
   <rect x="150" y="146" width="28" height="16" fill="#4a453c"/>
   <path d="M182 152 L216 118" fill="none" stroke="#2c5a4c" stroke-width="2.2" stroke-linecap="round"/>
-  <text x="24" y="268" fill="#4a453c" font-size="11">하락 말의 긴 아래꼬리</text>
+  <text x="24" y="268" fill="#4a453c" font-size="11">long lower shadow at the end of a decline</text>
 
-  <text x="266" y="52" fill="#4a453c" font-size="13">교수형 · hanging man</text>
+  <text x="266" y="52" fill="#4a453c" font-size="13">hanging man</text>
   <line x1="266" y1="112" x2="466" y2="112" stroke="#b08948" stroke-width="1.3" stroke-dasharray="6 4"/>
-  <text x="266" y="104" fill="#b08948" font-size="10">저항 · resistance</text>
+  <text x="266" y="104" fill="#b08948" font-size="10">resistance</text>
   <path d="M274 230 L310 186 L340 200 L372 140" fill="none" stroke="#2c5a4c" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
   <line x1="404" y1="122" x2="404" y2="200" stroke="#4a453c" stroke-width="2.2"/>
   <rect x="390" y="122" width="28" height="16" fill="#4a453c"/>
   <path d="M422 132 L456 168" fill="none" stroke="#8f3d3a" stroke-width="2.2" stroke-linecap="round"/>
-  <text x="266" y="268" fill="#4a453c" font-size="11">같은 형상 · 상승 말</text>
+  <text x="266" y="268" fill="#4a453c" font-size="11">same shape · end of a rise</text>
 
-  <text x="506" y="52" fill="#4a453c" font-size="13">장악형 · engulfing</text>
+  <text x="506" y="52" fill="#4a453c" font-size="13">engulfing</text>
   <path d="M504 100 L532 132 L552 118" fill="none" stroke="#8f3d3a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
   <line x1="582" y1="132" x2="582" y2="188" stroke="#8f3d3a" stroke-width="2"/>
   <rect x="570" y="144" width="24" height="30" fill="#8f3d3a"/>
@@ -30,6 +30,6 @@
   <rect x="622" y="114" width="36" height="86" fill="#2c5a4c"/>
   <line x1="556" y1="144" x2="672" y2="144" stroke="#b08948" stroke-width="1" stroke-dasharray="4 3"/>
   <line x1="556" y1="174" x2="672" y2="174" stroke="#b08948" stroke-width="1" stroke-dasharray="4 3"/>
-  <text x="506" y="252" fill="#4a453c" font-size="11">둘째 몸통이 첫째를 삼킨다</text>
-  <text x="506" y="270" fill="#8a7f70" font-size="10">하락 말 · bullish engulfing</text>
+  <text x="506" y="252" fill="#4a453c" font-size="11">the second body engulfs the first</text>
+  <text x="506" y="270" fill="#8a7f70" font-size="10">bullish engulfing · end of a decline</text>
 </svg>

@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" font-family="IBM Plex Sans KR, sans-serif">
   <rect width="720" height="260" fill="#f7f1e6"/>
-  <text x="24" y="26" font-size="12" fill="#8a7f70" letter-spacing="1">POLARITY · 역할 교체 — 깨진 저항은 지지가 된다</text>
+  <text x="24" y="26" font-size="12" fill="#8a7f70" letter-spacing="1">POLARITY · roles swap — broken resistance becomes support</text>
 
   <!-- 존 (zone) -->
   <rect x="30" y="106" width="660" height="26" fill="#b08948" opacity="0.14"/>
   <rect x="30" y="106" width="660" height="26" fill="none" stroke="#b08948" stroke-width="1.2" stroke-dasharray="6 4"/>
-  <text x="648" y="100" fill="#8a7f70" font-size="11" text-anchor="end">존 · zone</text>
+  <text x="648" y="100" fill="#8a7f70" font-size="11" text-anchor="end">zone</text>
 
   <!-- 가격 경로 -->
   <path d="M40 205 L98 116 L72 170 L152 118 L128 164 L198 96 L248 52 L322 118 L382 66 L448 92"
@@ -21,12 +21,12 @@
   <circle cx="322" cy="118" r="4" fill="#2c5a4c"/>
 
   <!-- 라벨 -->
-  <text x="72" y="98" fill="#8f3d3a" font-size="12" font-weight="600">저항 · resistance</text>
-  <text x="86" y="146" fill="#4a453c" font-size="10" opacity="0.75">두 번 거절</text>
-  <text x="196" y="82" fill="#4a453c" font-size="11" font-weight="600">돌파 · break</text>
+  <text x="72" y="98" fill="#8f3d3a" font-size="12" font-weight="600">resistance</text>
+  <text x="86" y="146" fill="#4a453c" font-size="10" opacity="0.75">rejected twice</text>
+  <text x="196" y="82" fill="#4a453c" font-size="11" font-weight="600">break</text>
   <path d="M228 74 L252 66" stroke="#4a453c" stroke-width="1" fill="none"/>
-  <text x="330" y="146" fill="#2c5a4c" font-size="12" font-weight="600">지지 · support</text>
-  <text x="330" y="162" fill="#4a453c" font-size="10" opacity="0.75">같은 존에서 반등</text>
+  <text x="330" y="146" fill="#2c5a4c" font-size="12" font-weight="600">support</text>
+  <text x="330" y="162" fill="#4a453c" font-size="10" opacity="0.75">bounces from the same zone</text>
 
-  <text x="40" y="244" fill="#4a453c" font-size="11" opacity="0.8">저항으로 거절되던 존이 돌파 후 재방문에서 지지로 작동</text>
+  <text x="40" y="244" fill="#4a453c" font-size="11" opacity="0.8">a zone that rejected as resistance supports on the retest after the break</text>
 </svg>
