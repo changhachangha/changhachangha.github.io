@@ -1,5 +1,5 @@
 <!-- CHAPTER 05 · smc -->
-<!-- LEX: [{"t": "order block", "k": "언어", "p": "smc", "aka": "오더블록 order block 공급수요존", "d": "강한 변위 직전 마지막 반대색 구간."}, {"t": "FVG", "k": "언어", "p": "smc", "aka": "fair value gap 공정가치 갭 불균형", "d": "3봉 중 첫째와 셋째가 안 겹치는 빈 구간."}, {"t": "liquidity sweep", "k": "언어", "p": "smc", "aka": "유동성 스윕 업스러스트 스프링 스윕 스톱 liquidity sweep grab stop hunt", "d": "stop 군집을 찔러 보고 복귀. spring/upthrust."}, {"t": "OTE", "k": "언어", "p": "smc", "aka": "피보 optimal trade entry 0.62 0.79", "d": "Fibonacci 황금 되돌림 구간의 ICT 이름."}, {"t": "유동성 풀", "k": "언어", "p": "smc", "aka": "유동성 풀 라운드 넘버 스윙 스톱 liquidity pool buy-side sell-side 테이크프로핏 take-profit", "d": "swing 고저 너머·round number의 stop·돌파 주문 군집."}, {"t": "변위", "k": "언어", "p": "smc", "aka": "변위 오더블록 displacement", "d": "몸통이 큰 연속 봉의 강한 이동. order block·FVG의 전제."}, {"t": "inducement", "k": "언어", "p": "smc", "aka": "인듀스먼트 스윙 inducement 미끼 유동성", "d": "본존 앞에 먼저 먹히는 작은 swing의 유동성."}, {"t": "kill zone", "k": "언어", "p": "smc", "aka": "킬존 kill zone 런던 뉴욕 세션", "d": "유동성이 켜지는 시간대의 ICT 이름."}, {"t": "premium(위쪽 절반)·discount(아래쪽 절반)", "k": "언어", "p": "smc", "aka": "프리미엄·디스카운트 디스카운트 프리미엄 스윙 premium discount equilibrium", "d": "swing 구간 50% 위가 premium, 아래가 discount."}] -->
+<!-- LEX: [{"t": "order block", "k": "언어", "p": "smc", "aka": "오더블록 order block 공급수요존", "d": "강한 변위 직전 마지막 반대색 구간."}, {"t": "FVG", "k": "언어", "p": "smc", "aka": "fair value gap 공정가치 갭 불균형", "d": "3봉 중 첫째와 셋째가 안 겹치는 빈 구간."}, {"t": "liquidity sweep", "k": "언어", "p": "smc", "aka": "유동성 스윕 업스러스트 스프링 스윕 스톱 liquidity sweep grab stop hunt", "d": "stop 군집을 찔러 보고 복귀. spring/upthrust."}, {"t": "OTE", "k": "언어", "p": "smc", "aka": "피보 optimal trade entry 0.62 0.79", "d": "Fibonacci 황금 되돌림 구간의 ICT 이름."}, {"t": "유동성 풀", "k": "언어", "p": "smc", "aka": "유동성 풀 라운드 넘버 스윙 스톱 liquidity pool buy-side sell-side 테이크프로핏 take-profit", "d": "swing 고저 너머·round number의 stop·돌파 주문 군집."}, {"t": "변위", "k": "언어", "p": "smc", "aka": "변위 오더블록 displacement", "d": "몸통이 큰 연속 봉의 강한 이동. order block·FVG의 전제."}, {"t": "inducement", "k": "언어", "p": "smc", "aka": "인듀스먼트 스윙 inducement 미끼 유동성", "d": "본존 앞에 먼저 먹히는 작은 swing의 유동성."}, {"t": "kill zone", "k": "언어", "p": "smc", "aka": "킬존 kill zone 런던 뉴욕 세션", "d": "유동성이 켜지는 시간대의 ICT 이름."}, {"t": "premium(위쪽 절반)·discount(아래쪽 절반)", "k": "언어", "p": "smc", "aka": "프리미엄·디스카운트 디스카운트 프리미엄 스윙 premium discount equilibrium", "d": "swing 구간 50% 위가 premium, 아래가 discount."}, {"t": "공급·수요 존", "k": "언어", "p": "smc", "aka": "공급 수요 supply demand base proximal distal", "d": "base·proximal·distal을 가진 존. 무효화는 distal 너머의 종가."}, {"t": "breaker", "k": "언어", "p": "smc", "aka": "breaker polarity", "d": "깨진 order block이 극성을 바꾼 구간. 다시 통과하는 종가가 무효화."}, {"t": "mitigation", "k": "언어", "p": "smc", "aka": "mitigation 재시험", "d": "존으로의 되돌아옴. 무효화는 그 존의 distal."}, {"t": "power of three", "k": "언어", "p": "smc", "aka": "AMD power of three accumulation manipulation distribution", "d": "한 session의 매집·조작·분산 순서."}] -->
 
         <div class="crumb">Chapter 05</div>
         <h2 class="page-title">smart money · 유동성 언어</h2>
@@ -29,7 +29,10 @@
           <thead><tr><th>SMC / ICT</th><th>의미</th><th>기존 이름</th></tr></thead>
           <tbody>
             <tr><td>유동성 풀</td><td>swing 고저 너머 stop 군집</td><td>지지·저항, round number</td></tr>
-            <tr><td>order block</td><td>강한 변위 직전 마지막 반대색 구간</td><td>공급·수요 존</td></tr>
+            <tr><td>order block</td><td>강한 변위 직전 마지막 반대색 구간</td><td>공급·수요의 이웃 자리</td></tr>
+            <tr><td>breaker</td><td>깨진 order block의 극성 전환</td><td>polarity의 재방문</td></tr>
+            <tr><td>mitigation</td><td>존으로의 되돌아옴</td><td>재시험</td></tr>
+            <tr><td>power of three (AMD)</td><td>매집·조작·분산의 세션 순서</td><td>Wyckoff 국면의 장중 축소</td></tr>
             <tr><td>FVG</td><td>3봉이 안 겹치는 빈 구간</td><td>gap(창), 비효율</td></tr>
             <tr><td>BOS</td><td>추세 방향 swing 파괴</td><td>돌파, 지속</td></tr>
             <tr><td>CHoCH</td><td>반대 방향 첫 파괴</td><td>Dow 반전 신호</td></tr>
@@ -38,6 +41,7 @@
             <tr><td>OTE</td><td>0.62–0.79 되돌림</td><td>Fibonacci 황금 되돌림</td></tr>
           </tbody>
         </table>
+        <p>공급·수요 존<sup class="fnref" id="fnref-smc-11"><a data-scroll="fn-smc-11">11</a></sup>은 base·proximal·distal을 가진다. base는 급소 앞의 횡보고, proximal은 현재가에 가까운 경계, distal은 먼 경계다. 무효화는 distal 너머의 종가다. breaker<sup class="fnref" id="fnref-smc-12"><a data-scroll="fn-smc-12">12</a></sup>의 무효화는 뒤집힌 존을 종가가 다시 통과하는 것이다. mitigation<sup class="fnref" id="fnref-smc-13"><a data-scroll="fn-smc-13">13</a></sup>은 존으로의 되돌아옴이고, 무효화는 그 존의 distal이다. power of three<sup class="fnref" id="fnref-smc-14"><a data-scroll="fn-smc-14">14</a></sup>에서 조작으로 읽은 이탈 뒤 종가가 range 바깥에 남으면 그 읽기는 폐기된다.</p>
 
         <h3 id="sec-smc-2">유동성 — stop이 모이는 자리</h3>
         <p>유동성 풀<sup class="fnref" id="fnref-smc-2"><a data-scroll="fn-smc-2">2</a></sup>은 체결을 기다리는 주문이 모인 가격대의 SMC 이름이다. 어디에 모이는가는 새 발견이 아니다. stop의 위치는 예측 가능하다 — 직전 고점 위에는 숏의 매수 stop과 돌파 추종자의 신규 매수가, 직전 저점 아래에는 롱의 매도 stop과 신규 매도가 쌓인다. 같은 높이의 고점이나 저점이 둘 이상 나란히 서면(equal highs/lows) 그 너머의 군집은 더 두꺼워지고, round number는 심리적 눈금이라 주문이 자연히 그 주변에 걸린다.</p>
@@ -76,7 +80,7 @@
         <h3 id="sec-smc-5">BOS · CHoCH · inducement · OTE</h3>
         <p>구조 어휘의 정의는 <a href="#structure">가격 구조</a>에 있다. BOS는 추세 방향으로 직전 swing을 깨는 지속 신호, CHoCH는 반대로 처음 깨지는 조기 반전 경고 — Dow 문법의 반전 신호다. SMC 읽기에서 둘은 진입 신호가 아니라 방향 필터다.</p>
         <p>premium(위쪽 절반)·discount(아래쪽 절반)<sup class="fnref" id="fnref-smc-7"><a data-scroll="fn-smc-7">7</a></sup>는 위치 어휘다. swing 구간의 50% 위가 premium, 아래가 discount고 중간선은 Fibonacci 0.5와 같은 생각이다. 매수는 discount에서, 매도는 premium에서 찾는다는 규칙은 "비싼 데서 사지 말라"는 격언의 도표화다.</p>
-        <p>inducement<sup class="fnref" id="fnref-smc-8"><a data-scroll="fn-smc-8">8</a></sup>는 본존 앞에 놓인 작은 유동성이다 — 목표 구간 직전의 얕은 swing이 먼저 먹히는 미끼라는 읽기다. OTE<sup class="fnref" id="fnref-smc-9"><a data-scroll="fn-smc-9">9</a></sup>는 0.62~0.79 되돌림, Fibonacci 황금 되돌림의 ICT 이름이다. discount 안쪽의 깊은 되돌림으로 진입 후보를 좁히는 장치다. kill zone<sup class="fnref" id="fnref-smc-10"><a data-scroll="fn-smc-10">10</a></sup>은 런던·뉴욕 session(장) 겹침처럼 유동성이 켜지는 시간대의 이름이다.</p>
+        <p>inducement<sup class="fnref" id="fnref-smc-8"><a data-scroll="fn-smc-8">8</a></sup>는 본존 앞에 놓인 작은 유동성이다 — 목표 구간 직전의 얕은 swing이 먼저 먹히는 미끼라는 읽기다. 그 swing이 깨지지 않으면 읽기는 폐기되고, 깨진 뒤 본존의 distal을 종가가 넘어도 같다. OTE<sup class="fnref" id="fnref-smc-9"><a data-scroll="fn-smc-9">9</a></sup>는 0.62~0.79 되돌림, Fibonacci 황금 되돌림의 ICT 이름이다. 이 구간은 <a href="#ratios">비율과 투사</a>의 깊은 되돌림 0.618~0.786과 같은 눈금이고, discount 안쪽의 진입 후보를 좁히는 장치다. kill zone<sup class="fnref" id="fnref-smc-10"><a data-scroll="fn-smc-10">10</a></sup>은 런던·뉴욕 session(장) 겹침처럼 유동성이 켜지는 시간대의 이름이다.</p>
         <figure class="fig">
           <img src="images/ch05/premium-discount.svg" alt="swing 구간을 premium과 discount로 나누고 0.62~0.79 되돌림에 OTE band를 표시한 도식" loading="lazy" />
           <figcaption>그림 4. premium/discount 배열. swing 중간값 위는 premium(매도 관점), 아래는 discount(매수 관점). OTE band는 0.62~0.79 되돌림 구간이다.
@@ -109,18 +113,26 @@
               <a class="fnback" data-scroll="fnref-smc-3">↩</a></li>
             <li id="fn-smc-4"><b>변위(Displacement)</b>: 몸통이 큰 봉이 같은 방향으로 연속하는 강한 이동. order block과 FVG는 변위의 앞뒤 흔적이다.
               <a class="fnback" data-scroll="fnref-smc-4">↩</a></li>
-            <li id="fn-smc-5"><b>order block</b>: 강한 변위 직전 마지막 반대색 봉·구간. 공급·수요 존의 SMC 이름.
+            <li id="fn-smc-5"><b>order block</b>: 강한 변위 직전 마지막 반대색 봉·구간. 공급·수요 존과 이웃한 자리다.
               <a class="fnback" data-scroll="fnref-smc-5">↩</a></li>
             <li id="fn-smc-6"><b>FVG(Fair Value Gap)</b>: 세 봉에서 첫째 고가와 셋째 저가가 안 겹치는 빈 구간. gap·비효율과 같은 대상.
               <a class="fnback" data-scroll="fnref-smc-6">↩</a></li>
             <li id="fn-smc-7"><b>premium(위쪽 절반)·discount(아래쪽 절반)</b>: swing 구간의 50% 위가 premium, 아래가 discount. 중간선은 equilibrium.
               <a class="fnback" data-scroll="fnref-smc-7">↩</a></li>
-            <li id="fn-smc-8"><b>inducement</b>: 목표 존 앞에 놓인 작은 swing의 유동성. 먼저 먹히는 미끼로 읽는다.
+            <li id="fn-smc-8"><b>inducement</b>: 목표 존 앞에 놓인 작은 swing의 유동성. 먼저 먹히는 미끼로 읽는다. 그 swing이 안 깨지거나, 깨진 뒤 distal을 종가가 넘으면 폐기한다.
               <a class="fnback" data-scroll="fnref-smc-8">↩</a></li>
-            <li id="fn-smc-9"><b>OTE(Optimal Trade Entry)</b>: ICT의 최적 진입 구간. 되돌림 0.62~0.79, Fibonacci 황금 되돌림과 같은 눈금.
+            <li id="fn-smc-9"><b>OTE(Optimal Trade Entry)</b>: ICT의 최적 진입 구간. 되돌림 0.62~0.79. 비율 장의 깊은 되돌림 0.618~0.786과 같은 눈금이다.
               <a class="fnback" data-scroll="fnref-smc-9">↩</a></li>
             <li id="fn-smc-10"><b>kill zone</b>: 유동성이 켜지는 시간대의 ICT 이름. 런던·뉴욕 session 겹침이 대표 사례.
               <a class="fnback" data-scroll="fnref-smc-10">↩</a></li>
+            <li id="fn-smc-11"><b>공급·수요 존</b>: 급소 앞의 횡보(base)와 두 경계. proximal은 현재가에 가까운 변, distal은 먼 변. 무효화는 distal 너머의 종가다. order block과는 이웃한 자리다.
+              <a class="fnback" data-scroll="fnref-smc-11">↩</a></li>
+            <li id="fn-smc-12"><b>breaker</b>: 실패한 order block이 극성을 바꾼 구간. 무효화는 그 존을 종가가 다시 통과하는 것이다.
+              <a class="fnback" data-scroll="fnref-smc-12">↩</a></li>
+            <li id="fn-smc-13"><b>mitigation</b>: 가격이 존으로 되돌아오는 사건. 무효화는 그 존의 distal이다.
+              <a class="fnback" data-scroll="fnref-smc-13">↩</a></li>
+            <li id="fn-smc-14"><b>power of three (AMD)</b>: 한 session을 매집(accumulation)·조작(manipulation)·분산(distribution)으로 읽는 순서.
+              <a class="fnback" data-scroll="fnref-smc-14">↩</a></li>
           </ol>
         </div>
 
