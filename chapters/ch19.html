@@ -1,0 +1,161 @@
+<!-- STRUCTURE-ONLY -->
+<!-- CHAPTER 19 · read -->
+
+        <div class="crumb">Index 19</div>
+        <h2 class="page-title">차트 읽기</h2>
+        <p class="lede">00–15장에 이미 적힌 봉의 부품, swing과 range, 패턴이 가격에 대해 하는 말만 모았다. 무효화 가격은 <a href="#sheet">18 무효화 표</a>.</p>
+
+        <h3 id="sec-read-1">봉의 부품</h3>
+        <table>
+          <thead><tr><th>이름</th><th>읽기</th><th>장</th></tr></thead>
+          <tbody>
+            <tr><td>OHLCV</td><td>시가·고가·저가·종가·거래량. 봉 하나의 요약이고 모든 차트의 원료.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>바</td><td>왼쪽 가지가 시가, 오른쪽 가지가 종가. OHLC를 남긴다. 고가와 저가의 순서는 그 네 값 밖에 있다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>candle(봉)</td><td>시가와 종가 사이를 몸통으로 칠하고 고가·저가를 꼬리로 뺀다. 그 구간에 어느 쪽이 이겼는지가 읽힌다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>몸통</td><td>시가와 종가 사이. 종가가 시가 위면 양봉, 아래면 음봉.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>꼬리</td><td>몸통에서 고가·저가까지 뻗은 선. 긴 아랫꼬리는 아래로 밀린 물량이 흡수된 자국, 긴 윗꼬리는 위로 간 물량이 거부된 자국.</td><td><a href="#candles">08</a></td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="sec-read-2">차트 필터</h3>
+        <table>
+          <thead><tr><th>이름</th><th>읽기</th><th>장</th></tr></thead>
+          <tbody>
+            <tr><td>라인</td><td>종가만 잇는다. 고가·저가·시가는 빠진다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>렌코</td><td>정한 폭의 벽돌. 그 폭이 채워질 때 새 벽돌이 붙고, 시간과 그 미만의 움직임은 빠진다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>카기</td><td>직전 고점 위로 올라가면 선이 굵어지고, 직전 저점 아래로 내려가면 가늘어진다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>three-line break</td><td>직전 선의 끝을 넘어야 새 선이 생긴다. 반전 선은 최근 세 선을 종가가 넘겨야 그려진다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>P&amp;F</td><td>상승은 X 열, 하락은 O 열.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>double-top breakout</td><td>X 열이 직전 X 열의 고점을 넘는 돌파.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>triple-top breakout</td><td>X 열이 앞선 고점 둘을 넘는 돌파.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>double-bottom breakdown</td><td>double-top breakout의 거울.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>triple-bottom breakdown</td><td>triple-top breakout의 거울.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>틱 바</td><td>N 건의 체결마다 봉을 닫는다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>volume(거래량) 바</td><td>N 주마다 봉을 닫는다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>range(구간) 바</td><td>정한 고저 폭이 채워질 때 봉을 닫는다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>하이킨아시</td><td>HA종가는 그 봉 OHLC의 평균, HA시가는 직전 HA 시가와 종가의 평균. 화면의 가격은 재계산 값이다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>TPO</td><td>가격대별 빈도. 가장 긴 행이 POC, 약 70%의 띠가 가치영역, 첫 두 문자가 Initial Balance.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>가치영역</td><td>가격이 그 띠를 받아들이면 회귀, 거부하면 이탈.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>normal day</td><td>Initial Balance 안에서 끝난다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>normal variation</td><td>한쪽으로만 확장한다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>neutral day</td><td>양쪽으로 확장한다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>trend day</td><td>좁은 Initial Balance에서 한 방향으로 달린다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>double-distribution trend day</td><td>가치영역이 둘로 갈라진다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>nontrend day</td><td>방향이 없다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>excess</td><td>극단의 단일 꼬리. 경매가 거절되며 끝난 자리.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>poor high</td><td>excess 없는 고점.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>single print</td><td>문자 하나만 찍힌 얇은 행.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>volume profile</td><td>같은 분포를 거래량으로 쌓은 것.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>footprint</td><td>봉을 가격대별 매수·매도 체결로 쪼갠 표시.</td><td><a href="#charts">06</a></td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="sec-read-3">swing과 range</h3>
+        <table>
+          <thead><tr><th>이름</th><th>읽기</th><th>장</th></tr></thead>
+          <tbody>
+            <tr><td>swing</td><td>고점은 양옆이 더 낮은 꼭짓점, 저점은 양옆이 더 높은 골짜기.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>fractal</td><td>양옆 두 봉보다 높거나 낮은 5봉 규칙. Williams의 최소 단위 swing.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>zigzag</td><td>마지막 pivot에서 정한 비율 이상 되돌려야 새 swing.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>HH/HL</td><td>고점과 저점이 함께 높아지는 상승.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>LH/LL</td><td>고점과 저점이 함께 낮아지는 하락.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>range(횡보)</td><td>고점도 저점도 한 방향으로 밀리지 않는 구간. 상단과 하단이 그 구간의 swing.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>BOS</td><td>추세 방향으로 직전 swing을 깨는 지속.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>CHoCH</td><td>반대 방향으로 swing이 처음 깨지는 조기 경고.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>MSS</td><td>CHoCH의 ICT 이름. 같은 사건.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>2B</td><td>새 극값이 실패한 뒤 직전 되돌림 swing이 깨지는 사건. CHoCH와 같은 사건.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>sweep</td><td>꼬리가 swing을 넘었다가 회수된 자리. 깨짐의 보통 기준은 종가.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>지지·저항</td><td>지지는 수요의 집중, 저항은 공급의 집중. 자리는 폭이 있는 존.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>polarity</td><td>깨진 저항은 지지가 되고, 깨진 지지는 저항이 된다.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>추세선</td><td>상승은 저점 둘, 하락은 고점 둘을 잇는다. 세 번째 접점이 확인.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>channel</td><td>추세선의 평행선. 되돌림이 반대편 선에서 멈추면 통로.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>premium(위쪽 절반)</td><td>swing 저점에서 고점까지를 50%로 가른 위쪽. 중간선이 EQ.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>discount(아래쪽 절반)</td><td>그 구간의 아래쪽. 50은 Dow·Gann의 관용.</td><td><a href="#structure">04</a></td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="sec-read-4">패턴</h3>
+        <table>
+          <thead><tr><th>이름</th><th>읽기</th><th>장</th></tr></thead>
+          <tbody>
+            <tr><td>패턴</td><td>이름은 선행 추세, 경계선, 종가 확인의 속기다. 거래량은 참고.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>neckline(목선)</td><td>head and shoulders에서는 두 반응 저점, 이중 천장·바닥에서는 중간 고점·저점을 잇는 선. 이 선의 파괴가 완성.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>head and shoulders(머리어깨)</td><td>상승 끝의 세 고점. 왼어깨, 더 높은 머리, 낮아진 오른어깨. neckline 아래 종가가 완성.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>inverse head and shoulders</td><td>하락 끝의 거울. 확인은 neckline의 상향 돌파.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>이중 천장</td><td>둘째 고점이 첫째 근처에서 거절된다. 사이 저점이 깨질 때 확인.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>이중 바닥</td><td>같은 높이의 저점 둘. 중간 고점을 위로 깰 때 완성.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>삼중 천장·바닥</td><td>같은 자리의 시험이 한 번 더 반복된 전환. 세 번 버틴 자리가 깨질 때 완성.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>rounding</td><td>모서리 없이 서서히 기우는 천장 또는 바닥. 완성 시점이 흐리다.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>flag(깃발)</td><td>깃대 뒤, 추세 반대로 기운 작은 channel. 안에서 거래량이 마르고 돌파에서 다시 붙는다.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>pennant</td><td>깃대 뒤의 작은 대칭 삼각.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>상승 삼각</td><td>수평 저항 아래로 저점이 높아지는 압축. 기울기는 방향의 편향.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>하락 삼각</td><td>수평 지지 위로 고점이 낮아지는 압축.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>대칭 삼각</td><td>낮아지는 고점과 높아지는 저점의 수렴. 압축의 형상.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>확산형(megaphone)</td><td>고점은 높아지고 저점은 낮아진다. Edwards·Magee는 분산, 통제를 잃은 시장으로 읽었다.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>직사각형</td><td>수평 지지·저항의 상자. 지속으로 끝나기도 하고 반전으로 끝나기도 한다.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>cup with handle(손잡이)</td><td>둥근 조정과 얕은 되돌림. 확인은 손잡이 너머 선행 고점의 돌파. O'Neil의 패턴.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>Darvas box</td><td>위는 고점 위의 정체, 아래는 그 바닥인 상자.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>측정 목표가</td><td>패턴의 높이를 돌파 지점에서 돌파 방향으로 옮긴 최소 기대치.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>pullback / throwback(되돌림)</td><td>돌파 뒤 경계선으로 되돌아오는 재방문.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>busted pattern</td><td>확인된 돌파가 패턴 안으로 돌아오면 반대 방향의 신호.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>가짜 돌파</td><td>경계를 넘긴 뒤 안으로 되밀린 봉. upthrust, liquidity sweep와 같은 봉.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>spring(일시 이탈 후 회수)</td><td>range 하단을 깨고 안으로 닫히는 회수.</td><td><a href="#atlas">09</a></td></tr>
+            <tr><td>FVG(공정가치 gap)</td><td>첫째 봉의 고가와 셋째 봉의 저가가 겹치지 않아 남는 빈 구간. 재방문으로 읽는다.</td><td><a href="#atlas">09</a></td></tr>
+            <tr><td>AB=CD</td><td>BC 되돌림 뒤 CD가 AB와 같은 크기.</td><td><a href="#harmonic">11</a></td></tr>
+            <tr><td>Gartley</td><td>B는 0.618, D는 0.786. D는 X 안에서 완성되는 내부 되돌림.</td><td><a href="#harmonic">11</a></td></tr>
+            <tr><td>Bat(박쥐)</td><td>B는 0.382–0.50, D는 0.886. D는 X 앞에서 완성.</td><td><a href="#harmonic">11</a></td></tr>
+            <tr><td>Butterfly(나비)</td><td>D가 1.272로 X 밖에 선다.</td><td><a href="#harmonic">11</a></td></tr>
+            <tr><td>Crab(게)</td><td>D가 XA의 1.618.</td><td><a href="#harmonic">11</a></td></tr>
+            <tr><td>Shark(상어)</td><td>고전 M/W 틀 밖. 0.886–1.13에서 완성.</td><td><a href="#harmonic">11</a></td></tr>
+            <tr><td>PRZ</td><td>D 근처에서 비율 격자가 겹치는 띠.</td><td><a href="#harmonic">11</a></td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="sec-read-5">candle</h3>
+        <table>
+          <thead><tr><th>이름</th><th>읽기</th><th>장</th></tr></thead>
+          <tbody>
+            <tr><td>hammer</td><td>하락 말의 작은 몸통과 긴 아랫꼬리. 장중 밀린 가격이 종가까지 회수된다.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>hanging man(교수형)</td><td>같은 형상이 상승 말에 선 것. 경고이고 하방 확인을 요구한다.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>shooting star</td><td>상승 말의 작은 몸통과 긴 윗꼬리. 위로 간 가격의 거부.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>inverted hammer</td><td>하락 말의 같은 형상. 반전 후보로 약하다.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>도지</td><td>시가와 종가가 같거나 거의 같은 균형봉. 추세 말에서 무게를 얻는다.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>장십자</td><td>양쪽 꼬리가 긴 도지.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>잠자리</td><td>아랫꼬리만 긴 도지.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>비석형</td><td>윗꼬리만 긴 도지.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>four-price doji</td><td>시가·고가·저가·종가가 한 가격인 도지.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>spinning top</td><td>짧은 몸통과 위아래 꼬리. 시가와 종가 사이에 몸통이 남는다.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>마루보즈</td><td>꼬리 없는 장몸통. 지속에 가깝다.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>백마루보즈</td><td>저가에 열어 고가에 닫은 봉.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>pin bar</td><td>hammer 계열의 서양 이름.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>engulfing(장악형)</td><td>둘째 몸통이 첫째 몸통을 덮는다. 하락 말의 큰 양봉은 한 봉 안의 역전.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>하라미</td><td>둘째 몸통이 첫째 몸통 안에 든다. momentum(탄력)의 소강.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>inside bar</td><td>고가·저가가 앞 봉 안에 든다. 하라미와 읽기는 같다.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>관통형</td><td>하락 말에 양봉이 앞 음봉 몸통의 절반을 넘겨 닫는다.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>흑운형</td><td>상승 말에 음봉이 앞 양봉 몸통의 절반 아래로 닫는다.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>tweezers(집게)</td><td>두 봉 이상의 고점 또는 저점이 같다. 같은 자리의 반복 거부.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>morning star</td><td>긴 음봉, 작은 별, 첫째 몸통의 절반 위로 회수하는 긴 양봉.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>evening star</td><td>상승 말의 대칭.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>상승삼병</td><td>세 양봉이 각각 전봉 몸통 안에서 열리고 종가가 순차로 높아진다. 추진의 지속.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>세 마리 까마귀</td><td>하락의 삼병.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>삼법</td><td>긴 봉, 그 안의 짧은 봉들, 다시 같은 방향의 긴 봉. flag과 같은 쉼.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>삼산</td><td>세 번의 고점. 서양 이름은 트리플 탑, head and shoulders.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>삼천</td><td>세 번의 시험이 방향을 트는 전환. 서양 대응은 삼중 바닥.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>삼공</td><td>연속 세 gap(창) 뒤의 소진.</td><td><a href="#candles">08</a></td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="sec-read-6">gap</h3>
+        <table>
+          <thead><tr><th>이름</th><th>읽기</th><th>장</th></tr></thead>
+          <tbody>
+            <tr><td>gap(창)</td><td>인접한 두 봉의 가격대가 겹치지 않는 미체결 구간.</td><td><a href="#time">13</a></td></tr>
+            <tr><td>common gap</td><td>range 안에서 거래량 없이 열리고, 며칠 내 메워진다.</td><td><a href="#time">13</a></td></tr>
+            <tr><td>breakaway gap(돌파)</td><td>range나 패턴 경계를 거래량과 함께 벗어나는 gap.</td><td><a href="#time">13</a></td></tr>
+            <tr><td>runaway gap(도피)</td><td>추세 중간의 재가속. 발생 지점이 대체로 추세의 중점.</td><td><a href="#time">13</a></td></tr>
+            <tr><td>exhaustion gap(소진)</td><td>추세 말의 마지막 도약.</td><td><a href="#time">13</a></td></tr>
+            <tr><td>island reversal</td><td>한 방향 gap 뒤에 반대 gap이 나, 사이 봉이 고립된다.</td><td><a href="#time">13</a></td></tr>
+            <tr><td>opening range</td><td>개장 직후 첫 구간의 고저.</td><td><a href="#time">13</a></td></tr>
+            <tr><td>NR7</td><td>그날의 고저 폭이 최근 7일 가운데 가장 좁다. 수축의 표지.</td><td><a href="#time">13</a></td></tr>
+          </tbody>
+        </table>
