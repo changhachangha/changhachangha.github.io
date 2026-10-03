@@ -1,11 +1,11 @@
 <!-- CHAPTER 14 · relations -->
-<!-- LEX: [{"t": "confluence(합류)", "k": "언어", "p": "relations", "aka": "컨플루언스 confluence 합류", "d": "서로 다른 축의 근거가 한 자리에 모이는 것. 같은 데이터의 재계산은 중복."}, {"t": "regime(국면)", "k": "구조", "p": "relations", "aka": "국면 레인지 regime 레짐 시장 상태", "d": "추세·range처럼 어떤 도구가 켜지는지를 정하는 시장 상태 구간."}, {"t": "스위치", "k": "지표", "p": "relations", "aka": "스위치 밴드폭 regime switch 선택기", "d": "국면을 읽어 켤 도구를 고르는 용법. ADX·bandwidth가 대표."}, {"t": "alpha(초과수익)", "k": "언어", "p": "relations", "aka": "알파 alpha α 초과수익", "d": "기준 수익을 넘는 부분으로 주장되는 우위. 이름이 아니라 기댓값이 만든다."}, {"t": "R배수", "k": "언어", "p": "relations", "aka": "R배수 R-multiple", "d": "손절 거리를 1R로 둔 손익의 단위. 크기 기록의 공용 자."}] -->
+<!-- LEX: [{"t": "confluence(합류)", "k": "언어", "p": "relations", "aka": "컨플루언스 confluence 합류", "d": "서로 다른 축의 근거가 한 자리에 모이는 것. 같은 데이터의 재계산은 중복."}, {"t": "regime(국면)", "k": "구조", "p": "relations", "aka": "국면 레인지 regime 레짐 시장 상태", "d": "추세·range처럼 어떤 도구가 켜지는지를 정하는 시장 상태 구간."}, {"t": "스위치", "k": "지표", "p": "relations", "aka": "스위치 밴드폭 regime switch 선택기", "d": "국면을 읽어 켤 도구를 고르는 용법. ADX·bandwidth가 대표."}, {"t": "alpha(초과수익)", "k": "언어", "p": "relations", "aka": "알파 alpha α 초과수익", "d": "기준 수익을 넘는 부분으로 주장되는 우위. 이름이 아니라 기댓값이 만든다."}] -->
 
         <div class="crumb">Chapter 14</div>
         <h2 class="page-title">기법 간 관계</h2>
         <p class="lede">어떤 기법도 혼자 쓰이지 않는다. 거래 한 건은 여러 질문에 답을 요구하고, 기법 하나는 그중 하나에만 답한다. 관계의 지도가 곧 체계다.</p>
 
-        <div class="chapter-summary"><b>요약.</b> 기법의 관계는 같이 쓰는 짝과 계보로 갈린다. 조합이 성립하려면 축이 달라야 하고, 같은 축의 지표는 늘려도 하나다. 다섯 조합은 메커니즘으로 풀리고, tape reading에서 order flow까지 각 단계가 더한 것은 대부분 새 alpha(초과수익)가 아니라 어휘다. 기법의 선택은 질문에서 시작한다 — 국면, 자리, 시점, 크기. 체계는 국면 판독 하나, 실행 하나, 리스크 단위 하나로 조립되고, 더할수록 과최적화가 커진다.</div>
+        <div class="chapter-summary"><b>요약.</b> 기법의 관계는 같이 쓰는 짝과 계보로 갈린다. 조합이 성립하려면 축이 달라야 하고, 같은 축의 지표는 늘려도 하나다. 다섯 조합은 메커니즘으로 풀리고, tape reading에서 order flow까지 각 단계가 더한 것은 대부분 새 alpha(초과수익)가 아니라 어휘다. 기법의 선택은 질문에서 시작한다 — 국면, 자리, 시점, 무효화. 체계는 국면 판독 하나, 실행 하나, 리스크 단위 하나로 조립되고, 더할수록 과최적화가 커진다.</div>
 
         <nav class="chapter-toc">
           <div class="toc-title">이 챕터에서</div>
@@ -20,14 +20,14 @@
         </nav>
 
         <h3 id="sec-relations-1">조합의 원칙 — 축이 달라야 같이 쓴다</h3>
-        <p>조합의 출발점은 역할 분담이다. 기법 하나는 질문 하나에 답한다 — 이동평균은 방향을, ADX는 강도를, ATR은 크기를. 그런데 거래 한 건이 요구하는 답은 넷이다 — 어느 국면인가, 어디서인가, 언제인가, 얼마나인가. 네 답을 기법 하나에서 얻으려는 것이 지표 만능의 착각이고, 한 질문에 기법 넷을 붙이는 것이 중복의 착각이다. 조합은 취미가 아니라 빈칸 채우기다.</p>
+        <p>조합의 출발점은 역할 분담이다. 기법 하나는 질문 하나에 답한다 — 이동평균은 방향을, ADX는 강도를, ATR은 거리를. 그런데 거래 한 건이 요구하는 답은 넷이다 — 어느 국면인가, 어디서인가, 언제인가, 어디서 무효인가. 네 답을 기법 하나에서 얻으려는 것이 지표 만능의 착각이고, 한 질문에 기법 넷을 붙이는 것이 중복의 착각이다. 조합은 취미가 아니라 빈칸 채우기다.</p>
         <p>같이 쓸 수 있는지는 축<sup class="fnref" id="fnref-relations-1"><a data-scroll="fn-relations-1">1</a></sup>이 가른다. 축은 지표의 입력과 지표가 답하는 질문이다 — 같은 종가 열을 기간으로 평활해 방향을 묻는 것들은 전부 같은 축이다. RSI·stochastic·CCI는 산식이 달라도 입력이 같다 — 한 종가 창의 상대 위치를 세 번 재는 것이다. 셋이 동의해도 증거는 하나다. Elder의 지표 분류가 이 원리다 — 추세 지표·oscillator·기타로 나누고 각 군에서 하나씩만 쓰라 했다<sup class="cit"><a data-scroll="src-relations-1">[1]</a></sup>. Murphy의 재료 분리도 같다 — 가격·거래량·미결제 약정처럼 원료가 다른 것을 겹칠 때만 확인이 성립한다<sup class="cit"><a data-scroll="src-relations-2">[2]</a></sup>.</p>
         <figure class="fig">
           <img src="images/ch14/axes.svg" alt="왼쪽은 같은 종가 입력을 RSI·stochastic·CCI가 나눠 쓰는 중복, 오른쪽은 ADX·구조·profile·ATR이 각기 다른 축에서 한 거래에 모이는 보완을 나타낸 도식" loading="lazy" />
           <figcaption>그림 1. 같은 축과 다른 축. 왼쪽의 세 지표는 입력이 같아 답도 하나다. 오른쪽의 네 도구는 축이 달라 한 거래의 네 질문에 답한다 — 이것이 confluence(합류)다.
             <span class="src">출처: 자체 제작</span></figcaption>
         </figure>
-        <p>confluence<sup class="fnref" id="fnref-relations-2"><a data-scroll="fn-relations-2">2</a></sup>는 그래서 정의가 있다 — 다른 데이터, 다른 논리가 같은 결론에 모일 때다. 지지 존과 Fibonacci 눈금과 가치영역 하단의 겹침은 같은 swing을 재는 눈금 셋이라 축이 하나에 가깝고, 구조 전환과 거래량 급증과 상위 국면의 일치는 입력이 달라 축이 셋이다. 판별은 입력의 차이다 — "이 창의 입력은 앞의 창과 다른가." 한계는 공유 입력이다 — 겉모습이 다른 지표도 종가의 함수면 축이 하나로 접힌다(<a href="#indicators">보조지표</a>).</p>
+        <p>confluence<sup class="fnref" id="fnref-relations-2"><a data-scroll="fn-relations-2">2</a></sup>는 그래서 정의가 있다 — 다른 데이터, 다른 논리가 같은 결론에 모일 때다. 지지 존과 Fibonacci 눈금과 0.5 되돌림의 겹침은 같은 swing을 재는 눈금 셋이라 축이 하나에 가깝다. 가치영역은 그 swing의 눈금이 아니라 거래량이 쌓인 띠다. 구조 전환과 거래량 급증과 상위 국면의 일치는 입력이 달라 축이 셋이다. 판별은 입력의 차이다 — "이 창의 입력은 앞의 창과 다른가." 한계는 공유 입력이다 — 겉모습이 다른 지표도 종가의 함수면 축이 하나로 접힌다(<a href="#indicators">보조지표</a>).</p>
 
         <h3 id="sec-relations-2">조합 사례 — 다섯 조합의 메커니즘</h3>
         <p>같은 원리를 실제 조합에 대입하면 메커니즘이 보인다. 각 행의 역할 분담이 곧 '두 기법이 다른 질문에 답한다'는 뜻이다.</p>
@@ -37,7 +37,7 @@
             <tr><td>Dow 구조 + 거래량</td><td>정의와 확인</td><td>구조가 추세의 문장을 세우고(HH/HL) 거래량이 그 움직임의 실체력을 잰다 — "거래량은 추세를 확인해야 한다"가 Dow 원리 안에 들어 있는 이유다<sup class="cit"><a data-scroll="src-relations-2">[2]</a></sup>. 거래량 없는 돌파는 확인 없는 문장이다.</td></tr>
             <tr><td>Wyckoff 국면 + volume(거래량) profile</td><td>원인과 가치 영역</td><td>국면 판독은 "지금 매집인가 분산인가"이고 profile은 "거래가 어느 가격대에 몰렸는가"다. 원인·결과 법칙의 원인이 쌓인 자리를 가치영역·HVN이 눈으로 보여준다 — 서사와 증거의 짝이다(<a href="#theories">고전 이론</a>, <a href="#charts">차트 유형</a>).</td></tr>
             <tr><td>ADX 스위치 + (추세면 MA, range(구간)면 RSI)</td><td>지표가 서로를 켬</td><td>ADX는 방향이 아니라 강도라서 진입 도구가 아니라 선택기다 — 기준선 위면 추세 추종(MA)을, 아래면 oscillator(RSI)를 켠다. 지표가 지표를 켜는 구조가 스위치<sup class="fnref" id="fnref-relations-3"><a data-scroll="fn-relations-3">3</a></sup>다.</td></tr>
-            <tr><td>아무 진입 + ATR 손절</td><td>예측과 리스크 분리</td><td>진입은 방향 가설이고 ATR은 그 가설과 무관한 진폭의 자다 — 손절 거리를 시장의 변동성에 묶고 포지션 크기를 '고정 리스크 ÷ 거리'로 정한다. 진입이 틀려도 리스크는 이미 정해져 있다.</td></tr>
+            <tr><td>아무 진입 + ATR 손절</td><td>예측과 리스크 분리</td><td>진입은 방향 가설이고 ATR은 그 가설과 무관한 진폭의 자다 — 손절 거리는 시장의 변동성에 묶고, 무효화는 그 거리 너머의 가격이다.</td></tr>
             <tr><td>sweep + CHoCH + 불균형 재방문</td><td>사건 → 확인 → 실행</td><td>시간 순서가 곧 필터다 — sweep이 stop이 실제로 털렸다는 사건, CHoCH가 구조의 동의, 재방문이 무효화가 가까운 진입 자리다(<a href="#smc">유동성 언어</a>).</td></tr>
           </tbody>
         </table>
@@ -63,10 +63,10 @@
             <tr><td>Wyckoff · P&amp;F (1910–31)</td><td>수급의 서사 — 매집·분산 국면과 노력대결과. P&amp;F는 시간을 버린 기록법</td></tr>
             <tr><td>패턴 사전 (1948)</td><td>형상의 분류 — Schabacker의 정리를 Edwards·Magee가 도감으로 묶었다<sup class="cit"><a data-scroll="src-relations-4">[4]</a></sup></td></tr>
             <tr><td>Elliott · Gann (1930–50s)</td><td>법칙화 — 파동의 fractal과 시간=가격의 기하</td></tr>
-            <tr><td>일목 (1968)</td><td>패키지 — 시간·파동·가격 3론과 5선 도구가 한 상자</td></tr>
+            <tr><td>일목 (1969)</td><td>패키지 — 시간·파동·가격·운형 4론과 5선 도구가 한 상자</td></tr>
             <tr><td>컴퓨터 지표 (1978–)</td><td>proxy(대리 변수)의 대중화 — Wilder의 RSI·ATR·ADX 이후 계산이 누구의 것이 됐다<sup class="cit"><a data-scroll="src-relations-5">[5]</a></sup></td></tr>
             <tr><td>profile (1984)</td><td>축의 전환 — 시간을 가격 분포로 눕힌 TPO</td></tr>
-            <tr><td>VSA (1993)</td><td>공식화 — Wyckoff를 봉의 spread×거래량×종가 위치로 옮김<sup class="cit"><a data-scroll="src-relations-6">[6]</a></sup></td></tr>
+            <tr><td>VSA (2000)</td><td>공식화 — Wyckoff를 봉의 spread×거래량×종가 위치로 옮김<sup class="cit"><a data-scroll="src-relations-6">[6]</a></sup></td></tr>
             <tr><td>price action (2000s)</td><td>탈지표 — 봉 단위 읽기로의 회귀</td></tr>
             <tr><td>ICT · SMC (2010s)</td><td>번역 — 고전 사건을 유동성 어휘로 재명명</td></tr>
             <tr><td>order flow (현재)</td><td>귀환 — footprint·delta·CVD로 tape reading이 디지털로 돌아옴(<a href="#extra">보충 영역</a>)</td></tr>
@@ -78,8 +78,8 @@
         <h3 id="sec-relations-4">질문과 기법</h3>
         <p>조합을 짜는 절차는 거꾸로다 — 기법에서 시작하지 않고 질문에서 시작한다. 거래 한 건은 네 질문의 답을 요구하고, 각 기법은 그중 하나의 답이다.</p>
         <figure class="fig">
-          <img src="images/ch14/question-matrix.svg" alt="국면·자리·시점·크기 네 질문에 각각 어떤 기법이 답하는지를 대응시킨 매트릭스" loading="lazy" />
-          <figcaption>그림 4. 질문→기법 매트릭스. 읽는 순서도 이 순서다 — 국면을 먼저 읽고, 자리를 정하고, 트리거를 기다리고, 크기를 계산한다.
+          <img src="images/ch14/question-matrix.svg" alt="국면·자리·시점·무효화 네 질문에 각각 어떤 기법이 답하는지를 대응시킨 매트릭스" loading="lazy" />
+          <figcaption>그림 4. 질문→기법 매트릭스. 읽는 순서도 이 순서다 — 국면을 먼저 읽고, 자리를 정하고, 트리거를 기다리고, 무효화 거리를 적는다.
             <span class="src">출처: 자체 제작</span></figcaption>
         </figure>
         <table>
@@ -88,7 +88,7 @@
             <tr><td>지금 무슨 국면인가</td><td>구조의 HH/HL·range, ADX, bandwidth, 상위 timeframe, Wyckoff 국면<sup class="fnref" id="fnref-relations-5"><a data-scroll="fn-relations-5">5</a></sup></td><td>추세 / range 판독</td></tr>
             <tr><td>어디서 할 것인가</td><td>지지·저항 존, premium(위쪽 절반)·discount(아래쪽 절반), profile 노드, Fibonacci 눈금</td><td>존 — 가격대</td></tr>
             <tr><td>언제 들어가는가</td><td>sweep 회수, CHoCH, 패턴 완성·neckline(목선), candle(봉) 트리거, session·변화일 윈도</td><td>트리거 — 사건</td></tr>
-            <tr><td>얼마나 걸 것인가</td><td>ATR, 측정 목표가, R배수<sup class="fnref" id="fnref-relations-6"><a data-scroll="fn-relations-6">6</a></sup></td><td>거리와 크기</td></tr>
+            <tr><td>어디서 무효인가</td><td>ATR, 무효화 가격</td><td>무효화까지의 거리</td></tr>
           </tbody>
         </table>
         <p>같은 질문에 답하는 기법들은 확인이 아니라 대안이다. 지지 존과 EQ와 0.5 되돌림은 '어디서'의 세 후보다 — 겹치면 근거가 늘어난 것이 아니라 눈금이 조밀해진 것이다(<a href="#ratios">비율과 투사</a>). confluence는 다른 질문의 답이 같은 자리를 가리킬 때 성립한다. 반대로 답이 없는 질문은 허용된다 — "모른다"도 출력이다. 국면을 판독하지 못하면 실행 도구를 켜지 않는 것이 절차의 결과이고, 트리거가 없으면 거래도 없다.</p>
@@ -99,11 +99,11 @@
           <li><b>국면.</b> 상위 timeframe의 구조와 ADX로 추세·range를 읽는다. 추세로 읽히면 추세 도구만, range면 oscillator만 켠다. 판독 불가면 둘 다 끈다.</li>
           <li><b>자리.</b> 읽은 방향으로 되돌림이 닿을 존을 정한다 — 지지·discount·가치영역 하단처럼 축이 다른 근거 둘 이상이 겹치는 가격대.</li>
           <li><b>실행.</b> 존 안에서 하위 구조 전환(CHoCH)이나 sweep 회수 한 가지를 트리거로 고정한다. 트리거가 두 개면 둘 다 흐려진다.</li>
-          <li><b>리스크.</b> 손절은 무효화 가격 너머, 거리는 ATR 단위로 재고, 크기는 고정 리스크 ÷ 거리다. 손익은 R배수로 기록한다.</li>
+          <li><b>리스크.</b> 손절은 무효화 가격 너머이고, 거리는 ATR 단위로 잰다.</li>
           <li><b>무효화.</b> 진입 근거가 사라지는 가격을 주문 전에 적는다 — 존 이탈, sweep 저점 재이탈, 상위 국면의 전환. 셋 중 하나가 닿으면 scenario 폐기다.</li>
         </ol>
-        <p>이 다섯 줄이 앞의 모든 조합을 한 절차로 꿴 것이다 — 국면(Dow·ADX), 자리(존·profile), 확인(거래량·구조 전환), 실행(재방문), 크기(ATR·R). 조합은 부품 나열이 아니라 절차다.</p>
-        <div class="note">체크리스트는 세 문장이다 — 각 창이 다른 질문에 답하는가 / 무효화 가격이 미리 있는가 / 크기가 리스크 단위로 정해지는가. 하나라도 빠지면 체계가 아니라 모니터가 많은 화면이다.</div>
+        <p>이 다섯 줄이 앞의 모든 조합을 한 절차로 꿴 것이다 — 국면(Dow·ADX), 자리(존·profile), 확인(거래량·구조 전환), 실행(재방문), 거리(ATR). 조합은 부품 나열이 아니라 절차다.</p>
+        <div class="note">체크리스트는 두 문장이다 — 각 창이 다른 질문에 답하는가 / 무효화 가격이 미리 있는가. 하나라도 빠지면 체계가 아니라 모니터가 많은 화면이다.</div>
 
         <h3 id="sec-relations-6">조합의 한계 — 더할수록 커지는 착각</h3>
         <p>조합은 alpha를 만들지 않는다 — 역할을 나눌 뿐이다. 다섯 창이 전부 답해도 기댓값은 시장이 정한다. 분담이 잘됐다는 것은 절차가 성립한다는 뜻이지 우위가 생겼다는 뜻이 아니다.</p>
@@ -124,8 +124,6 @@
               <a class="fnback" data-scroll="fnref-relations-4">↩</a></li>
             <li id="fn-relations-5"><b>regime(국면)</b>: 추세·range처럼 어떤 도구가 유효한지를 정하는 시장 상태의 구간. 국면이 바뀌면 같은 지표의 성격이 바뀐다.
               <a class="fnback" data-scroll="fnref-relations-5">↩</a></li>
-            <li id="fn-relations-6"><b>R배수(R-multiple)</b>: 손절 거리를 1R로 둔 손익의 단위 — 2R 수익은 위험의 두 배를 벌었다는 뜻. 크기 기록의 공용 자다.
-              <a class="fnback" data-scroll="fnref-relations-6">↩</a></li>
           </ol>
         </div>
 
