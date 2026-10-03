@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" font-family="IBM Plex Sans KR, sans-serif">
   <rect width="700" height="280" fill="#f7f1e6"/>
-  <text x="24" y="24" font-size="12" fill="#8a7f70" letter-spacing="1">FLAG · 깃발 — 깃대 뒤의 작은 역기울기 채널</text>
+  <text x="24" y="24" font-size="12" fill="#8a7f70" letter-spacing="1">FLAG · 깃발 — 깃대 뒤의 작은 역기울기 channel</text>
 
   <!-- 깃발 채널: 추세 반대로 살짝 기운 평행선 -->
   <line x1="200" y1="73" x2="345" y2="83" stroke="#b08948" stroke-width="1.2" stroke-dasharray="5 4"/>

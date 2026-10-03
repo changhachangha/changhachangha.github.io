@@ -17,7 +17,7 @@
   <text x="166" y="62" font-size="10" fill="#8a7f70">가격</text>
   <text x="222" y="62" font-size="10" fill="#8a7f70">매도 bid</text>
   <text x="296" y="62" font-size="10" fill="#8a7f70">매수 ask</text>
-  <text x="392" y="62" font-size="10" fill="#8a7f70">Δ 델타</text>
+  <text x="392" y="62" font-size="10" fill="#8a7f70">Δ delta</text>
   <g font-size="11" fill="#4a453c">
     <text x="166" y="82">103.50</text><text x="230" y="82">14</text><text x="302" y="82">31</text>
     <text x="166" y="106">103.25</text><text x="230" y="106">22</text><text x="302" y="106">47</text>
@@ -54,7 +54,7 @@
   <circle cx="608" cy="84" r="2.5" fill="#4a453c"/><circle cx="660" cy="74" r="2.5" fill="#4a453c"/>
   <text x="612" y="64" font-size="10" fill="#4a453c">신고가 HH</text>
 
-  <text x="506" y="176" font-size="10" fill="#8a7f70">CVD 누적 델타</text>
+  <text x="506" y="176" font-size="10" fill="#8a7f70">CVD 누적 delta</text>
   <path d="M506 250 L540 210 L574 224 L608 214 L660 218" fill="none" stroke="#b08948" stroke-width="1.8"/>
   <circle cx="608" cy="214" r="2.5" fill="#b08948"/><circle cx="660" cy="218" r="2.5" fill="#b08948"/>
   <text x="586" y="248" font-size="10" fill="#8f3d3a">고점이 낮아짐 LH</text>

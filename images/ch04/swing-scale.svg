@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 270" font-family="IBM Plex Sans KR, sans-serif">
   <rect width="720" height="270" fill="#f7f1e6"/>
-  <text x="24" y="26" font-size="12" fill="#8a7f70" letter-spacing="1">SAME PATH, DIFFERENT SWING COUNT · 같은 경로, 다른 스윙 수</text>
+  <text x="24" y="26" font-size="12" fill="#8a7f70" letter-spacing="1">SAME PATH, DIFFERENT SWING COUNT · 같은 경로, 다른 swing 수</text>
 
   <!-- 좌: 작은 스케일 -->
   <text x="30" y="52" fill="#4a453c" font-size="13" font-weight="600">작은 스케일 · sensitive</text>
@@ -15,7 +15,7 @@
     <circle cx="298" cy="44" r="3.4"/>
   </g>
   <circle cx="40" cy="200" r="3.4" fill="#8f3d3a"/><circle cx="322" cy="64" r="3.4" fill="#8f3d3a"/>
-  <text x="40" y="238" fill="#4a453c" font-size="11" opacity="0.8">피벗 11개 — 신호가 많고 거짓도 많다</text>
+  <text x="40" y="238" fill="#4a453c" font-size="11" opacity="0.8">pivot 11개 — 신호가 많고 거짓도 많다</text>
 
   <!-- 중앙 구분선 -->
   <line x1="355" y1="40" x2="355" y2="240" stroke="#b08948" stroke-width="1" stroke-dasharray="3 5" opacity="0.6"/>
@@ -38,5 +38,5 @@
     <circle cx="490" cy="134" r="2.4"/><circle cx="504" cy="143" r="2.4"/>
     <circle cx="538" cy="96" r="2.4"/><circle cx="558" cy="104" r="2.4"/>
   </g>
-  <text x="390" y="238" fill="#4a453c" font-size="11" opacity="0.8">피벗 6개 — 신호가 늦지만 견고하다</text>
+  <text x="390" y="238" fill="#4a453c" font-size="11" opacity="0.8">pivot 6개 — 신호가 늦지만 견고하다</text>
 </svg>

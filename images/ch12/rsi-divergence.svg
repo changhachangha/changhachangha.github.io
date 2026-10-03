@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" font-family="IBM Plex Sans KR, sans-serif">
   <rect width="700" height="330" fill="#f7f1e6"/>
 
-  <text x="40" y="28" fill="#4a453c" font-size="12" font-weight="600">RSI 다이버전스 — 가격은 고점을 높이는데 모멘텀은 못 따라간다</text>
+  <text x="40" y="28" fill="#4a453c" font-size="12" font-weight="600">RSI divergence — 가격은 고점을 높이는데 momentum은 못 따라간다</text>
 
   <!-- ===== 위 패널: 가격 ===== -->
   <text x="48" y="56" fill="#8a7f70" font-size="10.5">가격 price</text>
@@ -34,7 +34,7 @@
   <line x1="230" y1="204" x2="490" y2="236" stroke="#8f3d3a" stroke-width="1.4" stroke-dasharray="5,4"/>
   <circle cx="230" cy="204" r="3.2" fill="#8f3d3a"/>
   <circle cx="490" cy="236" r="3.2" fill="#8f3d3a"/>
-  <text x="500" y="240" fill="#8f3d3a" font-size="11">RSI 고점 ↓ LH — 모멘텀은 약해짐</text>
+  <text x="500" y="240" fill="#8f3d3a" font-size="11">RSI 고점 ↓ LH — momentum은 약해짐</text>
   <text x="240" y="196" fill="#8a7f70" font-size="9.5">첫 고점은 과매수권</text>
 
   <!-- 정렬 보조선 -->

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" font-family="IBM Plex Sans KR, sans-serif">
   <rect width="700" height="260" fill="#f7f1e6"/>
-  <text x="30" y="28" fill="#4a453c" font-size="13" font-weight="600">간 팬과 스케일 문제 · Gann fan and the scale problem</text>
+  <text x="30" y="28" fill="#4a453c" font-size="13" font-weight="600">Gann fan과 스케일 문제 · Gann fan and the scale problem</text>
 
   <!-- 좌 패널: 표준 간 팬 -->
   <text x="40" y="56" fill="#4a453c" font-size="11" font-weight="600">① 1일 = 1포인트로 정한 스케일</text>

@@ -4,7 +4,7 @@
 
   <!-- 넥라인: 두 저점 사이의 중간 고점 -->
   <line x1="150" y1="128" x2="560" y2="128" stroke="#b08948" stroke-width="1.4" stroke-dasharray="6 4"/>
-  <text x="556" y="120" fill="#b08948" font-size="11" text-anchor="end">중간 고점 = 넥라인 · neckline</text>
+  <text x="556" y="120" fill="#b08948" font-size="11" text-anchor="end">중간 고점 = neckline</text>
 
   <!-- 가격 경로: 하락 → 저점1 → 중간 고점 → 저점2 → 돌파 → 되돌림 → 상승 -->
   <path d="M40 55 L110 140 L175 195 L255 128 L325 193 L395 118 L430 132 L500 85 L600 60 L655 55"
