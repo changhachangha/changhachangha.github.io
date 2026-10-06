@@ -10,7 +10,7 @@
           <thead><tr><th>이름</th><th>읽기</th><th>장</th></tr></thead>
           <tbody>
             <tr><td>OHLCV</td><td>시가·고가·저가·종가·거래량. 봉 하나의 요약이고 모든 차트의 원료.</td><td><a href="#charts">06</a></td></tr>
-            <tr><td>바</td><td>왼쪽 가지가 시가, 오른쪽 가지가 종가. OHLC를 남긴다. 고가와 저가의 순서는 그 네 값 밖에 있다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>bar</td><td>왼쪽 가지가 시가, 오른쪽 가지가 종가. OHLC를 남긴다. 고가와 저가의 순서는 그 네 값 밖에 있다.</td><td><a href="#charts">06</a></td></tr>
             <tr><td>candle(봉)</td><td>시가와 종가 사이를 몸통으로 칠하고 고가·저가를 꼬리로 뺀다. 그 구간에 어느 쪽이 이겼는지가 읽힌다.</td><td><a href="#charts">06</a></td></tr>
             <tr><td>몸통</td><td>시가와 종가 사이. 종가가 시가 위면 양봉, 아래면 음봉.</td><td><a href="#candles">08</a></td></tr>
             <tr><td>꼬리</td><td>몸통에서 고가·저가까지 뻗은 선. 긴 아랫꼬리는 아래로 밀린 물량이 흡수된 자국, 긴 윗꼬리는 위로 간 물량이 거부된 자국.</td><td><a href="#candles">08</a></td></tr>
@@ -21,7 +21,7 @@
         <table>
           <thead><tr><th>이름</th><th>읽기</th><th>장</th></tr></thead>
           <tbody>
-            <tr><td>라인</td><td>종가만 잇는다. 고가·저가·시가는 빠진다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>line</td><td>종가만 잇는다. 고가·저가·시가는 빠진다.</td><td><a href="#charts">06</a></td></tr>
             <tr><td>렌코</td><td>정한 폭의 벽돌. 그 폭이 채워질 때 새 벽돌이 붙고, 시간과 그 미만의 움직임은 빠진다.</td><td><a href="#charts">06</a></td></tr>
             <tr><td>카기</td><td>직전 고점 위로 올라가면 선이 굵어지고, 직전 저점 아래로 내려가면 가늘어진다.</td><td><a href="#charts">06</a></td></tr>
             <tr><td>three-line break</td><td>직전 선의 끝을 넘어야 새 선이 생긴다. 반전 선은 최근 세 선을 종가가 넘겨야 그려진다.</td><td><a href="#charts">06</a></td></tr>
@@ -30,9 +30,9 @@
             <tr><td>triple-top breakout</td><td>X 열이 앞선 고점 둘을 넘는 돌파.</td><td><a href="#charts">06</a></td></tr>
             <tr><td>double-bottom breakdown</td><td>double-top breakout의 거울.</td><td><a href="#charts">06</a></td></tr>
             <tr><td>triple-bottom breakdown</td><td>triple-top breakout의 거울.</td><td><a href="#charts">06</a></td></tr>
-            <tr><td>틱 바</td><td>N 건의 체결마다 봉을 닫는다.</td><td><a href="#charts">06</a></td></tr>
-            <tr><td>volume(거래량) 바</td><td>N 주마다 봉을 닫는다.</td><td><a href="#charts">06</a></td></tr>
-            <tr><td>range(구간) 바</td><td>정한 고저 폭이 채워질 때 봉을 닫는다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>tick bar</td><td>N 건의 체결마다 봉을 닫는다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>volume(거래량) bar</td><td>N 주마다 봉을 닫는다.</td><td><a href="#charts">06</a></td></tr>
+            <tr><td>range(구간) bar</td><td>정한 고저 폭이 채워질 때 봉을 닫는다.</td><td><a href="#charts">06</a></td></tr>
             <tr><td>하이킨아시</td><td>HA종가는 그 봉 OHLC의 평균, HA시가는 직전 HA 시가와 종가의 평균. 화면의 가격은 재계산 값이다.</td><td><a href="#charts">06</a></td></tr>
             <tr><td>TPO</td><td>가격대별 빈도. 가장 긴 행이 POC, 약 70%의 띠가 가치영역, 첫 두 문자가 Initial Balance.</td><td><a href="#charts">06</a></td></tr>
             <tr><td>가치영역</td><td>가격이 그 띠를 받아들이면 회귀, 거부하면 이탈.</td><td><a href="#charts">06</a></td></tr>
@@ -63,7 +63,7 @@
             <tr><td>BOS</td><td>추세 방향으로 직전 swing을 깨는 지속.</td><td><a href="#structure">04</a></td></tr>
             <tr><td>CHoCH</td><td>반대 방향으로 swing이 처음 깨지는 조기 경고.</td><td><a href="#structure">04</a></td></tr>
             <tr><td>MSS</td><td>CHoCH의 ICT 이름. 같은 사건.</td><td><a href="#structure">04</a></td></tr>
-            <tr><td>2B</td><td>새 극값이 실패한 뒤 직전 되돌림 swing이 깨지는 사건. CHoCH와 같은 사건.</td><td><a href="#structure">04</a></td></tr>
+            <tr><td>2B</td><td>새 고점이 직전 고점을 넘었다가 그 고점 아래로 되밀리는 실패 돌파. 저점은 거울이다. upthrust·sweep·가짜 돌파에 가깝고, 그 뒤 반대 swing이 깨지면 CHoCH다.</td><td><a href="#structure">04</a></td></tr>
             <tr><td>sweep</td><td>꼬리가 swing을 넘었다가 회수된 자리. 깨짐의 보통 기준은 종가.</td><td><a href="#structure">04</a></td></tr>
             <tr><td>지지·저항</td><td>지지는 수요의 집중, 저항은 공급의 집중. 자리는 폭이 있는 존.</td><td><a href="#structure">04</a></td></tr>
             <tr><td>polarity</td><td>깨진 저항은 지지가 되고, 깨진 지지는 저항이 된다.</td><td><a href="#structure">04</a></td></tr>
@@ -93,14 +93,14 @@
             <tr><td>대칭 삼각</td><td>낮아지는 고점과 높아지는 저점의 수렴. 압축의 형상.</td><td><a href="#patterns">07</a></td></tr>
             <tr><td>확산형(megaphone)</td><td>고점은 높아지고 저점은 낮아진다. Edwards·Magee는 분산, 통제를 잃은 시장으로 읽었다.</td><td><a href="#patterns">07</a></td></tr>
             <tr><td>직사각형</td><td>수평 지지·저항의 상자. 지속으로 끝나기도 하고 반전으로 끝나기도 한다.</td><td><a href="#patterns">07</a></td></tr>
-            <tr><td>cup with handle(손잡이)</td><td>둥근 조정과 얕은 되돌림. 확인은 손잡이 너머 선행 고점의 돌파. O'Neil의 패턴.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>cup with handle(컵과 손잡이)</td><td>둥근 조정과 얕은 되돌림. 확인은 손잡이 너머 선행 고점의 돌파. O'Neil의 패턴.</td><td><a href="#patterns">07</a></td></tr>
             <tr><td>Darvas box</td><td>위는 고점 위의 정체, 아래는 그 바닥인 상자.</td><td><a href="#patterns">07</a></td></tr>
             <tr><td>측정 목표가</td><td>패턴의 높이를 돌파 지점에서 돌파 방향으로 옮긴 최소 기대치.</td><td><a href="#patterns">07</a></td></tr>
             <tr><td>pullback / throwback(되돌림)</td><td>돌파 뒤 경계선으로 되돌아오는 재방문.</td><td><a href="#patterns">07</a></td></tr>
             <tr><td>busted pattern</td><td>확인된 돌파가 패턴 안으로 돌아오면 반대 방향의 신호.</td><td><a href="#patterns">07</a></td></tr>
-            <tr><td>가짜 돌파</td><td>경계를 넘긴 뒤 안으로 되밀린 봉. upthrust, liquidity sweep와 같은 봉.</td><td><a href="#patterns">07</a></td></tr>
-            <tr><td>spring(일시 이탈 후 회수)</td><td>range 하단을 깨고 안으로 닫히는 회수.</td><td><a href="#atlas">09</a></td></tr>
-            <tr><td>FVG(공정가치 gap)</td><td>첫째 봉의 고가와 셋째 봉의 저가가 겹치지 않아 남는 빈 구간. 재방문으로 읽는다.</td><td><a href="#atlas">09</a></td></tr>
+            <tr><td>가짜 돌파</td><td>경계를 넘긴 뒤 안으로 되밀린 봉. upthrust, liquidity sweep과 같은 봉.</td><td><a href="#patterns">07</a></td></tr>
+            <tr><td>spring(일시 이탈 후 회수)</td><td>range 하단을 깨고 안으로 닫히는 회수.</td><td><a href="#theories">03</a></td></tr>
+            <tr><td>FVG(공정가치 gap)</td><td>첫째 봉의 고가와 셋째 봉의 저가가 겹치지 않아 남는 빈 구간. 재방문으로 읽는다.</td><td><a href="#smc">05</a></td></tr>
             <tr><td>AB=CD</td><td>BC 되돌림 뒤 CD가 AB와 같은 크기.</td><td><a href="#harmonic">11</a></td></tr>
             <tr><td>Gartley</td><td>B는 0.618, D는 0.786. D는 X 안에서 완성되는 내부 되돌림.</td><td><a href="#harmonic">11</a></td></tr>
             <tr><td>Bat(박쥐)</td><td>B는 0.382–0.50, D는 0.886. D는 X 앞에서 완성.</td><td><a href="#harmonic">11</a></td></tr>
@@ -139,7 +139,7 @@
             <tr><td>상승삼병</td><td>세 양봉이 각각 전봉 몸통 안에서 열리고 종가가 순차로 높아진다. 추진의 지속.</td><td><a href="#candles">08</a></td></tr>
             <tr><td>세 마리 까마귀</td><td>하락의 삼병.</td><td><a href="#candles">08</a></td></tr>
             <tr><td>삼법</td><td>긴 봉, 그 안의 짧은 봉들, 다시 같은 방향의 긴 봉. flag과 같은 쉼.</td><td><a href="#candles">08</a></td></tr>
-            <tr><td>삼산</td><td>세 번의 고점. 서양 이름은 트리플 탑, head and shoulders.</td><td><a href="#candles">08</a></td></tr>
+            <tr><td>삼산</td><td>세 번의 고점. 서양 이름은 triple top, head and shoulders.</td><td><a href="#candles">08</a></td></tr>
             <tr><td>삼천</td><td>세 번의 시험이 방향을 트는 전환. 서양 대응은 삼중 바닥.</td><td><a href="#candles">08</a></td></tr>
             <tr><td>삼공</td><td>연속 세 gap(창) 뒤의 소진.</td><td><a href="#candles">08</a></td></tr>
           </tbody>

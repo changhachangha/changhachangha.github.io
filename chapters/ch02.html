@@ -1,5 +1,5 @@
 <!-- CHAPTER 02 · assumptions -->
-<!-- LEX: [{"t": "할인", "k": "이론", "p": "assumptions", "aka": "할인 market discounts everything", "d": "모든 정보는 이미 가격에 있다는 TA 가정."}, {"t": "추세", "k": "이론", "p": "assumptions", "aka": "추세 HH HL LH LL", "d": "가격이 한 방향으로 지속된다는 가정. 상승은 HH/HL."}, {"t": "효율시장가설", "k": "이론", "p": "assumptions", "aka": "효율시장가설 EMH 약형 준강형 강형", "d": "가격의 정보 반영 정도. 약형은 과거 가격만으로 초과수익 불가."}, {"t": "적응적 시장 가설", "k": "이론", "p": "assumptions", "aka": "적응적 시장 가설 AMH Lo 2004", "d": "효율성은 고정이 아니라 환경·참여자의 함수. 기회는 생겼다 사라진다."}, {"t": "과최적화", "k": "언어", "p": "assumptions", "aka": "과최적화 overfitting curve fitting", "d": "파라미터를 과거에 맞춰 미래에서 깨지는 검증 오염."}, {"t": "lookahead bias", "k": "언어", "p": "assumptions", "aka": "룩어헤드 편향 백테스트 룩어헤드 lookahead bias", "d": "시험 시점에 알 수 없던 정보를 쓰는 backtest 오류."}, {"t": "생존자 편향", "k": "언어", "p": "assumptions", "aka": "생존자 편향 survivorship bias", "d": "사라진 종목을 뺀 표본으로 검증해 성과를 부풀리는 오류."}, {"t": "다중비교", "k": "언어", "p": "assumptions", "aka": "다중비교 multiple comparisons data snooping 데이터 스누핑", "d": "규칙을 많이 시험할수록 가짜 유의가 나오는 문제."}, {"t": "확증편향", "k": "언어", "p": "assumptions", "aka": "확증편향 confirmation bias", "d": "맞은 사례만 기억하고 실패를 미완성으로 부르는 해석 편향."}] -->
+<!-- LEX: [{"t": "할인", "k": "이론", "p": "assumptions", "aka": "할인 market discounts everything", "d": "모든 정보는 이미 가격에 있다는 TA 가정."}, {"t": "추세", "k": "이론", "p": "assumptions", "aka": "추세 HH HL LH LL", "d": "가격이 한 방향으로 지속된다는 가정. 상승은 HH/HL."}, {"t": "효율시장가설", "k": "이론", "p": "assumptions", "aka": "효율시장가설 EMH 약형 준강형 강형", "d": "가격의 정보 반영 정도. 약형은 과거 가격만으로 초과수익 불가."}, {"t": "adaptive markets hypothesis", "k": "이론", "p": "assumptions", "aka": "적응적 시장 가설 AMH Lo 2004", "d": "효율성은 고정이 아니라 환경·참여자의 함수. 기회는 생겼다 사라진다."}, {"t": "과최적화", "k": "언어", "p": "assumptions", "aka": "과최적화 overfitting curve fitting 파라미터 parameter", "d": "parameter를 과거에 맞춰 미래에서 깨지는 검증 오염."}, {"t": "lookahead bias", "k": "언어", "p": "assumptions", "aka": "룩어헤드 편향 백테스트 룩어헤드 lookahead bias", "d": "시험 시점에 알 수 없던 정보를 쓰는 backtest 오류."}, {"t": "생존자 편향", "k": "언어", "p": "assumptions", "aka": "생존자 편향 survivorship bias", "d": "사라진 종목을 뺀 표본으로 검증해 성과를 부풀리는 오류."}, {"t": "다중비교", "k": "언어", "p": "assumptions", "aka": "다중비교 multiple comparisons data snooping 데이터 스누핑", "d": "규칙을 많이 시험할수록 가짜 유의가 나오는 문제."}, {"t": "확증편향", "k": "언어", "p": "assumptions", "aka": "확증편향 confirmation bias", "d": "맞은 사례만 기억하고 실패를 미완성으로 부르는 해석 편향."}] -->
 
         <div class="crumb">Chapter 02</div>
         <h2 class="page-title">전제와 한계</h2>
@@ -21,13 +21,13 @@
         </nav>
 
         <h3 id="sec-assumptions-1">세 가정의 유래</h3>
-        <p>세 가정은 한 사람의 설계가 아니라 30년에 걸친 편집의 결과다. Charles Dow는 월스트리트저널을 창간하고 1902년 죽기까지 사설로 시장의 행동 원리를 산발적으로 썼다 — 스스로 이론이라고 부른 적은 없다. 사설의 자리는 William P. Hamilton이 이어받아 <i>The Stock Market Barometer</i>(1922)로 다듬었고<sup class="cit"><a data-scroll="src-assumptions-1">[1]</a></sup>, Robert Rhea가 <i>The Dow Theory</i>(1932)에서 오늘 읽히는 형태로 정리했다<sup class="cit"><a data-scroll="src-assumptions-2">[2]</a></sup>. 이후 Edwards와 Magee의 추세 추종 교과서<sup class="cit"><a data-scroll="src-assumptions-3">[3]</a></sup>, Murphy의 종합서<sup class="cit"><a data-scroll="src-assumptions-4">[4]</a></sup>가 같은 뼈대를 "세 가정"으로 명문화했다.</p>
+        <p>세 가정은 한 사람의 설계가 아니라 30년에 걸친 편집의 결과다. Charles Dow는 월스트리트저널을 창간하고 1902년 죽기까지 사설로 시장의 행동 원리를 썼으나 스스로 이론이라고 부른 적은 없으며, Hamilton<sup class="cit"><a data-scroll="src-assumptions-1">[1]</a></sup>과 Rhea<sup class="cit"><a data-scroll="src-assumptions-2">[2]</a></sup>가 정리한 경위의 전문은 <a href="#theories">03 고전 이론</a>에 있다. Edwards와 Magee의 추세 추종 교과서<sup class="cit"><a data-scroll="src-assumptions-3">[3]</a></sup>, Murphy의 종합서<sup class="cit"><a data-scroll="src-assumptions-4">[4]</a></sup>가 같은 뼈대를 "세 가정"으로 명문화했다.</p>
         <ol>
           <li><b>시장은 모든 것을 할인한다.</b> 뉴스와 실적은 이미 가격에 있다. 차트는 그 집합 반응이다.</li>
           <li><b>가격은 추세로 움직인다.</b> 상승은 HH/HL, 하락은 LH/LL, 아니면 횡보.</li>
           <li><b>역사는 반복한다.</b> 군중 심리의 형태가 비슷하니 패턴이 다시 보인다.</li>
         </ol>
-        <p>세 가정은 증명된 법칙이 아니라 작업가설이다. 법칙으로 읽으면 그 읽기는 폐기한다.</p>
+        <p>세 가정은 증명된 법칙이 아니라 작업가설이다. 법칙으로 읽어선 안 된다.</p>
 
         <h3 id="sec-assumptions-2">가정 1 · 시장은 모든 것을 할인한다</h3>
         <p>할인<sup class="fnref" id="fnref-assumptions-1"><a data-scroll="fn-assumptions-1">1</a></sup>은 Dow 사설이 반복한 주장이고, 표준 문구는 Murphy의 것이다 — "시장 행동은 모든 것을 할인한다(market action discounts everything)"<sup class="cit"><a data-scroll="src-assumptions-4">[4]</a></sup>. 가격은 모든 참여자의 지식과 기대와 공포가 체결로 압축된 결과물이라는 뜻이다.</p>
@@ -79,20 +79,20 @@
           </div>
           <div class="card">
             <h4>과최적화</h4>
-            <p>파라미터를 과거에 맞추면 어떤 지표든 예뻐진다<sup class="fnref" id="fnref-assumptions-4"><a data-scroll="fn-assumptions-4">4</a></sup>. 오염원은 셋이다. <b>lookahead bias</b><sup class="fnref" id="fnref-assumptions-5"><a data-scroll="fn-assumptions-5">5</a></sup>은 시험 시점에 알 수 없던 데이터를 쓰는 오류다 — 확정 전 재무, 리밸런싱 후 구성종목이 대표 사례다. <b>생존자 편향</b><sup class="fnref" id="fnref-assumptions-6"><a data-scroll="fn-assumptions-6">6</a></sup>은 상장폐지 종목이 빠진 표본으로 성과를 부풀린다. <b>다중비교</b><sup class="fnref" id="fnref-assumptions-7"><a data-scroll="fn-assumptions-7">7</a></sup>는 규칙을 많이 시험할수록 가짜 유의가 나오는 문제다 — 5% 유의수준이면 20개 중 1개는 우연이 통과한다<sup class="cit"><a data-scroll="src-assumptions-5">[5]</a></sup>.</p>
+            <p>parameter(매개변수)를 과거에 맞추면 어떤 지표든 예뻐진다<sup class="fnref" id="fnref-assumptions-4"><a data-scroll="fn-assumptions-4">4</a></sup>. 오염원은 셋이다. <b>lookahead bias</b><sup class="fnref" id="fnref-assumptions-5"><a data-scroll="fn-assumptions-5">5</a></sup>는 시험 시점에 알 수 없던 데이터를 쓰는 오류다 — 확정 전 재무, rebalancing(재구성) 후 구성종목이 대표 사례다. <b>생존자 편향</b><sup class="fnref" id="fnref-assumptions-6"><a data-scroll="fn-assumptions-6">6</a></sup>은 상장폐지 종목이 빠진 표본으로 성과를 부풀린다. <b>다중비교</b><sup class="fnref" id="fnref-assumptions-7"><a data-scroll="fn-assumptions-7">7</a></sup>는 규칙을 많이 시험할수록 가짜 유의가 나오는 문제다 — 5% 유의수준이면 평균적으로 20개 중 1개꼴로 우연이 통과한다<sup class="cit"><a data-scroll="src-assumptions-5">[5]</a></sup>.</p>
           </div>
         </div>
         <figure class="fig">
           <img src="images/ch02/overfitting.svg" alt="in-sample에서 부드럽게 우상향하던 규칙 곡선이 out-of-sample에서 흔들리는 모습" loading="lazy" />
-          <figcaption>그림 3. 과최적화의 형태. 검증 경계 왼쪽(in-sample)에서는 맞춰진 파라미터가 매끄럽게 먹히고, 오른쪽(out-of-sample)에서 같은 규칙이 깨진다.
+          <figcaption>그림 3. 과최적화의 형태. 검증 경계 왼쪽(in-sample)에서는 맞춰진 parameter가 매끄럽게 먹히고, 오른쪽(out-of-sample)에서 같은 규칙이 깨진다.
             <span class="src">출처: 자체 제작</span></figcaption>
         </figure>
         <div class="warn">확증편향: 맞은 head and shoulders(머리어깨)만 기억하고, 실패한 패턴은 아직 미완성이라고 부른다. 방어는 진입 전에 무효화 가격을 글로 적어 두는 것이다.</div>
 
         <h3 id="sec-assumptions-7">학술적 검증과 실무 함의</h3>
         <p>학술 쪽은 혼재다. Fama(1970)의 효율시장가설<sup class="fnref" id="fnref-assumptions-8"><a data-scroll="fn-assumptions-8">8</a></sup>은 세 형태로 나뉜다 — 약형은 과거 가격 정보, 준강형은 공개 정보 전부, 강형은 비공개까지 반영한다는 주장이다. 약형이 성립하면 과거 가격만으로는 초과수익이 불가능하고, 이것이 기술적 분석에 대한 정면 반박이었다<sup class="cit"><a data-scroll="src-assumptions-6">[6]</a></sup>.</p>
-        <p>반박의 반박도 나왔다. Lo와 MacKinlay는 분산비 검정으로 미국 주간 수익률(1962~1985)에서 유의한 양의 자기상관을 찾아 랜덤워크를 기각했고, <i>A Non-Random Walk Down Wall Street</i>(1999)으로 정리했다<sup class="cit"><a data-scroll="src-assumptions-7">[7]</a></sup>. Brock·Lakonishok·LeBaron(1992)은 Dow 약 90년(1897~1986)에 이동평균과 range 돌파 규칙을 대입해 매수 신호 후 수익률이 매도 신호 후보다 유의하게 높다고 보고했다<sup class="cit"><a data-scroll="src-assumptions-8">[8]</a></sup>.</p>
-        <p>다만 Sullivan·Timmermann·White(1999)가 다중비교를 보정하고 규칙 우주를 넓혀 다시 시험하자 우위가 표본과 기간에 따라 흔들렸다<sup class="cit"><a data-scroll="src-assumptions-9">[9]</a></sup>. 로의 적응적 시장 가설<sup class="fnref" id="fnref-assumptions-9"><a data-scroll="fn-assumptions-9">9</a></sup>(2004)은 이 혼재를 설명한다 — 효율성은 고정 상태가 아니라 참여자 구성과 환경의 함수이고, 이윤 기회는 생겼다가 경쟁이 몰리면 사라진다<sup class="cit"><a data-scroll="src-assumptions-10">[10]</a></sup>.</p>
+        <p>반박의 반박도 나왔다. Lo와 MacKinlay는 분산비 검정으로 미국 주간 수익률(1962~1985)에서 유의한 양의 자기상관을 찾아 random walk(무작위 보행)을 기각했고, <i>A Non-Random Walk Down Wall Street</i>(1999)로 정리했다<sup class="cit"><a data-scroll="src-assumptions-7">[7]</a></sup>. Brock·Lakonishok·LeBaron(1992)은 Dow 약 90년(1897~1986)에 이동평균과 range 돌파 규칙을 대입해 매수 신호 후 수익률이 매도 신호 후보다 유의하게 높다고 보고했다<sup class="cit"><a data-scroll="src-assumptions-8">[8]</a></sup>.</p>
+        <p>다만 Sullivan·Timmermann·White(1999)가 다중비교를 보정하고 규칙 우주를 넓혀 다시 시험하자 우위가 표본과 기간에 따라 흔들렸다<sup class="cit"><a data-scroll="src-assumptions-9">[9]</a></sup>. Lo의 adaptive markets hypothesis(적응적 시장 가설)<sup class="fnref" id="fnref-assumptions-9"><a data-scroll="fn-assumptions-9">9</a></sup>(2004)은 이 혼재를 설명한다 — 효율성은 고정 상태가 아니라 참여자 구성과 환경의 함수이고, 이윤 기회는 생겼다가 경쟁이 몰리면 사라진다<sup class="cit"><a data-scroll="src-assumptions-10">[10]</a></sup>.</p>
         <p>가정이 참인지는 증명되지 않는다. 남는 사용법은 예언이 아니라 <b>scenario + 무효화 가격</b>이다. 조건이 서면 scenario를 연다. 무효화 가격이 깨지면 그 읽기는 폐기한다.</p>
 
         <div class="footnotes">
@@ -106,15 +106,15 @@
             <a class="fnback" data-scroll="fnref-assumptions-3">↩</a></li>
             <li id="fn-assumptions-4"><b>과최적화(Overfitting)</b>: 곡선 맞추기(curve fitting). in-sample에서 잘 맞는 규칙이 out-of-sample에서 깨지는 현상.
             <a class="fnback" data-scroll="fnref-assumptions-4">↩</a></li>
-            <li id="fn-assumptions-5"><b>lookahead bias</b>: 검증 시점에 알 수 없던 정보를 쓰는 backtest 오류. 확정 전 재무 데이터, 생존 종목만의 구성이 대표 사례.
+            <li id="fn-assumptions-5"><b>lookahead bias</b>: 검증 시점에 알 수 없던 정보를 쓰는 backtest 오류. 당시 발표되지 않은 재무치를 쓰는 것, 종가 확정 전에 신호를 내는 것이 대표 사례.
             <a class="fnback" data-scroll="fnref-assumptions-5">↩</a></li>
             <li id="fn-assumptions-6"><b>생존자 편향(Survivorship bias)</b>: 상장폐지·파산 종목이 빠진 표본으로 검증해 전략 성과를 부풀리는 왜곡.
             <a class="fnback" data-scroll="fnref-assumptions-6">↩</a></li>
-            <li id="fn-assumptions-7"><b>다중비교(Multiple comparisons)</b>: 시험하는 규칙 수가 늘면 우연히 유의한 결과가 확실히 나오는 문제. data snooping의 통계 이름.
+            <li id="fn-assumptions-7"><b>다중비교(Multiple comparisons)</b>: 시험하는 규칙 수가 늘면 우연히 유의한 결과가 평균적으로 20개 중 1개꼴로 나오는 문제. data snooping의 통계 이름.
             <a class="fnback" data-scroll="fnref-assumptions-7">↩</a></li>
             <li id="fn-assumptions-8"><b>효율시장가설(Efficient Market Hypothesis, EMH)</b>: 가격이 정보를 얼마나 반영하는가의 세 형태 — 약형(과거 가격) · 준강형(공개 정보) · 강형(모든 정보).
             <a class="fnback" data-scroll="fnref-assumptions-8">↩</a></li>
-            <li id="fn-assumptions-9"><b>적응적 시장 가설(Adaptive Market Hypothesis, AMH)</b>: Andrew Lo의 진화론적 재해석. 효율성은 참여자와 환경에 따라 변하고 이윤 기회는 생겼다 사라진다.
+            <li id="fn-assumptions-9"><b>adaptive markets hypothesis(적응적 시장 가설, AMH)</b>: Andrew Lo의 진화론적 재해석. 효율성은 참여자와 환경에 따라 변하고 이윤 기회는 생겼다 사라진다.
             <a class="fnback" data-scroll="fnref-assumptions-9">↩</a></li>
           </ol>
         </div>
