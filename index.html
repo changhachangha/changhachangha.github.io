@@ -30,7 +30,7 @@
       font-family: "IBM Plex Sans KR", sans-serif;
       background: var(--paper);
       color: var(--ink);
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
     }
     body::before {
       content: "";
@@ -129,7 +129,9 @@
     p, li { line-height: 1.75; }
     p { margin: 0 0 14px; }
     ul, ol { margin: 0 0 16px; padding-left: 1.2em; }
-    .grid { display: grid; gap: 14px; }
+    .grid { display: grid; gap: 16px; }
+    .grid + .grid { margin-top: 16px; }
+    .grid + .chapter-summary { margin-top: 16px; }
     .grid.two { grid-template-columns: 1fr 1fr; }
     .grid.three { grid-template-columns: repeat(3, 1fr); }
     .card {
@@ -197,6 +199,7 @@
       padding: 10px 12px;
       text-align: left;
       vertical-align: top;
+      line-height: 1.55;
     }
     th { background: #ebe3d4; font-weight: 600; }
     .tag {
@@ -211,58 +214,83 @@
     .tag.bear { color: var(--bear); }
     .note {
       border-left: 3px solid var(--pine);
-      padding: 10px 14px;
+      padding: 12px 14px;
       background: #e7eee8;
       margin: 16px 0;
       font-size: 14px;
+      line-height: 1.6;
     }
     .warn {
       border-left: 3px solid var(--bear);
-      padding: 10px 14px;
+      padding: 12px 14px;
       background: #f4e7e4;
       margin: 16px 0;
       font-size: 14px;
+      line-height: 1.6;
     }
     .atlas {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 14px;
+      gap: 16px;
     }
-    .atlas .card { padding: 14px; }
+    .atlas .card { margin: 0; padding: 14px; }
     .atlas svg { width: 100%; height: 120px; display: block; background: #f7f1e6; border-radius: 8px; }
-    .atlas figcaption { margin-top: 10px; font-size: 14px; font-weight: 600; }
-    .atlas p { font-size: 13px; color: var(--ink-soft); margin: 4px 0 0; }
+    .atlas figcaption { margin-top: 10px; font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0; }
+    .atlas p { font-size: 13px; color: var(--ink-soft); margin: 8px 0 0; line-height: 1.5; letter-spacing: 0; }
     #page-figs .lede { margin-bottom: 8px; font-size: 15px; }
-    #page-figs h3 { margin: 14px 0 6px; font-size: 18px; }
+    #page-figs h3 { margin: 20px 0 12px; font-size: 18px; }
     #page-figs .atlas {
-      grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-      gap: 6px;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
     }
     #page-figs .atlas .card {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: minmax(0, 1fr);
       align-items: start;
       margin: 0;
-      padding: 5px 5px 6px;
+      padding: 10px 10px 12px;
       border-radius: 8px;
       box-shadow: none;
+      min-width: 0;
+      max-width: 100%;
+      overflow: hidden;
     }
     #page-figs .atlas svg {
-      grid-column: 1 / -1;
-      height: 52px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 200 / 90;
       border-radius: 4px;
     }
     #page-figs .atlas figcaption {
-      margin-top: 3px;
-      font-size: 11px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      column-gap: 0.35em;
+      row-gap: 0;
+      max-width: 100%;
+      min-width: 0;
+      margin-top: 8px;
+      font-size: 12px;
       font-weight: 600;
-      line-height: 1.25;
+      line-height: 1.5;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      hyphens: none;
+    }
+    #page-figs .fig-name,
+    #page-figs .fig-gl,
+    #page-figs .fig-sep {
+      min-width: 0;
+      max-width: 100%;
     }
     #page-figs .atlas p {
-      margin: 3px 0 0 4px;
-      font-size: 11px;
-      line-height: 1.25;
-      text-align: right;
+      margin: 6px 0 0;
+      font-size: 12px;
+      line-height: 1.5;
+      letter-spacing: 0;
+      text-align: left;
+      min-width: 0;
     }
     #page-figs .atlas p a { color: var(--pine); text-decoration: none; }
     .search {
@@ -287,16 +315,18 @@
       display: block;
       color: #d9d0c2;
       text-decoration: none;
-      padding: 5px 8px;
+      padding: 8px 10px;
+      margin: 0 0 10px;
       border-radius: 6px;
+      line-height: 1.5;
     }
     #searchHits a:hover { background: #241f1b; }
     #searchHits a .hit-sub {
       display: block;
-      margin-top: 1px;
+      margin-top: 4px;
       color: #8d8374;
-      font-size: 11px;
-      line-height: 1.4;
+      font-size: 12px;
+      line-height: 1.5;
     }
     .lex-toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
     .lex-toolbar button, .lex-toolbar input {
@@ -306,8 +336,8 @@
       border-radius: 8px;
       padding: 8px 10px;
     }
-    .lex-item { margin-bottom: 10px; }
-    .lex-item .aka { font-size: 12px; color: #8a7f70; }
+    .lex-item { margin-bottom: 16px; }
+    .lex-item .aka { font-size: 12px; color: #8a7f70; line-height: 1.5; margin-top: 4px; letter-spacing: 0; }
     .lex-item a { color: var(--pine-deep); }
     .memo {
       margin-top: 36px;
@@ -323,7 +353,7 @@
       padding: 10px;
       resize: vertical;
     }
-    .note-list .card { margin-bottom: 10px; }
+    .note-list .card { margin-bottom: 16px; }
     .note-list h4 { margin-bottom: 4px; }
     .note-list .meta { margin-bottom: 6px; }
     .ghost {
@@ -334,7 +364,7 @@
       cursor: pointer;
       float: right;
     }
-    .pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 40px; }
+    .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; }
     .pager a {
       color: var(--ink);
       text-decoration: none;
@@ -344,6 +374,7 @@
       background: var(--paper-2);
       flex: 1;
       font-size: 14px;
+      line-height: 1.5;
     }
     .pager a:last-child { text-align: right; }
     .hero {
@@ -373,6 +404,8 @@
       padding: 16px 18px;
       margin: 0 0 22px;
       font-size: 15px;
+      line-height: 1.65;
+      letter-spacing: 0;
       color: var(--ink-soft);
     }
     .chapter-summary b { color: var(--ink); }
@@ -392,7 +425,7 @@
       margin-bottom: 8px;
     }
     .chapter-toc ol { margin: 0; padding-left: 1.4em; }
-    .chapter-toc li { margin: 3px 0; }
+    .chapter-toc li { margin: 6px 0; line-height: 1.55; }
     .chapter-toc a { color: var(--pine-deep); text-decoration: none; cursor: pointer; background: transparent; }
     .chapter-toc a:hover { text-decoration: underline; background: transparent; color: var(--pine-deep); }
     .chapter-toc a:active { background: transparent; color: var(--pine-deep); }
@@ -467,6 +500,30 @@
       .nav-backdrop.show { display: block; }
       main { padding: 22px 20px 128px; }
       .hero, .grid.two, .grid.three { grid-template-columns: 1fr; }
+      .grid { gap: 12px; }
+      .grid + .grid { margin-top: 12px; }
+      .grid + .chapter-summary { margin-top: 12px; }
+      .atlas { gap: 12px; }
+      .atlas .card { padding: 12px; }
+      .pager { gap: 12px; }
+      .lex-item, .note-list .card { margin-bottom: 12px; }
+      .chapter-summary, .chapter-toc { padding: 12px 14px; }
+      #page-sheet table, #page-read table { table-layout: fixed; width: 100%; }
+      #page-sheet th, #page-sheet td,
+      #page-read th, #page-read td {
+        padding: 8px 8px;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+      }
+      #page-sheet th:first-child, #page-sheet td:first-child,
+      #page-read th:first-child, #page-read td:first-child { width: 32%; }
+      #page-sheet th:last-child, #page-sheet td:last-child,
+      #page-read th:last-child, #page-read td:last-child {
+        width: 52px;
+        text-align: center;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
       h2.page-title { font-size: 32px; }
       .menu-btn, .top-btn {
         display: block;
@@ -498,15 +555,15 @@
       #searchHits { font-size: 15px; }
       #searchHits a {
         color: #f4efe4;
-        padding: 11px 8px;
-        margin: 0 0 6px;
-        line-height: 1.45;
+        padding: 12px 10px;
+        margin: 0 0 12px;
+        line-height: 1.5;
       }
       #searchHits a .hit-sub {
         color: #e6dccb;
         font-size: 14px;
         margin-top: 4px;
-        line-height: 1.45;
+        line-height: 1.5;
       }
       #page-sheet td:last-child a,
       #page-read td:last-child a,
@@ -530,37 +587,22 @@
       }
       #page-figs .atlas {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 6px;
+        gap: 12px;
       }
       #page-figs .atlas .card {
-        grid-template-columns: 1fr;
-        min-width: 0;
-        padding: 6px 5px 7px;
+        padding: 8px 6px 10px;
+        overflow: visible;
       }
       #page-figs .atlas svg {
-        height: auto;
-        aspect-ratio: 200 / 90;
         min-width: 0;
-      }
-      #page-figs .atlas figcaption {
-        min-width: 0;
-        font-size: 12px;
-        line-height: 1.35;
-        word-break: keep-all;
-        overflow-wrap: normal;
-        hyphens: none;
-      }
-      #page-figs .fig-name,
-      #page-figs .fig-gl {
-        display: inline-block;
-        white-space: nowrap;
       }
       #page-figs .fig-gl.loose {
         white-space: normal;
       }
       #page-figs .atlas p {
-        margin: 2px 0 0;
+        margin: 8px 0 0;
         font-size: 12px;
+        line-height: 1.5;
         text-align: left;
       }
     }
@@ -671,7 +713,7 @@
             <p>spring(일시 이탈 후 회수)=sweep, FVG=gap(창)처럼 별칭을 한곳에 둔다.</p>
           </a>
         </div>
-        <div class="grid two" style="margin-top:14px">
+        <div class="grid two">
           <a class="card home-card" href="#atlas">
             <div class="meta">09 · 시각</div>
             <h4>패턴 도감</h4>
@@ -3285,7 +3327,7 @@
               <text x="96" y="22" fill="#4a453c" font-size="16">shadow</text>
               <text x="96" y="48" fill="#4a453c" font-size="16">body</text>
             </svg>
-            <figcaption><span class="fig-name">body</span><span class="fig-gl">(몸통)</span> · <span class="fig-name">shadow</span><span class="fig-gl">(꼬리)</span></figcaption>
+            <figcaption><span class="fig-name">body</span><span class="fig-gl">(몸통)</span><span class="fig-sep">·</span><span class="fig-name">shadow</span><span class="fig-gl">(꼬리)</span></figcaption>
             <p><a href="#candles">08</a></p>
           </figure>
           <figure class="card">
@@ -3294,7 +3336,7 @@
               <line x1="78" y1="28" x2="78" y2="78" stroke="#2c5a4c" stroke-width="2"/>
               <rect x="68" y="28" width="20" height="12" fill="#2c5a4c"/>
             </svg>
-            <figcaption><span class="fig-name">hammer</span> · 하락 말</figcaption>
+            <figcaption><span class="fig-name">hammer</span><span class="fig-sep">·</span>하락 말</figcaption>
             <p><a href="#candles">08</a></p>
           </figure>
           <figure class="card">
@@ -3303,7 +3345,7 @@
               <line x1="78" y1="16" x2="78" y2="66" stroke="#2c5a4c" stroke-width="2"/>
               <rect x="68" y="16" width="20" height="12" fill="#2c5a4c"/>
             </svg>
-            <figcaption><span class="fig-name">hanging man</span><span class="fig-gl">(교수형)</span> · 상승 말</figcaption>
+            <figcaption><span class="fig-name">hanging man</span><span class="fig-gl">(교수형)</span><span class="fig-sep">·</span>상승 말</figcaption>
             <p><a href="#candles">08</a></p>
           </figure>
           <figure class="card">
@@ -3312,7 +3354,7 @@
               <line x1="78" y1="14" x2="78" y2="62" stroke="#8f3d3a" stroke-width="2"/>
               <rect x="68" y="48" width="20" height="12" fill="#8f3d3a"/>
             </svg>
-            <figcaption><span class="fig-name">shooting star</span> · 상승 말</figcaption>
+            <figcaption><span class="fig-name">shooting star</span><span class="fig-sep">·</span>상승 말</figcaption>
             <p><a href="#candles">08</a></p>
           </figure>
           <figure class="card">
@@ -3357,7 +3399,7 @@
               <line x1="40" y1="78" x2="120" y2="78" stroke="#4a453c" stroke-width="1"/>
               <rect x="68" y="58" width="20" height="20" fill="#b08948"/>
             </svg>
-            <figcaption><span class="fig-name">volume</span><span class="fig-gl">(거래량)</span> · 추세를 확인, 판정은 가격</figcaption>
+            <figcaption><span class="fig-name">volume</span><span class="fig-gl">(거래량)</span><span class="fig-sep">·</span>추세를 확인, 판정은 가격</figcaption>
             <p><a href="#charts">06</a></p>
           </figure>
           <figure class="card">
@@ -3510,7 +3552,7 @@
               <path d="M10 70 L40 40 L70 58 L100 18 L130 58 L160 40 L190 72" fill="none" stroke="#8f3d3a" stroke-width="2"/>
               <line x1="40" y1="58" x2="160" y2="58" stroke="#b08948" stroke-dasharray="3 3"/>
             </svg>
-            <figcaption><span class="fig-name">head and shoulders</span><span class="fig-gl">(머리어깨)</span> · 거래량은 왼어깨에서 최대, 오른어깨에서 마름</figcaption>
+            <figcaption><span class="fig-name">head and shoulders</span><span class="fig-gl">(머리어깨)</span><span class="fig-sep">·</span>거래량은 왼어깨에서 최대, 오른어깨에서 마름</figcaption>
             <p><a href="#patterns">07</a></p>
           </figure>
           <figure class="card">
@@ -3562,7 +3604,7 @@
             <svg viewBox="0 0 200 90" role="img">
               <path d="M14 74 L58 18 L78 34 L98 24 L118 38 L168 12" fill="none" stroke="#2c5a4c" stroke-width="2"/>
             </svg>
-            <figcaption><span class="fig-name">flag</span><span class="fig-gl">(깃발)</span> · 안에서 거래량이 마르고 돌파에서 붙음</figcaption>
+            <figcaption><span class="fig-name">flag</span><span class="fig-gl">(깃발)</span><span class="fig-sep">·</span>안에서 거래량이 마르고 돌파에서 붙음</figcaption>
             <p><a href="#patterns">07</a></p>
           </figure>
           <figure class="card">
@@ -3572,7 +3614,7 @@
               <path d="M58 48 L150 40" fill="none" stroke="#4a453c" stroke-width="1.4"/>
               <path d="M150 40 L186 16" fill="none" stroke="#2c5a4c" stroke-width="2"/>
             </svg>
-            <figcaption><span class="fig-name">pennant</span> · 안에서 거래량이 마르고 돌파에서 붙음</figcaption>
+            <figcaption><span class="fig-name">pennant</span><span class="fig-sep">·</span>안에서 거래량이 마르고 돌파에서 붙음</figcaption>
             <p><a href="#patterns">07</a></p>
           </figure>
           <figure class="card">
