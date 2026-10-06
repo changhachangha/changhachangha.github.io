@@ -98,6 +98,7 @@ def build(src):
         inner = load_partial(i)
         if inner is None:
             continue
+        inner = glue_notes(inner)
         for e in lex_entries(inner):
             if e["t"] not in seen:
                 seen.add(e["t"])
@@ -132,7 +133,17 @@ def build(src):
 def text_len(sec_html):
     txt = re.sub(r"<!--.*?-->", "", sec_html, flags=re.S)
     txt = re.sub(r"<[^>]+>", "", txt)
+    txt = txt.replace("\u2060", "")
     return len(re.sub(r"\s+", " ", txt).strip())
+
+
+def glue_notes(html):
+    """각주·출처 표지가 앞 단어와 떨어져 줄 처음으로 내려가지 않게 한다."""
+    return re.sub(
+        r"(?<!\u2060)(<sup\s+class=\"(?:fnref|cit)\")",
+        "\u2060" + r"\1",
+        html,
+    )
 
 
 def init():
